@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Grid Layout</title>
+  <style>
+  [class^=grid] {
+    background-image: linear-gradient(90deg, #F5F5F5 4.16666667%, #fdfdfd 4.16666667%, #fdfdfd 8.33333333%, #F5F5F5 8.33333333%, #F5F5F5 12.5%, #fdfdfd 12.5%, #fdfdfd 16.66666667%, #F5F5F5 16.66666667%, #F5F5F5 20.83333333%, #fdfdfd 20.83333333%, #fdfdfd 25%, #F5F5F5 25%, #F5F5F5 29.16666667%, #fdfdfd 29.16666667%, #fdfdfd 33.33333333%, #F5F5F5 33.33333333%, #F5F5F5 37.5%, #fdfdfd 37.5%, #fdfdfd 41.66666667%, #F5F5F5 41.66666667%, #F5F5F5 45.83333333%, #fdfdfd 45.83333333%, #fdfdfd 50%, #F5F5F5 50%, #F5F5F5 54.16666667%, #fdfdfd 54.16666667%, #fdfdfd 58.33333333%, #F5F5F5 58.33333333%, #F5F5F5 62.5%, #fdfdfd 62.5%, #fdfdfd 66.66666667%, #F5F5F5 66.66666667%, #F5F5F5 70.83333333%, #fdfdfd 70.83333333%, #fdfdfd 75%, #F5F5F5 75%, #F5F5F5 79.16666667%, #fdfdfd 79.16666667%, #fdfdfd 83.33333333%, #F5F5F5 83.33333333%, #F5F5F5 87.5%, #fdfdfd 87.5%, #fdfdfd 91.66666667%, #F5F5F5 91.66666667%, #F5F5F5 95.83333333%, #fdfdfd 95.83333333%);
+  }
+
+  [class^=grid] > * {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(72, 255, 255, 0.27);
+    border: 1px solid #fac;
+  }
+
+  .grid-left-right {
+    display: grid;
+    grid-template-columns: 100px auto 200px;
+    height: 100px;
+    background-color: #feb;
+  }
+
+  .grid3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    height: 100px;
+    background-color: #feb;
+  }
+
+  .gridn {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    height: 100px;
+    background-color: #feb;
+  }
+
+  .column-3 {
+    grid-column: 1 / 4;
+  }
+
+  .column-7 {
+    grid-column: 4 / 11;
+  }
+
+  .grid9 {
+    width: 300px;
+    height: 300px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 8px;
+    border: 1px solid #fac;
+    padding: 8px;
+  }
+
+  .grid-layout {
+    display: grid;
+    grid-template-columns: 100px auto 100px;
+    grid-template-rows: 40px 300px 50px;
+    grid-template-areas: "header header header"
+                       "left main right"
+                       "footer footer footer";
+  }
+
+  .grid-layout .header {
+    grid-area: header;
+  }
+
+  .grid-layout .footer {
+    grid-area: footer;
+  }
+
+  .grid-layou .left {
+    grid-area: left;
+  }
+
+  .grid-layout .right {
+    grid-area: right;
+  }
+
+  .grid-layout .main {
+    grid-area: main;
+  }
+  </style>
+</head>
+<body>
+  <h2>左右固定，中间自适应</h2>
+  <div class="grid-left-right">
+    <div class="left">left</div>
+    <div class="main">main</div>
+    <div class="right">right</div>
+  </div>
+
+  <h2>三等分</h2>
+  <div class="grid3">
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+  </div>
+
+  <h2>十等分</h2>
+  <div class="gridn">
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+  </div>
+
+  <h2>三七分</h2>
+  <div class="gridn">
+    <div class="column-3"></div>
+    <div class="column-7"></div>
+  </div>
+
+  <h2>布局</h2>
+  <div class="grid-layout">
+   <div class="header">header</div>
+   <div class="left">left</div>
+   <div class="main">main</div>
+   <div class="right">right</div>
+   <div class="footer">footer</div>
+  </div>
+
+  <h2>九宫格</h2>
+  <div class="grid9">
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+  </div>
+
+</body>
+</html>
