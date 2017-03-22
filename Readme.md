@@ -22,3 +22,5 @@
 + 2015-11-16  [python 关于dict的总结](http://www.cnblogs.com/xianwang/p/4970448.html)
 + 2015-10-27  [使用 pdb 调试 python](http://www.cnblogs.com/xianwang/p/4916045.html)
 
+## 技术日记
++ [2017](https://github.com/shfshanyue/record/blob/master/diary2017.md)
