@@ -9,6 +9,8 @@
 
 ## 文章
 
++ 2017-01-24  [tmux：打造精致终端动画演示](https://github.com/shfshanyue/tmux-config)
++ 2017-01-21  [tmux：打造精致与实用并存的终端](https://segmentfault.com/a/1190000008188987)
 + 2016-07-22  [使用grid来进行常见布局](https://segmentfault.com/a/1190000006045888)
 + 2016-03-09  [关于BFC的一些思考](https://segmentfault.com/a/1190000004570347)
 + 2016-01-12  [python collections中的数据结构](http://shfshanyue.github.io/2016/01/12/collections%E4%B8%AD%E5%91%BD%E5%90%8D%E5%85%83%E7%BB%84/)
