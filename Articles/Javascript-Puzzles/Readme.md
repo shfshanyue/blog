@@ -41,7 +41,7 @@ console.log(l);
 >
 > ``` js
 > function equal (a, b) {
->   return Math.abs(a, b) < Number.EPSILON
+>   return Math.abs(a - b) < Number.EPSILON
 > }
 > ```
 
