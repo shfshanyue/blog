@@ -15,12 +15,8 @@ l[1] = 'B';
 console.log(l);
 ```
 > `string` 及其包装对象 (Boxed Object) 是不可变 (immutable) 类型，因此不能改变它本身(modify in place)，所以 `String` 的所有方法都是返回一个新的字符串，而不会改变自身。
-
-<small style="text-align: right">
-
-[source](https://github.com/getify/You-Dont-Know-JS/blob/master/types%20%26%20grammar/ch2.md#user-content-strings)
-
-</small>
+> 
+> + [You-Dont-Know-JS](https://github.com/getify/You-Dont-Know-JS/blob/master/types%20%26%20grammar/ch2.md#user-content-strings)
 
 2. 如何逆序一个字符串？
 
@@ -44,33 +40,26 @@ console.log(l);
 >   return Math.abs(a - b) < Number.EPSILON
 > }
 > ```
-
-<small style="text-align: right">
-
-[source](https://github.com/getify/You-Dont-Know-JS/blob/master/types%20%26%20grammar/ch2.md#user-content-small-decimal-values)
-[zhihu](https://www.zhihu.com/question/28551135)
-
-</small>
+> 
+> + [You-Dont-Know-JS](https://github.com/getify/You-Dont-Know-JS/blob/master/types%20%26%20grammar/ch2.md#user-content-small-decimal-values)
+> + [知乎](https://www.zhihu.com/question/28551135)
 
 5. 如何判断一个数值为整数？
 
 > ``` js
-> # ES6
+> // ES6
 > Number.isInteger(num);
 > 
-> # ES5
+> // ES5
 > if (!Number.isInteger) {
 >   Number.isInteger = function(num) {
 >     return typeof num == "number" && num % 1 == 0;
 >   };
 > }
 > ```
+>
+> + [You-Dont-Know-JS](https://github.com/getify/You-Dont-Know-JS/blob/master/types%20%26%20grammar/ch2.md#user-content-testing-for-integers)
 
-<small style="text-align: right">
-
-[source](https://github.com/getify/You-Dont-Know-JS/blob/master/types%20%26%20grammar/ch2.md#user-content-testing-for-integers)
-
-</small>
 
 6. 如何判断一个数值为 +0？
 
@@ -84,11 +73,7 @@ console.log(l);
 
 > 当 `primitive value` 访问属性或者方法时，会自动转化为它的包装对象。另外也可以使用 `Object.prototype.valueOf()` 解包装(Unboxing)。
 
-<small style="text-align: right">
-
-[source](https://github.com/getify/You-Dont-Know-JS/blob/master/types%20%26%20grammar/ch3.md#user-content-boxing-wrappers)
-
-</small>
+> + [You-Dont-Know-JS](https://github.com/getify/You-Dont-Know-JS/blob/master/types%20%26%20grammar/ch3.md#user-content-boxing-wrappers)
 
 8. 判断以下结果 (Boxing Wrappers)
 
@@ -110,11 +95,7 @@ Array.isArray(Array.prototype)
 
 > 内置对象的 prototype 都不是纯对象，比如 `Date.prototype` 是 Date，`Set.prototype` 是 Set。
 
-<small style="text-align: right">
-
-[source](https://github.com/getify/You-Dont-Know-JS/blob/master/types%20%26%20grammar/ch3.md#user-content-native-prototypes)
-
-</small>
+> + [You-Dont-Know-JS](https://github.com/getify/You-Dont-Know-JS/blob/master/types%20%26%20grammar/ch3.md#user-content-native-prototypes)
 
 9. 判断以下结果
 
@@ -137,12 +118,8 @@ Boolean(document.all);
 > + false
 > + +0, -0, and NaN
 > + ""
-
-<small style="text-align: right">
-
-[source](https://github.com/getify/You-Dont-Know-JS/blob/master/types%20%26%20grammar/ch4.md#user-content-toboolean)
-
-</small>
+>
+> [You-Dont-Know-JS](https://github.com/getify/You-Dont-Know-JS/blob/master/types%20%26%20grammar/ch4.md#user-content-toboolean)
 
 
 10. 找出以下代码问题 (TDZ)
@@ -187,6 +164,7 @@ checkScope()();
 ```
 
 > 'local scope'
+>
 > 由于 js 为词法作用域(Lexical Scope)，访问某个变量时，先在当前作用域中查找，如果查找不到则在嵌套作用域中查找，直到找到。如果找不到，则报 `ReferenceError`。
 
 3. 判断以下结果 (Hoisting)
@@ -196,6 +174,7 @@ var a = 3;
 ```
 
 > undefined
+>
 > 以上代码会被编译器理解为
 > ``` js
 > var a;
@@ -230,6 +209,7 @@ console.log(foo);
 ```
 
 > 2，1
+>
 > 以上代码会被编译器理解为如下形式
 > ``` js
 > var foo = 1;
@@ -284,6 +264,7 @@ console.log(this.a, this.b);
 ```
 
 > 2
+>
 > 在浏览器环境中 this 指向 window，而 var 声明的变量会被挂在 window 上。而 let 声明的变量不会挂在 window 上。
 
 3. 判断以下结果 (Strict Mode & Default Binding)
@@ -302,6 +283,7 @@ var a = 2;
 ```
 
 > 2
+>
 > 只有存在 this 的函数中设置严格模式，this 为 undefined。因此会正常输出。
 
 4. 判断以下结果 (Hard Binding)
@@ -317,6 +299,7 @@ foo.bind(o1).bind(o2)();
 ```
 
 > 3
+>
 > bind 为硬绑定，第一次绑定后 this 无法再次绑定。
 
 4. 如何实现 `Function.prototype.bind` 与 `Function.prototype.softBind`
@@ -352,6 +335,7 @@ console.log(f.a);
 ```
 
 > 4
+>
 > `new` 的过程大致为如下几个步骤
 > 1. 创建一个新的对象
 > 2. this 指向实例，并且执行函数
