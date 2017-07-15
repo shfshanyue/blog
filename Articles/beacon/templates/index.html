@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <button id="btn">Click</button>
+  <script>
+  const btn = document.getElementById('btn') 
+
+  btn.addEventListener('click', () => {
+    const data = JSON.stringify({ click: 1 })
+    const status = navigator.sendBeacon('/beacon', data) 
+    console.log(status)
+  })
+  </script>
+</body>
+</html>
