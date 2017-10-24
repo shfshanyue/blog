@@ -9,7 +9,8 @@
 
 ## 文章
 
-+ 2017-05-25  [git 一些有用的小技巧](https://github.com/shfshanyue/blog/tree/master/Articles/git-tips)
++ 2017-10-24  [30分钟SQL指北](https://github.com/shfshanyue/blog/tree/master/Articles/SQL-Guideline)
++ 2017-05-25  [git 奇淫巧计一二](https://github.com/shfshanyue/blog/tree/master/Articles/git-tips)
 + 2017-05-22  [javascript 疑难汇总](https://github.com/shfshanyue/blog/tree/master/Articles/Javascript-Puzzles)
 + 2017-01-24  [tmux：打造精致终端动画演示](https://github.com/shfshanyue/tmux-config)
 + 2017-01-21  [tmux：打造精致与实用并存的终端](https://segmentfault.com/a/1190000008188987)
