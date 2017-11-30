@@ -65,7 +65,7 @@ console.log(l);
 
 > ``` js
 > function isPosZero (n) {
->   return n === 0 && n / 0 === -Infinity
+>   return n === 0 && 1 / n === Infinity
 > }
 > ```
 
