@@ -5,11 +5,10 @@
 目前手边的数据库是 mysql，所以以下示例均是由 mysql 演示。由于现在大部分工具都支持语法高亮，所以以下关键字都使用小写。
 <!-- TOC -->
 
-- [30分钟SQL指南](#30分钟sql指南)
-  - [准备](#准备)
+- [准备](#准备)
     - [工具](#工具)
     - [样例表](#样例表)
-  - [SQL 基础](#sql-基础)
+- [SQL 基础](#sql-基础)
     - [术语](#术语)
     - [检索数据](#检索数据)
     - [排序](#排序)
@@ -26,20 +25,21 @@
     - [约束](#约束)
     - [触发器](#触发器)
     - [存储过程](#存储过程)
-  - [SQL 练习](#sql-练习)
+- [SQL 练习](#sql-练习)
     - [1. 根据班级学生的分数进行排名，如果分数相等则为同一名次](#1-根据班级学生的分数进行排名如果分数相等则为同一名次)
     - [2. 写一个函数，获取第 N 高的分数](#2-写一个函数获取第-n-高的分数)
     - [3. 检索每个班级分数前两名学生，并显示排名](#3-检索每个班级分数前两名学生并显示排名)
-  - [FAQ](#faq)
-    - [1. `inner join` 与 `outer join` 的区别是什么](#1-inner-join-与-outer-join-的区别是什么)
-    - [2. 如何根据一个表的数据更新另一个表](#2-如何根据一个表的数据更新另一个表)
-    - [3. 索引是如何工作的](#3-索引是如何工作的)
-    - [4. 如何联接多个行的字段](#4-如何联接多个行的字段)
-    - [5. 如何在一个sql语句中插入多行数据](#5-如何在一个sql语句中插入多行数据)
-    - [6. 如何在`select`中使用条件表达式](#6-如何在select中使用条件表达式)
-    - [7. 如何找到重复项](#7-如何找到重复项)
-    - [8. 什么是SQL注入](#8-什么是sql注入)
-    - [9. mysql中单引号，双引号，反引号有什么区别](#9-mysql中单引号双引号反引号有什么区别)
+- [FAQ](#faq)
+    - [`inner join` 与 `outer join` 的区别是什么](#inner-join-与-outer-join-的区别是什么)
+    - [如何根据一个表的数据更新另一个表](#如何根据一个表的数据更新另一个表)
+    - [索引是如何工作的](#索引是如何工作的)
+    - [如何联接多个行的字段](#如何联接多个行的字段)
+    - [如何在一个sql语句中插入多行数据](#如何在一个sql语句中插入多行数据)
+    - [如何在`select`中使用条件表达式](#如何在select中使用条件表达式)
+    - [如何找到重复项](#如何找到重复项)
+    - [如何删除重复项并只保留首项](#如何删除重复项并只保留首项)
+    - [什么是SQL注入](#什么是sql注入)
+    - [mysql中单引号，双引号，反引号有什么区别](#mysql中单引号双引号反引号有什么区别)
 
 <!-- /TOC -->
 
@@ -398,7 +398,7 @@ select * from v_student_with_classname;
   ``` sql
   create index index_on_student_name on student (name);
 
-  alter table student add constraint key(name );
+  alter table student add constraint key(name);
   ```
 
 ### 触发器
@@ -511,11 +511,13 @@ order by s1.class_id, score desc;
 
 ## FAQ
 
-### 1. `inner join` 与 `outer join` 的区别是什么
+大多根据 [stackoverflow](https://stackoverflow.com/questions/tagged/sql?sort=frequent&pageSize=15) 中浏览最多的问题整理而成。
+
+### `inner join` 与 `outer join` 的区别是什么
 
 [what is the difference between inner join and outer join](https://stackoverflow.com/questions/38549/what-is-the-difference-between-inner-join-and-outer-join)
 
-### 2. 如何根据一个表的数据更新另一个表
+### 如何根据一个表的数据更新另一个表
 
 比如以上 `student` 表保存着成绩，另有一表 `score_correct` 内存因失误而需修改的学生成绩。
 
@@ -525,7 +527,7 @@ order by s1.class_id, score desc;
 update student, score_correct set student.score = score_correct.score where student.id = score_correct.uid;
 ```
 
-### 3. 索引是如何工作的
+### 索引是如何工作的
 
 简单来说，索引分为 `hash` 和　`B-Tree` 两种。
 `hash` 查找的时间复杂度为O(1)。
@@ -534,7 +536,7 @@ update student, score_correct set student.score = score_correct.score where stud
 
 [how dow database indexing work](https://stackoverflow.com/questions/1108/how-does-database-indexing-work)
 
-### 4. 如何联接多个行的字段
+### 如何联接多个行的字段
 
 [Concatenate many rows into a single text string](https://stackoverflow.com/questions/194852/concatenate-many-rows-into-a-single-text-string)
 
@@ -544,7 +546,7 @@ update student, score_correct set student.score = score_correct.score where stud
 select group_concat(name) from student;
 ```
 
-### 5. 如何在一个sql语句中插入多行数据
+### 如何在一个sql语句中插入多行数据
 
 [Inserting multiple rows in a single SQL query](https://stackoverflow.com/questions/452859/inserting-multiple-rows-in-a-single-sql-query)
 
@@ -554,7 +556,7 @@ values 使用逗号相隔，可以插入多行数据
 insert into student(id, name) values (), (), ()
 ```
 
-### 6. 如何在`select`中使用条件表达式
+### 如何在`select`中使用条件表达式
 
 示例，在student表中，查询所有人成绩，小于60则显示为0
 
@@ -562,15 +564,29 @@ insert into student(id, name) values (), (), ()
 select id, name, if(score < 60, 0, score) score from student;
 ```
 
-### 7. 如何找到重复项
+### 如何找到重复项
+
+姓名与班级唯一，找到姓名与班级的重复项，检索重复次数与id
 
 ``` sql
-select name, sex, count(*) times from student
-group by name, sex
+select name, class_id, group_concat(id), count(*) times from student
+group by name, class_id
 having times > 1;
 ```
 
-### 8. 什么是SQL注入
+### 如何删除重复项并只保留首项
+
+姓名与班级唯一，删除重复项，只保留首项
+
+``` sql
+# mysql 就简单很多
+delete s1 from student s1, student s2
+where s1.name = s2.name and s1.sex = s2.sex and s1.id > s2.id;
+```
+
+[how can i remove duplicate rows](https://stackoverflow.com/questions/18932/how-can-i-remove-duplicate-rows)
+
+### 什么是SQL注入
 
 如有一条查询语句为
 
@@ -585,7 +601,7 @@ having times > 1;
 "select * from (student); drop table student; --);"
 ```
 
-### 9. mysql中单引号，双引号，反引号有什么区别
+### mysql中单引号，双引号，反引号有什么区别
 
 [when to use single quotes, double quotes and backticks in mysql](https://stackoverflow.com/questions/11321491/when-to-use-single-quotes-double-quotes-and-backticks-in-mysql)
 

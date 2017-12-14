@@ -1,14 +1,8 @@
 # 博客
 
-## 翻译
-
-+ 2017-03-08  [函数式编程编程术语表](https://github.com/shfshanyue/fp-jargon-zh)
-+ 2017-02-13  [calc 如何工作](http://www.jianshu.com/p/c1087b95478d)
-+ 2017-02-09  [Grid 布局完全指南](https://segmentfault.com/a/1190000008299555)
-+ 2017-02-07  [CSS 专业技巧](https://github.com/AllThingsSmitty/css-protips/tree/master/translations/zh-CN)
-
 ## 文章
 
++ 2017-12-09  [使用 Postman 做API自动化测试](https://github.com/shfshanyue/blog/tree/master/Articles/Postman-for-API-Automated-Testing)
 + 2017-10-24  [30分钟SQL指北](https://github.com/shfshanyue/blog/tree/master/Articles/SQL-Guideline)
 + 2017-05-25  [git 奇淫巧计一二](https://github.com/shfshanyue/blog/tree/master/Articles/git-tips)
 + 2017-05-22  [javascript 疑难汇总](https://github.com/shfshanyue/blog/tree/master/Articles/Javascript-Puzzles)
@@ -24,6 +18,13 @@
 + 2015-12-09  [nodejs中EventEmitter](http://www.cnblogs.com/xianwang/p/5034656.html)
 + 2015-11-16  [python 关于dict的总结](http://www.cnblogs.com/xianwang/p/4970448.html)
 + 2015-10-27  [使用 pdb 调试 python](http://www.cnblogs.com/xianwang/p/4916045.html)
+
+## 翻译
+
++ 2017-03-08  [函数式编程编程术语表](https://github.com/shfshanyue/fp-jargon-zh)
++ 2017-02-13  [calc 如何工作](http://www.jianshu.com/p/c1087b95478d)
++ 2017-02-09  [Grid 布局完全指南](https://segmentfault.com/a/1190000008299555)
++ 2017-02-07  [CSS 专业技巧](https://github.com/AllThingsSmitty/css-protips/tree/master/translations/zh-CN)
 
 ## 技术日记
 + [2017](https://github.com/shfshanyue/record/blob/master/diary2017.md)
