@@ -405,6 +405,10 @@ select * from v_student_with_classname;
 
 可以在插入，更新，删除行的时候触发事件。
 
+场景:
+1. 数据约束，比如学生的年龄必须大于0
+2. hook，提供数据库级别的 hook
+
 ``` sql
 # 创建触发器
 # 比如mysql中没有check约束，可以使用创建触发器，当插入数据小于0时，置为0。
@@ -605,7 +609,7 @@ where s1.name = s2.name and s1.sex = s2.sex and s1.id > s2.id;
 
 [when to use single quotes, double quotes and backticks in mysql](https://stackoverflow.com/questions/11321491/when-to-use-single-quotes-double-quotes-and-backticks-in-mysql)
 
-反引号(\`) 表示table，column 标识符。主要用在当表名或者列名为保留字的时候。在其它一些DBMS中，也用`[]`表示表名和列名。
+反引号(\`) 表示table，column 标识符。主要用在当表名或者列名为保留字的时候。在其它一些DBMS中，也用`[]`表示表名和列名。
 
 单引号(') 表示字符串。
 
