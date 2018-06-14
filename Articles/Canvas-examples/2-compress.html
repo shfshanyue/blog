@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <input type="file" id="file">
+  <p>
+    初始大小: <span id="size"></span>
+  </p>
+  <p>
+    压缩后大小(jpeg): <span id="post-size"></span>
+  </p>
+  <p>
+    <a id="download">下载</a>
+  </p>
+  <canvas id="canvas" hidden></canvas>  
+  <script>
+    const canvas = document.getElementById('canvas')
+    const file = document.getElementById('file')
+    const size = document.getElementById('size')
+    const postSize = document.getElementById('post-size')
+    const download = document.getElementById('download')
+
+    const ctx = canvas.getContext('2d')
+    const reader = new FileReader()
+    const img = new Image()
+    let filename = 'to-canvas'
+
+    // get file
+    file.addEventListener('change', e => {
+      const f = e.target.files[0]
+      reader.readAsDataURL(f)
+
+      size.textContent = `${f.size} Byte`
+      filename = `${f.name.split('.').slice(0, -1).join('.')}-by-canvas`
+    })
+
+    // File -> DataURL
+    reader.addEventListener('load', () => {
+      img.src = reader.result 
+    })
+
+    img.addEventListener('load', () => {
+      canvas.width = img.width
+      canvas.height = img.height
+      ctx.drawImage(img, 0, 0)
+      canvas.toBlob(blob => {
+        postSize.textContent = `${blob.size} Byte`
+        const url = URL.createObjectURL(blob)
+        download.setAttribute('download', filename)
+        download.setAttribute('href', url)
+      }, 'image/jpeg', 0.95)
+    })
+  </script>
+</body>
+</html>

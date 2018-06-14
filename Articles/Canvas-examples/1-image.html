@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+  <button id="save">保存</button>
+  <a id="link" hidden>链接</a>
+  <script>
+    const img = new Image()
+    img.src = './rhino.jpg'
+
+    const canvas = document.getElementById('canvas')
+    const ctx = canvas.getContext('2d')
+
+    img.onload = () => {
+      canvas.width = img.width
+      canvas.height = img.height
+      ctx.drawImage(img, 0, 0) 
+    }
+
+    canvas.addEventListener('mousemove', e => {
+      const imageData = ctx.getImageData(e.layerX, e.layerY, 10, 10)
+      imageData.data.forEach((x, i, data) => {
+        const n = i % 4
+        if (n === 0) {
+          data[i] = (data[i] + data[i+1] + data[i+2]) / 3
+        }
+        if (n === 1) {
+          data[i] = (data[i-1] + data[i] + data[i+1]) / 3
+        }
+        if (n === 2) {
+          data[i] = (data[i-2] + data[i-1] + data[i]) / 3
+        }
+      })
+      ctx.putImageData(imageData, e.layerX, e.layerY)
+    })
+
+    document.getElementById('save').addEventListener('click', () => {
+      const url = canvas.toDataURL() 
+      const link = document.getElementById('link')
+      link.setAttribute('download', 'save')
+      link.setAttribute('href', url)
+      link.click()
+    })
+  </script>
+</body>
+</html>

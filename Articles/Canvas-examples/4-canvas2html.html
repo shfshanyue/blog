@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>
+  </title>
+</head>
+<body>
+  <div id="app">
+    <h2>好了歌</h2>
+    <p>世人都晓神仙好，惟有功名忘不了！</p>
+    <p>古今将相在何方？荒冢一堆草没了。</p>
+    <p>世人都晓神仙好，只有金银忘不了！</p>
+    <p>终朝只恨聚无多，及到多时眼闭了。</p>
+    <p>世人都晓神仙好，只有娇妻忘不了！</p>
+    <p>君生日日说恩情，君死又随人去了。</p>
+    <p>世人都晓神仙好，只有儿孙忘不了！</p>
+    <p>痴心父母古来多，孝顺儿孙谁见了？</p>
+  </div> 
+  <canvas id="canvas"></canvas>
+  <div id="svg"></div>
+  <script>
+  const app = document.getElementById('app')
+  const canvas = document.getElementById('canvas') 
+
+  render(canvas, app)
+
+  function render (canvas, app, { width, height } = {}) {
+    const ctx = canvas.getContext('2d')
+    const style = getComputedStyle(app)
+    const ratio = window.devicePixelRatio
+    app.setAttribute('xmlns', 'http://www.w3.org/1999/xhtml')
+
+    // '19.45px' -> 19.45
+    width = width || Math.ceil(style.width.slice(0, -2))
+    height = height || Math.ceil(style.height.slice(0, -2))
+
+    // canvas.width 会做 Math.ceil 运算，转化为整数
+    canvas.width = width * ratio
+    canvas.height = height * ratio
+
+    canvas.style.width = `${width}px`
+    canvas.style.height = `${height}px`
+    ctx.scale(ratio, ratio)
+
+    const svg = `
+      <svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">
+        <foreignObject width="100%" height="100%">
+          ${app.outerHTML} 
+        </foreignObject>
+      </svg>
+    `
+
+    const img = new Image()
+    url = URL.createObjectURL(new Blob([svg], {
+      type: 'image/svg+xml' 
+    }))
+    img.src = url
+
+    img.onload = function () {
+      ctx.drawImage(img, 0, 0)
+    }
+  }
+  </script>
+</body>
+</html>

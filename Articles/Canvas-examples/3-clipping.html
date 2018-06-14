@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+  img {
+    position: absolute;
+    left: 0;
+    top: 0;
+  } 
+
+  .canvas-box {
+    position: relative;
+    width: 360px;
+    height: 360px;
+  }
+  </style>
+</head>
+<body>
+  <input type="file" id="file">
+  <div class="canvas-box">
+    <canvas id="canvas" width="360" height="360"></canvas>
+    <img id="img">
+  </div>
+  <script>
+    const canvas = document.getElementById('canvas')
+
+    const ctx = canvas.getContext('2d')
+    ctx.fillStyle = 'rgba(100, 100, 100, .4)'
+    ctx.fillRect(0, 0, canvas.width, canvas.height)
+
+    clip()
+    getImage()
+
+    function clip() {
+      ctx.beginPath()
+      const pos_x = (canvas.width - 150) / 2
+      ctx.rect(pos_x, pos_x, 150, 150)
+      ctx.clip()
+    }
+
+    function getImage() {
+      const file = document.getElementById('file')
+      const img = document.getElementById('img')
+      const reader = new FileReader()
+
+      file.addEventListener('change', e => {
+        const f = e.target.files[0]
+        reader.readAsDataURL(f)
+      })
+
+      reader.addEventListener('load', e => {
+        img.src = reader.result
+      })
+    }
+  </script>
+</body>
+</html>
