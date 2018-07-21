@@ -4,6 +4,8 @@
 
 而这篇文章主要讲作为应用开发者如何使用 k8s 。
 
++ [github](https://github.com/shfshanyue/blog/tree/master/Articles/Kubenetes-Commands)
+
 ## 准备
 
 ### 预备知识

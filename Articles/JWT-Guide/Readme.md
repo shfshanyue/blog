@@ -141,36 +141,36 @@ const token = jwt.sign({}, 'ACDE')
 
 思考以下几个关于登录的问题如何使用 session 以及 jwt 实现
 
-1. 当该用户注销时，如何使该 token 失效
+### 当用户注销时，如何使该 token 失效
 
-  因为 jwt 无状态，不保存用户设备信息，没法单纯使用它完成以上问题，可以再利用数据库保存一些状态完成。
+因为 jwt 无状态，不保存用户设备信息，没法单纯使用它完成以上问题，可以再利用数据库保存一些状态完成。
 
-  + session: 只需要把 user_id 对应的 token 清掉即可
-  + jwt: 使用 redis，维护一张黑名单，用户注销时加入黑名单，过期时间与 jwt 的过期时间保持一致。
++ session: 只需要把 user_id 对应的 token 清掉即可
++ jwt: 使用 redis，维护一张黑名单，用户注销时加入黑名单，过期时间与 jwt 的过期时间保持一致。
 
-1. 如何允许用户只能在一个设备登录，如微信
+### 如何允许用户只能在一个设备登录，如微信
 
-  + session: 使用 sql 类数据库，对用户数据库表添加 token 字段并加索引，每次登陆重置 token 字段，每次请求需要权限接口时，根据 token 查找 user_id
-  + jwt: 假使使用 sql 类数据库，对用户数据库表添加 token 字段(不需要添加索引)，每次登陆重置 token 字段，每次请求需要权限接口时，根据 jwt 获取 user_id，根据 user_id 查用户表获取 token 判断 token 是否一致。另外也可以使用计数器的方法，如下一个问题。
++ session: 使用 sql 类数据库，对用户数据库表添加 token 字段并加索引，每次登陆重置 token 字段，每次请求需要权限接口时，根据 token 查找 user_id
++ jwt: 假使使用 sql 类数据库，对用户数据库表添加 token 字段(不需要添加索引)，每次登陆重置 token 字段，每次请求需要权限接口时，根据 jwt 获取 user_id，根据 user_id 查用户表获取 token 判断 token 是否一致。另外也可以使用计数器的方法，如下一个问题。
 
-  对于这个需求，session 稍微简单些，毕竟 jwt 也需要依赖数据库。
+对于这个需求，session 稍微简单些，毕竟 jwt 也需要依赖数据库。
 
-1. 如何允许用户只能在最近五个设备登录，如诸多播放器
+### 如何允许用户只能在最近五个设备登录，如诸多播放器
 
-  + session: 使用 sql 类数据库，创建 token 数据库表，有 id, token, user_id 三个字段，user 与 token 表为 1:m 关系。每次登录添加一行记录。根据 token 获取 user_id，再根据 user_id 获取该用户有多少设备登录，超过 5 个，则删除最小 id 一行。
-  + jwt: 使用计数器，使用 sql 类数据库，在用户表中添加字段 count，默认值为 0，每次登录 count 字段自增1，每次登录创建的 jwt 的 Payload 中携带数据 current_count 为用户的 count 值。每次请求权限接口时，根据 jwt 获取 count 以及 current_count，根据 user_id 查用户表获取 count，判断与 current_count 差值是否小于 5
++ session: 使用 sql 类数据库，创建 token 数据库表，有 id, token, user_id 三个字段，user 与 token 表为 1:m 关系。每次登录添加一行记录。根据 token 获取 user_id，再根据 user_id 获取该用户有多少设备登录，超过 5 个，则删除最小 id 一行。
++ jwt: 使用计数器，使用 sql 类数据库，在用户表中添加字段 count，默认值为 0，每次登录 count 字段自增1，每次登录创建的 jwt 的 Payload 中携带数据 current_count 为用户的 count 值。每次请求权限接口时，根据 jwt 获取 count 以及 current_count，根据 user_id 查用户表获取 count，判断与 current_count 差值是否小于 5
 
-  对于这个需求，jwt 略简单些，而使用 session 还需要多维护一张 token 表。
+对于这个需求，jwt 略简单些，而使用 session 还需要多维护一张 token 表。
 
-1. 如何使某一用户踢掉除现有设备外的其它所有设备，如诸多播放器
+### 如何使某一用户踢掉除现有设备外的其它所有设备，如诸多播放器
 
-  + session: 在上一个问题的基础上，删掉该设备以外其它所有的token记录。
-  + jwt: 在上一个问题的基础上，对 count + 5，并对该设备重新赋值为新的 count。
++ session: 在上一个问题的基础上，删掉该设备以外其它所有的token记录。
++ jwt: 在上一个问题的基础上，对 count + 5，并对该设备重新赋值为新的 count。
 
-1. 如何显示该用户登录设备列表
+### 如何显示该用户登录设备列表
 
-  + session: 在 token 表中新加列 device
-  + jwt: 需要服务器端保持设备列表信息，做法与 session 一样，使用 jwt 意义不大
++ session: 在 token 表中新加列 device
++ jwt: 需要服务器端保持设备列表信息，做法与 session 一样，使用 jwt 意义不大
 
 ### 总结
 
