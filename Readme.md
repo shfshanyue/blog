@@ -9,7 +9,12 @@
 ## Client
 
 ### ServiceWorker
+
 + 2018-02-29  [Service Worker 缓存控制与部署](https://github.com/shfshanyue/blog/tree/master/Articles/Cache-for-ServiceWorker)
+
+### Canvas and SVG
+
++ 2018-07-23 [Canvas and SVG shapes](https://github.com/shfshanyue/blog/tree/master/Articles/Canvas-and-SVG-shapes)
 
 ### Javascript
 
