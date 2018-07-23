@@ -6,6 +6,8 @@ jwt 之前，使用 session 来做用户认证。
 
 > 以下代码均使用 javascript 编写。
 
+本文托管在 [github](https://github.com/shfshanyue/blog/tree/master/Articles/JWT-Guide)
+
 ## session 
 
 传统登录的方式是使用 `session + token`。
@@ -120,17 +122,35 @@ const jwt = base64.encode(header) + '.' + base64.encode(payload) + '.' + sign
 
 > 如何判断 token 过期？
 
-## 验证码
+## 应用
 
-jwt 不仅可以用在用户认证，也可以用来校验验证码。
+由上可知，jwt 并不对数据进行加密，而是对数据进行签名，保证不被篡改。除了在登录中可以用到，在进行邮箱校验和图形验证码也可以用到。
 
-可以把验证码的结果字符串作为 secret。
+### 图形验证码
+
+在登录时，输入密码错误次数过多会出现图形验证码。
+
+图形验证码的原理是给客户端一个图形，并且在服务器端保存与这个图片配对的字符串，以前也大都通过 session 来实现。
+
+可以把验证码配对的字符串作为 secret，进行无状态校验。
 
 ``` javascript
 const jwt = require('jsonwebtoken')
 
-// 假设验证码为字符验证码，字符为 ACDE
-const token = jwt.sign({}, 'ACDE')
+// 假设验证码为字符验证码，字符为 ACDE，10分钟失效
+const token = jwt.sign({}, 'ACDE', { expiresIn: 60 * 10 })
+```
+
+### 邮箱校验
+
+现在网站在注册成功后会进行邮箱校验，具体做法是给邮箱发一个链接，用户点开链接校验成功。
+
+``` javascript
+// 把邮箱以及用户id绑定在一起
+const code = jwt.sign({ email, userId }, secret, { expiresIn: 60 * 30 })
+
+// 在此链接校验验证码
+const link = `https://example.com/code=${code}`
 ```
 
 ## 无状态 VS 有状态
