@@ -85,7 +85,7 @@ kubectl config use-context dev
 
 ### 创建资源
 
-`kubectl create` 代表根据文件创建资源，可以是 Deployment，也可以是 Pod。
+`kubectl create` 代表根据文件创建资源，可以是 Namespace, Deployment，也可以是 Pod。
 
 `kubectl run` 代表根据镜像创建资源。
 
@@ -97,9 +97,25 @@ kubectl run --image=k8s.gcr.io/echoserver:1.10 --port=8080
 
 一般在 CI 中作 deploy 时会使用 `kubectl apply` 命令，根据配置文件更新资源。
 
-配置文件中可以写多份配置，也可以写 `Deployment`，`Service` 各种 Kind 配置。以下是以 node 作为服务器语言样例的配置。
+配置文件中可以写多份配置，也可以写 `Deployment`，`Service` 各种 Kind 配置。
+
+以下示例新增了一个叫 dev 的命名空间，其中一个  `Pod`，运行着 node 服务，并通过 `Service` 暴露地址出去。代码地址在 [app.yaml]()，可直接运行以下命令。
+
+``` shell
+# 根据以下配置文件创建资源
+kubectl create -f app.yaml
+```
 
 ``` yaml
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: dev
+  labels:
+    name: dev
+
+---
+
 apiVersion: v1
 kind: Service
 metadata:
@@ -134,11 +150,10 @@ spec:
       - name: app
         image: node
         imagePullPolicy: Always
-        env:
-        - name: PORT
-          value: "8080"
         ports:
         - containerPort: 8080
+        command: ["node"]
+        args: ["-e", "require('http').createServer((req, res) => res.end('hello, world')).listen(8080)"]
 ```
 
 ### 访问资源

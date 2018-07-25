@@ -12,6 +12,8 @@ jwt 之前，使用 session 来做用户认证。
 
 传统登录的方式是使用 `session + token`。
 
+`token` 是指在客户端使用 token 作为用户状态凭证，浏览器一般存储在 `localStorage` 或者 `cookie` 中。
+
 `session` 是指在服务器端使用 redis 或者 sql 类数据库，存储 user_id 以及 token 的键值对关系，基本工作原理如下。
 
 ``` javascript
@@ -26,8 +28,6 @@ function getUserIdByToken (token) {
 }
 ```
 
-`token` 是指在客户端使用 token 作为用户状态凭证，浏览器一般存储在 `localStorage` 或者 `cookie` 中。
-
 如果存储在 `cookie` 中就是经常听到的 `session + cookie` 的登录方案。其实存储在 `cookie`，`localStorage` 甚至 `IndexedDB` 或者 `WebSQL` 各有利弊，核心思想一致。
 
 关于 `cookie` 以及 `token` 优缺点，在 [token authetication vs cookies](https://stackoverflow.com/questions/17000835/token-authentication-vs-cookies) 中有讨论。
@@ -37,7 +37,7 @@ function getUserIdByToken (token) {
 ``` javascript
 // http 的头，每次请求权限接口时，需要携带 Authorization Header
 const headers = {
-  Authorization: `Bearer: ${localStorage.get('token')}`
+  Authorization: `Bearer ${localStorage.get('token')}`
 }
 ```
 
@@ -138,7 +138,7 @@ const jwt = base64.encode(header) + '.' + base64.encode(payload) + '.' + sign
 const jwt = require('jsonwebtoken')
 
 // 假设验证码为字符验证码，字符为 ACDE，10分钟失效
-const token = jwt.sign({}, 'ACDE', { expiresIn: 60 * 10 })
+const token = jwt.sign({ userId: 10085 }, 'ACDE', { expiresIn: 60 * 10 })
 ```
 
 ### 邮箱校验
@@ -187,7 +187,7 @@ const link = `https://example.com/code=${code}`
 + session: 在上一个问题的基础上，删掉该设备以外其它所有的token记录。
 + jwt: 在上一个问题的基础上，对 count + 5，并对该设备重新赋值为新的 count。
 
-### 如何显示该用户登录设备列表
+### 如何显示该用户登录设备列表 / 如何踢掉特定用户
 
 + session: 在 token 表中新加列 device
 + jwt: 需要服务器端保持设备列表信息，做法与 session 一样，使用 jwt 意义不大
