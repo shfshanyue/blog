@@ -1,0 +1,71 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: dev
+  labels:
+    name: dev
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: app
+  namespace: dev
+  labels:
+    name: app
+spec:
+  ports:
+  - port: 80
+    targetPort: 8080
+    protocol: TCP
+  selector:
+    name: app
+
+---
+
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: app
+  namespace: dev
+  labels:
+    name: app
+spec:
+  template:
+    metadata:
+      labels:
+        name: app
+    spec:
+      containers:
+      - name: app
+        image: node
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+        command: ["node"]
+        args: ["-e", "require('http').createServer((req, res) => res.end('hello, my first k8s app')).listen(8080)"]
+
+---
+
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: hello
+  namespace: dev
+  labels:
+    name: hello
+spec:
+  template:
+    metadata:
+      labels:
+        name: hello
+    spec:
+      containers:
+      - name: hello
+        image: node
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+        command: ["node"]
+        args: ["-e", "require('http').createServer((req, res) => res.end('hello, world')).listen(8080)"]

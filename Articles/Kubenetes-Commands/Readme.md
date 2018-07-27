@@ -99,7 +99,7 @@ kubectl run --image=k8s.gcr.io/echoserver:1.10 --port=8080
 
 配置文件中可以写多份配置，也可以写 `Deployment`，`Service` 各种 Kind 配置。
 
-以下示例新增了一个叫 dev 的命名空间，其中一个  `Pod`，运行着 node 服务，并通过 `Service` 暴露地址出去。代码地址在 [app.yaml]()，可直接运行以下命令。
+以下示例新增了一个叫 dev 的命名空间，其中一个  `Pod`，运行着 node 服务，并通过 `Service` 暴露地址出去。代码地址在 [app.yaml](https://github.com/shfshanyue/blog/tree/master/Articles/Kubenetes-Commands/app.yaml)，可直接运行以下命令。
 
 ``` shell
 # 根据以下配置文件创建资源
