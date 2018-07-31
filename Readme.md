@@ -62,10 +62,15 @@
 
 ## 工具
 
+### vim
+
++ 2018-07-31  [如何快速上手 vim](https://github.com/shfshanyue/blog/tree/master/Articles/Vim-Guideline)
+
 ### tmux
 
 + 2017-01-24  [tmux：打造精致终端动画演示](https://github.com/shfshanyue/tmux-config)
 + 2017-01-21  [tmux：打造精致与实用并存的终端](https://segmentfault.com/a/1190000008188987)
 
 ### git
+
 + 2017-05-25  [git 奇淫巧计一二](https://github.com/shfshanyue/blog/tree/master/Articles/git-tips)
