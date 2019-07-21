@@ -23,5 +23,5 @@ menu: main
 + 2019/05 迁移域名到 <https://shanyue.tech>
 + 2019/02 使用 Hugo，在自建的 Gitlab 中进行管理，使用 Gitlab CI 进行部署 <https://blog.xiange.tech>
 + 2017/05 单开 github 仓库 <https://github.com/shfshanyue/blog>
-+ 2015/12 使用 Hexo，迁移到 Github Pages <http://shfshanyue.github.io>
++ 2015/12 使用 Hexo，迁移到 Github Pages <https://shfshanyue.github.io>
 + 2015/09 博客园

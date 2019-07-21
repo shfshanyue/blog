@@ -1,5 +1,5 @@
 ---
-title: Linux-CPU
+title: Linux 的 cpu/memory/progress 等各项监控指标小记
 date: 2019-07-05T16:03:06+08:00
 thumbnail: ""
 categories:
