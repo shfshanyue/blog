@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  whoami:
+    image: containous/whoami
+    labels:
+      - traefik.http.routers.whoami.rule=Host(`whoami.shanyue.tech`)
+      - traefik.http.routers.whoami.tls=true
+      - traefik.http.routers.whoami.tls.certresolver=le
+    # environments:
+    #   TMUX
+    
+networks:
+  default:
+    external:
+      name: traefik_default

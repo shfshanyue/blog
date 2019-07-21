@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <input type="file" id="fileEle">
+  <button id="btnEle">点击下载源文件</button>
+  <a href="data:,hello,world" download="a.txt">hello</a>
+  <script src="https://cdn.bootcss.com/FileSaver.js/2014-11-29/FileSaver.js"></script>
+  <script>
+    function concatenate(constructor, ...arrays) {
+      let length = 0;
+      for (let arr of arrays) {
+        length += arr.length;
+      }
+      let result = new constructor(length);
+      let offset = 0;
+      for (let arr of arrays) {
+        result.set(arr, offset);
+        offset += arr.length;
+      }
+      return result;
+    }
+
+
+    function download (url, name) {
+      const a = document.createElement('a')
+      a.download = name
+      a.rel = 'noopener'
+      a.href = url
+      // 模拟点击
+      a.dispatchEvent(new MouseEvent('click'))
+    }
+
+    function readBlob (blob, type) {
+      return new Promise(resolve => {
+        const reader = new FileReader()
+        reader.onload = function (e) {
+          resolve(e.target.result)  
+        }
+        reader[`readAs${type}`](blob)
+      })
+    }
+
+    concatenate(Uint8Array, new Uint8Array([1, 2, 3]), new Uint8Array([4, 5, 6]), new Uint8Array([7, 8, 9]))
+
+    fetch('https://shanyue.tech/post/binary-in-frontend/transform.jpg').then(res => {
+      return res.arrayBuffer()
+    }).then(buffer => {
+      const array = new Uint8Array(buffer)
+      const result = concatenate(Uint8Array, array, array, array, array, array, array)
+      const blob = new Blob([result],{type:'application/octet-stream'})
+      const url = URL.createObjectURL(blob)
+      console.log(url)
+    })
+  </script>
+</body>
+</html>

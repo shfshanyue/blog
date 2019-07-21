@@ -1,0 +1,8 @@
++ [browser.runtime.onMessage.addListener](https://developer.chrome.com/docs/extensions/reference/runtime/#event-onMessage)
++ [browser.runtime.sendMessage](https://developer.chrome.com/docs/extensions/reference/runtime/#method-sendMessage)
++ [browser.storage.sync.get]()
++ [browser.contextMenus.create]()
++ [browser.commands.onCommand.addListener]()
++ [browser.contextMenus.onClicked.addListener]()
++ [browser.tabs.query]()
++ [browser.tabs.executeScript]()

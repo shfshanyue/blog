@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:12-alpine
+    restart: always
+    ports:
+      - 5432:5432
+    volumes:
+      - ./pg-data:/var/lib/postgresql/data
+    labels:
+      - "traefik.http.routers.db.rule=Host(`db.shanyue.local`)"
+
+# 使用已存在的 traefik 的 network
+networks:
+  default:
+    external:
+      name: traefik_default
+

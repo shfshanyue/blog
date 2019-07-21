@@ -1,0 +1,7 @@
+global:
+  storageClass: local-storage
+  kibanaEnabled: true
+master:
+  replicas: 1
+data:
+  replicas: 1

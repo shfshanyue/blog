@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+  <script src="https://cdn.bootcdn.net/ajax/libs/fingerprintjs2/2.1.0/fingerprint2.min.js"></script>
+  <script>
+requestIdleCallback(function () {
+  Fingerprint2.get((components) => {
+    const values = components.map((component) => component.value)
+    const fp = Fingerprint2.x64hash128(values.join(''), 31)
+  })
+})
+function getCanvasFp () {
+  const canvas = document.getElementById('canvas')
+  const ctx = canvas.getContext('2d')
+  ctx.font = '14px Arial'
+  ctx.fillStyle = '#ccc'
+  ctx.fillText('hello, shanyue', 2, 2)
+  return canvas.toDataURL('image/jpeg')
+}
+
+    console.log(getCanvasFp())
+  </script>
+</body>
+</html>

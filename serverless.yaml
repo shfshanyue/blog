@@ -1,0 +1,13 @@
+component: website # (必填) 引用 component 的名称，当前用到的是 tencent-website 组件
+name: shanyue-blog # (必填) 该 website 组件创建的实例名称
+
+inputs:
+  src:
+    src: .
+    index: index.html
+    dist: .vuepress/dist
+    hook: npm run build
+    # websitePath: ./
+  region: ap-guangzhou
+  bucketName: my-bucket
+  protocol: https

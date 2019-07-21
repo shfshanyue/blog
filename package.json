@@ -1,0 +1,37 @@
+{
+  "name": "note",
+  "version": "1.0.0",
+  "description": "东坡云：事如春梦了无痕，技术积累也是如此，于是在此略作整理。浮生六记中有一句：`见藐小微物，必细查其纹理`，其中对技术不仅要如琢如磨如切如磋，也记录一些物外之趣。",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vuepress dev",
+    "build": "vuepress build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shfshanyue/blog.git"
+  },
+  "author": "shanyue",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shfshanyue/blog/issues"
+  },
+  "homepage": "https://github.com/shfshanyue/blog#readme",
+  "devDependencies": {
+    "@vuepress/plugin-google-analytics": "^1.8.2",
+    "npm-check-updates": "^11.5.13",
+    "vuepress": "^1.8.2",
+    "vuepress-plugin-feed": "^0.1.9"
+  },
+  "dependencies": {
+    "@types/graphql": "^14.5.0",
+    "axios": "^0.21.1",
+    "bluebird": "^3.7.2",
+    "dayjs": "^1.10.4",
+    "graphql": "^15.5.0",
+    "graphql-tag": "^2.12.4",
+    "koa": "^2.13.1",
+    "promise-limit": "^2.7.0",
+    "vuepress-plugin-sitemap": "^2.3.1"
+  }
+}

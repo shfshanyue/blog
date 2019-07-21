@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  chrome:
+    image: browserless/chrome
+    restart: always
+    ports:
+      - "3000:3000"
+    labels:
+      - "traefik.http.routers.chrome.rule=Host(`chrome.shanyue.tech`)"
+      - traefik.http.routers.chrome.tls=true
+      - traefik.http.routers.chrome.tls.certresolver=le
+
+# 使用已存在的 traefik 的 network
+networks:
+  default:
+    external:
+      name: traefik_default

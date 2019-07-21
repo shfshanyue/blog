@@ -1,0 +1,32 @@
+[
+  {
+    "title": "河北航拍中国笔记及旅游攻略补充",
+    "sideTitle": "河北",
+    "path": "hebei"
+  },
+  {
+    "title": "新疆航拍中国笔记及旅游攻略补充",
+    "sideTitle": "新疆",
+    "path": "xinjiang"
+  },
+  {
+    "title": "贵州航拍中国笔记及旅游攻略补充",
+    "sideTitle": "贵州",
+    "path": "guizhou"
+  },
+  {
+    "title": "安徽航拍中国笔记及旅游攻略补充",
+    "sideTitle": "安徽",
+    "path": "anhui"
+  },
+  {
+    "title": "山西航拍中国笔记及旅游攻略补充",
+    "sideTitle": "山西",
+    "path": "shanxi"
+  },
+  {
+    "title": "湖南航拍中国笔记及旅游攻略补充",
+    "sideTitle": "湖南",
+    "path": "hunan"
+  }
+]

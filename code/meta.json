@@ -1,0 +1,18 @@
+[
+  {
+    "sideTitle": "JSONP",
+    "path": "jsonp/"
+  },
+  {
+    "sideTitle": "Promise",
+    "path": "promise/"
+  },
+  {
+    "sideTitle": "Promise.map",
+    "path": "promise-map/"
+  },
+  {
+    "sideTitle": "graphql-tag",
+    "path": "graphql-tag/"
+  }
+]

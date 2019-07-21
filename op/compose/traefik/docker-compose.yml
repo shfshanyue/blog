@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  reverse-proxy:
+    image: traefik:v2.2
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080"
+    volumes:
+      - ./traefik.toml:/etc/traefik/traefik.toml
+      - ./acme.json:/acme.json
+      - ./log:/log
+      - /var/run/docker.sock:/var/run/docker.sock
+    container_name: traefik
+    env_file: .env
+    labels:
+      - "traefik.http.routers.api.rule=Host(`traefik.shanyue.local`)"
+      - "traefik.http.routers.api.service=api@internal"
+

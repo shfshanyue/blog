@@ -1,0 +1,19 @@
+{
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "max-age=31536000"
+        }
+      ]
+    }
+  ],
+  "redirects": [
+    { "source": "/op/linux-monitor", "destination": "/op/linux-monitor.html", "permanent": true },
+    { "source": "/op/tmux-vim-setting.html", "destination": "/op/vim-setting.html", "permanent": true },
+    { "source": "/exit-code.html", "destination": "/node/exit-code.html", "permanent": true },
+    { "source": "/post/redis-case", "destination": "/post/redis-case.html", "permanent": true}
+  ]
+}

@@ -1,0 +1,53 @@
+name: deploy to aliyun oss
+
+on:
+  push:
+  schedule:
+  - cron:  '30 20 * * *'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    # 切代码到 runner
+    - run: |
+        node -v
+    - run: |
+        free -h
+    - run: ls -lah
+    - uses: actions/checkout@v1
+      with:
+        submodules: true
+    - run: ls -lah
+    # 下载 git submodule
+    - uses: srt32/git-actions@v0.0.3
+      with:
+        args: git submodule update --init --recursive
+    # 使用 node:10
+    - name: use Node.js 10.x
+      uses: actions/setup-node@v1
+      with:
+        node-version: 10.x
+    - run: |
+        node -v
+    # npm install
+    - name: npm install
+      run: npm install
+    - name: build
+      run: npm run build
+    # 设置阿里云OSS的 id/secret，存储到 github 的 secrets 中
+    - name: setup aliyun oss
+      uses: manyuanrong/setup-ossutil@master
+      with:
+        endpoint: oss-cn-beijing.aliyuncs.com
+        access-key-id: ${{ secrets.OSS_KEY_ID }}
+        access-key-secret: ${{ secrets.OSS_KEY_SECRET }}
+    - name: 删除冗余文件
+      run: ossutil rm oss://shanyue-blog/assets -rf
+      if: github.event_name == 'schedule'
+    - name: 复制文件到阿里云OSS
+      run: ossutil cp -rf .vuepress/dist oss://shanyue-blog/
+    - name: 设置永久缓存
+      run: ossutil set-meta oss://shanyue-blog/assets cache-control:"max-age=31536000" --update -rf

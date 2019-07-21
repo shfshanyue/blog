@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  redis:
+    image: redis:5-alpine
+    restart: always
+    ports:
+      - 6379:6379
+    labels:
+      - traefik.http.routers.db.rule=Host(`redis.shanyue.local`)
+
+# 使用已存在的 traefik 的 network
+networks:
+  default:
+    external:
+      name: traefik_default
