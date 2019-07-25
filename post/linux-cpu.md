@@ -166,6 +166,18 @@ $ pidstat -s -p 23097 1 5
 
 ## 标准输出到文件中
 
+## 文件
+
+``` shell
+# 列出打开的文件
+$ lsof
+COMMAND     PID   TID     USER   FD      TYPE             DEVICE    SIZE/OFF       NODE NAME
+systemd       1           root  cwd       DIR              253,1        4096          2 /
+systemd       1           root  rtd       DIR              253,1        4096          2 /
+```
+
+
+
 ## 容器
 
 ## namespace PID -> global PID 映射
