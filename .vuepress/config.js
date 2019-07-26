@@ -9,21 +9,18 @@ module.exports = {
       { text: '博客', link: '/post/' },
     ],
     sidebar: {
-      '/post/': [
-        ['redis-case', 'redis 常见使用场景']
-      ],
+      // '/post/': [
+      //   ['redis-case', 'redis 常见使用场景']
+      // ],
     },
-    lastUpdated: 'Last Updated'
+    lastUpdated: 'Last Updated',
+    displayAllHeaders: true
   },
   plugins: [
     (options, ctx) => {
       return {
         name: 'archive',
         async additionalPages () {
-          // Note that VuePress doesn't have request library built-in
-          // you need to install it yourself.
-          const rp = require('request-promise')
-          const content = await rp('https://raw.githubusercontent.com/vuejs/vuepress/master/CHANGELOG.md')
           return [
             {
               path: '/changelog/',
@@ -32,6 +29,11 @@ module.exports = {
               }
             }
           ]
+        },
+        extendPageData ($page) {
+          if ($page.path.startsWith('/post')) {
+            $page.frontmatter.sidebar = 'auto'
+          }
         }
       }
     }
