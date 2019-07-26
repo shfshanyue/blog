@@ -19,5 +19,9 @@
   "homepage": "https://github.com/shfshanyue/blog#readme",
   "devDependencies": {
     "vuepress": "^1.0.0-rc.1"
+  },
+  "dependencies": {
+    "dayjs": "^1.8.15",
+    "vuepress-plugin-sitemap": "^2.1.2"
   }
 }

@@ -14,5 +14,26 @@ module.exports = {
       ],
     },
     lastUpdated: 'Last Updated'
-  }
+  },
+  plugins: [
+    (options, ctx) => {
+      return {
+        name: 'archive',
+        async additionalPages () {
+          // Note that VuePress doesn't have request library built-in
+          // you need to install it yourself.
+          const rp = require('request-promise')
+          const content = await rp('https://raw.githubusercontent.com/vuejs/vuepress/master/CHANGELOG.md')
+          return [
+            {
+              path: '/changelog/',
+              frontmatter: {
+                layout: 'Archive' 
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
 }
