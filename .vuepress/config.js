@@ -5,8 +5,8 @@ module.exports = {
   themeConfig: {
     nav: [
       { text: '主页', link: '/' },
+      { text: '博客归档', link: '/post/' },
       { text: '关于我', link: '/about/' },
-      { text: '博客', link: '/post/' },
     ],
     sidebar: {
       // '/post/': [
@@ -23,7 +23,7 @@ module.exports = {
         async additionalPages () {
           return [
             {
-              path: '/changelog/',
+              path: '/post/',
               frontmatter: {
                 layout: 'Archive' 
               }
