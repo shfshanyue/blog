@@ -11,8 +11,7 @@ module.exports = {
     ],
     sidebar: {
       '/post/': [
-        ['redis-case', 'redis 常见使用场景'],
-        'node-debug'
+        ['redis-case', 'redis 常见使用场景']
       ],
     },
     lastUpdated: 'Last Updated',
@@ -34,7 +33,7 @@ module.exports = {
         },
         extendPageData ($page) {
           if (/^\/post\/.+?$/.test($page.path)) {
-            // $page.frontmatter.sidebar = 'auto'
+            $page.frontmatter.sidebar = 'auto'
           }
         }
       }
