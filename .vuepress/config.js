@@ -19,9 +19,6 @@ module.exports = {
     displayAllHeaders: true
   },
   plugins: [
-    ['clean-urls', {
-      normalSuffix: '',
-    }],
     (options, ctx) => {
       return {
         name: 'archive',
