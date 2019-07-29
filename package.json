@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "dayjs": "^1.8.15",
+    "vuepress-plugin-clean-urls": "^1.0.3",
     "vuepress-plugin-sitemap": "^2.1.2"
   }
 }

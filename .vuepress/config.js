@@ -5,26 +5,30 @@ module.exports = {
   themeConfig: {
     nav: [
       { text: '主页', link: '/' },
-      { text: '博客归档', link: '/archive/' },
       { text: '博客', link: '/post/' },
+      // { text: '博客', link: '/post/' },
+      {
+        text: '笔记', items: [
+          { text: 'SQL', link: '/post/sql-guide/' },
+          { text: 'spark', link: '/post/learning-spark/' },
+        ]
+      },
       { text: '关于我', link: '/about/' },
     ],
-    sidebar: {
-      '/post/': [
-        ['redis-case', 'redis 常见使用场景']
-      ],
-    },
     lastUpdated: 'Last Updated',
     displayAllHeaders: true
   },
   plugins: [
+    ['clean-urls', {
+      normalSuffix: '',
+    }],
     (options, ctx) => {
       return {
         name: 'archive',
         async additionalPages () {
           return [
             {
-              path: '/archive/',
+              path: '/post/',
               frontmatter: {
                 layout: 'Archive' 
               }
