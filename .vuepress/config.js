@@ -19,6 +19,12 @@ module.exports = {
     displayAllHeaders: true
   },
   plugins: [
+    [ 
+      '@vuepress/google-analytics',
+      {
+        'ga': 'UA-102193749-2'
+      }
+    ], 
     (options, ctx) => {
       return {
         name: 'archive',
