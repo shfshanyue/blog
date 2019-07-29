@@ -7,9 +7,10 @@
       <div class="theme-default-content">
         <div v-for="post in posts" class="archive-post">
           <span v-text="dayjs(post.frontmatter.date).format('YYYY/MM/DD')" class="archive-post-date"></span>
-          <a :href="post.path">
-            <span v-text="post.title"></span>
-          </a>
+          <router-link
+            class="nav-link"
+            :to="post.path"
+          >{{ post.title }}</router-link>
         </div>
       </div>
     </main>
