@@ -2,11 +2,9 @@
 
 东坡云：`事如春梦了无痕`，技术积累也是如此，于是在此略作整理。浮生六记中有一句：`见藐小微物，必细查其纹理`，其中对技术不仅要如琢如磨如切如磋，也记录一些物外之趣。
 
-> 本仓库用以备份我的所有博客，博客地址见下
->
-> + [博客(hugo)](https://shanyue.netlify.com)
-> + [旧博客(hugo)](https://shanyue.tech)
++ [归档](https://shanyue.tech/archive)
 
 ## 物外之趣
 
 + 2018-05-04  [户外赏花识草指南](https://shfshanyue.github.io/plant/#/)
+

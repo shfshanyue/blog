@@ -5,13 +5,15 @@ module.exports = {
   themeConfig: {
     nav: [
       { text: '主页', link: '/' },
-      { text: '博客归档', link: '/post/' },
+      { text: '博客归档', link: '/archive/' },
+      { text: '博客', link: '/post/' },
       { text: '关于我', link: '/about/' },
     ],
     sidebar: {
-      // '/post/': [
-      //   ['redis-case', 'redis 常见使用场景']
-      // ],
+      '/post/': [
+        ['redis-case', 'redis 常见使用场景'],
+        'node-debug'
+      ],
     },
     lastUpdated: 'Last Updated',
     displayAllHeaders: true
@@ -23,7 +25,7 @@ module.exports = {
         async additionalPages () {
           return [
             {
-              path: '/post/',
+              path: '/archive/',
               frontmatter: {
                 layout: 'Archive' 
               }
@@ -31,8 +33,8 @@ module.exports = {
           ]
         },
         extendPageData ($page) {
-          if ($page.path.startsWith('/post')) {
-            $page.frontmatter.sidebar = 'auto'
+          if (/^\/post\/.+?$/.test($page.path)) {
+            // $page.frontmatter.sidebar = 'auto'
           }
         }
       }
