@@ -10,7 +10,7 @@ module.exports = {
     nav: [
       { text: '主页', link: '/' },
       { text: '博客', link: '/post/' },
-      // { text: '博客', link: '/post/' },
+      // { text: 'GraphQL', link: '/post/graphql-guide/' },
       {
         text: '笔记', items: [
           { text: 'SQL', link: '/post/sql-guide/' },
