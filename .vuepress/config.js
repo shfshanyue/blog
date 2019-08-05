@@ -46,7 +46,7 @@ module.exports = {
           ]
         },
         extendPageData ($page) {
-          if (/^\/post\/.+?$/.test($page.path)) {
+          if (/^\/(post|code)\/.+?$/.test($page.path)) {
             $page.frontmatter.sidebar = 'auto'
           }
         }
