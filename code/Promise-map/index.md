@@ -9,7 +9,7 @@ categories:
 
 ## 实现
 
-假设有一个 Promise 为 `get` 和一个待请求数组为 `list`，但是为了避免 IO 过大，需要限定三个并发数量
+假设有一个 Promise 为 `get` 和一个待请求数组为 `list`，使用它们进行请求数据。但是为了避免 IO 过大，需要限定三个并发数量
 
 ``` javascript
 function get (i) {

@@ -15,7 +15,7 @@ categories:
 1. 当状态变为 `resolved(fulfilled)` 时，队列中所有 `thenable` 函数执行
 1. 当 `resolved` 时， `thenable` 函数直接执行
 
-<--more-->
+<!--more-->
 
 `rejected` 状态同理
 
