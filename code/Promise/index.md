@@ -15,6 +15,8 @@ categories:
 1. 当状态变为 `resolved(fulfilled)` 时，队列中所有 `thenable` 函数执行
 1. 当 `resolved` 时， `thenable` 函数直接执行
 
+<--more-->
+
 `rejected` 状态同理
 
 ``` javascript
@@ -30,10 +32,13 @@ class Prom {
     this.value = undefined
     this.reason = undefined
     this.status = 'PENDING'
+
+    // 维护一个 resolve/pending 的函数队列
     this.resolveFns = []
     this.rejectFns = []
 
     const resolve = (value) => {
+      // 注意此处的 setTimeout
       setTimeout(() => {
         this.status = 'RESOLVED'
         this.value = value
@@ -57,6 +62,7 @@ class Prom {
     if (this.status === 'RESOLVED') {
       const result = fn(this.value)
       // 需要返回一个 Promise
+      // 如果状态为 resolved，直接执行
       return Prom.resolve(result)
     }
     if (this.status === 'PENDING') {

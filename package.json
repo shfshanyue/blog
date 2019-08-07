@@ -24,6 +24,8 @@
   "dependencies": {
     "bluebird": "^3.5.5",
     "dayjs": "^1.8.15",
+    "graphql": "^14.4.2",
+    "graphql-tag": "^2.10.1",
     "promise-limit": "^2.7.0",
     "vuepress-plugin-sitemap": "^2.1.2"
   }
