@@ -17,9 +17,20 @@ menu: main
 + [github](http://github.com/shfshanyue)
 + [掘金](https://juejin.im/user/56a34361816dfa005925a654)
 
+## 作品
+
+### [诗词](https://shici.xiange.tech)
+
++ [前端](https://github.com/shfshanyue/shici)
++ [后端](https://code.xiange.tech/play/shici-server)
++ [后端脚手架](https://github.com/shfshanyue/apollo-server-starter)
++ [小程序](https://code.xiange.tech/play/shici-wx)
++ [公众号](https://mp.weixin.qq.com/profile?src=3&timestamp=1565270413&ver=1&signature=UBV*xnkq*Sh9YQPA*S0qgUwHIM*2rHY*7HAg1W41977KaLIjSTmmzhti*2bIn3m8I-4PvXsJuzDXgc9aSWgiHA==)
++ [~~flutter~~](https://github.com/shfshanyue/li_jing)
+
 ## 博客记录
 
-+ 2019/07 使用 vuepress 来构建页面，迁移到 netlify <http://shanyue.netlify.com>
++ 2019/07 使用 vuepress 来构建页面，迁移到 netlify <https://shanyue.netlify.com>
 + 2019/05 迁移域名到 <https://shanyue.tech>
 + 2019/02 使用 Hugo，在自建的 Gitlab 中进行管理，使用 Gitlab CI 进行部署 <https://blog.xiange.tech>
 + 2017/05 单开 github 仓库 <https://github.com/shfshanyue/blog>

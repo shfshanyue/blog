@@ -8,3 +8,12 @@
 
 + 2018-05-04  [户外赏花识草指南](https://shfshanyue.github.io/plant/#/)
 
+## 赏杯咖啡
+
+如果本博客对你有所帮助，可以请我喝杯咖啡
+
+![咖啡](https://shanyue.tech/pay.jpg)
+
+另外也可以关注我的公众号进行交流
+
+![山月行](https://shanyue.tech/qrcode.jpg)
