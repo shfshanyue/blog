@@ -9,7 +9,7 @@ categories:
 
 `graphql-tag` 是在写 `graphql` 应用必不可少的一个工具，不管你是在服务器端还是客户端。而 `graphql-tag` 的代码也非常简单，大体也就八个字： **他山之石可以攻玉**。
 
-> 本文链接:
+> 本文链接: <https://shanyue.tech/code/graphql-tag>
 
 ## 简介
 
