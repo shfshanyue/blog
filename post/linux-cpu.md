@@ -1,5 +1,5 @@
 ---
-title: Linux 的 cpu/memory/progress 等各项监控指标小记
+title: Linux 的 cpu/memory/process 等各项监控指标小记
 date: 2019-07-05T16:03:06+08:00
 thumbnail: ""
 categories:
@@ -7,6 +7,28 @@ categories:
 tags:
   - devops
 ---
+
+自开始负责生产环境部署已一年半有余，中间遇到了若干线上环境内存以及CPU的问题。由于微服务以及容器的流行，现在已经可以很方便的使用 K8s + prometheus + grafana + alert 的方式进行监控，这足以覆盖大部分场景。
+
+最重要的事情已经交由最适合的组件去做，然而了解一些在裸机上的命令以及指标也是必不可少的：
+
+1. 了解监控什么指标
+1. 平时写一些脚本也经常会 OOM 或者 CPU 使用率过高
+
+于是我试着对一些指标进行整理，以备不时之需
+
+## htop/top
+
+htop 足以覆盖大多数指标，详细直接查看帮助即可。
+
+> 这里的 TIME 指的是 CPU 时间
+> htop 里的 task 数指的是进程树，top 里的 task 数指的是进程树 + 内核线程数 <https://www.cnblogs.com/arnoldlu/p/8336998.html>
+
+1. sort: by mem/cpu/state. 根据进程状态排序也至关重要，特别在 load average 过高的时候。根据内存以及CPU使用率排序用以定位高资源占用者。
+1. filter
+1. fields
+1. process/ count
+1. ...
 
 ## CPU 基本信息
 
@@ -34,7 +56,7 @@ root     pts/0    172.16.0.1    19:27    6.00s  0.05s  0.00s tmux a
 
 翻译过来就是指系统中处于可运行状态和不可中断状态的平均进程数。
 
-对于 4 核的 CPU，如果平均负载为 4 意味着 CPU 半点没浪费。
+对于 4 核的 CPU，如果平均负载高于 4 就代表负载过高
 
 ## CPU 使用率
 
@@ -304,4 +326,8 @@ $ netstat -tanp | grep ESTAB | wc -l
 
 ## TCP 连接数
 
+## PostgresSQL 的最大连接数
 
+``` sql
+show max_connections;
+```

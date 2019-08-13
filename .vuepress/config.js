@@ -11,6 +11,7 @@ module.exports = {
       { text: '主页', link: '/' },
       { text: '博客', link: '/post/' },
       // { text: 'GraphQL', link: '/post/graphql-guide/' },
+      { text: '炳烛', link: '/record/' },
       {
         text: '笔记', items: [
           { text: 'SQL', link: '/post/sql-guide/' },
@@ -22,8 +23,15 @@ module.exports = {
       },
       { text: '关于我', link: '/about' },
     ],
+    sidebar: {
+      '/record/': [
+        '',
+        '2019',
+        '2018'
+      ]
+    },
     lastUpdated: 'Last Updated',
-    displayAllHeaders: true
+    // displayAllHeaders: true
   },
   plugins: [
     [ 
