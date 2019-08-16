@@ -27,7 +27,11 @@ module.exports = {
       '/record/': [
         '',
         '2019',
-        '2018'
+        ['pre-2019', 'Pre 2019'],
+        '2018',
+        ['2017', 'Pre 2017'],
+        ['2016', 'Pre 2016'],
+        ['2015', 'Pre 2015']
       ]
     },
     lastUpdated: 'Last Updated',
