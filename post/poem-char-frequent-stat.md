@@ -1,5 +1,5 @@
 ---
-title: 关于统计诗词字云的一些思考
+title: 关于统计诗词字云的解决方案
 date: 2019-08-17 12:00
 tags:
   - node
@@ -11,8 +11,8 @@ categories:
 
 周末写了两个脚本，用以统计诗词中的高频字，并抽取其中意象作为飞花令的令字。这两个脚本的地址以及所做如下
 
-1. [](): 把50万诗词按字、作者朝代、高频作者做关键字，使用 `redis.incr` 计数，存入 `redis` 中
-1. [](): 根据以上脚本的计数结果，再把 `redis` 中的数据迁移到 `postgres` 中
+1. [bin/charCloud.js](https://github.com/shfshanyue/shici-server/blob/master/bin/charCloud.js): 把50万诗词按字、作者朝代、高频作者做关键字，使用 `redis.incr` 计数，存入 `redis` 中
+1. [bin/charCloudStat.js](https://github.com/shfshanyue/shici-server/blob/master/bin/charCloudStat.js): 根据以上脚本的计数结果，再把 `redis` 中的数据迁移到 `postgres` 中
 
 <!--more-->
 
@@ -20,7 +20,7 @@ categories:
 
 那为什么不直接存到 `postgres` 中，非要在 `redis` 中走一遭呢？
 
-1. 原子性: `incr` 保证原子性 (postgres 需要设置事务和 RR 的隔离级/ 或者加一个分布式锁)
+1. 原子性: `incr` 保证原子性 (postgres 需要设置事务和隔离级 RR/ 或者 select for update / 或者加一个分布式锁)
 1. 性能: 快速定位 key (postgres 虽然也可以设置索引，但会在插入数据过程中大大降低速度)
 
 以下是两种方案的伪代码对比:
@@ -61,6 +61,21 @@ update cloud set count = $count + 1 where key = $key;
 
 -- 如果不存在
 -- Question 1: 在判断为不存在的时候，此时确实不存在吗？如果恰好在 R/W 之间插入一条数据呢
+insert into cloud (key, value) value ($key, 1);
+
+commit;
+```
+
+使用 `select for update` 解决问题
+
+``` sql
+begin;
+
+-- 锁住改行，知道 commit/rollback
+select key, count from cloud where key = $key for update;
+
+update cloud set count = $count + 1 where key = $key;
+
 insert into cloud (key, value) value ($key, 1);
 
 commit;

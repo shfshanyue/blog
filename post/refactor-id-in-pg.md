@@ -1,5 +1,5 @@
 ---
-title: 重设用户表的 ID
+title: 在 pg 中重设用户表的 ID
 date: 2019-06-16T20:02:20+08:00
 thumbnail: ""
 categories:

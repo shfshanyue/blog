@@ -22,7 +22,8 @@ tags:
 
 <!--more-->
 
-本文地址 <https://shanyue.tech/post/jwt-and-verifycode/>
+> 本文地址: <https://shanyue.tech/post/jwt-and-verifycode/>
+> 相关代码: <https://github.com/shfshanyue/shici-server/blob/master/src/resolvers/User.js#L73>
 
 ## 发送验证码
 
