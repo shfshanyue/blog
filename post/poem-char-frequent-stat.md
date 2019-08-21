@@ -66,12 +66,12 @@ insert into cloud (key, value) value ($key, 1);
 commit;
 ```
 
-使用 `select for update` 解决问题
+使用 `select for update` 加一个悲观锁解决问题
 
 ``` sql
 begin;
 
--- 锁住改行，知道 commit/rollback
+-- 锁住该行，知道 commit/rollback
 select key, count from cloud where key = $key for update;
 
 update cloud set count = $count + 1 where key = $key;
