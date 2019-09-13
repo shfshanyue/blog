@@ -22,6 +22,7 @@
     "vuepress": "^1.0.0-rc.1"
   },
   "dependencies": {
+    "@types/graphql": "^14.5.0",
     "bluebird": "^3.5.5",
     "dayjs": "^1.8.15",
     "graphql": "^14.4.2",
