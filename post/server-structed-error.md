@@ -73,7 +73,7 @@ process.on('unhandledRejection', (reason, p) => {
 而当异常发生时，异常可以在最顶层中间件作为错误处理中间件统一捕获，捕获到时可以使用一个函数 `formatError` 在中间件中统一结构化异常信息
 
 ``` typescript
-type FormatError {
+interface FormatError {
   code: string;
   message: string;
   info: any;
