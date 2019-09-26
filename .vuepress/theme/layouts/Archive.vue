@@ -31,7 +31,7 @@ export default {
   computed: {
     posts () {
       return this.$site.pages
-        .filter(page => page.title && /^\/(post|code)/.test(page.path))
+        .filter(page => page.title && /^\/(post|code|what-happens|book)/.test(page.path))
         .sort((x, y) => dayjs(y.frontmatter.date) - dayjs(x.frontmatter.date))
     }
   }
