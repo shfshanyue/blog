@@ -12,16 +12,17 @@ module.exports = {
       { text: '博客', link: '/post/' },
       // { text: 'GraphQL', link: '/post/graphql-guide/' },
       { text: '炳烛', link: '/record/' },
+      { text: '服务器运维笔记', link: '/op/' },
+      { text: 'SQL必知必会', link: '/post/sql-guide/' },
+      { text: '关于我', link: '/about' },
       {
         text: '笔记', items: [
-          { text: 'SQL', link: '/post/sql-guide/' },
           { text: 'flutter', link: '/post/flutter-guide/' },
           { text: 'Grid Layout', link: '/post/Grid-Guide/' },
           { text: 'spark', link: '/post/learning-spark/' },
           { text: 'scala', link: '/post/learning-scala/' },
         ]
       },
-      { text: '关于我', link: '/about' },
     ],
     sidebar: {
       '/record/': [
@@ -32,6 +33,43 @@ module.exports = {
         ['2017', 'Pre 2017'],
         ['2016', 'Pre 2016'],
         ['2015', 'Pre 2015']
+      ],
+      '/op/': [
+        {
+          title: '服务器运维笔记',
+          children: [
+            ['', '前言'],
+          ]
+        },
+        {
+          title: '初始配置',
+          children: [
+            ['init', '服务器登录配置'],
+            ['ssh-setting', 'ssh key 以及 git 配置'],
+            ['system-info', '系统基础信息查看'],
+            ['vim-setting', 'vim 及其熟练使用'],
+            ['tmux-setting', 'tmux 安装，配置及其使用'],
+            ['vpn-config', 'openvpn 配置及内网安全'],
+          ]
+        },
+        {
+          title: '自动化运维',
+          children: [
+             
+          ]
+        },
+        {
+          title: 'docker, k8s 与应用开发',
+          children: []
+        },
+        {
+          title: '监控',
+          children: []
+        },
+        {
+          title: '高频linux命令',
+          children: []
+        }
       ]
     },
     lastUpdated: 'Last Updated',
@@ -60,6 +98,9 @@ module.exports = {
         extendPageData ($page) {
           if (/^\/(post|code)\/.+?$/.test($page.path)) {
             $page.frontmatter.sidebar = 'auto'
+          }
+          if (/^\/op\/.+?$/.test($page.path)) {
+            $page.frontmatter.metaTitle = `${$page.title} | 服务器运维笔记 | 山月行`
           }
         }
       }

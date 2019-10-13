@@ -1,6 +1,7 @@
 ---
 title: 关于统计诗词字云的解决方案
 date: 2019-08-17 12:00
+keywords: node,postgres,redis原子性,诗词飞花令
 tags:
   - node
   - postgres
@@ -9,12 +10,16 @@ categories:
 
 ---
 
+# 关于统计诗词字云中的解决方案
+
 周末写了两个脚本，用以统计诗词中的高频字，并抽取其中意象作为飞花令的令字。这两个脚本的地址以及所做如下
 
 1. [bin/charCloud.js](https://github.com/shfshanyue/shici-server/blob/master/bin/charCloud.js): 把50万诗词按字、作者朝代、高频作者做关键字，使用 `redis.incr` 计数，存入 `redis` 中
 1. [bin/charCloudStat.js](https://github.com/shfshanyue/shici-server/blob/master/bin/charCloudStat.js): 根据以上脚本的计数结果，再把 `redis` 中的数据迁移到 `postgres` 中
 
 <!--more-->
+
+> 原文地址: <https://shanyue.tech/post/poem-char-frequent-stat>
 
 ## why redis
 
@@ -98,3 +103,9 @@ select array_to_string(array(select char from char_cloud GROUP BY char ORDER BY 
 只保留一些关于表意向的词，保留前~~一百~~20个表意向的字。春花秋月齐了，春江花月夜也齐了
 
 > 人风山天云日花春月水心江秋君雨夜玉酒客声
+
+<hr/>
+
+最后，欢迎关注我的公众号**山月行**进行交流
+
+![欢迎关注公众号山月行，在这里记录我的技术成长，欢迎交流](https://shanyue.tech/qrcode.jpg)

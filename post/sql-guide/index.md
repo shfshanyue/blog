@@ -1,6 +1,7 @@
 ---
 title: 30分钟SQL入门指南
-description:  本篇文章是 SQL 必知必会 的读书笔记，SQL必知必会的英文名叫做 Sams Teach Yourself in 10 Minutes。但是，我肯定是不能够在10分钟就能学会本书所有涉及到的sql，所以就起个名字叫30分钟学会SQL语句（其实半个小时也没有学会...）。
+description: 本篇文章是 SQL 必知必会 的读书笔记，SQL必知必会的英文名叫做 Sams Teach Yourself in 10 Minutes。但是，我肯定是不能够在10分钟就能学会本书所有涉及到的sql，所以就起个名字叫30分钟学会SQL语句（其实半个小时也没有学会...）。
+keywords: SQL入门,SQL必知必会,SQL实践
 date: 2017-10-24
 tags:
   - sql
@@ -14,7 +15,7 @@ categories:
 
 目前手边的数据库是 mysql，所以以下示例均是由 mysql 演示。由于现在大部分工具都支持语法高亮，所以以下关键字都使用小写。
 
-> 原文链接见 https://blog.xiange.tech/post/sql-guide/
+> 原文链接见 <https://blog.xiange.tech/post/sql-guide/>
 
 ## 准备
 

@@ -1,19 +1,22 @@
 ---
-title: 博客域名更换操作记录
+title: 网站域名更换记录以及一系列衍生问题
 date: 2019-04-26
+keywords: 域名更换,traefik配置,域名更换与SEO,devops
 tags:
   - devops
 categories:
   - 运维
 ---
 
-拖延了半年后，我终于在最近把我的域名 <https://shanyue.tech> 通过了备案。新域名可以更好的贴合我的博客，趁此对我的域名进行更换
+# 博客域名更换记录以及衍生问题解决方案
 
-如果刚开始就使用新域名，倒是很简单。但是更换域名就需要做一些额外的琐碎的东西了，记录一下
+拖延了半年后，我终于在最近把我的域名 <https://shanyue.tech> 通过了备案，趁此对我的域名进行更换: 由 <https://blog.xiange.tech> 更换到了 <https://shanyue.tech>
+
+如果刚开始就使用新域名，倒是很简单。但是更换域名就需要做一些额外的琐碎的东西了，如 https，反向代理，SEO需求等等，记录一下
 
 <!--more-->
 
-本文地址 <https://shanyue.tech/post/domain-update-record/>
+> 本文地址: <https://shanyue.tech/post/domain-update-record/>
 
 ## https
 
@@ -25,7 +28,7 @@ certbot -d shanyue.tech -d xiange.tech -d *.shanyue.tech -d *.xiange.tech ...
 
 ## reverse proxy
 
-在反向代理中使用新域名代替旧有域名，以下是 traefik 在 docker 的 compose file 的示例
+在反向代理中使用新域名代替旧有域名，以下是 traefik 在 docker 的 compose file 的示例，同时需要保留新老域名
 
 ``` yaml
 version: "3"
@@ -59,16 +62,17 @@ services:
     restart: always
     labels:
       - "traefik.old.frontend.rule=Host:blog.xiange.tech"
+      # 重定向至新域名
       - "traefik.old.frontend.redirect.regex=^https?://blog.xiange.tech/(.*)"
       - "traefik.old.frontend.redirect.replacement=https://shanyue.tech/$$1"
+
+      # 设置永久重定向: 301
       - "traefik.old.frontend.redirect.permanent=true"
 ```
 
 ## sitemap.xml & robots.txt
 
-这两个是为了 SEO，如果你没有此类需求，则不用改这块
-
-当站点新添了页面，可以使用 sitmeap 更好地通知搜索引擎的小蜘蛛们，方便新页面更快的收录
+这两个是为了 SEO，当站点新添了页面，可以使用 sitmeap 更好地通知搜索引擎的小蜘蛛们，方便新页面更快的收录
 
 需要更改 sitemap 中 的 url.loc 的绝对地址为新域名，以下是一个 sitemap 的样例，你也可以通过 <https://shanyue.tech/sitemap.xml> 访问
 
@@ -93,3 +97,9 @@ services:
 鉴于只是一个简单的博客，应该没有什么工作量了
 
 如果域名需要 SEO，也就比较麻烦些，如果不需要的话，基本可以使用 nginx 或者 traefik 配置多个域名就可以了
+
+<hr/>
+
+欢迎关注我的公众号**山月行**进行交流
+
+![欢迎关注公众号山月行，在这里记录我的技术成长，欢迎交流](https://shanyue.tech/qrcode.jpg)
