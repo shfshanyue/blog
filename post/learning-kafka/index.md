@@ -132,7 +132,7 @@ $ ./kafka-topics.sh --version
 
 上边术语中提到过，Topic 是数据流的集合，类似于 sql 中的 table，并由 record 组成。
 
-![topic](https://blog.xiange.tech/)
+![topic](https://shanyue.tech/)
 
 如上图，由于 kafka 是分布式的，每个 Topic 由分区日志组成，每个分区日志由 **不可变的，顺序的** record 组成。Consumer 会标记每个分区日志中已处理的 record 位置，即 offset，使用 offset 可以唯一标志每个 record。
 

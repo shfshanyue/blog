@@ -68,7 +68,7 @@ var s: String = 'hello, world'
 
 ## 数据类型 (Type)
 
-![unified-types-diagram](https://blog.xiange.tech/post/learning-scala/unified-types-diagram.svg)
+![unified-types-diagram](https://shanyue.tech/post/learning-scala/unified-types-diagram.svg)
 
 `scala` 分为引用类型与值类型
 

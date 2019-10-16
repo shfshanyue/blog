@@ -17,7 +17,7 @@ jwt 之前，使用 session 来做用户认证。
 
 > 以下代码均使用 javascript 编写。
 
-原文链接见 [山月的博客](https://blog.xiange.tech/post/jwt-guide/readme/)
+原文链接见 [山月的博客](https://shanyue.tech/post/jwt-guide/readme/)
 
 ## session 
 

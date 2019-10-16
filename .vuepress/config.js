@@ -46,7 +46,7 @@ module.exports = {
           children: [
             ['init', '服务器登录配置'],
             ['ssh-setting', 'ssh key 以及 git 配置'],
-            ['system-info', '系统基础信息查看'],
+            ['system-info', 'linux 基础信息查看及命令'],
             ['vim-setting', 'vim 及其熟练使用'],
             ['tmux-setting', 'tmux 安装，配置及其使用'],
             ['vpn-config', 'openvpn 配置及内网安全'],
@@ -55,7 +55,8 @@ module.exports = {
         {
           title: '自动化运维',
           children: [
-             
+            ['ansible-guide', '使用 ansible 做自动化运维'],
+            ['ansible-problem', '使用 ansible 的一些问题'],
           ]
         },
         {
@@ -64,11 +65,19 @@ module.exports = {
         },
         {
           title: '监控',
-          children: []
+          children: [
+            ['linux-monitor', '各项监控指标小记']
+          ]
         },
         {
           title: '高频linux命令',
-          children: []
+          children: [
+            ['linux-sed', 'sed'],
+            ['linux-awk', 'awk'],
+            ['jq', 'jq'],
+            ['iptables', 'iptables'],
+            ['htop', 'htop'],
+          ]
         }
       ]
     },

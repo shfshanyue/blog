@@ -10,7 +10,7 @@ tags:
   - devops
 ---
 
-本文地址 [山月的博客](https://blog.xiange.tech/post/server-todo/)
+本文地址 [山月的博客](https://shanyue.tech/post/server-todo/)
 
 ## 前端调研
 
@@ -22,7 +22,7 @@ tags:
 
 网址如下 👉 [诗词弦歌](https://shici.xiange.tech)
 
-后来又把自己的博客挂了上去 👉 [山月的博客](https://blog.xiange.tech)
+后来又把自己的博客挂了上去 👉 [山月的博客](https://shanyue.tech)
 
 ## 后端支持
 
@@ -48,7 +48,7 @@ tags:
 
 技术栈 👉 Graphql + ApolloServer + Sequelize + Docker + JWT + (Traefik + Sentry + Consul)
 
-![graphql](https://blog.xiange.tech/post/server-todo/graphql.jpg)
+![graphql](https://shanyue.tech/post/server-todo/graphql.jpg)
 
 ## Docker
 
@@ -92,7 +92,7 @@ traefik 也直接在裸机安装，docker 起的直接配置 label，代理端�
 
 [Traefik 入手及简单配置](https://github.com/shfshanyue/blog/blob/master/Articles/Traefik/Readme.md)
 
-![traefik](https://blog.xiange.tech/post/server-todo/traefik.jpg)
+![traefik](https://shanyue.tech/post/server-todo/traefik.jpg)
 
 至于图上为什么有这么多请求，那是因为 gitlab runner 每秒请求一次 gitlab。
 
@@ -131,7 +131,7 @@ vim 和 tmux 在linux上是标配，提高在服务器的工作效率，建议�
 + https://github.com/shfshanyue/vim-config
 + https://github.com/shfshanyue/tmux-config
 
-![tmux](https://blog.xiange.tech/post/server-todo/tmux.png)
+![tmux](https://shanyue.tech/post/server-todo/tmux.png)
 
 ## 自动化运维
 
@@ -159,7 +159,7 @@ vim 和 tmux 在linux上是标配，提高在服务器的工作效率，建议�
 1. 在 grafana 找一个 star 多的 Dashboard
 2. 根据需要微改一下
 
-![grafana](https://blog.xiange.tech/post/server-todo/grafana.jpg)
+![grafana](https://shanyue.tech/post/server-todo/grafana.jpg)
 
 自从用上了时序数据库，我的磁盘空间也日渐缩小
 

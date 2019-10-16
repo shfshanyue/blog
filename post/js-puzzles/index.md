@@ -12,7 +12,7 @@ tags:
 
 <!--more-->
 
-本文地址: <https://blog.xiange.tech/post/js-puzzles/>
+本文地址: <https://shanyue.tech/post/js-puzzles/>
 
 ## types & grammer
 

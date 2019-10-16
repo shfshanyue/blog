@@ -5,7 +5,9 @@ menu: main
 
 ---
 
-喜欢亲近大自然，这里有我关于户外识花的一些科普 <https://shfshanyue.github.io/plant/>。
+## 兴趣
+
+喜欢户外活动，这里有我关于户外花草认识的一些科普 <https://shfshanyue.github.io/plant/>。
 
 也喜欢跑步，在夏天会在早上六点左右跑步，目前的跑量累计将近 1100 公里，尚有待提高。目前五公里最快时间是 `23:29`，十公里最快时间是 `51:53`，半马时间是 `1:56:26`。关于跑步列几个中短期目标
 
@@ -20,6 +22,12 @@ menu: main
 + [github](http://github.com/shfshanyue)
 + [掘金](https://juejin.im/user/56a34361816dfa005925a654)
 
+### 关注我
+
+欢迎关注公众号**山月行**，我会定期分享一些前后端以及运维的文章，并且会有技术与生活上的每日回顾与总结，欢迎关注交流
+
+![欢迎关注公众号山月行，在这里记录我的技术成长，欢迎交流](https://shanyue.tech/qrcode.jpg)
+
 ## 作品
 
 ### [诗词](https://shici.xiange.tech)
@@ -28,7 +36,7 @@ menu: main
 + [后端](https://code.xiange.tech/play/shici-server)
 + [后端脚手架](https://github.com/shfshanyue/apollo-server-starter)
 + [小程序](https://code.xiange.tech/play/shici-wx)
-+ [公众号](https://mp.weixin.qq.com/profile?src=3&timestamp=1565270413&ver=1&signature=UBV*xnkq*Sh9YQPA*S0qgUwHIM*2rHY*7HAg1W41977KaLIjSTmmzhti*2bIn3m8I-4PvXsJuzDXgc9aSWgiHA==)
++ 公众号: 诗词古文 (shiciguwen)
 + [~~flutter~~](https://github.com/shfshanyue/li_jing)
 
 ## 博客记录

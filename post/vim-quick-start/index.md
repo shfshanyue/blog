@@ -22,7 +22,7 @@ categories:
 
 <!--more-->
 
-原文链接见 [山月的博客](https://blog.xiange.tech/post/vim-quick-start/)
+原文链接见 [山月的博客](https://shanyue.tech/post/vim-quick-start/)
 
 ## 快速移动
 

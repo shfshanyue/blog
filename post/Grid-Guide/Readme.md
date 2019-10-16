@@ -9,7 +9,7 @@ categories:
   - 前端
 ---
 
-原文链接见 [山月的博客](https://blog.xiange.tech/post/grid-guide/readme/)
+原文链接 [山月的博客](https://shanyue.tech/post/grid-guide/readme/)
 
 [英文链接](https://css-tricks.com/snippets/css/complete-guide-grid/)
 

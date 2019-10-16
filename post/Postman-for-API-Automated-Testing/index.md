@@ -20,7 +20,7 @@ Postman 最基本的功能用来重放请求，并且配合良好的 `response` 
 
 <!--more-->
 
-原文链接见 [山月的博客](https://blog.xiange.tech/post/postman-for-api-automated-testing/)
+原文链接见 [山月的博客](https://shanyue.tech/post/postman-for-api-automated-testing/)
 
 ## Collection
 

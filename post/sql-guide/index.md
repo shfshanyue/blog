@@ -15,7 +15,7 @@ categories:
 
 目前手边的数据库是 mysql，所以以下示例均是由 mysql 演示。由于现在大部分工具都支持语法高亮，所以以下关键字都使用小写。
 
-> 原文链接见 <https://blog.xiange.tech/post/sql-guide/>
+> 原文链接见 <https://shanyue.tech/post/sql-guide/>
 
 ## 准备
 

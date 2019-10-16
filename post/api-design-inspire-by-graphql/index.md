@@ -22,7 +22,7 @@ tags:
 
 如果你对 graphql 不熟悉，可以先参考 [graphql 中文文档](http://graphql.cn/learn/)
 
-> 本文链接 [http://shanyue.tech/post/api-design-inspire-by-graphql/](https://blog.xiange.tech/post/api-design-inspire-by-graphql/)
+> 本文链接 [http://shanyue.tech/post/api-design-inspire-by-graphql/](https://shanyue.tech/post/api-design-inspire-by-graphql/)
 
 ## 对所有的资源返回 id
 

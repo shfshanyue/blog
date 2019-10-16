@@ -12,15 +12,15 @@ tags:
   - http
 ---
 
-> 本文地址 [http://shanyue.tech/post/a-problem-about-http-cache/](https://blog.xiange.tech/post/a-problem-about-http-cache/)
+> 本文地址 [http://shanyue.tech/post/a-problem-about-http-cache/](https://shanyue.tech/post/a-problem-about-http-cache/)
 
 ## 问题回顾
 
-前几天，写了一篇博客，[浏览器中的二进制](https://blog.xiange.tech/post/binary-in-frontend/)，其中总结了一张图。
+前几天，写了一篇博客，[浏览器中的二进制](https://shanyue.tech/post/binary-in-frontend/)，其中总结了一张图。
 
 <!--more-->
 
-![前端中二进制的转换](https://blog.xiange.tech/post/binary-in-frontend/transform.jpg)
+![前端中二进制的转换](https://shanyue.tech/post/binary-in-frontend/transform.jpg)
 
 后来，我对图片做了一些更改，又发布了上去。这时候问题出现了，图片没有更新！
 
@@ -74,7 +74,7 @@ services:
       context: .
     restart: always
     labels:
-      - "traefik.frontend.rule=Host:blog.xiange.tech"
+      - "traefik.frontend.rule=Host:shanyue.tech"
       - "traefik.frontend.headers.customResponseHeaders=Cache-Control:no-cache"
 ```
 
@@ -86,7 +86,7 @@ services:
 
 > 图片总结如下，参考谷歌开发者文档 https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching#defining_optimal_cache-control_policy
 
-![如何设置资源的缓存策略](https://blog.xiange.tech/post/a-problem-about-http-cache/http-cache-hierarchy.png)
+![如何设置资源的缓存策略](https://shanyue.tech/post/a-problem-about-http-cache/http-cache-hierarchy.png)
 
 而我的缓存策略简单总结如下
 
