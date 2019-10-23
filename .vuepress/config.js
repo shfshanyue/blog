@@ -48,7 +48,7 @@ module.exports = {
             ['ssh-setting', 'ssh key 以及 git 配置'],
             ['system-info', 'linux 基础信息查看及命令'],
             ['vim-setting', 'vim 及其熟练使用'],
-            ['tmux-setting', 'tmux 安装，配置及其使用'],
+            ['tmux-setting', '窗口复用与 tmux'],
             ['vpn-config', 'openvpn 配置及内网安全'],
           ]
         },
