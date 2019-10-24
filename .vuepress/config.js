@@ -72,10 +72,10 @@ module.exports = {
         {
           title: '高频linux命令',
           children: [
-            ['linux-sed', 'sed'],
-            ['linux-awk', 'awk'],
-            ['jq', 'jq'],
-            ['iptables', 'iptables'],
+            ['linux-sed', 'sed命令及示例'],
+            ['linux-awk', 'awk命令及示例'],
+            ['jq', 'jq命令及示例'],
+            ['iptables', 'iptables命令及示例'],
             ['htop', 'htop'],
           ]
         }
