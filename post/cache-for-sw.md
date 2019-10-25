@@ -23,7 +23,7 @@ tags:
 
 使用缓存，我们都会关心浏览器会提供多达的存储空间，以下代码可以查看你的应用已使用了多少存储空间以及有多大的配额
 
-``` javascript
+```javascript
 navigator.storage.estimate().then(info => console.log(info.quota, info.usage))
 ```
 
@@ -45,7 +45,7 @@ navigator.storage.estimate().then(info => console.log(info.quota, info.usage))
 
 另外 `sw-precache-webpack-plugin` 生成 preCache 列表时，也会对 `/index.html` 添加上 `PUBLIC_PATH` 的前缀，需要替换掉，配置如下。其中 paths.appBuild 为 `webpackConfig.output.path`
 
-``` javascript
+```javascript
 {
   ...config,
   mergeStaticsConfig: true,
@@ -59,7 +59,7 @@ navigator.storage.estimate().then(info => console.log(info.quota, info.usage))
 
 关于 `stripPrefixMulti` ，可以查看 `sw-precache` 的文档，[sw-precache#stripprefixmulti-object](https://github.com/GoogleChromeLabs/sw-precache#stripprefixmulti-object)。主要是处理 precache 文件的前缀的，如以下 [源码](https://github.com/GoogleChromeLabs/sw-precache/blob/5.2.1/lib/sw-precache.js#L170)
 
-``` javascript
+```javascript
 // https://github.com/GoogleChromeLabs/sw-precache/blob/5.2.1/lib/sw-precache.js#L170
 var relativeUrl = fileAndSizeAndHash.file
   .replace(
@@ -75,7 +75,7 @@ var relativeUrl = fileAndSizeAndHash.file
 
 而 `sw-precache-webpack-plugin` 中已经对它做了一些处理，查看 [源码](https://github.com/goldhand/sw-precache-webpack-plugin/blob/v0.11.5/src/index.js#L119)
 
-``` javascript
+```javascript
 // https://github.com/goldhand/sw-precache-webpack-plugin/blob/v0.11.5/src/index.js#L119
 if (outputPath) {
   // strip the webpack config's output.path (replace for windows users)
@@ -85,7 +85,7 @@ if (outputPath) {
 
 它把 precache 文件列表的前缀全部替换为了 publicPath (即 webpackConfig.output.publicPath)，但是 `/index.html` 不能在 cdn 的路径上，所以需要特殊配置一下。
 
-``` javascript
+```javascript
 stripPrefixMulti: {
   [`${paths.appBuild}/index.html`]: '/index.html'
 }
@@ -93,7 +93,7 @@ stripPrefixMulti: {
 
 根据正则的短路原则，刚好可以把 index.html 给替换回来。
 
-``` javascript
+```javascript
 'hello, world'.replace(/(hello, world)|(hello)/, 'shanyue')    // shanyue
 ```
 
@@ -107,7 +107,7 @@ stripPrefixMulti: {
 
 以下代码是 `sw-precache-webpack-plugin` 的配置，动态缓存利用了 google 的 `sw-toolbox` 工具，它提供了如 workbox 一样的缓存策略。
 
-``` javascript
+```javascript
 {
   runtimeCaching: [{
     urlPattern: /api/,

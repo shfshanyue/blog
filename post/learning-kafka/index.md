@@ -72,7 +72,7 @@ CentOS
 
 kafka 依赖于 `java` 的环境，所以第一步先安装 JDK 和 JRE。
 
-``` shell
+```shell
 yum install java-1.8.0-openjdk
 yum install java-1.8.0-openjdk-devel
 ```
@@ -87,7 +87,7 @@ yum install java-1.8.0-openjdk-devel
 
 <https://mirrors.tuna.tsinghua.edu.cn/apache>
 
-``` shell
+```shell
 $ curl -O http://mirrors.shu.edu.cn/apache/kafka/2.2.0/kafka_2.12-2.2.0.tgz
 
 $ # 在国内可以使用以下镜像源
@@ -115,7 +115,7 @@ $ bin/kafka-server-start.sh config/server.properties
 
 你可以先试一试，`kafka-topics.sh --version`。
 
-``` shell
+```shell
 $ ./kafka-topics.sh --version
 2.2.0 (Commit:05fcfde8f69b0349)
 ```
@@ -140,7 +140,7 @@ $ ./kafka-topics.sh --version
 
 ### 创建 Topic
 
-``` shell
+```shell
 # 创建一个 Topic: test
 $ bin/kafka-topics.sh --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic test
 Created topic test.
@@ -154,7 +154,7 @@ test
 
 运行以下命令，从终端生产数据发布消息
 
-``` shell
+```shell
 $ bin/kafka-console-producer.sh --broker-list localhost:9092 --topic test
 hello
 world
@@ -162,7 +162,7 @@ world
 
 打开消费者，会从终端看到订阅的数据
 
-``` shell
+```shell
 $ bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test --from-beginning
 hello
 world
@@ -180,7 +180,7 @@ world
 ## 多 `Broker` 集群
 
 
-``` shell
+```shell
 bin/kafka-server-start.sh config/server.properties
 ```
 
@@ -190,7 +190,7 @@ bin/kafka-server-start.sh config/server.properties
 
 先复制出来两份文件，修改下部分属性，作为三个 broker 的配置文件进行启动，就可以有三个 broker 了
 
-``` shell
+```shell
 cp config/server.properties config/server-1.properties
 cp config/server.properties config/server-2.properties
 ```
@@ -203,7 +203,7 @@ cp config/server.properties config/server-2.properties
 
 以下是修改后的配置文件内容
 
-``` shell
+```shell
 $ cat config/server-1.properties
 ...
 broker.id=1
@@ -220,7 +220,7 @@ log.dirs=/tmp/kafka-logs-2
 
 接下来启动多个 broker
 
-``` shell
+```shell
 bin/kafka-server-start.sh config/server-1.properties &
 bin/kafka-server-start.sh config/server-2.properties &
 ```
@@ -231,7 +231,7 @@ bin/kafka-server-start.sh config/server-2.properties &
 
 现在有了三个 broker 的地址，现在创建 Topic 时指定 `Zookeeper` 地址。
 
-``` shell
+```shell
 $ bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 3 --partitions 1 --topic todo
 Error while executing topic command : Replication factor: 3 larger than available brokers: 2.
 [2019-04-11 15:27:28,265] ERROR org.apache.kafka.common.errors.InvalidReplicationFactorException: Replication factor: 3 larger than available brokers: 2.
@@ -240,7 +240,7 @@ Error while executing topic command : Replication factor: 3 larger than availabl
 
 原来是由于我的机器配置太差，内存不足以支持三个副本运行。
 
-``` shell
+```shell
 $ bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 2 --partitions 1 --topic todo
 Created topic todo.
 ```
@@ -255,7 +255,7 @@ TODO
 
 当为 Topic 使用了多个备份时，可以使用 `--describe` 查看信息
 
-``` shell
+```shell
 $ bin/kafka-topics.sh --describe --zookeeper localhost:2181 --topic todo
 Topic:todo    PartitionCount:1        ReplicationFactor:2     Configs:segment.bytes=1073741824
         Topic: todo2    Partition: 0    Leader: 0       Replicas: 0,1   Isr: 0,1
@@ -267,13 +267,13 @@ Topic:todo    PartitionCount:1        ReplicationFactor:2     Configs:segment.by
 
 ### 生产者/消费者
 
-``` shell
+```shell
 $ bin/kafka-console-producer.sh --broker-list localhost:9092 --topic todo
 hello
 world
 ```
 
-``` shell
+```shell
 $ bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --from-beginning --topic todo
 hello
 world
@@ -292,7 +292,7 @@ world
 
 以上无论是单节点还是多节点，我们都是用 Consumer 从终端中读取数据
 
-``` shell
+```shell
 bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --describe --group my-group
 ```
 
@@ -312,7 +312,7 @@ Exactly once——这正是人们想要的, 每一条消息只被传递一次.
 
 ### 查看版本号
 
-``` shell
+```shell
 $ bin/kafka-topics.sh --version
 2.2.0
 ```
@@ -321,7 +321,7 @@ $ bin/kafka-topics.sh --version
 
 `config/zookeeper.properties` 是 zookeeper 的配置文件
 
-``` shell
+```shell
 bin/zookeeper-server-start.sh config/zookeeper.properties
 ```
 
@@ -329,7 +329,7 @@ bin/zookeeper-server-start.sh config/zookeeper.properties
 
 `config/server.properties` 是 Kafka 的配置文件
 
-``` shell
+```shell
 bin/kafka-server-start.sh config/server.properties
 ```
 
@@ -342,7 +342,7 @@ bin/kafka-server-start.sh config/server.properties
 + `--replication-factor` 该 Topic 下的 partition 的备份数目
 + `--topic` 指定的 topic 名称
 
-``` shell
+```shell
 bin/kafka-topics.sh --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic test
 ```
 
@@ -350,7 +350,7 @@ bin/kafka-topics.sh --create --bootstrap-server localhost:9092 --replication-fac
 
 `__consumer_offsets` 为 `Kafka` 自动生成的，代表每个 consumer 的 offset。
 
-``` shell
+```shell
 $ bin/kafka-topics.sh --list --bootstrap-server localhost:9092
 __consumer_offsets
 test
@@ -362,7 +362,7 @@ test
 
 + `--broker-list` 指定broker的地址，此字段必须
 
-``` shell
+```shell
 $ bin/kafka-console-producer.sh --broker-list localhost:9092 --topic test
 hello
 world
@@ -372,7 +372,7 @@ world
 
 以下是使用 `console-consumer` 读取 `test` 中的数据
 
-``` shell
+```shell
 $ bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test --from-beginning
 hello
 world
@@ -380,7 +380,7 @@ world
 
 ### 查看 Consumer Group 列表
 
-``` shell
+```shell
 $ bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --list
 console-consumer-54112
 ```
@@ -389,7 +389,7 @@ console-consumer-54112
 
 可以查看组内的每个 Consumer 的 id 以及 offset
 
-``` shell
+```shell
 $ bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --describe --group console-consumer-54112
 TOPIC           PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID                                     HOST            CLIENT-ID
 todo            0          -               11              -               consumer-1-ab662bd3-60b3-4e97-829d-84f27a799f0d /192.168.1.214  consumer-1

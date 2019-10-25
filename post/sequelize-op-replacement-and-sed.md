@@ -15,7 +15,7 @@ tags:
 
 而 `operator` 主要用在查询条件中，用以生成查询条件，如
 
-``` javascript
+```javascript
 const where = {
   age: {
     $lte: 10 
@@ -32,7 +32,7 @@ const replaceWhere = {
 
 <!--more-->
 
-``` javascript
+```javascript
 const operatorsAliases = {
   $eq: Op.eq,
   $ne: Op.ne,
@@ -59,7 +59,7 @@ const operatorsAliases = {
 
 首先思考一个查询的 operator 会出现的位置，无外乎以下几种
 
-``` javascript
+```javascript
 where.age = { $lte: 10 }
 where.age.$lte = 10
 where.age['$lte'] = 10
@@ -67,7 +67,7 @@ where.age['$lte'] = 10
 
 另外，顺序很重要，从最具体到抽象的顺序如下
 
-``` javascript
+```javascript
 ['$lte', Op.lte],
 ['.$lte', [Op.lte]],
 ['$lte', [Op.lte]]
@@ -75,7 +75,7 @@ where.age['$lte'] = 10
 
 然后，按照顺序挨个替换就好了，但替换了几个知乎，我发现...我的耐心实在有限
 
-``` javascript
+```javascript
 > Object.keys(operatorsAliases).length
 34
 ```
@@ -90,21 +90,21 @@ where.age['$lte'] = 10
 
 恩，`sed` 替换的语法和 `vim` 简直一模一样，这告诉我们掌握 `vim` 多么重要...
 
-``` shell
+```shell
 $ echo hello | sed "s/hello/world/g"
 world
 ```
 
 根据上一部分所讲的规则，写一个 sed 文件 (replace.sed)，对示例(test.js)做一个测试
 
-``` sed
+```sed
 # replace.sed
 s/'$lte'/Op.lte/g
 s/.$lte/[Op.lte]/g
 s/$lte/[Op.lte]/g
 ```
 
-``` test.js
+```test.js
 where.age = { $lte: 10 }
 where.age.$lte = 10
 where.age['$lte'] = 10
@@ -112,7 +112,7 @@ where.age['$lte'] = 10
 
 做了简单的测试，输入以下命令，看起来工作地还不错
 
-``` shell
+```shell
 $ sed -f replace.sed test.js
 where.age = {[Op.lte]: 10 }
 where.age[Op.lte] = 10
@@ -121,7 +121,7 @@ where.age[Op.lte] = 10
 
 但是有 34 个 alias 需要替换，利用浏览器的控制台生成 sed 文件
 
-``` javascript
+```javascript
 > Object.keys(operatorsAliases).map(op => op.slice(1)).flatMap(op =>  [`s/'\$${op}\b'/Op.${op}/g`, `s/\.\$${op}\b/[Op.${op}]/g`, `s/\$${op}\b/[Op.${op}]/g`]).join('\n')
 s/'$eq'/Op.eq/g
 s/.$eq/[Op.eq]/g
@@ -151,7 +151,7 @@ s/$ne/[Op.ne]/g
 
 以上三个命令都不太好用。柳暗花明又一村，这里有一个更简单而又恰到好处的命令
 
-``` shell
+```shell
 git ls-files
 ```
 
@@ -159,13 +159,13 @@ git ls-files
 
 此时，shell 命令如下，-i 代表直接替换文件，`-i ""` 代表替换时文件名不添加后缀，为啥一定要写个空字符串，因为 MAC 下的 sed 命令就是如此丧心病狂。
 
-``` shell
+```shell
 $ sed -i "" -f replace.sed $(git ls-files)
 ```
 
 不过，这时候有新的问题产生了，在 `git diff` 时发现有一些模板中带有 `$index` ，也会被替换成 `[Op.in]dex`，这是不期望的结果
 
-``` shell
+```shell
 git checkout .
 ```
 
@@ -173,7 +173,7 @@ git checkout .
 
 使用 \b 匹配单词，完美解决问题。
 
-``` sed
+```sed
 s/'\$eq\b'/Op.eq/g
 s/\.\$eq\b/[Op.eq]/g
 s/\$eq\b/[Op.eq]/g
@@ -181,7 +181,7 @@ s/\$eq\b/[Op.eq]/g
 
 不过，在 MAC 下并不支持 `\b`，可以拿以下命令做个试验。这时候在 MAC 下需要安装 `gnu-sed`，终于把 MAC 下的 `sed` 命令替换掉了
 
-``` shell
+```shell
 $ echo "hello" | sed "s/\bhello\b/world/g"
 hello
 $ brew install gnu-sed
@@ -197,13 +197,13 @@ hello
 
 使用 js 生成新的 sed 命令
 
-``` javascript
+```javascript
 Object.keys(operatorsAliases).map(op => op.slice(1)).flatMap(op =>  [`s/'\\$${op}\\b'/Op.${op}/g`, `s/\\.\\$${op}\\b/[Op.${op}]/g`, `s/\\$${op}\\b/[Op.${op}]/g`]).join('\n')
 ```
 
 最后执行命令，成功替换全部字符
 
-``` shell
+```shell
 # -i 代表直接替换文件，-r 代表支持扩展的正则表达式
 $ gsed -i -r -f r.sed $(git ls-files| grep -v src/data)
 
@@ -215,7 +215,7 @@ $ git diff --shortstat
 
 项目使用的 `typescript`，最后编译出错。还有类似以下一种情况，手动改掉
 
-``` javascript
+```javascript
 const $or = {}
 const where = {
   $or
@@ -226,7 +226,7 @@ const where = {
 
 sed 文件如下
 
-``` sed
+```sed
 s/'\$eq\b'/Op.eq/g
 s/\.\$eq\b/[Op.eq]/g
 s/\$eq\b/[Op.eq]/g

@@ -12,7 +12,7 @@ categories:
 
 ## 01 Promise.map 与 并发控制
 
-``` javascript
+```javascript
 const CONCURRENCY = 100
 
 async function populatePoemsPage (page) {
@@ -43,7 +43,7 @@ async function populatePoemsPage (page) {
 
 ## 02 递归调用
 
-``` javascript
+```javascript
 const cache = new DataLoader(keys => redis.mget(keys))
 
 async function scan (cursor) {

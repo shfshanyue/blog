@@ -13,7 +13,7 @@ tags:
 
 wait for an I/O event on an epoll file descriptor.
 
-``` c
+```c
 #include <sys/epoll.h>
 
 int epoll_wait(int epfd, struct epoll_event *events, int maxevents, int timeout);
@@ -40,7 +40,7 @@ epoll_pwait(3, [{EPOLLIN, {u32=18, u64=18}}], 1024, 11749, NULL, 8)
 
 control interface for an epoll descriptor
 
-``` c
+```c
 #include <sys/epoll.h>
 
 int epoll_ctl(int epfd, int op, int fd, struct epoll_event *event);
@@ -54,7 +54,7 @@ epoll_ctl(3, EPOLL_CTL_ADD, 25, {EPOLLIN, {u32=25, u64=7575752952099373081}})  /
 
 accept a connection on a socket.
 
-``` c
+```c
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <sys/socket.h>
@@ -71,7 +71,7 @@ write to a file descriptor.
 
 也包括标准输出
 
-``` c
+```c
 #include <unistd.h>
 ssize_t write(int fd, const void *buf, size_t count);
 
@@ -83,7 +83,7 @@ write(26, "HTTP/1.1 200 OK\r\nX-Powered-By: E"..., 30514)         // 30514
 
 read from a file descriptor.
 
-``` c
+```c
 #include <unistd.h>
 ssize_t read(int fd, void *buf, size_t count);
 
@@ -92,7 +92,7 @@ read(26, "POST /graphql?query=ME HTTP/1"..., 65536)    // 1435
 
 ## futex
 
-``` c
+```c
 #include <linux/futex.h>
 #include <sys/time.h>
 
@@ -118,7 +118,7 @@ mprotect(0x38ae4f980000, 524288, PROT_READ|PROT_WRITE) // = 0
 
 get process identification
 
-``` c
+```c
 #include <sys/types.h>
 #include <unistd.h>
 
@@ -149,7 +149,7 @@ mmap(NULL, 286720, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) // 0x
 
 change data segment size.
 
-``` c
+```c
 #include <unistd.h>
 
 int brk(void *addr);
@@ -163,7 +163,7 @@ brk(NULL)                           // 0x36df000
 
 execute program.
 
-``` c
+```c
 #include <unistd.h>
 
 int execve(const char *filename, char *const argv[], char *const envp[]);

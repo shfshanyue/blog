@@ -6,7 +6,7 @@
 
 通过 url 解析获取 hostname
 
-``` javascript
+```javascript
 // 在浏览器环境中访问 location
 
 > location.host
@@ -20,7 +20,7 @@ https
 
 解析 hostname 对应的 IP 地址
 
-``` shell
+```shell
 $ dig shanyue.tech +short
 shanyue.netlify.com.
 206.189.89.118
@@ -38,7 +38,7 @@ $ dig shici.xiange.tech +short
 
 ## TCP
 
-``` shell
+```shell
 ```
 
 ## http
@@ -57,7 +57,7 @@ $ dig shici.xiange.tech +short
 
 ### ss
 
-``` shell
+```shell
 ```
 
 ### netstat

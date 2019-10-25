@@ -28,7 +28,7 @@ categories:
 
 <!--more-->
 
-``` javascript
+```javascript
 const gql = require('graphql-tag')
 
 const query = gql`
@@ -60,7 +60,7 @@ console.log(query)
 以下是 `graphql-tag` 的 ts 文件，可以根据核心 API 来分析其源码
 
 
-``` javascript
+```javascript
 export default function gql(literals: any, ...placeholders: any[]): any;
 export function resetCaches(): void;
 export function disableFragmentWarnings(): void;
@@ -72,7 +72,7 @@ export function disableFragmentWarnings(): void;
 
 为了简捷! 与加上括号 `gql('{ me }')` 完全一样。从代码以下看出它对传入的参数做了判断处理，直接取了字符串
 
-``` javascript
+```javascript
 function gql(/* arguments */) {
   var args = Array.prototype.slice.call(arguments);
 
@@ -91,7 +91,7 @@ function gql(/* arguments */) {
 
 至于模板字符串的处理，可以看以下示例
 
-``` javascript
+```javascript
 const f = x => x
 f`{ me }`           // ['{ me }']
 f(`{ me }`)         // '{ me }'
@@ -107,7 +107,7 @@ f(`{ me }`)         // '{ me }'
 1. 对 AST 进行一些简单的修剪 (比如去除 loc)
 1. 维护一个 string -> AST 的缓存
 
-``` javascript
+```javascript
 // 用作缓存，而不是使用了 lru，所以很有可能爆掉！！！所以他提供了 resetCache 这个函数
 var docCache = {}
 
@@ -140,7 +140,7 @@ function parseDocument(doc) {
 
 至于看它的主要功能是什么，除了看文档以外，更详细的信息可以在测试文件中找到，如下
 
-``` javascript
+```javascript
 it('parses single query and exports as default', () => {
   const jsSource = loader.call({ cacheable() {} }, `
     query Q1 { testQuery }
@@ -176,7 +176,7 @@ it('parses multiple queries through webpack loader', () => {
 
 这里截取了当 `require('query.gql')` 时，只有单文件的情况，代码如下
 
-``` javascript
+```javascript
 // 输入为文件内容，即 cat query.gql
 module.exports = function(source) {
   this.cacheable();

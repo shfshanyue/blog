@@ -37,7 +37,7 @@ tags:
 
 label 置于 input 后边，方便通过 `~` 与 `+` 选择器定位。
 
-``` pug
+```pug
 form
   .input-wrapper
     input[type="text"]
@@ -49,7 +49,7 @@ form
 
 CSS 代码如下，label 初始时通过绝对定位置于 input 的 placeholder 位置，input 获得焦点时的 label 的 CSS Selector 也很容易通过 `input:focus + label` 确定
 
-``` css
+```css
 label {
   /* 定位到input框中 */
   position: absolute;
@@ -78,7 +78,7 @@ input:focus + label {
 
 `pointer-events` 用来控制鼠标点击的行为，如果要实现透过 `label` 点击，可以设置该属性为 `none`。
 
-``` css
+```css
 label {
   pointer-events: none;
 }
@@ -110,11 +110,11 @@ label {
 
 用以下代码测试一下
 
-``` html
+```html
 <input type="text" id="input">
 ```
 
-``` javascript
+```javascript
 input.value // ''
 input.getAttribute('value') // null
 
@@ -141,7 +141,7 @@ input.getAttribute('value') // '4'
 
 思路很简单，同步 `input.value` 到 `input.getAttribute('value')`
 
-``` html
+```html
 <input onkeyup="this.setAttribute('value', this.value);" />
 ```
 
@@ -196,7 +196,7 @@ input.getAttribute('value') // '4'
 
 它有一个必要条件，`placeholder` 属性不能为空，如果实在不必要可以设置为空字符串
 
-``` html
+```html
 <input placeholder=" " />
 ```
 

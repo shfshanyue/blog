@@ -33,7 +33,7 @@ categories:
 + `key` 根据字、朝代、作者生成
 + `count` 代表该 `key` 出现的次数
 
-``` javascript
+```javascript
 // 使用 redis
 redis.incr(key, 1)
 
@@ -55,7 +55,7 @@ unlock(id)
 
 当每来一个关键字时，所要执行的 `SQL` 如下
 
-``` sql
+```sql
 begin;
 
 select key, count from cloud where key = $key;
@@ -73,7 +73,7 @@ commit;
 
 使用 `select for update` 加一个悲观锁解决问题
 
-``` sql
+```sql
 begin;
 
 -- 锁住该行，知道 commit/rollback
@@ -92,7 +92,7 @@ commit;
 
 ## TOP 500 
 
-``` sql
+```sql
 select array_to_string(array(select char from char_cloud GROUP BY char ORDER BY sum(count) desc limit 500), '')
 ```
 

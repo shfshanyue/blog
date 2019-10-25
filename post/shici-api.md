@@ -16,7 +16,7 @@ tags:
 
 ## 诗词
 
-``` gql
+```gql
 query POEMS {
   poems {
     id
@@ -59,7 +59,7 @@ query POEMS {
 
 ## 作者
 
-``` gql
+```gql
 query AUTHORS {
   authors {
     id
@@ -83,7 +83,7 @@ query AUTHORS {
 
 ## 名句
 
-``` gql
+```gql
 # 名句
 query PHRASES {
   phrases {
@@ -98,7 +98,7 @@ query PHRASES {
 
 ## 标签
 
-``` gql
+```gql
 query TAGS {
   tags {
     id

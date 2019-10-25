@@ -12,7 +12,7 @@ tags:
 
 `GET /users/:ID` 是一个非常典型的 REST API。最近在浏览我的应用时，经常会有
 
-``` shell
+```shell
 > GET /users/3 HTTP/1.1
 > Host: shanyue.tech
 > User-Agent: curl/7.54.0
@@ -34,7 +34,7 @@ tags:
 
 **对所有用户用户表 ID 的关联表设置外键，并且设置 `on update cascade`，使之当用户表 ID 发生变化时，关联表的 user_id 可以同步更新**
 
-``` sql
+```sql
 alter table todo add constraint todo_user_id_fkey foreign key (user_id) references users(id) on update cascade
 ```
 
@@ -44,7 +44,7 @@ alter table todo add constraint todo_user_id_fkey foreign key (user_id) referenc
 
 > 注意以下第一条 SQL 有问题
 
-``` sql
+```sql
 -- update users set id = id * 16 + (random() * 16)::integer + 10086
 update users set id = id * 16 + ceil(random() * 15) + 10086
 ```
@@ -53,7 +53,7 @@ update users set id = id * 16 + ceil(random() * 15) + 10086
 
 采用负负得正的方法避免主键冲突
 
-``` sql
+```sql
 update users set id = id * -16 - ceil(random() * 15) + 10086
 update users set id = -id
 ```
@@ -62,7 +62,7 @@ update users set id = -id
 
 当旧有数据清理完毕，新增数据也采用自增 16 的方式，这里需要熟悉 postgres 中 `Sequence` 的用户，见最后参考
 
-``` sql
+```sql
 > select currval('users_id_seq')
 currval
 16

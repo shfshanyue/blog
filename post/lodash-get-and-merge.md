@@ -31,7 +31,7 @@ categories:
 
 这时就需要一个 `get` 函数，使用 `get(a, 'b.c.d.e')` 简单清晰，并且容错性提高了很多。以下是需要通过的几个测试用例
 
-``` javascript
+```javascript
 get({ a: null }, 'a.b.c', 3)
 // output: 3
 
@@ -47,14 +47,14 @@ get({ a: [{ b: 1 }]}, 'a[0].b', 3)
 
 `path` 中也可能是数组的路径，全部转化成 `.` 运算符并组成数组
 
-``` javascript
+```javascript
 // a[3].b -> a.3.b
 const paths = path.replace(/\[(\d+)\]/g, '.$1').split('.')
 ```
 
 然后层层迭代属性即可，另外注意 `null` 与 `undefined` 取属性会报错，所以使用 `Object` 包装一下。
 
-``` javascript
+```javascript
 function get (source, path, defaultValue = undefined) {
   // a[3].b -> a.3.b
   const paths = path.replace(/\[(\d+)\]/g, '.$1').split('.')
@@ -74,7 +74,7 @@ function get (source, path, defaultValue = undefined) {
 
 `merge` 用来递归合并对象，相当于深层的 `Object.assign`。在 `graphql` 中会广泛用到 `merge`，如会经常使用 `merge` 来合并所有的 `resolver`，特别是 `Mutation` 如下示例
 
-``` javascript
+```javascript
 const rootResolver = {
   Query: {
   
@@ -105,7 +105,7 @@ const resolver = merge(rootResolver, userResolver)
 
 以下是一个关于个人主页信息的 Query，但是其中有一个字段 `dataNeedDelay3s` 会在服务器耗时许久，会因为此字段加大了用户的等待时间，造成不友好的用户体验。此时会把此字段单独拆掉，优先渲染其它个人信息。
 
-``` graphql
+```graphql
 query PROFILE {
   me {
     id
@@ -138,7 +138,7 @@ query PROFILE_TWO {
 
 这里讲述下如何实现 `merge`
 
-``` javascript
+```javascript
 function isObject (value) {
   const type = typeof value
   return value !== null && (type === 'object' || type === 'function')

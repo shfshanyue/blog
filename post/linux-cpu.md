@@ -32,7 +32,7 @@ htop 足以覆盖大多数指标，详细直接查看帮助即可。
 
 ## CPU 基本信息
 
-``` shell
+```shell
 cat /proc/cpuinfo
 cat /proc/stat
 ```
@@ -41,7 +41,7 @@ cat /proc/stat
 
 使用 `uptime` 和 `w` 可打印出系统过去 1, 5, 15 分钟内的平均负载
 
-``` shell
+```shell
 $ uptime
  19:28:49 up 290 days, 20:25,  1 user,  load average: 2.39, 2.64, 1.55
 $ w
@@ -62,7 +62,7 @@ root     pts/0    172.16.0.1    19:27    6.00s  0.05s  0.00s tmux a
 
 `CPU 利用率 = 1 - 空闲 CPU 时间(idle time) / 总 CPU 时间`
 
-``` shell
+```shell
 $ top
 %Cpu(s):  7.4 us,  2.3 sy,  0.0 ni, 90.1 id,  0.0 wa,  0.0 hi,  0.2 si,  0.0 st
 ```
@@ -78,7 +78,7 @@ $ top
 
 ## 系统调用
 
-``` shell
+```shell
 # 用来看一个进程所用到的系统调用
 $ strace -p 7477
 
@@ -93,7 +93,7 @@ $ strace -p 7477 -c
 
 ## 进程
 
-``` shell
+```shell
 # 查看 122 PID 进程
 $ ps 122
 
@@ -131,7 +131,7 @@ $ pstree 122 -sap
 + X    dead (should never be seen)
 + Z    defunct ("zombie") process, terminated but not reaped by its parent
 
-``` shell
+```shell
 # 第二行可以统计进程的状态信息
 $ top
 ...
@@ -141,7 +141,7 @@ Tasks: 214 total,   1 running, 210 sleeping,   0 stopped,   3 zombie
 
 ## 进程内存
 
-``` shell
+```shell
 # 查看 2579 PID 的内存
 # -O rss 代表附加 RSS 信息进行打印
 $ ps -O rss 2579
@@ -151,7 +151,7 @@ $ ps -O rss 2579
 
 ## 实时查看进程内存
 
-``` shell
+```shell
 # 查看 23097 PID 的内存信息，每隔一秒打印一次
 # -r: 查看进程的内存信息
 # -s: 查看进程的 stack 信息
@@ -182,7 +182,7 @@ Average:        0     23097      0.00      0.00  366424  95996   2.47    136    
 
 ## 页表与缺页异常
 
-``` shell
+```shell
 $ pidstat -s -p 23097 1 5
 ```
 
@@ -190,7 +190,7 @@ $ pidstat -s -p 23097 1 5
 
 ## 文件
 
-``` shell
+```shell
 # 列出打开的文件
 $ lsof
 COMMAND     PID   TID     USER   FD      TYPE             DEVICE    SIZE/OFF       NODE NAME
@@ -206,7 +206,7 @@ systemd       1           root  rtd       DIR              253,1        4096    
 
 换一个问题就是，**如何找出 docker 容器中的 pid 在宿主机对应的 pid**
 
-``` shell
+```shell
 # 容器环境
 # 已知该进程 PID 为 122
 # 在容器中找到对应 PID 的信息，在 /proc/$pid/sched 中包含宿主机的信息
@@ -215,7 +215,7 @@ node (7477, #threads: 7)
 ...
 ```
 
-``` shell
+```shell
 # 宿主机环境
 # 7477 就是对应的 global PID，在宿主机中可以找到
 # -p 代表指定 PID
@@ -229,7 +229,7 @@ root      7477  7161  0 Jul10 ?        00:00:38 node index.js
 
 换一个问题就是， **已知宿主机的 PID，如何找出对应的容器**
 
-``` shell
+```shell
 # 通过 docker inspect 查找到对应容器
 $ docker ps -q | xargs docker inspect --format '{{.State.Pid}}, {{.ID}}' | grep 22932
 
@@ -243,7 +243,7 @@ $ cat /etc/22932/cgroup
 
 ## SWAP
 
-``` shell
+```shell
 # 查找关于
 $ vmstat -s
 ```
@@ -252,7 +252,7 @@ $ vmstat -s
 
 ## inode
 
-``` shell
+```shell
 # -i: 打印 inode number
 $ ls -lahi
 ```
@@ -265,7 +265,7 @@ $ ls -lahi
 + 吞吐量: 代表单位时间内成功传输的数据量，单位为 b/s (KB/s, MB/s)
 + PPS: pck/s (Packet Per Second)，以网络包为单位的传输速率
 
-``` shell
+```shell
 # 查看网卡信息
 $ ifconfig eth0
 
@@ -285,7 +285,7 @@ Average:         eth0     18.60     14.60      1.45     18.02      0.00      0.0
 
 推荐使用 `ss`，不过 `netstat` 仍需要掌握，在特定条件 (docker 中) 有可能没有 `ss` 命令。
 
-``` shell
+```shell
 # -t TCP
 # -a 所有状态
 # -n 显示数字地址和端口号
@@ -302,7 +302,7 @@ tcp        0      0 :::80                   :::*                    LISTEN      
 
 ## 协议信息
 
-``` shell
+```shell
 # 展示对每个协议的统计信息
 $ netstat -s
 
@@ -328,6 +328,6 @@ $ netstat -tanp | grep ESTAB | wc -l
 
 ## PostgresSQL 的最大连接数
 
-``` sql
+```sql
 show max_connections;
 ```

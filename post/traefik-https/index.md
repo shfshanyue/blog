@@ -15,7 +15,7 @@ tags:
 
 ## 手动
 
-``` shell
+```shell
 ./certbot-auto certonly  -d *.xiange.tech -d *.shanyue.tech -d shanyue.tech -d xiange.tech --manual --preferred-challenges dns --server https://acme-v02.api.letsencrypt.org/directory
 ```
 
@@ -29,7 +29,7 @@ tags:
 
 ## 自动续期
 
-``` shell
+```shell
 ./certbot-auto  renew
 ```
 

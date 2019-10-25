@@ -126,7 +126,7 @@ tags:
 
 以下是常见的一些数据以及 SQL 操作，主要针对一些常量与主要业务
 
-``` sql
+```sql
 -- 了解用户量，必要时可以记住...
 select count(*) from users wehre is_deleted = false
 

@@ -25,7 +25,7 @@ categories:
 
 同样，`postgreSQL` 可以使用[pgcli](https://github.com/dbcli/pgcli)。
 
-``` shell
+```shell
 pip install -U mycli    # 默认你已经安装了pip
 pip install -U pgcli    # 默认你已经安装了pip
 ```
@@ -43,7 +43,7 @@ pip install -U pgcli    # 默认你已经安装了pip
 
 至于 pgcli 以及 mysql 的用法，你可以通过 `pgcli --help` 来获取帮助
 
-``` shell
+```shell
 $ pgcli -U postgres -h 172.0.0.1
 Server: PostgreSQL 10.5
 Version: 1.10.3
@@ -53,7 +53,7 @@ Home: http://pgcli.com
 postgres@172:postgres>
 ```
 
-``` shell
+```shell
 $ mycli -u root -h 172.0.0.1 -p $password
 Version: 1.12.0
 Chat: https://gitter.im/dbcli/mycli
@@ -67,7 +67,7 @@ Thanks to the contributor - Chris Anderton
 
 以下是 `postgres` 新建数据库的流程，`mysql` 同样
 
-``` shell
+```shell
 postgres@172:postgres> create database demo
 CREATE DATABASE
 Time: 0.891s
@@ -107,7 +107,7 @@ postgres@172:demo>
 
 如果你使用的是 `mysql`，执行以下 sql 语句生成数据
 
-``` sql
+```sql
 create table class (
   id int(11) not null auto_increment comment '班级id',
   name varchar(50) not null comment '班级名',
@@ -139,7 +139,7 @@ insert into student (name, age, sex, score, class_id) values ('林仙儿', 23, '
 
 如果你使用的是 `postgres`，执行以下 sql 语句生成数据
 
-``` sql
+```sql
 create table class (
   id serial not null,
   name varchar(50) not null,
@@ -220,7 +220,7 @@ insert into student (name, age, sex, score, class_id) values ('林仙儿', 23, '
 
 ### 检索数据
 
-``` sql
+```sql
 -- 检索单列
 select name from student;
 
@@ -244,7 +244,7 @@ select * from student limit 10 offset 1;
 默认排序是 `ASC`，所以一般升序的时候不需指定，降序的关键字是 `DESC`。
 使用 `B-Tree` 索引可以提高排序性能，但只限最左匹配。关于索引可以查看以下 [FAQ](#FAQ)。
 
-``` sql
+```sql
 -- 根据学号降序排列
 select * from student order by number desc;
 
@@ -257,7 +257,7 @@ select * from student order by score desc, name;
 
 数据筛选，或者数据过滤在 sql 中使用频率最高
 
-``` sql
+```sql
 -- 找到学号为1的学生
 select * from student where number = 1;
 
@@ -285,7 +285,7 @@ select * from student where class_id not in (1, 2);
 
 + CONCAT
 
-  ``` sql
+  ```sql
   select concat(name, '(', age, ')') as nameWithAge from student;
 
   select concat('hello', 'world') as helloworld;
@@ -293,7 +293,7 @@ select * from student where class_id not in (1, 2);
 
 + Math
 
-  ``` sql
+  ```sql
   select age - 18 as relativeAge from student;
 
   select 3 * 4 as n;
@@ -303,7 +303,7 @@ select * from student where class_id not in (1, 2);
 
 可以直接使用 `select` 调用函数
 
-``` sql
+```sql
 select now();
 select concat('hello', 'world');
 ```
@@ -312,7 +312,7 @@ select concat('hello', 'world');
 
 聚合函数，一些对数据进行汇总的函数，常见有 `COUNT`，`MIN`，`MAX`，`AVG`，`SUM` 五种。
 
-``` sql
+```sql
 -- 统计1班人数
 select count(*) from student where class_id = 1;
 ```
@@ -321,7 +321,7 @@ select count(*) from student where class_id = 1;
 
 使用 `group by` 进行数据分组，可以使用聚合函数对分组数据进行汇总，使用 `having` 对分组数据进行筛选。
 
-``` sql
+```sql
 -- 按照班级进行分组并统计各班人数
 select class_id, count(*) from student group by class_id;
 
@@ -331,7 +331,7 @@ select class_id, count(*) as cnt from student group by class_id having cnt > 3;
 
 ### 子查询
 
-``` sql
+```sql
 -- 列出软件工程班级中的学生
 select * from student where class_id in (
   select id from class where name = '软件工程'
@@ -343,7 +343,7 @@ select * from student where class_id in (
 虽然两个表拥有公共字段便可以创建联接，但是使用外键可以更好地保证数据完整性。比如当对一个学生插入一条不存在的班级的时候，便会插入失败。
 一般来说，联接比子查询拥有更好的性能。
 
-``` sql
+```sql
 -- 列出软件工程班级中的学生
 select * from student, class
 where student.class_id = class.id and class.name = '软件工程';
@@ -353,7 +353,7 @@ where student.class_id = class.id and class.name = '软件工程';
 
     内联接又叫等值联接。
 
-    ``` sql
+    ```sql
     -- 列出软件工程班级中的学生
     select * from student
     inner join class on student.class_id = class.id
@@ -364,7 +364,7 @@ where student.class_id = class.id and class.name = '软件工程';
 
     自连接就是相同的表进行联接
 
-    ``` sql
+    ```sql
     -- 列出与张三同一班级的学生
     select * from student s1
     inner join student s2 on s1.class_id = s2.class_id
@@ -375,7 +375,7 @@ where student.class_id = class.id and class.name = '软件工程';
 
     外联接分为 `left join` 与 `right join`，`left join` 指左侧永不会为 null，`right join` 指右侧永不会为 null。
 
-    ``` sql
+    ```sql
     -- 列出每个学生的班级，若没有班级则为null
     select name, class.name from student
     left join class on student.class_id = class.id;
@@ -387,7 +387,7 @@ where student.class_id = class.id and class.name = '软件工程';
 
 插入时可以不指定列名，不过严重依赖表中列的顺序关系，推荐指定列名插入数据，并且可以插入部分列。
 
-``` sql
+```sql
 -- 插入一条数据
 insert into student values(8, '陆小凤', 24, 1, 3);
 
@@ -401,14 +401,14 @@ insert into student(name, age, sex, class_id) values(9, '花无缺', 25, 1, 3);
 
 + 更新
 
-    ``` sql
+    ```sql
     -- 修改张三的班级
     update student set class_id = 2 where name = '张三';
     ```
 
 + 删除
 
-    ``` sql
+    ```sql
     -- 删除张三的数据
     delete from student where name = '张三';
   
@@ -421,7 +421,7 @@ insert into student(name, age, sex, class_id) values(9, '花无缺', 25, 1, 3);
 
 ### 创建表与更新表
 
-``` sql
+```sql
 -- 创建学生表，注意添加必要的注释
 create table student (
   id int(11) not null auto_increment comment '学生id',
@@ -452,7 +452,7 @@ drop table student;
 
 视图是一种虚拟的表，便于更好地在多个表中检索数据，视图也可以作写操作，不过最好作为只读。在需要多个表联接的时候可以使用视图。
 
-``` sql
+```sql
 create view v_student_with_classname as
 select student.name name, class.name class_name
 from student left join class
@@ -467,7 +467,7 @@ select * from v_student_with_classname;
 
     任意两行绝对没有相同的主键，且任一行不会有两个主键且主键绝不为空。使用主键可以加快索引。
   
-    ``` sql
+    ```sql
     alter table student add constraint primary key (id);
     ```
 
@@ -477,7 +477,7 @@ select * from v_student_with_classname;
     + 插入张三丰5班到student表中会失败，因为5班在class表中不存在。
     + class表删除3班会失败，因为陆小凤和楚留香还在3班。
 
-    ``` sql
+    ```sql
     alter table student add constraint foreign key (class_id) references class (id);
     ```
 
@@ -485,7 +485,7 @@ select * from v_student_with_classname;
 
     唯一索引保证该列值是唯一的，但可以允许有null。
   
-    ``` sql
+    ```sql
     alter table student add constraint unique key (name);
     ```
   
@@ -495,7 +495,7 @@ select * from v_student_with_classname;
   
     > 不过很可惜mysql不支持，可以使用**触发器**代替
   
-    ``` sql
+    ```sql
     alter table student add constraint check (age > 0);
     ```
   
@@ -503,7 +503,7 @@ select * from v_student_with_classname;
 
     索引可以更快地检索数据，但是降低了更新操作的性能。
   
-    ``` sql
+    ```sql
     create index index_on_student_name on student (name);
   
     alter table student add constraint key(name);
@@ -519,7 +519,7 @@ select * from v_student_with_classname;
 1. 数据约束，比如学生的年龄必须大于0
 2. hook，提供数据库级别的 hook
 
-``` sql
+```sql
 -- 创建触发器
 -- 比如mysql中没有check约束，可以使用创建触发器，当插入数据小于0时，置为0。
 create trigger reset_age before insert on student for each row
@@ -539,7 +539,7 @@ show triggers;
 
 存储过程可以视为一个函数，根据输入执行一系列的 sql 语句。存储过程也可以看做对一系列数据库操作的封装，一定程度上可以提高数据库的安全性。
 
-``` sql
+```sql
 -- 创建存储过程
 create procedure create_student(name varchar(50))
 begin
@@ -556,7 +556,7 @@ call create_student('shanyue');
 
 ### 1. 根据班级学生的分数进行排名，如果分数相等则为同一名次
 
-``` sql
+```sql
 select id, name, score, (
   select count(distinct score) from student s2 where s2.score >= s1.score
 ) as rank
@@ -579,7 +579,7 @@ from student s1 order by s1.score desc;
 
 ### 2. 写一个函数，获取第 N 高的分数
 
-``` sql
+```sql
 create function getNthHighestScore(N int) return int
 begin
   declare M int default N-1;
@@ -601,7 +601,7 @@ select getNthHighestScore(2);
 
 ### 3. 检索每个班级分数前两名学生，并显示排名
 
-``` sql
+```sql
 select class.id class_id, class.name class_name, s.name student_name, score, rank
 from (
   select *, (
@@ -639,7 +639,7 @@ order by s1.class_id, score desc;
 
 在mysql中，可以使用如下语法
 
-``` sql
+```sql
 update student, score_correct set student.score = score_correct.score where student.id = score_correct.uid;
 ```
 
@@ -656,7 +656,7 @@ update student, score_correct set student.score = score_correct.score where stud
 
 在mysql中，可以使用`group_concat`
 
-``` sql
+```sql
 select group_concat(name) from student;
 ```
 
@@ -666,7 +666,7 @@ select group_concat(name) from student;
 
 values 使用逗号相隔，可以插入多行数据
 
-``` sql
+```sql
 insert into student(id, name) values (), (), ()
 ```
 
@@ -676,7 +676,7 @@ insert into student(id, name) values (), (), ()
 
 示例，在student表中，查询所有人成绩，小于60则显示为0
 
-``` sql
+```sql
 select id, name, if(score < 60, 0, score) score from student;
 ```
 
@@ -684,7 +684,7 @@ select id, name, if(score < 60, 0, score) score from student;
 
 姓名与班级唯一，找到姓名与班级的重复项，检索重复次数与id
 
-``` sql
+```sql
 select name, class_id, group_concat(id), count(*) times from student
 group by name, class_id
 having times > 1;
@@ -698,7 +698,7 @@ having times > 1;
 
 姓名与班级唯一，删除重复项，只保留首项
 
-``` sql
+```sql
 # mysql 就简单很多
 delete s1 from student s1, student s2
 where s1.name = s2.name and s1.sex = s2.sex and s1.id > s2.id;
@@ -710,13 +710,13 @@ where s1.name = s2.name and s1.sex = s2.sex and s1.id > s2.id;
 
 如有一条查询语句为
 
-``` js
+```js
 "select * from (" + table + ");"
 ```
 
 当table取值 `student); drop table student; --` 时，语句变为了，会删掉表，造成攻击。
 
-``` js
+```js
 "select * from (student); drop table student; --);"
 ```
 

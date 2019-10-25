@@ -33,7 +33,7 @@ tags:
 1. 使用 `requestId` 标记每次请求全链路日志，所要标记的日志种类如上所示
 1. 通过把 `X-Request-Id` (X-Session-Id) 标记在请求头中，在整个链路进行传递
 
-``` typescript
+```typescript
 async function context (ctx: KoaContext, next: any) {
   const requestId = ctx.header['x-request-id'] || uuid()
   ctx.res.setHeader('requestId', requestId)
@@ -58,7 +58,7 @@ app.use('/todos/:id', (ctx) => {
 
 这里使用了流行的日志库 [winston (13582 Star)](https://github.com/winstonjs/winston)
 
-``` typescript
+```typescript
 import winston, { format } from 'winston'
 
 const requestId = format((info) => {
@@ -84,7 +84,7 @@ const logger = winston.createLogger({
 
 具体代码可见 [session.ts](https://github.com/shfshanyue/apollo-server-starter/blob/master/lib/session.ts)
 
-``` javascript
+```javascript
 import { createNamespace } from 'cls-hooked'
 
 const session = createNamespace('hello, world')

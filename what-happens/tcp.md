@@ -7,7 +7,7 @@
 
 在本地(客户端)查看建立好的连接:
 
-``` shell
+```shell
 # 打印头部信息
 $ netstat -tan | sed -n 2p
 Proto Recv-Q Send-Q  Local Address          Foreign Address        (state)
@@ -18,7 +18,7 @@ tcp4       0      0  172.16.12.207.49239    59.110.216.155.443     ESTABLISHED
 
 在云主机上(服务端)查看建立好的连接:
 
-``` shell
+```shell
 $ netstat -tan | grep 124.200
 ```
 

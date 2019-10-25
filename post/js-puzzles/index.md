@@ -18,7 +18,7 @@ tags:
 
 1. 判断以下结果
 
-    ``` js
+    ```js
     var s = 'abc';
     s[1] = 'B';
 
@@ -43,14 +43,14 @@ tags:
 
 1. 判断以下结果，为什么会出现这样的情况，如何做出正确的比较？
 
-    ``` js
+    ```js
     0.1 + 0.2 === 0.3;
     0.8 - 0.6 === 0.2;
     ```
 
     > 浮点数根据 IEEE 754 标准存储64 bit 双精度，能够表示 2^64 个数，而浮点数是无穷的，代表有些浮点数必会有精度的损失，0.1，0.2 表示为二进制会有精度的损失。比较时引入一个很小的数值 `Number.EPSILON` 容忍误差，其值为 `2^-52`。
     >
-    > ``` js
+    > ```js
     > function equal (a, b) {
     >   return Math.abs(a - b) < Number.EPSILON
     > }
@@ -61,7 +61,7 @@ tags:
 
 1. 如何判断一个数值为整数？
 
-    > ``` js
+    > ```js
     > // ES6
     > Number.isInteger(num);
     > 
@@ -78,7 +78,7 @@ tags:
 
 1. 如何判断一个数值为 +0？
 
-    > ``` js
+    > ```js
     > function isPosZero (n) {
     >   return n === 0 && 1 / n === Infinity
     > }
@@ -92,7 +92,7 @@ tags:
 
 1. 判断以下结果 (Boxing Wrappers)
 
-    ``` js
+    ```js
     function foo() {
       console.log(this)
     }
@@ -104,7 +104,7 @@ tags:
 
 1. 判断以下结果
 
-    ``` javascript
+    ```javascript
     Array.isArray(Array.prototype)
     ```
 
@@ -114,7 +114,7 @@ tags:
 
 1. 判断以下结果
 
-    ``` js
+    ```js
     Boolean(new Boolean(false));
     Boolean(document.all);
 
@@ -138,7 +138,7 @@ tags:
 
 1. 找出以下代码问题 (TDZ)
 
-    ``` js
+    ```js
     var a = 3;
     let a;
     ```
@@ -147,7 +147,7 @@ tags:
 
 1. 找出以下代码问题 (TDZ)
 
-    ``` js
+    ```js
     var x = 3;
 
     function foo (x=x) {
@@ -165,7 +165,7 @@ tags:
 
 2. 判断以下结果 (Lexical Scope)
 
-    ``` javascript
+    ```javascript
     var scope = 'global scope';
     function checkScope () {
       var scope = 'local scope';
@@ -184,7 +184,7 @@ tags:
 
 1. 判断以下结果 (Hoisting)
 
-    ``` js
+    ```js
     console.log(a);
     var a = 3;
     ```
@@ -193,7 +193,7 @@ tags:
     >
     > 以上代码会被编译器理解为
     >
-    > ``` js
+    > ```js
     > var a;
     > console.log(a);
     > a = 3;
@@ -201,7 +201,7 @@ tags:
 
 1. 判断以下结果 (Function First)
 
-    ``` javascript
+    ```javascript
     var foo = 1;
     function foo () {
 
@@ -213,7 +213,7 @@ tags:
 
 1. 判断以下结果 (IIFE & Function First)
 
-    ``` javascript
+    ```javascript
     var foo = 1;
     (function () {
       foo = 2;
@@ -229,7 +229,7 @@ tags:
     >
     > 以上代码会被编译器理解为如下形式
     >
-    > ``` javascript
+    > ```javascript
     > var foo = 1;
     > (function () {
     >   var foo;
@@ -245,7 +245,7 @@ tags:
 
 1. 判断以下结果，如何按序输出 (Closure)
 
-    ``` js
+    ```js
     for (var i = 0; i < 10; i++) {
       setTimeout(function () {
         console.log(i);
@@ -261,7 +261,7 @@ tags:
 
 1. 判断以下结果 (Default Binding)
 
-    ``` js
+    ```js
     function foo() {
       "use strict";
       console.log( this.a );
@@ -276,7 +276,7 @@ tags:
 
 1. 判断以下结果
 
-    ``` js
+    ```js
     "use strict";
     var a = 2;
     let b = 3;
@@ -290,7 +290,7 @@ tags:
 
 1. 判断以下结果 (Strict Mode & Default Binding)
 
-    ``` js
+    ```js
     function foo() {
       console.log( this.a );
     }
@@ -310,7 +310,7 @@ tags:
 
 1. 判断以下结果 (Hard Binding)
 
-    ``` js
+    ```js
     function foo () {
       console.log(this.a);
     }
@@ -329,7 +329,7 @@ tags:
 
     > bind 为硬绑定，softBind 可以多次绑定 this。大致实现代码如下。bind 第二个参数可以预设函数参数，所以，bind 也是一个偏函数。另外，bind 也需要考虑 `new ` 的情况。**但以下示例主要集中在硬绑定和软绑定的差异之上。**
     >
-    > ``` js
+    > ```js
     > Function.prototype.fakeBind = function (obj) {
     >   var self = this;
     >   return function () {
@@ -347,7 +347,7 @@ tags:
 
 1. `new` 的过程中发生了什么，判断以下结果 (new)
 
-    ``` js
+    ```js
     function F () {
       this.a = 3;
       return {
@@ -382,7 +382,7 @@ tags:
     > + set
     > + get
     > 另外，也可以通过字面量的形式表示访问器描述符
-    > ``` js
+    > ```js
     > const obj = {
     >   get a() {},
     >   set a(val) {}
@@ -421,7 +421,7 @@ tags:
 
     > 在 ES6 时代可以简单的通过 class & extends 实现继承，ES5 时代用如下方法
     >
-    > ``` js
+    > ```js
     > function A () {}
     > 
     > function B () {
@@ -437,7 +437,7 @@ tags:
 
     > 至于为什么在继承的时候不推荐`new`，原因在于你很难保证 A 是一个纯函数，比如它会有自身属性，有可能操作 DOM 等。以下是一个简单版本的实现，省略了第二个参数。
     >
-    > ``` js
+    > ```js
     > Object.create = function (o) {
     >   function F() {}
     >   F.prototype = o;

@@ -11,7 +11,7 @@ tags:
 
 **今天在解压一个压缩包时解压失败，以下是命令以及失败提示**
 
-``` shell
+```shell
 $ curl -O https://github.com/alibaba/canal/releases/download/canal-1.1.3/canal.deployer-1.1.3.tar.gz
 $ tar -zxvf canal.deployer-1.1.3.tar.gz
 
@@ -34,7 +34,7 @@ tar: Error is not recoverable: exiting now
 
 首先，先使用 `file` 查看下文件的类型
 
-``` shell
+```shell
 $ file canal.deployer-1.1.3.tar.gz
 canal.deployer-1.1.3.tar.gz: HTML document, ASCII text, with very long lines, with no line terminators
 ```
@@ -53,7 +53,7 @@ canal.deployer-1.1.3.tar.gz: HTML document, ASCII text, with very long lines, wi
 
 当我意识到文件有问题时，觉得应该从文件源找出问题。文件是通过 `curl` 下载而来，我添加了 `-v` 参数用来查看 http 详细的报文。
 
-``` shell
+```shell
 $ curl -Ov https://github.com/alibaba/canal/releases/download/canal-1.1.3/canal.deployer-1.1.3.tar.gz
 ...
 > User-Agent: curl/7.29.0
@@ -70,14 +70,14 @@ $ curl -Ov https://github.com/alibaba/canal/releases/download/canal-1.1.3/canal.
 
 为了验证一下，我查看了压缩包的内容。
 
-``` shell
+```shell
 $ cat canal.deployer-1.1.3.tar.gz
 <html><body>You are being <a href="https://github-production-release-asset-2e65be.s3.amazonaws.com/7587038/6df81900-56c6-11e9-8140-7d9ae25b1ca8?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20190412%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20190412T132310Z&amp;X-Amz-Expires=300&amp;X-Amz-Signature=3cb0943449b8d86bf6292b399409fddfa9fbef1c646c20910f10ae7fe836e53e&amp;X-Amz-SignedHeaders=host&amp;actor_id=0&amp;response-content-disposition=attachment%3B%20filename%3Dcanal.deployer-1.1.3.tar.gz&amp;response-content-type=application%2Foctet-stream">redirected</a>.</body></html>
 ```
 
 **果然如此，我突然意识到在刚开始 `curl` 成功后根据 `Received` 的大小就可以定位到问题了。不过我一般自动忽略 `curl` 的输出，而且当下载东西的时候，我一般就切窗口了...**
 
-``` shell
+```shell
 # 接收到的文件只有 616 个字节大小
 $ curl -O https://github.com/alibaba/canal/releases/download/canal-1.1.3/canal.deployer-1.1.3.tar.gz
 % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -91,7 +91,7 @@ $ curl -O https://github.com/alibaba/canal/releases/download/canal-1.1.3/canal.d
 
 找到 `curl` 追踪重定向的参数，重新下载问题解决。
 
-``` shell
+```shell
 # 找到参数为 -L
 $ curl --help | grep -e follow -e redirect
 -L, --location      Follow redirects (H)

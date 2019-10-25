@@ -14,7 +14,7 @@ tags:
 
 <!--more-->
 
-``` shell
+```shell
 curl -O http://mirrors.tuna.tsinghua.edu.cn/apache/spark/spark-2.4.1/spark-2.4.1-bin-hadoop2.7.tgz
 tar -zxvf spark-2.4.1-bin-hadoop2.7.tgz
 cd spark-2.4.1-bin-hadoop2.7
@@ -24,7 +24,7 @@ cd spark-2.4.1-bin-hadoop2.7
 
 在当前路径下，使用命令 `bin/spark-shell` 进入 spark-shell
 
-``` shell
+```shell
 $ bin/spark-shell
 19/04/15 15:38:15 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
 Using Spark's default log4j profile: org/apache/spark/log4j-defaults.properties
@@ -60,7 +60,7 @@ scala>
 
 `Dataset` 大多通过读取文件来创造，这里将演示基于文件的 `Dataset` 操作，而文件 `README.md` 的内容可以在这个地址进行查看 <https://github.com/apache/spark/blob/v2.4.1/README.md>
 
-``` scala
+```scala
 // 通过读取文件新建一个 Dataset
 scala> val textFile = spark.read.textFile("README.md")
 textFile: org.apache.spark.sql.Dataset[String] = [value: string]
@@ -68,7 +68,7 @@ textFile: org.apache.spark.sql.Dataset[String] = [value: string]
 
 另外 Dataset 既然是一种 `Collection`，也可以通过 `List` 进行创建
 
-``` scala
+```scala
 scala> spark.createDataset(List(1, 2, 3, 4, 5))
 ```
 
@@ -78,7 +78,7 @@ scala> spark.createDataset(List(1, 2, 3, 4, 5))
 
 现在已经构建了一个 Dataset，但是我们现在对其中的数据不知所措，那如何查看其中内容和一些描述以及统计信息呢？通过 `Action` 可以对 `Dataset` 进行计算
 
-``` scala
+```scala
 // 查看 Dataset 中的内容
 scala> textFile.show
 +--------------------+
@@ -113,7 +113,7 @@ scala> textFile.describe().show()
 
 以下是 `Dataset` 的一些常规操作
 
-``` scala
+```scala
 // DataSet 中的items个数，在此即文件的行数
 scala> textFile.count()
 res5: Long = 105
@@ -137,14 +137,14 @@ res8: java.util.List[String] = [# Apache Spark, , Spark is a fast and general cl
 
 `map` 对 `Dataset` 中的每一项进行转化，并组合成一个新的 `Dataset`。
 
-``` scala
+```scala
 scala> textFile.map(line => line.split(" ").size)
 res14: org.apache.spark.sql.Dataset[Int] = [value: int]
 ```
 
 `filter` 对 `Dataset` 进行筛选
 
-``` scala
+```scala
 scala> textFile.filter(line => line.split(" ").size > 10).count()
 res20: Long = 22
 ```
@@ -153,7 +153,7 @@ res20: Long = 22
 
 `RDD` 是可以并行计算的数据集，可以通过 `parallelize` 操作直接创建。也可以通过 `HDFS`，`HBase` 或者本地的文件系统进行创建。
 
-``` scala
+```scala
 scala> var data = Array(1, 2, 3, 4, 5)
 data: Array[Int] = Array(1, 2, 3, 4, 5)
 
@@ -166,7 +166,7 @@ lines: org.apache.spark.rdd.RDD[String] = ./README.md MapPartitionsRDD[6] at tex
 
 `RDD` 如同 `Dataset` 一样也有两种操作方式，`Transformation` 与 `Action`。
 
-``` scala
+```scala
 scala> lines.map(x => x.length)
 res12: org.apache.spark.rdd.RDD[Int] = MapPartitionsRDD[8] at map at <console>:26
 
@@ -188,7 +188,7 @@ scala> lines.map(x => x.length).foreach(println)
 
 > 当然，scala 更鼓励声明式的写法，而非这样命名式的写法
 
-``` scala
+```scala
 var counter = 0
 var rdd = sc.parallelize(Array(1, 2, 3, 4, 5))
 
@@ -199,7 +199,7 @@ println(counter)
 
 `spark` 会把 RDD 的操作即以上的 `foreach` 分割为 `tasks`，而每个 `task` 被执行器执行。在执行器执行以前，会计算 `task` 的闭包
 
-``` scala
+```scala
 ```
 
 总之，你不要在局部方法内修改全局变量。
@@ -208,7 +208,7 @@ println(counter)
 
 在 `spark` 中使用 `Tuple2` 作为存储 k/v 对的数据结构，`Tuple2` 的意思就是含有两个元素的 `tuple`。
 
-``` spark
+```spark
 var rdd = sc.parallelize(Array(1, 2, 3, 4, 5))
 var pairs = rdd.map(x => (if (x > 3) 10 else 1, x))
 pairs.foreach(println)
@@ -244,7 +244,7 @@ pairs.keys.foreach(println)
 
 > 查看文件的内容如下，严格来说不是合法的 json，并且以下内容必须一行为单位，每行是一个 JSON。严格来说，它的格式是 JSON Lines，参考文档 <http://jsonlines.org/>，是日志处理中常见的格式。
 
-``` json
+```json
 {"name":"Michael"}
 {"name":"Andy", "age":30}
 {"name":"Justin", "age":19}
@@ -256,7 +256,7 @@ pairs.keys.foreach(println)
 + `df.printSchema`
 + `df.select`
 
-``` scala
+```scala
 scala> val df = spark.read.json("examples/src/main/resources/people.json")
 df: org.apache.spark.sql.DataFrame = [age: bigint, name: string]
 

@@ -43,7 +43,7 @@ tags:
 + Int16Array
 + ...
 
-``` javascript
+```javascript
 const array = new Int8Array([1, 2, 3])
 
 // .length 代表数据大小
@@ -56,7 +56,7 @@ array.byteLength
 
 `ArrayBuffer` 代表二进制数据结构，**只读**。需要转化为 `TypedArray` 进行操作。
 
-``` javascript
+```javascript
 const array = new Int16Array([1, 2, 3])
 
 // TypedArray -> ArrayBuffer
@@ -75,14 +75,14 @@ array.buffer.length === array.byteLength
 
 > 可以参考 MDN 文档：https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/set
 
-``` javascript
+```javascript
 // 在位移 offset 位置放置 typedarray
 typedarray.set(typedarray, offset)
 ```
 
 原理就是先分配一块空间足以容纳需要连接的 `TypedArray`，然后逐一在对应位置叠加
 
-``` javascript
+```javascript
 function concatenate(constructor, ...arrays) {
   let length = 0;
   for (let arr of arrays) {
@@ -113,7 +113,7 @@ concatenate(Uint8Array, new Uint8Array([1, 2, 3]), new Uint8Array([4, 5, 6]))
 + FileReader.prototype.readAsDataURL
 + FileReader.prototype.readAsBinaryString
 
-``` javascript
+```javascript
 const blob = new Blob('hello'.split(''))
 
 // 表示文件的大小
@@ -155,7 +155,7 @@ readBlob(blob, 'DataURL').then(url => console.log(url))
 
 > 详情可以查看MDN文档 https://developer.mozilla.org/en-US/docs/Web/API/Response
 
-``` javascript
+```javascript
 fetch('/api/ping').then(res => {
   // true
   console.log(res instanceof Response)
@@ -178,7 +178,7 @@ fetch('/api/ping').then(res => {
 
 **xhr 可以设置 responseType 接收合适的数据类型**
 
-``` javascript
+```javascript
 const request = new XMLHttpRequest()
 request.responseType = 'arraybuffer'
 request.responseType = 'blob'
@@ -188,7 +188,7 @@ request.responseType = 'blob'
 
 本地文件可以通过 `input[type=file]` 来上传文件。
 
-``` html
+```html
 <input type="file" id="input">
 ```
 
@@ -218,7 +218,7 @@ Base64 使用大小写字母，数字，+ 和 / 64 个字符来编码数据，�
 
 在浏览器中，可以使用 `atob` 和 `btoa` 编码解码数据。
 
-``` javascript
+```javascript
 // aGVsbG8=
 btoa('hello')
 ```
@@ -227,7 +227,7 @@ btoa('hello')
 
 可以使用浏览器新的API `URL` 对象生成一个地址来表示 `Blob` 数据。
 
-``` javascript
+```javascript
 // 粘贴生成的地址，可以访问到 hello, world
 // blob:http://host/27254c37-db7a-4f2f-8861-0cf9aec89a64
 URL.createObjectURL(new Blob('hello, world'.split('')))
@@ -241,7 +241,7 @@ URL.createObjectURL(new Blob('hello, world'.split('')))
 
 这里也简单写一个函数，用来下载一个链接
 
-``` javascript
+```javascript
 function download (url, name) {
   const a = document.createElement('a')
   a.download = name
@@ -265,7 +265,7 @@ function download (url, name) {
 
 关于代码中的函数 `readBlob` 可以回翻环节 [数据类型 - Blob](https://shanyue.tech/post/binary-in-frontend/#blob)
 
-``` javascript
+```javascript
 const name = '山月'
 const blob = new Blob(name.split(''))
 
@@ -274,7 +274,7 @@ readBlob(blob, 'ArrayBuffer').then(buffer => new Uint8Array(buffer))
 
 也可以通过 Response API 直接转换 **String -> ArrayBuffer -> TypedArray**
 
-``` javascript
+```javascript
 const name = '山月'
 
 new Response(name).arrayBuffer(buffer => new Uint8Array(buffer))
@@ -286,7 +286,7 @@ new Response(name).arrayBuffer(buffer => new Uint8Array(buffer))
 
 使用 enodeURIComponent 把字符串转化为 utf8，再进行构造 TypedArray。
 
-``` javascript
+```javascript
 function stringToTypedArray(s) {
   const str = encodeURIComponent(s)
   const binstr = str.replace(/%([0-9A-F]{2})/g, (_, p1) => {
@@ -322,7 +322,7 @@ json 视为字符串，由以上整理的转换图得出途径
 
 可以把以下代码直接粘贴到控制台下载文件
 
-``` javascript
+```javascript
 const json = {
   a: 3,
   b: 4,

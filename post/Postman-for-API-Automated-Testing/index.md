@@ -51,7 +51,7 @@ postman 自动生成文档有助于团队协作，解决了手动写文档，以
 
 对于 POST 以及 PUT 请求，如果 Content-Type 是 `form-data` 或者 `x-www-form-urlencoded` 可以添加描述生成文档。不过如今传递 json 更方便灵活，所以 `application/json` 也会有很多，而且 json 又是不能添加注释的。如果需要对 json 添加文档说明的话，可以添加冗余字段 `_{key}.comment` 标明注释
 
-``` javascript
+```javascript
 {
   "id": 128,
   "_id.comment": "id",
@@ -82,7 +82,7 @@ postman 内置了一些[第三方库](https://www.getpostman.com/docs/postman/sc
 
 postman 也有一些 http 相关的测试 API，如 status code，header, body，并且也提供了一些 snippets。
 
-``` javascript
+```javascript
 // 响应成功
 pm.test('Status code is 200', () => {
   pm.response.to.have.status(200)
@@ -106,7 +106,7 @@ pm.test('Page is 100', () => {
 
 建议对所有 GET 响应进行 json-schema 校验，一来校验数据，二来也可以作为文档使用，使用 [tv4](https://github.com/geraintluff/tv4) 校验 json
 
-``` javascript
+```javascript
 pm.test("User info", () => {
   const jsonData = pm.response.json()
   const schema = {
@@ -136,7 +136,7 @@ pm.test("User info", () => {
 
 同样对于请求也可以添加 json 校验，不过更复杂一些，因为 postman 没有直接给出获取全部请求参数的api，需要自己解析和计算
 
-``` javascript
+```javascript
 // 获取 application/json 中的数据
 const json = JSON.stringify(pm.request.body.raw)
 
@@ -161,7 +161,7 @@ const qs = pm.request.url.query.toObject()
 
 一个经典的场景，根据 filter 来筛选符合条件的列表。拿用户列表举例，伪代码如下
 
-``` javascript
+```javascript
 const url = '/api/users'
 const query = {
   name: 'san',
@@ -174,7 +174,7 @@ const sql = `select * from users where name = ${query.name} and age = ${query.ag
 
 一个思路是根据请求的参数进行测试，一段重要的 snipet 是在 postman 中获取 querystring，query 是一种 `PropertyList` 的数据，定义在 [postman-collection - PropertyList](http://www.postmanlabs.com/postman-collection/PropertyList.html)。如下
 
-``` javascript
+```javascript
 const name = pm.request.url.query.get('name')
 const age = pm.request.url.query.get('age')
 
@@ -196,7 +196,7 @@ if (age) {
 
 当然以上 filter 只包含了最简单的场景，其中只涉及到了相等测试。但是有不等以及包含关系呢。
 
-``` javascript
+```javascript
 const query = {
   name: 'san',
   age: 12,
@@ -213,7 +213,7 @@ const sql = `select * from users where name like ${query.name} and age < ${query
 
 > [graphql](http://graphql.org/) 是相当酷的，值得尝试一下
 
-``` javascript
+```javascript
 const query = {
   name: {
     $like: 'san' 
@@ -250,7 +250,7 @@ data 是一种变量，只能在 Runner 中使用，有必要对每个 Folder �
 
 一个常见的场景是项目使用 token 来保存登录信息，每次请求都需要携带token。可以在登录的测试代码中设置 token 的环境变量
 
-``` javascript
+```javascript
 const url = 'http://{{HOST}}/api/login'
 
 pm.test('There is a token', () => {
@@ -270,7 +270,7 @@ const urlNext = 'http://{{HOST}}/api/profile?token={{token}}'
 
 所有的请求都会有一些共同测试，比如测试接口是否响应成功以及以上提到的测试 filter
 
-``` javascript
+```javascript
 pm.test('Response is right', () => {
   // status code: 2XX
   pm.response.to.be.success
@@ -285,7 +285,7 @@ pm.test('Filter is matching', () => {
 
 当可以测试 Collection 后，需要对测试加入版本控制，与项目集成在一起，保留测试记录，以便准时定位 bug。可以与 postman 的官方工具 `newman` 集成在一起，但是有一点不方便的是，持续集成仅仅可以保存记录，并不能还原记录。
 
-``` shell
+```shell
 newman run https://api.getpostman.com/collections/{{collection_uid}}?apikey={{postman-api-key-here}} --environment https://api.getpostman.com/environments/{{environment_uid}}?apikey={{postman-api-key-here}}
 ```
 

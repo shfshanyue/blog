@@ -2,7 +2,7 @@
 
 使用 `ping` 命令发送
 
-``` shell
+```shell
 $ ping -c 3 shici.xiange.tech
 PING shici.xiange.tech (59.110.216.155): 56 data bytes
 64 bytes from 59.110.216.155: icmp_seq=0 ttl=50 time=9.547 ms

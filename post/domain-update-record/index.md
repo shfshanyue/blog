@@ -22,7 +22,7 @@ categories:
 
 在制作证书时在 domains 中添加新域名
 
-``` shell
+```shell
 certbot -d shanyue.tech -d xiange.tech -d *.shanyue.tech -d *.xiange.tech ...
 ```
 
@@ -30,7 +30,7 @@ certbot -d shanyue.tech -d xiange.tech -d *.shanyue.tech -d *.xiange.tech ...
 
 在反向代理中使用新域名代替旧有域名，以下是 traefik 在 docker 的 compose file 的示例，同时需要保留新老域名
 
-``` yaml
+```yaml
 version: "3"
 services:
   blog:
@@ -53,7 +53,7 @@ services:
 
 百度给的建议是新旧网站并存一段时间，然后进行 301
 
-``` yaml
+```yaml
 version: "3"
 services:
   blog:
@@ -76,7 +76,7 @@ services:
 
 需要更改 sitemap 中 的 url.loc 的绝对地址为新域名，以下是一个 sitemap 的样例，你也可以通过 <https://shanyue.tech/sitemap.xml> 访问
 
-``` xml
+```xml
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://blog.xiange.tech/post/login-input-style/</loc>

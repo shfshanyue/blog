@@ -16,7 +16,7 @@ tags:
 
 在 <https://github.com/alibaba/canal/releases> 中选择最新的安装包进行下载
 
-``` shell
+```shell
 # -L 表示 follow redirect
 curl -OL https://github.com/alibaba/canal/releases/download/canal-1.1.3/canal.deployer-1.1.3.tar.gz
 
@@ -30,7 +30,7 @@ tar -zxvf canal.deployer-1.1.3.tar.gz -C /usr/local/canal
 
 修改数据库以及如何与Topic对应的配置
 
-``` shell
+```shell
 $ cd /usr/local/canal/
 $ vim conf/example/instance.properties
 ...
@@ -44,7 +44,7 @@ canal.mq.dynamicTopic=mytest,.*,mytest.user,mytest\\..*,.*\\..*
 
 修改 kafka 的配置
 
-``` shell
+```shell
 $ vim /usr/local/canal/conf/canal.properties
 ...
 canal.serverMode = kafka

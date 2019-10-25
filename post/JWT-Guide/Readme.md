@@ -27,7 +27,7 @@ jwt 之前，使用 session 来做用户认证。
 
 `session` 是指在服务器端使用 redis 或者 sql 类数据库，存储 user_id 以及 token 的键值对关系，基本工作原理如下。
 
-``` javascript
+```javascript
 const sessions = {
   "ABCED1": 10086,
   "CDEFA0": 10010
@@ -45,7 +45,7 @@ function getUserIdByToken (token) {
 
 如果不使用 cookie，可以采取 `localStorage + Authorization` 的方式进行认证。
 
-``` javascript
+```javascript
 // http 的头，每次请求权限接口时，需要携带 Authorization Header
 const headers = {
   Authorization: `Bearer ${localStorage.get('token')}`
@@ -82,7 +82,7 @@ jwt 由 `Header`，`Payload` 以及 `Signature` 由 `.` 拼接而成。
 
 Header 由非对称加密算法和类型组成，如下
 
-``` javascript
+```javascript
 const header = {
   // 加密算法
   alg: 'HS256',
@@ -96,7 +96,7 @@ Payload 中由 [Registered Claim](https://tools.ietf.org/html/rfc7519#section-4.
 
 `Registered Claim` 中比较重要的是 `"exp" Claim` 表示过期时间，在用户登录时会设置过期时间。
 
-``` javascript
+```javascript
 const payload = {
   // 表示 jwt 创建时间
   iat: 1532135735,
@@ -115,7 +115,7 @@ Sign 由 `Header`，`Payload` 以及 `secretOrPrivateKey` 计算而成。
 
 对于 `secretOrPrivateKey`，如果加密算法采用 `HMAC`，则为字符串，如果采用 `RSA` 或者 `ECDSA`，则为 PrivateKey。
 
-``` javascript
+```javascript
 // 由 HMACSHA256 算法进行签名，secret 不能外泄
 const sign = HMACSHA256(base64.encode(header) + '.' + base64.encode(payload), secret)
 
@@ -145,7 +145,7 @@ const jwt = base64.encode(header) + '.' + base64.encode(payload) + '.' + sign
 
 可以把验证码配对的字符串作为 secret，进行无状态校验。
 
-``` javascript
+```javascript
 const jwt = require('jsonwebtoken')
 
 // 假设验证码为字符验证码，字符为 ACDE，10分钟失效
@@ -166,7 +166,7 @@ const res = {
 
 现在网站在注册成功后会进行邮箱校验，具体做法是给邮箱发一个链接，用户点开链接校验成功。
 
-``` javascript
+```javascript
 // 把邮箱以及用户id绑定在一起
 const code = jwt.sign({ email, userId }, secret, { expiresIn: 60 * 30 })
 

@@ -17,7 +17,7 @@ tags:
 
 ## 缓存
 
-``` shell
+```shell
 > set User:1:name shanyue EX 100 NX
 OK
 > get User:1:name
@@ -32,7 +32,7 @@ OK
 
 ## session: 用户登录及验证码
 
-``` shell
+```shell
 > set 5d27e60e6fb9a07f03576687 '{"id": 10086, role: "ADMIN"}' EX 7200
 OK
 > get 5d27e60e6fb9a07f03576687
@@ -45,7 +45,7 @@ OK
 
 ## 消息队列
 
-``` shell
+```shell
 > lpush UserEmailQueue 1 2 3 4
 lpop UserEmailQueue
 > rpop UserEmailQueue
@@ -61,7 +61,7 @@ lpop UserEmailQueue
 
 ## 过滤器 (dupefilter)
 
-``` shell
+```shell
 > sadd UrlSet http://1
 (integer) 1
 > sadd UrlSet http://2
@@ -75,7 +75,7 @@ lpop UserEmailQueue
 
 [scrapy-redis](https://github.com/rmax/scrapy-redis) 作为分布式的爬虫框架，便是使用了 `redis` 的 `Set` 这个数据结构来对将要爬取的 url 进行去重处理。
 
-``` python
+```python
 # https://github.com/rmax/scrapy-redis/blob/master/src/scrapy_redis/dupefilter.py
 def request_seen(self, request):
     """Returns True if request was already seen.
@@ -95,7 +95,7 @@ def request_seen(self, request):
 
 ## 分布式锁
 
-``` shell
+```shell
 set Lock:User:10086 06be97fc-f258-4202-b60b-8d5412dd5605 EX 60 NX
 
 # 释放锁，一段 LUA 脚本
@@ -123,7 +123,7 @@ end
 
 最常见的场景: 短信验证码一分钟只能发送两次
 
-``` shell
+```shell
 FUNCTION LIMIT_API_CALL(ip):
 current = GET(ip)
 IF current != NULL AND current > 10 THEN
@@ -144,7 +144,7 @@ END
 
 这时候可以通过编程，根据 `TTL key` 进行进一步限制，或者使用一个 `LIST` 来维护每次请求打来的时间戳进行实时过滤。以下是 `node` 实现的一个 `Rate Limter`。参考源码 [node-rate-limiter-flexible](https://github.com/animir/node-rate-limiter-flexible)
 
-``` javascript
+```javascript
 this.client
   .multi()
   .set(rlKey, 0, 'EX', secDuration, 'NX')

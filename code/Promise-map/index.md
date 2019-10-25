@@ -11,7 +11,7 @@ categories:
 
 假设有一个 Promise 为 `get` 和一个待请求数组为 `list`，使用它们进行请求数据。但是为了避免 IO 过大，需要限定三个并发数量
 
-``` javascript
+```javascript
 function get (i) {
   console.log('In ', i)
   return new Promise((resolve, reject) => {
@@ -29,7 +29,7 @@ const list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 写一段能够实现功能的松散的代码是很简单的，不过对提供 API 的设计思路也是相当重要的。简单实现如下，使用 `count` 维护一个并发数量的计数器即可
 
-``` javascript
+```javascript
 // 并发数量计数
 let count = 0
 function run () {
@@ -50,7 +50,7 @@ run()
 
 ## 代码
 
-``` javascript
+```javascript
 Promise.map(
     Iterable<any>|Promise<Iterable<any>> input,
     function(any item, int index, int length) mapper,
@@ -60,7 +60,7 @@ Promise.map(
 
 设计成 `Bluebird` 的 API，是比较模块化，也是易于使用的。代码的关键在于维护一个队列，当超过限定数量的 Promise 时，则交与队列维护。代码如下
 
-``` javascript
+```javascript
 class Limit {
   constructor (n) {
     this.limit = n
@@ -117,7 +117,7 @@ Promise.map = function (list, fn, { concurrency }) {
 
 ### [Bluebird.map](http://bluebirdjs.com/docs/api/promise.map.html)
 
-``` javascript
+```javascript
 Bluebird.map(list, x => {
   return get(x)
 }, {

@@ -29,7 +29,7 @@ tags:
 
 校验之前，需要配合一个随机数供邮箱和短信发送。使用以下代码片段生成一个六位数字的随机码，你也可以把它包装为一个函数
 
-``` javascript
+```javascript
 const verifyCode = Array.from(Array(6), () => parseInt((Math.random() * 10))).join('')
 ```
 
@@ -37,7 +37,7 @@ const verifyCode = Array.from(Array(6), () => parseInt((Math.random() * 10))).jo
 
 我们知道 jwt 只会校验数据的完整性，而不对数据加密。此时当拿用户邮箱及校验码配对时，但是如果都放到 `payload` 中，而 `jwt` 使用明文传输数据，校验码会被泄露
 
-``` javascript
+```javascript
 // 放到明文中，校验码泄露
 jwt.sign({ email, verifyCode }, config.jwtSecret, { expiresIn: '30m' })
 ```
@@ -46,14 +46,14 @@ jwt.sign({ email, verifyCode }, config.jwtSecret, { expiresIn: '30m' })
 
 **我们知道 secret 是不会被泄露的，此时把校验码放到 secret 中，完成配对**
 
-``` javascript
+```javascript
 // 再给个半小时的过期时间
 const token = jwt.sign({ email }, config.jwtSecret + verifyCode, { expiresIn: '30m' })
 ```
 
 **在服务端发送邮件的同时，把 token 再传递给前端，随注册时再发送到后端进行验证**，这是我项目中关于校验的 `graphql` 的代码。如果你不懂 graphql 也可以把它当做伪代码，大致应该都可以看的懂
 
-``` graphql
+```graphql
 type Mutation {
   # 发送邮件
   # 返回一个 token，注册时需要携带 token，用以校验验证码
@@ -63,7 +63,7 @@ type Mutation {
 }
 ```
 
-``` javascript
+```javascript
 const Mutation = {
   async sendEmailVerifyCode (root, { email }, { email: emailService }) {
     // 生成六个随机数
@@ -92,7 +92,7 @@ const Mutation = {
 
 注册就简单很多了，对客户端传入的数据进行邮箱检验，校验成功后直接入库就可以了，以下是 `graphql` 的代码
 
-``` graphql
+```graphql
 type Mutation {
   # 注册
   createUser (
@@ -106,7 +106,7 @@ type Mutation {
 }
 ```
 
-``` javascript
+```javascript
 const Mutation = {
   async createUser (root, { name, password, email, verifyCode, token }, { models }) {
     const { email: verifyEmail } = jwt.verify(token, config.jwtSecret + verifyCode)
@@ -126,7 +126,7 @@ const Mutation = {
 
 这里有一个细节，对入库的密码使用 `MD5` 与一个参数 `salt` 做了不可逆处理
 
-``` javascript
+```javascript
 function hash (str) {
   return crypto.createHash('md5').update(`${str}-${config.salt}`, 'utf8').digest('hex')
 }
@@ -144,7 +144,7 @@ function hash (str) {
 
 一个用 `jwt` 实现登录的 `graphql` 代码，把 `user_id` 与 `user_role` 置于 payload 中
 
-``` graphql
+```graphql
 type Mutation {
   # 登录，如果返回 null，则登录失败
   createUserToken (

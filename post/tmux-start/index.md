@@ -176,7 +176,7 @@ bind '"' split-window -c "#{pane_current_path}"
 + **copy-mode:**
 
     按 `prefix [` 键进入此模式，类似于 `vi(emacs)` 的 `normal mode`，支持复制，粘贴，查找，以及翻页。具体是 `vi` 还是 `emacs` 可以根据以下命令探知，表明查看全局窗口设置 `mode-keys`，默认会是 `vi`，如果不是，那就请设置为 `vi` 吧~
-    ``` 
+    ```
     $ tmux show-window-options -g mode-keys
     ```
     与 `vi` 命令相同，如上下翻页(半屏)可使用 `C-d` 以及 `C-u`，当然你也可以使用 `hjkl`。

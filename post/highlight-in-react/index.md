@@ -25,7 +25,7 @@ tags:
 
 > 关于 mark 标签更多内容参考: https://www.w3schools.com/TAgs/tag_mark.asp
 
-``` javascript
+```javascript
 function highlight (string, words) {
   if (!words.length) {
     return string
@@ -40,7 +40,7 @@ highlight('松风吹解带，山月照弹琴。', ['山月', '松风'])
 
 ## 在 React 中实现高亮函数
 
-``` javascript
+```javascript
 function Highlight ({ string, words }) {
   const reg = new RegExp(words.join('|'), 'g')
   const token = string.replace(reg, '#@$&#')

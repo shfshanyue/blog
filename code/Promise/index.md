@@ -19,7 +19,7 @@ categories:
 
 `rejected` 状态同理
 
-``` javascript
+```javascript
 class Prom {
   static resolve (value) {
     if (value && value.then) {

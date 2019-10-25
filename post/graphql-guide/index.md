@@ -12,7 +12,7 @@ tags:
 
 如下，在单文件中定义 `ObjectType` 与其在 `Query` 以及 `Mutation` 中对应的查询。并把 `typeDef` 与 `resolver` 集中管理。
 
-``` typescript
+```typescript
 // src/resolvers/Todo.ts
 const typeDef = gql`
   type Todo @sql {
@@ -45,7 +45,7 @@ const resolver: IResolverObject<any, AppContext> = {
 
 使用 `@findOption` 可以按需查询，并注入到 `resolver` 函数中的 `info.attributes` 字段
 
-``` gql
+```gql
 type Query {
   users: [User!] @findOption
 }
@@ -58,7 +58,7 @@ query USERS {
 }
 ```
 
-``` typescript
+```typescript
 function users ({}, {}, { models }, { attributes }: any) {
   return models.User.findAll({
     attributes
@@ -70,7 +70,7 @@ function users ({}, {}, { models }, { attributes }: any) {
 
 对列表添加 `page` 以及 `pageSize` 参数来进行分页
 
-``` graphql
+```graphql
 type User {
   id: ID!
   todos (
@@ -94,7 +94,7 @@ query TODOS {
 
 当使用以下查询时，会出现 N+1 查询问题
 
-``` gql
+```gql
 {
   users (page: 1, pageSize: 3) {
     id
@@ -108,7 +108,7 @@ query TODOS {
 
 如果不做优化，生成的 `SQL` 如下
 
-``` sql
+```sql
 select id from users limit 3
 
 select id, name from todo where user_id = 1
@@ -118,7 +118,7 @@ select id, name from todo where user_id = 3
 
 而使用 `dataloader` 解决 N+1 问题后，会大大减少 `SQL` 语句的条数，生成的 `SQL` 如下
 
-``` sql
+```sql
 select id from users limit 3
 
 select id, name, user_id from todo where user_id in (1, 2, 3)
@@ -132,7 +132,7 @@ select id, name, user_id from todo where user_id in (1, 2, 3)
 
 > 此处只能在客户端避免多层分页查询，而当有恶意查询时会加大服务器压力。可以使用以下的 Hash Query 避免此类问题，同时也在生产环境禁掉 `introspection`
 
-``` gql
+```gql
 {
   users (page: 1, pageSize: 3) {
     id
@@ -144,7 +144,7 @@ select id, name, user_id from todo where user_id in (1, 2, 3)
 }
 ```
 
-``` sql
+```sql
 select id from users limit 3
 
 select id, name from todo where user_id = 1 limit 3
@@ -172,7 +172,7 @@ select id, name from todo where user_id = 3 limit 3
 
 项目最终生成的配置为 `AppConfig` 标识。
 
-``` typescript
+```typescript
 // config/consul.ts
 export const project = 'todo'
 export const dependencies = ['redis', 'pg']
@@ -182,7 +182,7 @@ export const dependencies = ['redis', 'pg']
 
 使用 `@auth` 指令表示该资源受限，需要用户登录，`roles` 表示只有特定角色才能访问受限资源
 
-``` graphql
+```graphql
 directive @auth(
   # USER, ADMIN 可以自定义
   roles: [String]
@@ -195,7 +195,7 @@ type Query {
 
 以下是相关代码
 
-``` typescript
+```typescript
 // src/directives/auth.ts
 function visitFieldDefinition (field: GraphQLField<any, AppContext>) {
   const { resolve = defaultFieldResolver } = field
@@ -225,7 +225,7 @@ function visitFieldDefinition (field: GraphQLField<any, AppContext>) {
 
 为 `graphql`，`sql`，`redis` 以及一些重要信息(如 user) 添加日志，并设置标签
 
-``` typescript
+```typescript
 // lib/logger.ts
 export const apiLogger = createLogger('api')
 export const dbLogger = createLogger('db')
@@ -237,7 +237,7 @@ export const logger = createLogger('common')
 
 为日志添加 `requestId` 方便追踪 bug 以及检测性能问题
 
-``` typescript
+```typescript
 // lib/logger.ts
 const requestId = format((info) => {
   info.requestId = session.get('requestId')
@@ -251,7 +251,7 @@ const requestId = format((info) => {
 
 结构化 API 异常信息，其中 `extensions.code` 代表异常错误码，方便调试以及前端使用。`extensions.exception` 代表原始异常，堆栈以及详细信息。注意在生产环境需要屏蔽掉 `extensions.exception`
 
-``` shell
+```shell
 $ curl 'https://todo.xiange.tech/graphql' -H 'Content-Type: application/json' --data-binary '{"query":"{\n  dbError\n}"}'
 {
   "errors": [
@@ -300,7 +300,7 @@ $ curl 'https://todo.xiange.tech/graphql' -H 'Content-Type: application/json' --
 
 避免把原始异常以及堆栈信息暴露在生产环境
 
-``` typescript
+```typescript
 {
   "errors": [
     {
@@ -331,7 +331,7 @@ $ curl 'https://todo.xiange.tech/graphql' -H 'Content-Type: application/json' --
 
 根据异常的 `code` 对异常进行严重等级分类，并上报监控系统。这里监控系统采用的 `sentry`
 
-``` typescript
+```typescript
 // lib/error.ts:formatError
 let code: string = _.get(error, 'extensions.code', 'Error')
 let info: any
@@ -367,7 +367,7 @@ Sentry.withScope(scope => {
 
 在 `k8s` 上根据健康检查监控应用状态，当应用发生异常时可以及时响应并解决
 
-``` shell
+```shell
 $ curl http://todo.xiange.tech/.well-known/apollo/server-health
 {"status":"pass"}
 ```
@@ -384,7 +384,7 @@ $ curl http://todo.xiange.tech/.well-known/apollo/server-health
 
 使用 [Joi](https://github.com/hapijs/joi) 做参数校验
 
-``` javascript
+```javascript
 function createUser ({}, { name, email, password }, { models, utils }) {
   Joi.assert(email, Joi.string().email())
 }

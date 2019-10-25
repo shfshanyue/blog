@@ -24,7 +24,7 @@ tags:
 
 如下例所示，如何在 `sum` 函数中通过调试得到 `7`，而非获取到 `a` 和 `b` 再两者相加
 
-``` javascript
+```javascript
 function sum (a, b) {
   // 在调试中如何得到 7 这个结果
   return a + b
@@ -37,7 +37,7 @@ sum(3, 4)
 
 ### 当单行调用多个函数表达式时，`Step Over` 是跳过一行还是一个表达式？
 
-``` javascript
+```javascript
 // 当此行有断点时，Step Over 进入哪里
 const l = [1, 2, 3, 4, 5].map(x => sum(x, 1)).filter(x => x > 3)
 
@@ -50,7 +50,7 @@ const n = sub(sum(3, 4), 1)
 
 (不通过对指定函数起始位置打断点的方法，因为有时无法得知指定函数位置)
 
-``` javascript
+```javascript
 // 如何进入到 `.filter` 函数中进行调试
 const l = [1, 2, 3, 4, 5].map(x => sum(x, 1)).filter(x => x > 3)
 
@@ -60,7 +60,7 @@ const n = sub(sum(3, 4), 1)
 
 ### 在单行调用多个函数表达式时，如何设置条件断点
 
-``` javascript
+```javascript
 // 如何在 map 函数中，当 x === 3 时打断点
 const = [1, 2, 3, 4, 5].map(x => sum(x, 1))
 ```
@@ -71,7 +71,7 @@ const = [1, 2, 3, 4, 5].map(x => sum(x, 1))
 
 ### 以下 `sum` 函数和 `asyncSum` 函数 `Step Into` 的步骤是否一致？
 
-``` javascript
+```javascript
 function sum (a, b) {
   return a + b
 }
@@ -91,7 +91,7 @@ async function main () {
 
 ### 如何进入到 `promise.then` 函数中进行调试？(不通过直接打断点)
 
-``` javascript
+```javascript
 Promise.resolve(3).then(o => {
   // 如何 StepOver/StepInto 到当前行进行调试
   console.log(o)

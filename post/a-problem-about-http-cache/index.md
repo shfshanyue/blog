@@ -66,7 +66,7 @@ tags:
 
 由于博客没有能做长期缓存的资源，统一对博客的所有请求添加了响应头 `Cache-Control: no-cache`。我使用了 `Traefik` 作为反向代理，修改 docker-compose.yml 如下
 
-``` yaml
+```yaml
 version: "3"
 services:
   blog:

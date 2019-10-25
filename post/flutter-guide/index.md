@@ -35,7 +35,7 @@ flutter 的出现不得不说是激动人心的，你可以以 React-Style 的�
 
 ## 安装
 
-``` shell
+```shell
 # 安装到自己感兴趣的位置，这里安装在 /app 目录下
 cd /app
 curl -O https://storage.googleapis.com/flutter_infra/releases/stable/macos/flutter_macos_v1.2.1-stable.zip
@@ -63,7 +63,7 @@ source ~/.zshrc
 
 执行以下命令更换安装包的源，你也可以选择其它的源
 
-``` shell
+```shell
 # 写入你自己的 shell 文件
 cat <<EOF >> ~/.zshrc
 export PUB_HOSTED_URL=https://pub.flutter-io.cn
@@ -93,7 +93,7 @@ EOF
 
 使用以下命令新建一个项目并使用 VS Code 打开。当然你也可以选择使用编辑器新建项目
 
-``` shell
+```shell
 cd ~/flutter-examples
 
 # 新建项目时会自动执行 flutter packages get 来装包
@@ -147,7 +147,7 @@ flutter run -d <deviceId>
 
 如果还有问题，在 flutter 创建的项目根目录中定位文件 `./android/build.gradle`，进行如下修改
 
-``` gradle
+```gradle
 // 修改前文件
 buildscript {
     repositories {
@@ -193,7 +193,7 @@ Waiting for another flutter command to release the startup lock...
 
 使用以下命令解决
 
-``` shell
+```shell
 # 删除 bin 目录下的 lockfile
 rm /app/flutter/bin/cache/lockfile
 ```
@@ -202,7 +202,7 @@ rm /app/flutter/bin/cache/lockfile
 
 动手写一个 flutter 的 `hello, world` 应用。编辑 /lib/main.dart 如下
 
-``` Dart
+```Dart
 import 'package:flutter/material.dart';
 
 void main() => runApp(App());
@@ -219,7 +219,7 @@ class App extends StatelessWidget {
 
 你会发现，`StateLessWidget` 与 React 的 `Component` 相似，而 `build` 函数与 React 的 `build` 相似。
 
-``` jsx
+```jsx
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 
@@ -250,7 +250,7 @@ class App extends Component {
 
 入口函数，如同 C 语言一样。
 
-``` dart
+```dart
 void main() {
   print('hello, world');
 }
@@ -260,7 +260,7 @@ void main() {
 
 `Dart` 是强类型语言，但也可以直接使用 `var` 声明一个变量。
 
-``` dart
+```dart
 void main() {
   var a = 3;
   int b = 4;
@@ -278,7 +278,7 @@ void main() {
 
 **了解两者不同后，以下示例的输出是什么**
 
-``` dart
+```dart
 void test1() {
   final foo = [];
   foo.add(3);
@@ -299,7 +299,7 @@ void main() {
 }
 ```
 
-``` dart
+```dart
 void main() {
   final l = [1, 2, 3].map((x) => x+3);
   const l = [1, 2, 3].map((x) => x+3);
@@ -310,7 +310,7 @@ void main() {
 
 你运行完以下代码，便可以知道两者的区别。
 
-``` dart
+```dart
 void main() {
   var foo = 'hello';
   var = 3;
@@ -337,7 +337,7 @@ Dart 有如下数据类型，这里先简单介绍一下常用类型
 + rune
 + symbol
 
-``` dart
+```dart
 void main() {
   // int
   var a = 1;
@@ -360,7 +360,7 @@ void main() {
 > TODO
 在 `Dart` 中，`List`，`Set` 和 `Collection` 统称为 Collection。它们有公共的方法 `forEach` 与 `map` 等。
 
-``` dart
+```dart
 void main() {
   var l = [1, 2, 3];
 
@@ -389,7 +389,7 @@ void main() {
 
 另外，在 js 中数组有一个我最喜欢的 API `Array.prototype.reduce`。在 `dart` 中可以使用 `fold` 替代
 
-``` dart
+```dart
 // 21
 [1, 2, 3, 4, 5, 6].reduce((acc, x) => acc + x);
 
@@ -401,7 +401,7 @@ void main() {
 
 #### Set
 
-``` dart
+```dart
 void main() {
   // 或者 Set<String> colors = {};
   var colors = Set();
@@ -416,7 +416,7 @@ void main() {
 
 #### Map
 
-``` dart
+```dart
 void main() {
   // Map<String, int> = {};
   var o = Map();
@@ -443,7 +443,7 @@ void main() {
 
 ### 函数 
 
-``` dart
+```dart
 bool isZero(int n) {
   return n == 0;
 }
@@ -484,7 +484,7 @@ bool isZero(int n) => n == 0;
 
 ### 类
 
-``` dart
+```dart
 class Point {
   final num x;
   final num y;
@@ -503,7 +503,7 @@ void main() {
 
 在 js 中有承诺(Promise)，在 Dart 中也有未来(Future)
 
-``` dart
+```dart
 // 与 js 的不同就是，dart 把 async 写到最后边了...
 Future fetch() async {
   var res = await request.get();
@@ -545,7 +545,7 @@ Future fetch() async {
 
 ### Text Widget
 
-``` dart
+```dart
 Text(
   textDirection: TextDirection.ltr
 )
@@ -558,7 +558,7 @@ Text(
 
 2. 修改 pubspec.yaml 配置文件，关于配置文件的具体作用请往下翻阅
 
-    ``` yaml
+    ```yaml
     flutter:
       fonts:
         - family: xinxi
@@ -568,7 +568,7 @@ Text(
 
 3. 代码中引用字体
  
-    ``` dart
+    ```dart
     Text(
         '暮从碧山下',
         style: TextStyle(
@@ -584,7 +584,7 @@ Text(
 
 使用一个取巧的办法，即把字体父元素宽度设置为仅仅大于字体宽度，可以视为从上往下排列
 
-``` dart
+```dart
 Container(
   width: 48,
   child: Text(
@@ -608,7 +608,7 @@ Container(
 
 `BoxDecoration` 可以设置 `margin`，`padding`, `border` 和 `color` (类似于 css 中的背景)等。与 css 类比如下
 
-``` 
+```
 // dart
 Container( 
   width: 100,
@@ -643,7 +643,7 @@ Container(
 
 表示颜色的有两类 `Color` 与 `Colors`，颜色的值可以使用十六进制，RGB 或者常量来表示。
 
-``` dart
+```dart
 // 黑色
 Color(0xff000000)
 
@@ -663,7 +663,7 @@ Row 与 Column 是几乎一模一样的组件，除了方向。如果你使用�
 
 如果两个组件在 HTML 中，那么他们的默认样式就如下所描述的 CSS 一般
 
-``` css
+```css
 Row {
   display: flex;
   flex-direction: row;
@@ -699,7 +699,7 @@ Meterial Design Guidelines
 
 由于 `Scaffold` 组件在平时使用的频率较多，所以也特别介绍一下。但是这一块不是特别重要可以跳过。
 
-``` dart
+```dart
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -806,7 +806,7 @@ class App extends StatelessWidget {
 
 ### Icon
 
-``` dart
+```dart
 IconButton(
   icon: Icon(Icons.share),
   color: Colors.white,
@@ -821,7 +821,7 @@ IconButton(
 
 `TabBar` 使用 `Tab`，`TabBarView` 以及 `TabController` 控制。
 
-``` dart
+```dart
 class MyTabbedPage extends StatefulWidget {
   const MyTabbedPage({ Key key }) : super(key: key);
   @override
@@ -886,7 +886,7 @@ class _MyTabbedPageState extends State<MyTabbedPage> with SingleTickerProviderSt
 1. `Center` 实现垂直居中
 1. `Container` 置于 `Center` 下，宽与高才会生效
 
-``` dart
+```dart
 Center(
   child: Container(
     width: 300,
@@ -898,7 +898,7 @@ Center(
 
 ### **垂直居中多行文字**
 
-``` dart
+```dart
 Center(
   child: Column(
     mainAxisSize: MainAxisSize.min,
@@ -914,7 +914,7 @@ Center(
 
 ### 左侧固定 50px，中间自适应，右侧固定 50px
 
-``` dart
+```dart
 Center(
   child: Row(
     textDirection: TextDirection.ltr,
@@ -939,7 +939,7 @@ Center(
 
 ### 平分5栏
 
-``` dart
+```dart
 Center(
   child: Row(
     textDirection: TextDirection.ltr,
@@ -1029,7 +1029,7 @@ html 和 flutter 有一个重大区别就是 html 是由 div 组成的，而 flu
 
 + setState
 
-``` dart
+```dart
 import 'package:flutter/material.dart';
 
 void main() => runApp(App());
@@ -1109,7 +1109,7 @@ flutter 的调试如同前端一样分为两大块，UI 以及 Data。以下介�
 
 正如 `history API` 一样，`Navigator` 使用 `push` 跳转路由，使用 `pop` 进行返回。
 
-``` dart
+```dart
 // 跳转路由
 Navigator.push(
   context,
@@ -1123,7 +1123,7 @@ Navigator.pop(context);
 
 以下是路由跳转的示例
 
-``` dart
+```dart
 import 'package:flutter/material.dart';
 
 void main() {
@@ -1181,7 +1181,7 @@ class SecondRoute extends StatelessWidget {
 
 **在 flutter 中可以在跳转路由的 builder 函数中，把将要传递的值作为组件的参数进行传递。**
 
-``` dart
+```dart
 Navigator.push(
   context,
   MaterialPageRoute(builder: (context) => SecondRoute(props)),
@@ -1192,7 +1192,7 @@ Navigator.push(
 
 在 SPA 应用中会使用，路径以及组件的对应表来管理路由，伪代码如下
 
-``` javascript
+```javascript
 const routes = {
   '/admin': Admin,
   '/user': User
@@ -1205,7 +1205,7 @@ const routes = {
 
 以下是一个命名路由的示例，来自官方。
 
-``` dart
+```dart
 import 'package:flutter/material.dart';
 
 void main() {
@@ -1269,7 +1269,7 @@ class SecondScreen extends StatelessWidget {
 
 现在我们已经掌握了组件，路由，状态的用法，已经可以写一个相对简单的应用了。但我们现在仅仅只在单文件中进行操作，且没有引入额外的库。而且，你肯定发现了文件首行的代码
 
-``` dart
+```dart
 import 'package:flutter/material.dart';
 ```
 
@@ -1277,26 +1277,26 @@ import 'package:flutter/material.dart';
 
 在 `Dart` 中，引入官方库使用 `dart:<library>`，比如
 
-``` dart
+```dart
 import 'dart:convert';
 ```
 
 而对于其它非Dart官方库，采用 `package:<package>/<library>.dart`，比如 flutter
 
-``` dart
+```dart
 import 'package:flutter/material.dart';
 ```
 
 更多三方库可以在 https://pub.dartlang.org/flutter 上查找
 
-``` dart
+```dart
 import 'package:url_launcher/url_launcher.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 ```
 
 **在 `Dart` 中有很烦的一点是你当你使用某个 API 的时候，你不知道它出自与哪个库去，这时候你可以在引入库的时候使用 `json` 显式标明。**
 
-``` dart
+```dart
 import 'dart:convert' show json;
 ```
 
@@ -1321,14 +1321,14 @@ npm 使用 `package.json` 管理包，使用 `package-lock.json` 锁定包的版
 
 在使用第三方库之前，还需要 **手动编辑** `pubspec.yaml` 添加依赖
 
-``` yaml
+```yaml
 dependencies:
   url_launcher: ^5.0.2
 ```
 
 然后进行安装
 
-``` shell
+```shell
 flutter packages get
 ```
 
@@ -1336,7 +1336,7 @@ flutter packages get
 
 PACKAGE_USAGE_STATS
 
-``` xml
+```xml
 <uses-permission
   android:name="android.permission.PACKAGE_USAGE_STATS"
   tools:ignore="ProtectedPermissions" />
@@ -1355,7 +1355,7 @@ flutter 作为移动端框架，更多时候需要服务器的支持，一个 ht
 
 编辑 `pubspec.yaml`，添加依赖库 `dio`
 
-``` yaml
+```yaml
 dependencies:
   flutter:
     sdk: flutter
@@ -1366,13 +1366,13 @@ dependencies:
 
 在需要的文件中，引入它
 
-``` dart
+```dart
 import 'package:dio/dio.dart';
 ```
 
 ### Dio
 
-``` dart
+```dart
 Response response;
 Dio dio = new Dio();
 
@@ -1390,7 +1390,7 @@ print(response.data['data']['ping']);
 
 dart 的 JSON 处理实在是丧心病狂了，相当怀念 `js`，不过也没办法，毕竟 JSON 的全称是 `JavaScript Object Notation`。
 
-``` dart
+```dart
 import 'dart:convert' show json;
 
 var s = '{"name": "shanyue"}'
@@ -1406,7 +1406,7 @@ print(user['name'])
 
 想象一个经典场景，当加载数据时显示加载状态，加载完成后正常显示数据。按照以前的思路，使用 jsx 做了伪代码如下
 
-``` jsx
+```jsx
 {
   loading <Loading /> : <Page />
 }
@@ -1422,7 +1422,7 @@ print(user['name'])
 
 **package -> `shared_preferences`**
 
-``` dart
+```dart
 import 'package:shared_preferences/shared_preferences.dart';
 
 SharedPreferences prefs = await SharedPreferences.getInstance();

@@ -28,7 +28,7 @@ tags:
 
 在 CSS 中是 `border-color` 以及 `background-color` 属性。
 
-``` css
+```css
 .rect {
   border: 1px solid #fff;
   background-color: #000;
@@ -41,13 +41,13 @@ tags:
 
 在 SVG 中是 `fill` 和 `stroke`。可以直接作为 `element` 的属性，另外也可以写到 css 样式中
 
-``` svg
+```svg
 <rect width="100" height="100" fill="#fff" stroke="#000"></rect>
 ```
 
 也可以作为 css 样式
 
-``` css
+```css
 .rect {
   fill: #fff;
   stoke: #000;
@@ -65,7 +65,7 @@ tags:
 
 在 Canvas 中，是 `fillStyle` 及 `strokeStyle` 属性。
 
-``` javascript
+```javascript
 const canvas = document.getElementById('rect')
 const ctx = canvas.getContext('2d')
 
@@ -81,7 +81,7 @@ ctx.fillRect(115, 0, 100, 100)
 
 不作介绍
 
-``` css
+```css
 .rect {
   width: 100px;
   height: 100px;
@@ -91,7 +91,7 @@ ctx.fillRect(115, 0, 100, 100)
 
 ### SVG
 
-``` svg
+```svg
 <svg>
   <rect width="100" height="100" rx="15" ry="15"></rect>
 </svg>
@@ -101,7 +101,7 @@ ctx.fillRect(115, 0, 100, 100)
 
 ### Canvas
 
-``` javascript
+```javascript
 
 const canvas = document.getElementById('rect')
 const ctx = canvas.getContext('2d')
@@ -132,7 +132,7 @@ svg 使用元素 `polyline` 以及 `polygon`。`polygon` 会把终点和起点�
 
 `fill-rule` 决定哪里是图形的内部。`nonzero` 代表如果被路径所包围，即是内部，`fill-rule` 代表从某一点出发，到无限远处，如果只途经奇数条边，则在图形内部。因为效果地址中的五角星是空心的。
 
-``` svg
+```svg
 <polyline points="81, 95 0, 36 100, 36 19, 95 50, 0" fill-rule="evenodd"></polyline>
 ```
 
@@ -144,7 +144,7 @@ canvas 需要使用 `path` 来绘制路径。
 
 canvas 的 `fill` 方法也有 `fillRule` 属性。
 
-``` javascript
+```javascript
 const canvas = document.getElementById('star')
 const ctx = canvas.getContext('2d')
 
@@ -184,7 +184,7 @@ drawStar({ fillRule: 'evenodd' })
 
 svg 使用元素 `circle` 代表圆，`(cx, cy)` 为圆心，`r` 为半径。使用元素 `ellipse` 代表椭圆，`rx` 和 `ry` 代表长轴和短轴。
 
-``` svg
+```svg
 <circle cx="50" cy="50" r="49"></circle>
 <ellipse cx="50" cy="50" rx="30" ry="40"></ellipse>
 ```
@@ -199,7 +199,7 @@ svg 对于扇形没有现成的元素，需要使用 `path` 来作扇形。当�
 
 **如果使用 svg 画扇形的话，需要确认圆弧的两个端点以及圆心的位置，远没有 canvas 直接使用圆心角确定一个圆方便地多**
 
-``` svg
+```svg
 <path d="M 50 50 L 99 50 A 49 49 0 1 0 50 99"></path>
 ```
 
@@ -207,7 +207,7 @@ svg 对于扇形没有现成的元素，需要使用 `path` 来作扇形。当�
 
 canvas 使用方法 `arc` 进行圆的绘制，有六个参数 `void ctx.arc(x, y, radius, startAngle, endAngle [, anticlockwise]);`。使用 `startAngle` 和 `endAngle` 可以很方便地绘制扇形。 **但是没法绘制椭圆是硬伤**
 
-``` javascript
+```javascript
 const canvas = document.getElementById('circle')
 const ctx = canvas.getContext('2d')
 
@@ -245,7 +245,7 @@ drawArc(360)
 
 `linearGradient` 代表线性渐变，`radialGradient` 代表径向渐变。
 
-``` svg
+```svg
 <svg>
   <defs>
     <linearGradient id="linear" x1="0" y1="0" x2="0.3" y2="0.3" spreadMethod="reflect">
@@ -266,7 +266,7 @@ drawArc(360)
 
 `createLinearGradient` 代表线性渐变，`createRadialGradient` 代表径向渐变。
 
-``` javascript
+```javascript
 const canvas = document.getElementById('grad')
 const ctx = canvas.getContext('2d')
 
@@ -304,7 +304,7 @@ ctx.fill()
 
 svg 使用元素 `text` 代表文本，属性 `text-anchor` 和 `alignment-baseline` 控制垂直居中。
 
-``` svg
+```svg
 <text x="50" y="50" text-anchor="middle" alignment-baseline="middle">垂直居中</text>
 ```
 
@@ -312,7 +312,7 @@ svg 使用元素 `text` 代表文本，属性 `text-anchor` 和 `alignment-basel
 
 canvas 使用属性 `textAlign` 和 `textBaseline` 控制垂直居中。
 
-``` javascript
+```javascript
 const canvas = document.getElementById('text')
 const ctx = canvas.getContext('2d')
 
@@ -345,7 +345,7 @@ ctx.fillText('垂直居中', 50, 50)
 
 关于以下 loading 动画绘制的原理是，圆的半径从大变小，颜色由有至透明
 
-``` svg
+```svg
 <svg>
   <circle cx="50" cy="50" r="49">
     <animate attributeName="r" values="50; 5; 50" keyTimes="0; 0.5; 1" dur="3s" repeatCount="indefinite">

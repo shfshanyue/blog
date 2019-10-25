@@ -24,7 +24,7 @@ tags:
 
 首先，先造一个包含两种换行符号的文件 `newline.txt`
 
-``` shell
+```shell
 $ echo -e 'LF\nCRLF\r\nEND' > newline.txt
 $ cat newline.txt
 LF
@@ -34,7 +34,7 @@ END
 
 使用 `cat`，它们都会按照换行符进行处理。而在浏览器中也会把它们当做换行符处理
 
-``` javascript
+```javascript
 > const o = 'LF\nCRLF\r\nEND'
 < "LF
 CRLF
@@ -47,7 +47,7 @@ END"
 
 在 `vim` 中会发现其中蹊跷，`:set list`。
 
-``` shell
+```shell
 $ vim newline.txt
 LF$
 CRLF^M$
@@ -58,7 +58,7 @@ END$
 
 `cat -e` 代表显示不可打印字符与换行符。
 
-``` shell
+```shell
 $ cat -e newline.txt
 LF$
 CRLF^M$
@@ -69,7 +69,7 @@ END$
 
 既然 `cat` 会把文件内容打印到终端， **那我们直接查看关于到标准输出 (FD 为1) 的系统调用 `write` 就能从最根源上解决问题。**
 
-``` shell
+```shell
 $ strace -e write cat newline.txt
 write(1, "LF\nCRLF\r\nEND\n", 13LF
 CRLF

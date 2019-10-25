@@ -19,7 +19,7 @@ tags:
 
 以下是两段代码，第一个是抛出一个异常，第二个是 `Promise.reject`，两段代码都会如下打印出一段异常信息，那么两者有什么区别？
 
-``` javascript
+```javascript
 function error () {
   throw new Error('hello, error')
 }
@@ -35,7 +35,7 @@ error()
 //     at Module._compile (internal/modules/cjs/loader.js:701:30)
 ```
 
-``` javascript
+```javascript
 async function error () {
   return new Error('hello, error')
 }
@@ -59,7 +59,7 @@ error()
 
 现在看一个关于 `cat` 的异常以及它的 `exit code` 与系统调用
 
-``` shell
+```shell
 $ cat a
 cat: a: No such file or directory
 
@@ -82,7 +82,7 @@ exit_group(1)                           = ?
 
 **有一种简单的方法，通过 `echo $?` 来输出返回码**
 
-``` shell
+```shell
 $ cat a
 cat: a: No such file or directory
 
@@ -100,13 +100,13 @@ node 中的异常与 `exit code` 都说完了，接下来该说与 `Dockerfile` 
 
 **而在 `Node` 中的错误处理中，我们倾向于所有的异常都交由 `async/await` 来处理，而当发生异常时，由于此时 exit code 为 0 并不会导致镜像构建失败。** 如下所示
 
-``` Dockerfile
+```Dockerfile
 FROM node:alpine
 
 RUN node -e "Promise.reject('hello, world')"
 ```
 
-``` shell
+```shell
 $ docker build -t demo .
 Sending build context to Docker daemon  14.85kB
 Step 1/2 : FROM node:alpine
@@ -124,7 +124,7 @@ Successfully tagged demo:latest
 
 **而在编译时能发现的问题，绝不要放在运行时。所以，构建镜像需要执行 node 的脚本时，对异常处理需要手动指定 1 的 `exit code`：`process.exit(1)`。**
 
-``` javascript
+```javascript
 runScript().catch(() => {
   process.exit(1)
 })

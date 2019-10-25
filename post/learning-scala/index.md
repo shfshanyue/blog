@@ -25,14 +25,14 @@ sbt 用来创建，编译，测试且运行 scala 项目。这里介绍如何安
 
 由于我的机器是 CentOS，使用 `yum` 进行安装。
 
-``` shell
+```shell
 curl https://bintray.com/sbt/rpm/rpm | sudo tee /etc/yum.repos.d/bintray-sbt-rpm.repo
 sudo yum install sbt
 ```
 
 安装成功后，敲命令 `sbt console` 进入 REPL 环境
 
-``` shell
+```shell
 $ sbt console
 [info] Updated file /root/hello/project/build.properties: set sbt.version to 1.2.8
 [info] Loading project definition from /root/hello/project
@@ -54,7 +54,7 @@ scala>
 
 通过以下示例，你可以得到一个好消息，则是 `scala` 不用写分号！但是它必须使用双引号来表示字符串
 
-``` scala
+```scala
 var s = "hello, world"
 
 println(s)
@@ -62,7 +62,7 @@ println(s)
 
 当然你也可以显式地声明变量。好吧，他这个类型声明有点怪，不过如果你写过 `typescript`，你对它的接受度会好很多。
 
-``` scala
+```scala
 var s: String = 'hello, world'
 ```
 
@@ -86,14 +86,14 @@ var s: String = 'hello, world'
 
 ## 操作符 (Operator)
 
-``` scala
+```scala
 ```
 
 ## Block
 
 被 `{}` 包裹称作 `Block`。`Block` 中的最后一个表达式的值为 `Block` 本身的值。另外 `Block` 与函数一样拥有一个独立的作用域。
 
-``` scala
+```scala
 var r = {
   val x = 1 + 1
   x + 1
@@ -105,7 +105,7 @@ println(r)
 
 类似于 `javascript` 中的箭头表达式，不过 `scala` 更加灵活，以下是一个 `js` 的箭头表达式
 
-``` javascript
+```javascript
 const r = (x = 1 + 1, x + 1)
 
 // 3
@@ -116,17 +116,17 @@ console.log(r)
 
 在 `scala` 中，函数是带有参数的表达式
 
-``` scala
+```scala
 val add = (x: Int, y: Int) => x + y
 ```
 
 类似于 `python` 中的 `lambda` 函数，与 `javascript` 中的单行箭头函数，他们都是匿名函数并进行赋值，见以下示例
 
-``` python
+```python
 add = lambda x, y: x + y
 ```
 
-``` javascript
+```javascript
 const add = (x, y) => x + y
 ```
 
@@ -134,13 +134,13 @@ const add = (x, y) => x + y
 
 与函数类似，使用 `def` 标记，并在其后注明返回数据类型
 
-``` scala
+```scala
 def add(x: Int, y: Int): Int = x + y
 ```
 
 它也可以带有多个参数列表或者不带参数列表
 
-``` scala
+```scala
 def add(x: Int)(y: Int)(z: Int): Int = x + y + z
 
 // 12
@@ -154,7 +154,7 @@ println(zero)
 
 可以使用 `Block` 来做 Method 的返回值
 
-``` scala
+```scala
 def add(x: Int, y: Int): Int = {
   var sum = x + y
   sum
@@ -163,7 +163,7 @@ def add(x: Int, y: Int): Int = {
 
 ## Class
 
-``` scala
+```scala
 class Cat(name: String) {
   def say(): String = "miao~"
 }
@@ -176,7 +176,7 @@ println(tom.say()) // miao~
 
 可以理解为 **单例模式**
 
-``` scala
+```scala
 // 不需要带参数
 object IdFactory {
   private var counter = 0
@@ -193,7 +193,7 @@ IdFactory.create() // 3
 
 依照我的理解，它有点类似于 `javascript` 中的闭包，如以下 `js` 代码
 
-``` javascript
+```javascript
 const IdFactory = (counter = 0, () => ++counter)
 
 IdFactory() // 1
@@ -203,7 +203,7 @@ IdFactory() // 3
 
 但更像是 `javascript` 中的 `object`，如以下 `js` 代码
 
-``` javascript
+```javascript
 const IdFactory = {
   counter: 0,
   create () {
@@ -220,7 +220,7 @@ IdFactory.create() // 3
 
 常用来表示不可修改数据
 
-``` scala
+```scala
 case class Point(x: Int, y: Int)
 
 var p1 = Point(3, 4)
@@ -229,7 +229,7 @@ var p2 = Point(30, 40)
 
 ## Trait
 
-``` scala
+```scala
 trait Greeter {
   def greet(name: String): Unit = println("hello, " + name)
 }
@@ -244,7 +244,7 @@ greeter.greet("shanyue")
 
 ### String
 
-``` scala
+```scala
 scala> var str = "hello"
 str: String = hello
 
@@ -262,7 +262,7 @@ res10: scala.collection.immutable.IndexedSeq[String] = Vector(A, A, A, A, A)
 
 ### Array
 
-``` scala
+```scala
 scala> var a1 = Array(1, 2, 3)
 a1: Array[Int] = Array(1, 2, 3)
 
@@ -276,7 +276,7 @@ res26: Int = 4
 
 另外，对于 `Array` 有 `map` 与 `filter` 操作符，其中 `_` 代表所包含的元素
 
-``` scala
+```scala
 scala> var a1 = Array(1, 2, 3)
 a1: Array[Int] = Array(1, 2, 3)
 
@@ -286,7 +286,7 @@ a2: Array[Int] = Array(3, 6, 9)
 
 ### List
 
-``` scala
+```scala
 scala> var list = List(1, 2, 3, 4, 5)
 list: List[Int] = List(1, 2, 3, 4, 5)
 
@@ -319,7 +319,7 @@ scala> list(3) = 100
 
 ### Seq
 
-``` scala
+```scala
 scala> var s = Seq(1, 1, 2)
 s: Seq[Int] = List(1, 1, 2)
 ```
@@ -328,7 +328,7 @@ s: Seq[Int] = List(1, 1, 2)
 
 可以使用 `key -> value` 或者 `(key, value)` 两种形式声明 `Map`。
 
-``` scala
+```scala
 scala> var m = Map(("x", 3), ("y", 4), ("z", 5))
 m: scala.collection.immutable.Map[String,Int] = Map(x -> 3, y -> 4, z -> 5)
 
@@ -407,14 +407,14 @@ res45: scala.collection.immutable.Map[String,Int] = Map(x -> 13, y -> 14, z -> 1
 
 在 `scala` 中没有 `?:` 运算符，使用 `if` 代替
 
-``` scala
+```scala
 var foo = 3
 var a = if (foo == 3) 10 else 100
 ```
 
 ### for 语句
 
-``` scala
+```scala
 ```
 
 ## 参考

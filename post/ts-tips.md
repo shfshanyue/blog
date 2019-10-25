@@ -21,7 +21,7 @@ tags:
 
 `keyof` 与 `Object.keys` 略有相似，只不过 `keyof` 取 `interface` 的键。
 
-``` typescript
+```typescript
 interface Point {
     x: number;
     y: number;
@@ -33,7 +33,7 @@ type keys = keyof Point;
 
 假设有一个 `object` 如下所示，我们需要使用 `typescript` 实现一个 `get` 函数来获取它的属性值
 
-``` typescript
+```typescript
 const data = {
   a: 3,
   hello: 'world'
@@ -51,7 +51,7 @@ function get(o: object, name: string) {
 
 这时可以使用 `keyof` 来加强 `get` 函数的类型功能，有兴趣的同学可以看看 `_.get` 的 type 标记以及实现
 
-``` typescript
+```typescript
 function get<T extends object, K extends keyof T>(o: T, name: K): T[K] {
   return o[name]
 }
@@ -61,7 +61,7 @@ function get<T extends object, K extends keyof T>(o: T, name: K): T[K] {
 
 既然了解了 `keyof`，可以使用它对属性做一些扩展， 如实现 `Partial` 和 `Pick`，`Pick` 一般用在 `_.pick` 中
 
-``` typescript
+```typescript
 type Partial<T> = {
   [P in keyof T]?: T[P];
 };
@@ -94,7 +94,7 @@ type PickUser = Pick<User, "id" | "age">
 
 类似于 js 中的 `?:` 运算符，可以使用它扩展一些基本类型
 
-``` typescript
+```typescript
 T extends U ? X : Y
 
 type isTrue<T> = T extends true ? true : false
@@ -113,7 +113,7 @@ type t1 = isTrue<false>
 
 结合 `never` 与 `conditional type` 可以推出很多有意思而且实用的类型，比如 `Omit`
 
-``` typescript
+```typescript
 type Exclude<T, U> = T extends U ? never : T;
 
 // 相当于: type A = 'a'
@@ -122,7 +122,7 @@ type A = Exclude<'x' | 'a', 'x' | 'y' | 'z'>
 
 结合 `Exclude` 可以推出 `Omit` 的写法
 
-``` typescript
+```typescript
 type Omit<T, K extends keyof any> = Pick<T, Exclude<keyof T, K>>;
 
 interface User {
@@ -139,7 +139,7 @@ type OmitUser = Omit<User, "id">
 
 顾名思义，`typeof` 代表取某个值的 type，可以从以下示例来展示他们的用法
 
-``` typescript
+```typescript
 const a: number = 3
 
 // 相当于: const b: number = 4
@@ -148,7 +148,7 @@ const b: typeof a = 4
 
 在一个典型的服务端项目中，我们经常需要把一些工具塞到 `context` 中，如config，logger，db models, utils 等，此时就使用到 `typeof`。
 
-``` typescript
+```typescript
 import logger from './logger'
 import utils from './utils'
 
@@ -169,7 +169,7 @@ app.use((ctx: Context) => {
 
 在此之前，先看一个 `koa` 的错误处理流程，以下是对 `error` 进行集中处理，并且标识 `code` 的过程
 
-``` typescript
+```typescript
 app.use(async (ctx, next) => {
   try {
     await next();
@@ -191,7 +191,7 @@ app.use(async (ctx, next) => {
 
 此时可以使用 `as AxiosError` 或者 `as any` 来避免报错，不过强制类型转换也不够友好
 
-``` typescript
+```typescript
 if ((err as AxiosError).isAxiosError) {
   code = `Axios-${(err as AxiosError).code}`
 }
@@ -199,7 +199,7 @@ if ((err as AxiosError).isAxiosError) {
 
 此时可以使用 `is` 来判定值的类型
 
-``` typescript
+```typescript
 function isAxiosError (error: any): error is AxiosError {
   return error.isAxiosError
 }
@@ -211,7 +211,7 @@ if (isAxiosError(err)) {
 
 在 `GraphQL` 的源码中，有很多诸如此类的用法，用以标识类型
 
-``` typescript
+```typescript
 export function isType(type: any): type is GraphQLType;
 
 export function isScalarType(type: any): type is GraphQLScalarType;
@@ -229,7 +229,7 @@ export function isInterfaceType(type: any): type is GraphQLInterfaceType;
 
 一般来说，`interface` 与 `type` 区别很小，比如以下两种写法差不多
 
-``` typescript
+```typescript
 interface A {
   a: number;
   b: number;
@@ -243,7 +243,7 @@ type B = {
 
 其中 `interface` 可以如下合并多个，而 `type` 只能使用 `&` 类进行连接。
 
-``` typescript
+```typescript
 interface A {
     a: number;
 }
@@ -262,7 +262,7 @@ const a: A = {
 
 这几个语法糖是从 `lodash` 的 types 源码中学到的，平时工作中的使用频率还挺高。
 
-``` typescript
+```typescript
 type Record<K extends keyof any, T> = {
     [P in K]: T;
 };
@@ -285,7 +285,7 @@ const data:Dictionary<number> = {
 
 相比使用字面量对象维护常量，`const enum` 可以提供更安全的类型检查
 
-``` typescript
+```typescript
 // 使用 object 维护常量
 const TODO_STATUS {
   TODO: 'TODO',
@@ -294,7 +294,7 @@ const TODO_STATUS {
 }
 ```
 
-``` typescript
+```typescript
 // 使用 const enum 维护常量
 const enum TODO_STATUS {
   TODO = 'TODO',
@@ -315,7 +315,7 @@ todos(TODO_STATUS.TODO)
 
 或者编辑 `.vs-code/settings.json`
 
-``` json
+```json
 {
   "typescript.tsdk": "node_modules/typescript/lib"
 }
@@ -332,9 +332,3 @@ todos(TODO_STATUS.TODO)
 + <https://www.typescriptlang.org/docs/handbook/advanced-types.html>
 + <https://www.typescriptlang.org/docs/handbook/declaration-files/do-s-and-don-ts.html>
 + <https://moin.world/2017/06/18/10-typescript-features-you-might-not-know/>
-
-<hr/>
-
-欢迎关注我的公众号**山月行**，在这里记录着我的技术成长，欢迎交流
-
-![欢迎关注公众号山月行，在这里记录我的技术成长，欢迎交流](https://shanyue.tech/qrcode.jpg)

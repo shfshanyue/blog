@@ -30,7 +30,7 @@ tags:
 
 1. API/GraphQL 层，在 API 层的最外层使用一个中间件对错误集中进行处理，并进行上报。在具体逻辑层往往不需要主动捕捉异常，除非针对异常有特殊处理，如数据库事务失败后的回退
 
-    ``` javascript
+    ```javascript
     // 在中间件中集中处理异常
     app.use(async (ctx, next) => {
       try {
@@ -54,7 +54,7 @@ tags:
 
 另外除了主动捕捉到的异常，还有一些可能漏掉的异常，可能导致程序退出
 
-``` javascript
+```javascript
 process.on('uncaughtException', (err) => {
   console.error('uncaught', err)
 })
@@ -72,7 +72,7 @@ process.on('unhandledRejection', (reason, p) => {
 
 而当异常发生时，异常可以在最顶层中间件作为错误处理中间件统一捕获，捕获到时可以使用一个函数 `formatError` 在中间件中统一结构化异常信息
 
-``` typescript
+```typescript
 interface FormatError {
   code: string;
   message: string;
@@ -134,7 +134,7 @@ originalError 表示由该异常引发的错误 API，它往往会包含更加�
 
 **你可以使用以下两个 API 来优化你的 `stacktrace`**
 
-``` typescript
+```typescript
 Error.captureStackTrace(error, constructorOpt)
 Error.prepareStackTrace(error, structuredStackTrace)
 ```
@@ -174,7 +174,7 @@ Error.prepareStackTrace(error, structuredStackTrace)
 
 1. 异常级别: Fatel, Error 以及 Warn。这决定你周日收到报警邮件或报警短信是继续浪还是打开笔记本改 Bug。可以通过 code 来标记
 
-    ``` typescript
+    ```typescript
     const codeLevelMap = {
       ValidationError: 'warn',
       DatabaseError: 'error'
@@ -183,7 +183,7 @@ Error.prepareStackTrace(error, structuredStackTrace)
 1. 环境: 生产环境还是测试环境，早于用户及测试发现问题，可以直接读取应用服务的环境变量
 1. 上下文: 如哪一条 API 请求，哪一个用户，以及更详细的 http 报文信息。可以直接利用 Sentry 的API上报上下文信息
 
-    ``` typescript
+    ```typescript
     Sentry.configureScope(scope => {
       scope.addEventProcessor(event => Sentry.Handlers.parseRequest(event, ctx.request))
     })
@@ -192,7 +192,7 @@ Error.prepareStackTrace(error, structuredStackTrace)
 1. code: 便于对错误进行分类
 1. request_id: 便于 tracing，也方便获取更多的调试信息：在 elk 中查找当前 API 执行的 SQL 语句
 
-    ``` typescript
+    ```typescript
     const requestId = ctx.header['x-request-id'] || Math.random().toString(36).substr(2, 9)
     Sentry.configureScope(scope => {
       scope.setTag('requestId', requestId)
@@ -205,7 +205,7 @@ Error.prepareStackTrace(error, structuredStackTrace)
 
 在本地开发时，往往不需要把异常上报到 `Sentry`。`Sentry` 也提供了 hook 再上报之前对异常进行过滤
 
-``` typescript
+```typescript
 beforeSend?(event: Event, hint?: EventHint): Promise<Event | null> | Event | null;
 ```
 

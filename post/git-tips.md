@@ -21,7 +21,7 @@ tags:
 
 团队合作时，经常会出现这样的问题。这时候可以使用 `git blame <file>` 来定位代码的最后一次修改。但是，有一个问题，这并不能看出本行代码以前的修改。比如项目组中某人对全部代码进行了格式化，`git blame` 就失去了作用。此时，可以与另一个有用的命令 `git log -p <file>` 结合使用，可以查看文件的更改历史与明细，最终找到这个锅究竟应该由谁来背。
 
-``` sh
+```sh
 git blame -L 10,12 package.json
 git log -p -L 10,12:package.json
 ```
@@ -32,7 +32,7 @@ git log -p -L 10,12:package.json
 
 题外话，`cd -` 代表进入最近目录，也相当实用。
 
-``` sh
+```sh
 git checkout -
 git merge -
 ```
@@ -41,7 +41,7 @@ git merge -
 
 统计项目各个成员 commit 的情况，比如你可以查看你自己的项目的 commit 数以及他人对你项目的贡献数
 
-``` sh
+```sh
 git shortlog -sn
 git shortlog -sn --no-merges      # 不包含 merge commit
 ```
@@ -54,7 +54,7 @@ git shortlog -sn --no-merges      # 不包含 merge commit
 
 同时，也可以根据作者，时间来辅助快速定位。
 
-``` sh
+```sh
 git log --since="0 am" 　　　     # 查看今日的提交
 git log --author="shfshanyue"     # 查看 shfshanyue 的提交
 git log --grep="#12"              # 查找提交信息中包换关键字的提交
@@ -71,7 +71,7 @@ git log -S "setTimeout"           # 查看提交内容中包换关机子的提�
 
 这时，可以使用 `git grep <keyword>` 来解决这个问题，另外 ag 也可以解决这个问题。
 
-``` sh
+```sh
 grep -rn <keyword>
 grep -rn <keyword> --exclude config.js --exclude-dir node_modules
 git grep <keyword>

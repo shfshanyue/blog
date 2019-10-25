@@ -35,7 +35,7 @@ tags:
 
 你需要把 `sentry.hostname.com` 替换为你将要设置的域名
 
-``` yaml
+```yaml
 web:
   <<: *defaults
   expose:
@@ -50,7 +50,7 @@ web:
 
 这里有官方部署文档和 compose file: <https://github.com/getsentry/onpremise>，以下是我的部署命令
 
-``` shell
+```shell
 # 安装之前，先看一下内存使用情况
 $ free -h
               total        used        free      shared  buff/cache   available

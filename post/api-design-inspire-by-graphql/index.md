@@ -35,7 +35,7 @@ tags:
 
 ## 按需加载资源的字段
 
-``` graphql
+```graphql
 query TODO {
   todo (id: 10) {
     id 
@@ -53,7 +53,7 @@ query TODO {
 
 在 Rest API 中可以使用额外字段做按需加载。 **如使用 fields 标记返回需要的字段，若无此字段，默认返回资源的全部字段，在中间件中对 fields 做结构化处理**
 
-``` javascript
+```javascript
 // 请求 Todo:10，并且只需要 id,name,status 三个字符安
 '/api/todos/10?fields=id,name,status'
 
@@ -65,7 +65,7 @@ query TODO {
 
 这个请求表示一个用户列表，每个用户需要展示最后一个 Todo 的名称。Todo 需要使用嵌套对象来表示。
 
-``` graphql
+```graphql
 query USERS {
   users {
     id
@@ -80,7 +80,7 @@ query USERS {
 
 在 Rest API 设计中经常见到所有数据进行了展开，不仅无法定位资源，也不好扩展数据。嵌套数据可以很灵活的扩展数据，另外也可以对嵌套数据进行按需加载
 
-``` javascript
+```javascript
 const res0 = {
   users: [{
     id: 1,
@@ -113,7 +113,7 @@ const api = '/api/users?fields=id,name,todo.id,todo.name'
 
 > 参考 StackOverflow 上的问题 [the-right-json-date-format](https://stackoverflow.com/questions/10286204/the-right-json-date-format)
 
-``` javascript
+```javascript
 const date = new Date()
 
 // 从 toJSON 的输出就知道前后端交互需要使用什么格式了
@@ -131,7 +131,7 @@ date.toISOString()
 
 在 graphql 中会返回 `{ data, errors }` 的数据结构，可以在最后结构化错误信息为
 
-``` json
+```json
 {
   "code": "InvalidToken",
   "message": "Token 失效",

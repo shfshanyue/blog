@@ -51,7 +51,7 @@ iOS Not supported
 
 设置 `display: grid` 的元素，它是所有栅格项目的直接父级元素。在这个例子中，`container` 是栅格的容器。
 
-``` html
+```html
 <div class="container">
   <div class="item item-1"></div>
   <div class="item item-2"></div>
@@ -63,7 +63,7 @@ iOS Not supported
 
 栅格容器的直接子代。在这里 `item` 是栅格项目，而 `sub-item` 不是栅格项目。
 
-``` html
+```html
 <div class="container">
   <div class="item"></div> 
   <div class="item">
@@ -142,7 +142,7 @@ iOS Not supported
 + **inline-grid** 生成行间栅格
 + **subgrid** 如果你的栅格容器本身是一个栅格项目的话（例如：嵌套栅格），你可以根据它的父元素而不是它自己，指定行列大小。
 
-``` css
+```css
 .container{
   display: grid | inline-grid | subgrid;
 }
@@ -159,7 +159,7 @@ iOS Not supported
 + **&lt;track-size\>** 可以是长度，百分比，或者栅格中的空白空间（使用 `fr`）
 + **&lt;line-name\>** 任意名字，任君选择
 
-``` css
+```css
 .container{
   grid-template-columns: <track-size> ... | <line-name> <track-size> ...;
   grid-template-rows: <track-size> ... | <line-name> <track-size> ...;
@@ -170,7 +170,7 @@ iOS Not supported
 
 当你在轨迹值之间预留空格时，栅格线会被自动分配为数值名字。
 
-``` css
+```css
 .container{
   grid-template-columns: 40px 50px auto 50px 40px;
   grid-template-rows: 25% 100px auto;
@@ -181,7 +181,7 @@ iOS Not supported
 
 你也可以为栅格线设置名字，注意栅格线名字的括号语法：
 
-``` css
+```css
 .container{
   grid-template-columns: [first] 40px [line2] 50px [line3] auto [col4-start] 50px [five] 40px [end];
   grid-template-rows: [row1-start] 25% [row1-end] 100px [third-line] auto [last-line];
@@ -192,7 +192,7 @@ iOS Not supported
 
 注意一条线可以有多个名字。例如，这里第二条线有两个名字：row1-end 和 row2-start。
 
-``` css
+```css
 .container{
   grid-template-rows: [row1-start] 25% [row1-end row2-start] 25% [row2-end];
 }
@@ -200,7 +200,7 @@ iOS Not supported
 
 如果你定义的内容包含重复部分，你可以使用 `repeat()` 标记去组织它。
 
-``` css
+```css
 .container{
   grid-template-columns: repeat(3, 20px [col-start]) 5%;
 }
@@ -208,7 +208,7 @@ iOS Not supported
 
 与以下代码是等价的
 
-``` css
+```css
 .container{
   grid-template-columns: 20px [col-start] 20px [col-start] 20px [col-start] 5%;
 }
@@ -216,7 +216,7 @@ iOS Not supported
 
 `fr` 允许你设置轨迹大小为栅格容器的一部分。例如，以下示例将设置每个项目为栅格容器的三分之一。
 
-``` css
+```css
 .container{
   grid-template-columns: 1fr 1fr 1fr;
 }
@@ -224,7 +224,7 @@ iOS Not supported
 
 空白空间将在固定项目 *之后* 被计算。在这个例子中，给 `fr` 分配的全部空余时间不包括 50px。
 
-``` css
+```css
 .container{
   grid-template-columns: 1fr 50px 1fr 1fr;
 }
@@ -240,7 +240,7 @@ iOS Not supported
 + **.** 句点表示空白栅格格子
 + **none** 不定义栅格区域
 
-``` css
+```css
 .container{
   grid-template-areas: "<grid-area-name> | . | none | ..."
                        "..."
@@ -249,7 +249,7 @@ iOS Not supported
 
 示例:
 
-``` css
+```css
 .item-a{
   grid-area: header;
 }
@@ -293,7 +293,7 @@ iOS Not supported
 + **subgrid** 设置 `grid-template-rows` 和 `grid-template-columns` 为 `subgrid`，`grid-template-areas` 为初始值。
 + **&lt;grid-template-columns\> / &lt;grid-template-rows\>** 设置 `grid-template-columns` 与 `grid-template-rows` 为各自指定的值。而 `grid-template-areas` 为 `none`。
 
-``` css
+```css
 .container{
   grid-template: none | subgrid | <grid-template-columns> / <grid-template-rows>;
 }
@@ -301,7 +301,7 @@ iOS Not supported
 
 另外，也有一个比较复杂但是方便的语法指定三个属性，示例如下
 
-``` css
+```css
 .container{
   grid-template: auto 50px auto /
     [row1-start] 25px "header header header" [row1-end]
@@ -311,7 +311,7 @@ iOS Not supported
 
 与以下代码是等价的：
 
-``` css
+```css
 .container{
   grid-template-columns: auto 50px auto;
   grid-template-rows: [row1-start] 25px [row1-end row2-start] 25px [row2-end];
@@ -331,7 +331,7 @@ iOS Not supported
 
 + **&lt;line-size\>** 长度值
 
-``` css
+```css
 .container{
   grid-column-gap: <line-size>;
   grid-row-gap: <line-size>;
@@ -340,7 +340,7 @@ iOS Not supported
 
 示例:
 
-``` css
+```css
 .container{
   grid-template-columns: 100px 50px 100px;
   grid-template-rows: 80px auto 80px; 
@@ -361,7 +361,7 @@ iOS Not supported
 
 + **&lt;grid-row-gap\> &lt;grid-column-gap\>** 长度值
 
-``` css
+```css
 .container{
   grid-gap: <grid-row-gap> <grid-column-gap>;
 }
@@ -369,7 +369,7 @@ iOS Not supported
 
 示例:
 
-``` css
+```css
 .container{
   grid-template-columns: 100px 50px 100px;
   grid-template-rows: 80px auto 80px; 
@@ -390,7 +390,7 @@ iOS Not supported
 + **center** 使内容在栅格区域中居中
 + **stretch** 使内容充满整个栅格区域的宽（默认属性）
 
-``` css
+```css
 .container{
   justify-items: start | end | center | stretch;
 }
@@ -398,7 +398,7 @@ iOS Not supported
 
 示例
 
-``` css
+```css
 .container{
   justify-items: start;
 }
@@ -406,7 +406,7 @@ iOS Not supported
 
 ![Example of justify-items set to start](http://p0.qhimg.com/t014aac0561a2356880.png)
 
-``` css
+```css
 .container{
   justify-items: end;
 }
@@ -414,7 +414,7 @@ iOS Not supported
 
 ![Example of justify-items set to end](http://p0.qhimg.com/t0150250ab32231e09d.png)
 
-``` css
+```css
 .container{
   justify-items: center;
 }
@@ -422,7 +422,7 @@ iOS Not supported
 
 ![Example of justify-items set to center](http://p0.qhimg.com/t0165c50666a5eb75e3.png)
 
-``` css
+```css
 .container{
   justify-items: stretch;
 }
@@ -443,7 +443,7 @@ iOS Not supported
 + **center** 使内容在栅格区域中居中
 + **stretch** 使内容充满整个栅格区域的高（默认属性）
 
-``` css
+```css
 .container{
   align-items: start | end | center | stretch;
 }
@@ -451,7 +451,7 @@ iOS Not supported
 
 示例:
 
-``` css
+```css
 .container{
   align-items: start;
 }
@@ -459,7 +459,7 @@ iOS Not supported
 
 ![Example of align-items set to start](http://p0.qhimg.com/t01ff0fa166f558197d.png)
 
-``` css
+```css
 .container{
   align-items: end;
 }
@@ -468,7 +468,7 @@ iOS Not supported
 
 ![Example of align-items set to end](http://p0.qhimg.com/t01db036a5039b6f137.png)
 
-``` css
+```css
 .container{
   align-items: center;
 }
@@ -477,7 +477,7 @@ iOS Not supported
 
 ![Example of align-items set to center](http://p0.qhimg.com/t0169cb9db61ffbae54.png)
 
-``` css
+```css
 .container{
   align-items: stretch;
 }
@@ -503,7 +503,7 @@ iOS Not supported
 + **space-between** 每两个项目之间留有相同的空白，在最左端与最右端不留空白。
 + **space-evenly** 每两个项目之间留有相同的空白，包括两端。
 
-``` css
+```css
 .container {
   align-content: start | end | center | stretch | space-around | space-between | space-evenly;  
 }
@@ -511,7 +511,7 @@ iOS Not supported
 
 示例:
 
-``` css
+```css
 .container{
   justify-content: start;
 }
@@ -520,7 +520,7 @@ iOS Not supported
 
 ![Example of justify-content set to start](http://p0.qhimg.com/t011c175bd21bd04873.png)
 
-``` css
+```css
 .container{
   justify-content: end;  
 }
@@ -529,7 +529,7 @@ iOS Not supported
 
 ![Example of justify-content set to end](http://p0.qhimg.com/t012fdfb43be210320b.png)
 
-``` css
+```css
 .container{
   justify-content: center;  
 }
@@ -538,7 +538,7 @@ iOS Not supported
 
 ![Example of justify-content set to center](http://p0.qhimg.com/t0121f6243af228e533.png)
 
-``` css
+```css
 .container{
   justify-content: stretch;  
 }
@@ -547,7 +547,7 @@ iOS Not supported
 
 ![Example of justify-content set to stretch](http://p0.qhimg.com/t01d47cbca62430ca01.png)
 
-``` css
+```css
 .container{
   justify-content: space-around;  
 }
@@ -556,7 +556,7 @@ iOS Not supported
 
 ![Example of justify-content set to space-around](http://p0.qhimg.com/t01a20181854966e956.png)
 
-``` css
+```css
 .container{
   justify-content: space-between;  
 }
@@ -565,7 +565,7 @@ iOS Not supported
 
 ![Example of justify-content set to space-between](http://p0.qhimg.com/t01ce2fa8742987e2d7.png)
 
-``` css
+```css
 .container{
   justify-content: space-evenly;  
 }
@@ -588,7 +588,7 @@ iOS Not supported
 + **space-between** 每两个项目之间留有相同的空白，在最左端与最右端不留空白。
 + **space-evenly** 每两个项目之间留有相同的空白，包括两端。
 
-``` css
+```css
 .container{
   align-content: start | end | center | stretch | space-around | space-between | space-evenly;  
 }
@@ -597,7 +597,7 @@ iOS Not supported
 
 示例:
 
-``` css
+```css
 .container{
   align-content: start;  
 }
@@ -606,7 +606,7 @@ iOS Not supported
 
 ![Example of align-content set to start](http://p0.qhimg.com/t017f5b8278a30f5c6d.png)
 
-``` css
+```css
 .container{
   align-content: end;  
 }
@@ -615,7 +615,7 @@ iOS Not supported
 
 ![Example of align-content set to end](http://p0.qhimg.com/t018c44b23f2d7d8bcd.png)
 
-``` css
+```css
 .container{
   align-content: center;  
 }
@@ -624,7 +624,7 @@ iOS Not supported
 
 ![Example of align-content set to center](http://p0.qhimg.com/t01e3f8dffe087bebcf.png)
 
-``` css
+```css
 .container{
   align-content: stretch;  
 }
@@ -633,7 +633,7 @@ iOS Not supported
 
 ![Example of align-content set to stretch](http://p0.qhimg.com/t015b64390a99043ad4.png)
 
-``` css
+```css
 .container{
   align-content: space-around;  
 }
@@ -642,7 +642,7 @@ iOS Not supported
 
 ![Example of align-content set to space-around](http://p0.qhimg.com/t01e4088675bc8f2291.png)
 
-``` css
+```css
 .container{
   align-content: space-between;  
 }
@@ -651,7 +651,7 @@ iOS Not supported
 
 ![Example of align-content set to space-between](http://p0.qhimg.com/t011990e6cf87af8a91.png)
 
-``` css
+```css
 .container{
   align-content: space-evenly;  
 }
@@ -669,7 +669,7 @@ iOS Not supported
 
 + **&lt;track-size>** 可以是长度，百分比或者 `fr`
 
-``` css
+```css
 .container{
   grid-auto-columns: <track-size> ...;
   grid-auto-rows: <track-size> ...;
@@ -678,7 +678,7 @@ iOS Not supported
 
 举例了解隐式栅格轨迹是如何被创建的，考虑以下示例：
 
-``` css
+```css
 .container{
   grid-template-columns: 60px 60px;
   grid-template-rows: 90px 90px
@@ -691,7 +691,7 @@ iOS Not supported
 
 你使用 `[grid-column`](#prop-grid-column) 与 [`grid-row`](#prop-grid-row) 去定位你的项目如下：
 
-``` css
+```css
 .item-a{
   grid-column: 1 / 2;
   grid-row: 2 / 3;
@@ -710,7 +710,7 @@ iOS Not supported
 
 ![Example of implicit tracks](https://cdn.css-tricks.com/wp-content/uploads/2016/03/implicit-tracks-with-widths.png)
 
-``` css
+```css
 .container{
   grid-auto-columns: 60px;
 }
@@ -729,7 +729,7 @@ iOS Not supported
 + **column** 自动放置算法将按列依次排列，按需添加新列。
 + **dense** 如果较小的项目出现靠后时，自动防止算法将尽可能早地填充栅格的空白格子
 
-``` css
+```css
 .container{
   grid-auto-flow: row | column | row dense | column dense
 }
@@ -741,7 +741,7 @@ iOS Not supported
 
 考虑以下 html:
   
-``` html
+```html
 <section class="container">
     <div class="item-a">item-a</div>
     <div class="item-b">item-b</div>
@@ -753,7 +753,7 @@ iOS Not supported
 
 你定义了一个两行五列的栅格，并设置它的 [`grid-auto-flow`](#prop-grid-auto-flow) 属性为 `row` （默认属性便是 `row`）。
 
-``` css
+```css
 .container{
     display: grid;
     grid-template-columns: 60px 60px 60px 60px 60px;
@@ -764,7 +764,7 @@ iOS Not supported
 
 当我们把项目放置在栅格中的时候，明确指定以下两个项目的位置
 
-``` css
+```css
 .item-a{
     grid-column: 1;
     grid-row: 1 / 3;
@@ -781,7 +781,7 @@ iOS Not supported
 
 如果设置 [`grid-auto-flow`](#prop-grid-auto-flow) 的属性为 `column`，item-b**，**item-c** 与 **item-d** 将按列以此排序。
 
-``` css
+```css
 .container{
     display: grid;
     grid-template-columns: 60px 60px 60px 60px 60px;
@@ -803,7 +803,7 @@ iOS Not supported
 + **&lt;grid-template-rows\> / &lt;grid-template-columns\>** 仅仅设置这两个属性值，其它子属性值为初始值。
 + **&lt;grid-auto-flow\> [&lt;grid-auto-rows\> [ / &lt;grid-auto-columns\>] ]** 如果 [`grid-auto-columns`](#prop-grid-auto-rows) 属性值确实，则采用 [`grid-auto-rows`](#prop-grid-auto-rows)的值。如果属性值均缺失，则采用默认值。
 
-``` css
+```css
 .container{
     grid: none | <grid-template-rows> / <grid-template-columns> | <grid-auto-flow> [<grid-auto-rows> [/ <grid-auto-columns>]];
 }
@@ -811,13 +811,13 @@ iOS Not supported
 
 以下两种写法是等价的：
 
-``` css
+```css
 .container{
     grid: 200px auto / 1fr auto 1fr;
 }
 ```
 
-``` css
+```css
 .container{
     grid-template-rows: 200px auto;
     grid-template-columns: 1fr auto 1fr;
@@ -827,13 +827,13 @@ iOS Not supported
 
 以下两种写法也是等价的：
 
-``` css
+```css
 .container{
     grid: column 1fr / auto;
 }
 ```
 
-``` css
+```css
 .container{
     grid-auto-flow: column;
     grid-auto-rows: 1fr;
@@ -843,7 +843,7 @@ iOS Not supported
 
 另外你可以设置更为复杂但相当方便的语法一次性设置所有属性。你可以指定[`grid-template-areas`](#prop-grid-template-areas)， [`grid-auto-rows`](#prop-grid-auto-rows) 与 [`grid-auto-columns`](#prop-grid-auto-rows)，其他子属性将被设为默认值。你需要指定栅格线与轨迹大小，这很容易用一个例子表示：
 
-``` css
+```css
 .container{
     grid: [row1-start] "header header header" 1fr [row1-end]
           [row2-start] "footer footer footer" 25px [row2-end]
@@ -853,7 +853,7 @@ iOS Not supported
 
 与以下写法是等价的：
 
-``` css
+```css
 .container{
     grid-template-areas: "header header header"
                          "footer footer footer";
@@ -875,7 +875,7 @@ iOS Not supported
 + **span &lt;name\>** 项目将横跨至指定名字的栅格线
 + **auto** 自动放置，自动跨越轨迹或者默认跨越轨迹
 
-``` css
+```css
 .item{
   grid-column-start: <number> | <name> | span <number> | span <name> | auto
   grid-column-end: <number> | <name> | span <number> | span <name> | auto
@@ -886,7 +886,7 @@ iOS Not supported
 
 示例:
 
-``` css
+```css
 .item-a{
   grid-column-start: 2;
   grid-column-end: five;
@@ -897,7 +897,7 @@ iOS Not supported
 
 ![Example of grid-row/column-start/end](http://p0.qhimg.com/t01c319940a0751c21a.png)
 
-``` css
+```css
 .item-b{
   grid-column-start: 1;
   grid-column-end: span col4-start;
@@ -920,7 +920,7 @@ iOS Not supported
 
 + **&lt;start-line\> / &lt;end-line\>** 接收 grid-column-start 同样的属性值，包括 span
 
-``` css
+```css
 .item{
   grid-column: <start-line> / <end-line> | <start-line> / span <value>;
   grid-row: <start-line> / <end-line> | <start-line> / span <value>;
@@ -929,7 +929,7 @@ iOS Not supported
 
 Example:
 
-``` css
+```css
 .item-c{
   grid-column: 3 / span 2;
   grid-row: third-line / 4;
@@ -949,7 +949,7 @@ Example:
 + **&lt;name\>**
 + **&lt;row-start\> / &lt;column-start\> / &lt;row-end\> / &lt;column-end\>**
 
-``` css
+```css
 .item{
   grid-area: <name> | <row-start> / <column-start> / <row-end> / <column-end>;
 }
@@ -959,7 +959,7 @@ Example:
 
 你可以给项目设置名字：
 
-``` css
+```css
 .item-d{
   grid-area: header
 }
@@ -967,7 +967,7 @@ Example:
 
 也可以作为[`grid-row-start`](#prop-grid-row-start) + [`grid-column-start`](#prop-grid-row-start) + [`grid-row-end`](#prop-grid-row-start) + [`grid-column-end`](#prop-grid-row-start) 的缩写：
 
-``` css
+```css
 .item-d{
   grid-area: 1 / col4-start / last-line / 6
 }
@@ -986,7 +986,7 @@ Example:
 + **center** 使内容在栅格区域中居中
 + **stretch** 使内容充满整个栅格区域的宽（默认属性）
 
-``` css
+```css
 .item{
   justify-self: start | end | center | stretch;
 }
@@ -994,7 +994,7 @@ Example:
 
 示例:
 
-``` css
+```css
 .item-a{
   justify-self: start;
 }
@@ -1002,7 +1002,7 @@ Example:
 
 ![Example of justify-self set to start](http://p0.qhimg.com/t012726e6a9b31ae7b9.png)
 
-``` css
+```css
 .item-a{
   justify-self: end;
 }
@@ -1010,7 +1010,7 @@ Example:
 
 ![Example of justify-self set to end](http://p0.qhimg.com/t017b10ee4bdb228696.png)
 
-``` css
+```css
 .item-a{
   justify-self: center;
 }
@@ -1018,7 +1018,7 @@ Example:
 
 ![Example of justify-self set to center](http://p0.qhimg.com/t0137ce363f085b12b7.png)
 
-``` css
+```css
 .item-a{
   justify-self: stretch;
 }
@@ -1040,7 +1040,7 @@ Example:
 + **center** 使内容在栅格区域中居中
 + **stretch** 使内容充满整个栅格区域的高（默认属性）
 
-``` css
+```css
 .item{
   align-self: start | end | center | stretch;
 }
@@ -1048,7 +1048,7 @@ Example:
 
 示例:
 
-``` css
+```css
 .item-a{
   align-self: start;
 }

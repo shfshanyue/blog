@@ -16,7 +16,7 @@ JSONL 即 JSON Lines，代表数据的每一行都是一个合法的 json，因�
 
 举个栗子，如以下数据就是 jsonl
 
-``` jsonl
+```jsonl
 {"id": 1}
 {"id": 2}
 {"id": 3}
@@ -24,7 +24,7 @@ JSONL 即 JSON Lines，代表数据的每一行都是一个合法的 json，因�
 
 而以下数据是 json
 
-``` json
+```json
 [
   {"id": 1},
   {"id": 2},

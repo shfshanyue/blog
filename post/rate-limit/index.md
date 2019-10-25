@@ -20,7 +20,7 @@ tags:
 
 以下是发送邮件的 API，已限制为一分钟两次，你可以通过修改 `email` 进行试验。你也可以在[我的站点](https://shici.xiange.tech/register)直接试验
 
-``` shell
+```shell
 curl 'https://graphql.xiange.tech/graphql' -H 'Content-Type: application/json' --data-binary '{"query":"mutation SEND($email: String!) {\n  sendEmailVerifyCode (email: $email)\n}","variables":{"email":"xxxxxx@qq.com"}}'
 ```
 
@@ -46,7 +46,7 @@ curl 'https://graphql.xiange.tech/graphql' -H 'Content-Type: application/json' -
 
 以下是使用 redis 的计数器实现限流的伪代码
 
-``` javascript
+```javascript
 const option = {
   max: 10,        // window 时间内限速10个请求
   window: 1000    // 1s
@@ -74,13 +74,13 @@ function access(req) {
 
 另外还有一个redis的 `INCR` 与 `EXPIRE` 的原子性问题，容易造成 `Race Condition`，可以通过 `SETNX` 来解决
 
-``` javascript
+```javascript
 redis.set(key, 0, 'EX', option.window, 'NX')
 ```
 
 另外也可以通过一个 `LUA` 脚本来搞定，显然还是 `SETNX` 简单些
 
-``` lua
+```lua
 local current
 current = redis.call("incr",KEYS[1])
 if tonumber(current) == 1 then
@@ -92,7 +92,7 @@ end
 
 以下是使用 redis 的 set/get string 实现的限流
 
-``` javascript
+```javascript
 const option = {
   max: 10,        // window 时间内限速10个请求
   window: 1000    // 1s

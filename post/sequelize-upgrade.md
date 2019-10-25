@@ -27,7 +27,7 @@ tags:
 
 由于官方提供了 `typescript` 的支持，不需要在安装 `@types/sequelize`。
 
-``` shell
+```shell
 npm install sequelize
 ```
 
@@ -35,7 +35,7 @@ npm install sequelize
 
 由于使用了 `typescript` 编译，解决问题。
 
-``` shell
+```shell
 $ tsc
 ...
 Found 1361 errors.
@@ -55,7 +55,7 @@ Found 1361 errors.
 
 根据文档，对 `Model` 以及 `Sequelize.define` 做以下更改。
 
-``` typescript
+```typescript
 class AnyPropModel extends Model {
   [key: string]: any;
 }
@@ -76,7 +76,7 @@ const UserModel = <AnyModel>sequelize.define('MyDefineModel', {
 
 更改之后再次编译.
 
-``` shell
+```shell
 $ tsc
 Found 898 errors.
 ```
@@ -87,7 +87,7 @@ Found 898 errors.
 
 > 本来也想抽出 lines，没有成功...
 
-``` shell
+```shell
 $ tsc | grep 'error TS' | jq -R -c -s 'split("\n") | map(capture("(?<file>.+): error (?<code>.+): (?<message>.+)")) | .[]' > build.jsonl
 $ head -3 build.jsonl
 {"file":"bin/demo.ts(278,23)","code":"TS2351","message":"Cannot use 'new' with an expression whose type lacks a call or construct signature."}
@@ -98,7 +98,7 @@ $ head -3 build.jsonl
 
 根据格式化信息，对相同 code 的错误进行分类，先解决错误率最高的五类
 
-``` shell
+```shell
 $ cat build.jsonl | jq -s 'group_by(.code) | map({count: length, code: .[0].code, message: .[0].message}) | sort_by(.count) | .[]'
 {
   "count": 41,
@@ -134,7 +134,7 @@ $ cat build.jsonl | jq -s 'group_by(.code) | map({count: length, code: .[0].code
 
 ## 08 TS2576: Sequelize.prototype -> Sequelize
 
-``` shell
+```shell
 "Property 'col' is a static member of type 'Sequelize'"
 "Property 'literal' is a static member of type 'Sequelize'"
 "Property 'or' is a static member of type 'Sequelize'"
@@ -153,7 +153,7 @@ Sequelize 示例上的很多方法变成了 static method.
 
 ## 09 TS2339 Model 的废弃方法
 
-``` shell
+```shell
 Property 'findById' does not exist on type 'AnyModel'.
 Property 'find' does not exist on type 'AnyModel'.
 Property 'id' does not exist on type 'AnyPropModel | null'.
@@ -164,23 +164,23 @@ Property 'LOCK' does not exist on type 'Transaction'.
 
 至于替换也是一个体力活，再次编译
 
-<!-- ``` typescript
+<!-- ```typescript
 const { id } = await models.user.findOne()
 `
 
-``` typescript
+```typescript
 const users = await db.query(sql, { type: QueryTypes.SELECT })
 const id = list[0].id
 
 const users = await db.query<AnyModel>(sql, { type: QueryTypes.SELECT })
 const id = list[0].id
-``` -->
+```-->
 
 **Found 753 errors.**
 
 ## 10 TS2531 Object is possibly 'null'
 
-``` shell
+```shell
 $ tsc | grep 2531 | wc
    406
 ```
@@ -191,7 +191,7 @@ $ tsc | grep 2531 | wc
 
 `findById` 更改之后有更多的问题显现出来，是因为没有对返回的数据做不存在断言处理，如下例所示
 
-``` typescript
+```typescript
 const user = await models.user.findOne()
 // 此时 user 可能不存在，可能报错
 const id = user.id
@@ -201,7 +201,7 @@ const id = user.id
 
 使用 `rejectOnEmpty` 来修正它，他能保证数据一定存在
 
-``` typescript
+```typescript
 const user = await models.User.findOne({
   rejectOnEmpty: true
 })
@@ -221,7 +221,7 @@ const user = await models.User.findOne({
 
 ## 11 migration
 
-``` shell
+```shell
 TS2709: Cannot use namespace 'DataTypes' as a type
 ```
 
@@ -232,7 +232,7 @@ TS2709: Cannot use namespace 'DataTypes' as a type
 1. 它是一次性脚本
 1. 一个数据库有可能对应多个后端应用
 
-``` typescript
+```typescript
 import { QueryInterface, DataTypes } from 'sequelize'
 
 export const up = async function (queryInterface: QueryInterface, Sequelize: DataTypes) {
@@ -248,7 +248,7 @@ export const up = async function (queryInterface: QueryInterface, Sequelize: Dat
 
 ## 12 implicitly any
 
-``` shell
+```shell
 TS7006 Parameter 'item' implicitly has an 'any' type.
 ```
 
@@ -258,7 +258,7 @@ TS7006 Parameter 'item' implicitly has an 'any' type.
 
 ## 13 使用 sed 批量替换 Op
 
-``` typescript
+```typescript
 // 替换前
 where.count = { $lte: 10 }
 where.count['$lte'] = 10
@@ -280,13 +280,13 @@ where.count[Op.lte] = 10
 
 以上错误的原因过多是因为批量替换成 `Op` 后提示 `Op` 不存在
 
-``` typescript
+```typescript
 import { Op } from 'sequelize'
 ```
 
 ## 15 再次统计
 
-``` shell
+```shell
 $ tsc | grep 'error TS' | jq -R -s 'split("\n") | map(capture("(?<file>.+): error (?<code>.+): (?<message>.+)")) | group_by(.code) | map({count: length, code: .[0].code, message: .[0].message}) | sort_by(.count) | .[]'
 
 {
@@ -322,7 +322,7 @@ $ tsc | grep 'error TS' | jq -R -s 'split("\n") | map(capture("(?<file>.+): erro
 
 统计下修改了多少内容
 
-``` shell
+```shell
 $ git diff master --shortstat
  199 files changed, 1784 insertions(+), 1411 deletions(-)
 ```
@@ -333,7 +333,7 @@ $ git diff master --shortstat
 
 这次碰到的是 postgres 的 `range` 这个数据类型
 
-``` typescript
+```typescript
 // 更改前
 [0, 100]
 
@@ -355,7 +355,7 @@ $ git diff master --shortstat
 
 使用 `_.pickBy` 过滤掉 `undefined`
 
-``` typescript
+```typescript
 const where = _.pickBy(data, x => x !== undefined)
 ```
 
