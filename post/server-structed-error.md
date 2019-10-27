@@ -7,7 +7,6 @@ categories:
   - 后端
 tags:
   - node
-  - graphql
 ---
 
 在一个后端服务设计中，异常捕获是必不可少需要考虑的因素

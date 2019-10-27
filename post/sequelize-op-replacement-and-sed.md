@@ -6,7 +6,7 @@ categories:
   - 后端
   - 运维
 tags:
-  - devops
+  - linux
 ---
 
 [sequelize](https://github.com/sequelize/sequelize) 是 Node 中使用比较多的一个 ORM 库，最近计划将项目中的 `sequelize` 升级至 V5 版本。
