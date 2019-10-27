@@ -3,6 +3,7 @@ title: 如何快速了解新业务
 date: 2019-08-08
 tags:
   - think
+hot: 4
 
 ---
 

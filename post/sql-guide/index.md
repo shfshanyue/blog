@@ -7,6 +7,8 @@ tags:
   - sql
 categories:
   - 后端
+hot: 9
+
 ---
 
 本篇文章是 **SQL 必知必会** 的读书笔记，SQL必知必会的英文名叫做 **Sams Teach Yourself in 10 Minutes** 。但是，我肯定是不能够在10分钟就能学会本书所有涉及到的sql，所以就起个名字叫30分钟学会SQL语句（其实半个小时也没有学会...）。

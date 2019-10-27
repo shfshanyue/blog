@@ -8,6 +8,8 @@ categories:
   - 运维
 tags:
   - devops
+hot: 10
+
 ---
 
 本文地址 [山月的博客](https://shanyue.tech/post/server-todo/)

@@ -6,6 +6,8 @@ tags:
   - vim
 categories:
   - 工具
+hot: 1
+
 ---
 
 有一个段子。

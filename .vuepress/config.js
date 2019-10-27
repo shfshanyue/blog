@@ -101,6 +101,12 @@ module.exports = {
               frontmatter: {
                 layout: 'Archive' 
               }
+            },
+            {
+              path: '/',
+              frontmatter: {
+                layout: 'Home' 
+              }
             }
           ]
         },
@@ -109,7 +115,7 @@ module.exports = {
             $page.frontmatter.sidebar = 'auto'
           }
           if (/^\/op\/.+?$/.test($page.path)) {
-            $page.frontmatter.metaTitle = `${$page.title} | 服务器运维笔记 | 山月行`
+            $page.frontmatter.metaTitle = `${$page.title} | 当我有服务器时我做了什么 | 山月行`
           }
         }
       }

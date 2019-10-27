@@ -6,6 +6,8 @@ categories:
 tags:
   - node
   - graphql
+hot: 6
+
 ---
 
 前段时间，我使用了 jwt 来实现邮箱验证码的校验与用户认证与登录，还特别写了[一篇文章](https://juejin.im/post/5cc459976fb9a032212cc73b)作为总结。

@@ -7,11 +7,16 @@
   </div>
 </template>
 
+<script>
+export default {
+  name: 'QR'
+}
+</script>
+
 <style>
 .qr {
   margin-top: 10px;
   margin-bottom: -1rem;
-  padding-left: 1rem;
   display: flex;
 }
 
