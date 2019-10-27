@@ -62,12 +62,13 @@ export default {
       return this.$site.pages
         .filter(page => page.title && page.frontmatter.date && page.frontmatter.hot)
         .sort((x, y) => dayjs(y.frontmatter.hot) - dayjs(x.frontmatter.hot))
+        .slice(0, 10)
     },
     recentPosts () {
       return this.$site.pages
         .filter(page => page.title && page.frontmatter.date)
         .sort((x, y) => dayjs(y.frontmatter.date) - dayjs(x.frontmatter.date))
-        .slice(0, 6)
+        .slice(0, 10)
     }
   }
 }

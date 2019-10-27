@@ -12,7 +12,7 @@ module.exports = {
       { text: '博客', link: '/post/' },
       // { text: 'GraphQL', link: '/post/graphql-guide/' },
       { text: '炳烛', link: '/record/' },
-      { text: '服务器运维笔记', link: '/op/' },
+      { text: '个人服务器运维指南', link: '/op/' },
       { text: 'SQL必知必会', link: '/post/sql-guide/' },
       { text: '关于我', link: '/about' },
       {
@@ -36,13 +36,16 @@ module.exports = {
       ],
       '/op/': [
         {
-          title: '服务器运维笔记',
+          title: '序',
+          collapsable: false,
           children: [
-            ['', '前言'],
+            ['', '系列文章介绍'],
+            ['when-server', '序·当我有一台服务器时我做了什么'],
           ]
         },
         {
           title: '初始配置',
+          collapsable: false,
           children: [
             ['init', '服务器登录配置'],
             ['ssh-setting', 'ssh key 以及 git 配置'],
@@ -54,23 +57,32 @@ module.exports = {
         },
         {
           title: '自动化运维',
+          collapsable: false,
           children: [
             ['ansible-guide', '使用 ansible 做自动化运维'],
             ['ansible-problem', '使用 ansible 的一些问题'],
           ]
         },
         {
-          title: 'docker, k8s 与应用开发',
+          title: 'docker 与应用开发',
+          collapsable: false,
+          children: []
+        },
+        {
+          title: 'kubernetes 与应用开发',
+          collapsable: false,
           children: []
         },
         {
           title: '监控',
+          collapsable: false,
           children: [
             ['linux-monitor', '各项监控指标小记']
           ]
         },
         {
           title: '高频linux命令',
+          collapsable: false,
           children: [
             ['linux-sed', 'sed命令及示例'],
             ['linux-awk', 'awk命令及示例'],
@@ -115,7 +127,7 @@ module.exports = {
             $page.frontmatter.sidebar = 'auto'
           }
           if (/^\/op\/.+?$/.test($page.path)) {
-            $page.frontmatter.metaTitle = `${$page.title} | 当我有服务器时我做了什么 | 山月行`
+            $page.frontmatter.metaTitle = `${$page.title} | 个人服务器运维指南 | 山月行`
           }
         }
       }
