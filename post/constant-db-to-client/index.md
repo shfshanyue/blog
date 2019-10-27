@@ -7,6 +7,7 @@ categories:
 tags:
   - node
   - graphql
+  - 数据库
 ---
 
 在我经历过的几个以node为主的后端项目中，都有一个文件 `constant.js`。顾名思义，里边保存着各种常量，而大多是字符串与数字的对应关系。

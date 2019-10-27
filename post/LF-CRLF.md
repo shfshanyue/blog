@@ -2,8 +2,6 @@
 title: 如何判断文件中的换行符是 LF(\n) 还是 CRLF(\r\n)
 date: 2019-07-25
 thumbnail: ""
-categories:
-  - 运维
 tags:
   - linux
 ---

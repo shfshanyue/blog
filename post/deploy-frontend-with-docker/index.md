@@ -9,6 +9,7 @@ date: 2019-03-09
 tags:
   - docker
   - javascript
+  - devops
 categories:
   - 前端
   - 运维

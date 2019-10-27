@@ -1,10 +1,7 @@
 ---
 title: 浏览器中的二进制以及相关转换
 description: 浏览器，或者前端更多处理的是 View 层，即 `UI = f(state)`，状态至界面的转化。但是也有很多关于二进制的处理，如下载 Excel，文档生成 PDF，对多个文件打包下载。本篇文章总结了浏览器端的二进制以及之间的转化，如 ArrayBuffer 转 Blob，Base64 转 TypedArray 等等
-keywords:
-  - ArrayBuffer to Blob
-  - Blob to ArrayBuffer
-  - String to ArrayBuffer
+keywords: ArrayBuffer to Blob,Blob to ArrayBuffer,String to ArrayBuffer
 date: 2019-03-12
 thumbnail: https://shanyue.tech/post/binary-in-frontend/transform.jpg
 categories:

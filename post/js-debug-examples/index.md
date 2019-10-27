@@ -7,7 +7,7 @@ categories:
   - 后端
 tags:
   - node
-  - debug
+  - javascript
 ---
 
 在写 node 应用或者 react 应用时，经常需要看一些库的源码，而在看源码时，除了一个顺手的 IDE 外，学会调试也至关重要。因此，我把常见的调试的一些小问题记录下来。

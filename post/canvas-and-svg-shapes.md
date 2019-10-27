@@ -6,7 +6,9 @@ categories:
   - 前端
   - 后端
 tags:
-  - node
+  - css
+  - canvas
+  - svg
 ---
 
 画影图形指描画犯人面影，悬赏通缉。这里用法明显有问题，不过取其表义而已。

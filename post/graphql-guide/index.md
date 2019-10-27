@@ -6,6 +6,7 @@ categories:
   - 后端
 tags:
   - graphql
+  - node
 ---
 
 ## 单文件管理 `typeDef` 与 `resolver`

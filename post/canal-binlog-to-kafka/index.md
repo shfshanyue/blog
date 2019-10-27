@@ -5,7 +5,8 @@ categories:
   - 前端
   - 后端
 tags:
-  - node
+  - java
+  - 大数据
 ---
 
 最近在公司的测试环境搭了一套 canal 用以同步 mysql 的 binlog。环境搭建步骤如下，和官方文档无异，权作记录

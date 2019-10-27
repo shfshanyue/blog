@@ -5,6 +5,7 @@ categories:
   - 运维
 tags:
   - devops
+  - linux
 ---
 
 ## 前言

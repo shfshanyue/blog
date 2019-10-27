@@ -1,9 +1,7 @@
 ---
 title: 由 GraphQL 来思考 API Design
 description: 他山之石可以攻玉。qraphql 一些天然的设计或者思想对写 Rest API 有很大的借鉴或参考意义。这里总结下一些受启发的 API 设计规范。
-keywords:
-  - graphql
-  - Http Api Design
+keywords: graphql,api design
 date: 2019-03-14T19:07:50+08:00
 categories:
   - 后端
