@@ -4,7 +4,7 @@ description: "grid 布局是W3C提出的一个二维布局系统，通过 displa
 date: 2016-07-22
 tags:
   - css
-  - grid layout
+  - grid
 categories:
   - 前端
 ---

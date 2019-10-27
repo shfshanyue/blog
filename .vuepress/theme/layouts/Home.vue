@@ -7,7 +7,7 @@
       <main class="main-page">
         <h3>最新文章</h3>
         <hr>
-        <div v-for="post in recentPosts" class="archive-post">
+        <div v-for="post in recentPosts" class="archive-post" :key="post.path">
           <span v-text="dayjs(post.frontmatter.date).format('YYYY/MM/DD')" class="archive-post-date"></span>
           <router-link
             class="nav-link"
@@ -22,7 +22,7 @@
         </div>
         <h3>热门文章</h3>
         <hr>
-        <div v-for="post in hotPosts" class="archive-post">
+        <div v-for="post in hotPosts" class="archive-post" :key="post.path">
           <span v-text="dayjs(post.frontmatter.date).format('YYYY/MM/DD')" class="archive-post-date"></span>
           <router-link
             class="nav-link"
@@ -38,6 +38,14 @@
       </main>
       <aside class="aside-page">
         <Bar/>
+        <h3>友情链接</h3>
+        <hr>
+        <ul class="friend-link">
+          <li>
+            <a href="https://biaochenxuying.cn/">夜尽天明的个人博客网站</a>
+          </li>
+        </ul>
+        <hr>
         <QR/> 
       </aside>
     </div>
@@ -74,55 +82,3 @@ export default {
 }
 </script>
 
-<style>
-.container {
-  padding: 6rem 2rem 1rem;
-  margin: 0 auto;
-  width: 100%;
-  display: flex;
-}
-
-@media (min-width: 576px) {
-  .container {
-    max-width: 540px;
-  }
-}
-
-@media (min-width: 768px) {
-  .container {
-    max-width: 720px;
-  }
-}
-
-@media (min-width: 992px) {
-  .container {
-    max-width: 960px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .container {
-    max-width: 1140px;
-  }
-}
-
-.main-page {
-  flex: 1;
-  padding-right: 3rem;
-}
-
-.aside-page {
-  flex-basis: 360px;
-}
-
-.archive-post-date {
-  font-family: 'Ubuntu Mono', monospace;
-  font-weight: 500;
-  margin-right: 2rem;
-}
-
-.archive-post {
-  line-height: 1.6; 
-}
-
-</style>

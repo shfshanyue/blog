@@ -5,9 +5,8 @@ thumbnail: ""
 categories:
   - 后端
 tags:
-  - database
+  - 数据库
   - postgres
-  - sql
 ---
 
 `GET /users/:ID` 是一个非常典型的 REST API。最近在浏览我的应用时，经常会有

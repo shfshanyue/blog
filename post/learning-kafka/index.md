@@ -4,9 +4,8 @@ date: 2019-04-10T15:41:39+08:00
 categories:
   - 后端
 tags:
-  - java
   - kafka
-  - big data
+  - 大数据
 ---
 
 最近工作中需要使用到 `Kafka`，基于 `mysql` 的 `bin log` 与 `postgres` 的 `WAL log` 把数据发布到 `Kafka`。`Kafka` 另外一大用途主要用作消息中间件，虽然没有在业务系统中使用它作为消息队列，但这也是一个令人心动的功能。趁此契机，从环境搭建，系统原理，到生产使用再系统过一遍 `Kafka`。

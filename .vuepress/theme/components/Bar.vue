@@ -16,7 +16,7 @@
 <style>
 .bar .bar-intro {
   padding: 1rem;
-  margin-top: 20px;
+  margin-top: 1rem;
   background: #3eaf7c33;
   color: #888;
 }

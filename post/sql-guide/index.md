@@ -4,7 +4,7 @@ description: 本篇文章是 SQL 必知必会 的读书笔记，SQL必知必会�
 keywords: SQL入门,SQL必知必会,SQL实践
 date: 2017-10-24
 tags:
-  - sql
+  - 数据库
 categories:
   - 后端
 hot: 9

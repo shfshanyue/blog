@@ -5,8 +5,9 @@ categories:
   - 后端
 tags:
   - node
+  - devops
   - docker
-  - error handle
+  - 监控
 ---
 
 最近观察项目 `CI` 跑的情况如何时，会偶尔发现一两个镜像虽然构建成功但是容器跑不起来的情况。究其原因，是因为一个 `exit code` 的问题

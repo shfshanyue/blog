@@ -4,7 +4,6 @@ date: 2019-08-17
 tags:
   - node
   - linux
-  - memory
 categories:
   - 后端
 ---

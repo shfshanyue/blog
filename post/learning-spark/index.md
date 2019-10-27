@@ -5,7 +5,7 @@ categories:
   - 后端
 tags:
   - spark
-  - big data
+  - 大数据
 ---
 
 ## 搭建环境

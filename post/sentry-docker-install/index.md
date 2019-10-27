@@ -1,12 +1,11 @@
 ---
 title: 异常监控服务 Sentry 的部署
 date: 2019-06-20T20:02:20+08:00
-thumbnail: ""
 categories:
   - 运维
   - 后端
 tags:
-  - op
+  - devops
 ---
 
 [Sentry](https://github.com/getsentry/sentry) 是一个使用 python 写的异常监控服务，并有支持很多语言的 SDK。
