@@ -7,7 +7,6 @@ tags:
   - 数据库
 categories:
   - 后端
-hot: 9
 
 ---
 

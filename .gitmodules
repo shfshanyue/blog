@@ -1,3 +1,6 @@
 [submodule "op"]
 	path = op
 	url = https://github.com/shfshanyue/op-note.git
+[submodule "k8s"]
+	path = k8s
+	url = https://github.com/shfshanyue/learn-k8s.git
