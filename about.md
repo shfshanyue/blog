@@ -45,6 +45,7 @@ menu: main
 
 ## 博客记录
 
++ 2019/10 使用阿里云的 CDN
 + 2019/07 使用 vuepress 来构建页面，迁移到 netlify <https://shanyue.netlify.com>
 + 2019/05 迁移域名到 <https://shanyue.tech>
 + 2019/02 使用 Hugo，在自建的 Gitlab 中进行管理，使用 Gitlab CI 进行部署 <https://blog.xiange.tech>

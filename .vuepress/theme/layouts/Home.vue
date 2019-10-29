@@ -44,6 +44,9 @@
           <li>
             <a href="https://biaochenxuying.cn/">夜尽天明的个人博客网站</a>
           </li>
+          <li>
+            <a href="https://liuxiangyang.space">刘向洋，记录工作记录生活</a>
+          </li>
         </ul>
         <hr>
         <QR/> 

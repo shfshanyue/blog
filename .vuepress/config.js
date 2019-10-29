@@ -44,6 +44,13 @@ module.exports = {
           ]
         },
         {
+          title: '如果没有服务器',
+          collapsable: false,
+          children: [
+            ['if-you-want-a-blog', '如果你只想搭建博客']
+          ]
+        },
+        {
           title: '初始配置',
           collapsable: false,
           children: [
