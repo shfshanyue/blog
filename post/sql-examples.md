@@ -15,6 +15,8 @@ hot: 9
 
 <!--more-->
 
++ 原文链接: [SQL必知必会](https://shanyue.tech/post/sql-examples)
+
 ## 检索数据
 
 ```sql
@@ -346,9 +348,3 @@ end;
 -- 调用存储过程
 call create_student('shanyue');
 ```
-
-## 关注我
-
-欢迎关注公众号**山月行**，我会定期分享一些前后端以及运维的文章，并且会有技术与生活上的每日回顾与总结，欢迎关注交流
-
-![欢迎关注公众号山月行，我会定期分享一些前后端以及运维的文章](https://shanyue.tech/qrcode.jpg)

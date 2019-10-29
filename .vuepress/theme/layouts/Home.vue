@@ -7,7 +7,7 @@
       <main class="main-page">
         <h3>最新文章</h3>
         <hr>
-        <div v-for="post in recentPosts" class="archive-post" :key="post.path">
+        <div v-for="post in recentPosts" class="archive-post" :key="post.path + ':recent'">
           <span v-text="dayjs(post.frontmatter.date).format('YYYY/MM/DD')" class="archive-post-date"></span>
           <router-link
             class="nav-link"
@@ -22,7 +22,7 @@
         </div>
         <h3>热门文章</h3>
         <hr>
-        <div v-for="post in hotPosts" class="archive-post" :key="post.path">
+        <div v-for="post in hotPosts" class="archive-post" :key="post.path + ':hot'">
           <span v-text="dayjs(post.frontmatter.date).format('YYYY/MM/DD')" class="archive-post-date"></span>
           <router-link
             class="nav-link"

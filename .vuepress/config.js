@@ -66,7 +66,10 @@ module.exports = {
         {
           title: 'docker 与应用开发',
           collapsable: false,
-          children: []
+          children: [
+            ['deploy-fe-with-docker', '前端部署'],
+            ['deploy-sentry', '部署异常监控服务 sentry']
+          ]
         },
         {
           title: 'kubernetes 与应用开发',
