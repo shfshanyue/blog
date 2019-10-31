@@ -1,5 +1,6 @@
 ---
-title: "[登录那些事] 邮件发送，限流，漏桶与令牌桶"
+title: "邮件发送，限流，漏桶与令牌桶算法"
+keywords: rate limit
 date: 2019-05-05
 categories:
   - 后端

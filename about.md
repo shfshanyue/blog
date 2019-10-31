@@ -26,9 +26,9 @@ menu: main
 + [github](http://github.com/shfshanyue)
 + [掘金](https://juejin.im/user/56a34361816dfa005925a654)
 
-### 关注我
+## 关注我
 
-欢迎关注公众号**山月行**，我会定期分享一些前后端以及运维的文章，并且会有技术与生活上的每日回顾与总结，欢迎关注交流
+> 点击阅读原文，方便访问本篇文章页面链接
 
 ![欢迎关注公众号山月行，我会定期分享一些前后端以及运维的文章](https://shanyue.tech/qrcode.jpg)
 

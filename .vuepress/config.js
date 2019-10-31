@@ -133,6 +133,21 @@ module.exports = {
           ]
         },
         extendPageData ($page) {
+          if ($page.frontmatter.keywords) {
+            const meta = $page.frontmatter.meta
+            $page.frontmatter.meta = meta ? [
+              ...meta,
+              {
+                name: 'keywords',
+                content: $page.frontmatter.keywords
+              }
+            ] : [
+              {
+                name: 'keywords',
+                content: $page.frontmatter.keywords
+              }
+            ]
+          }
           if (/^\/(post|code)\/.+?$/.test($page.path)) {
             $page.frontmatter.sidebar = 'auto'
           }
