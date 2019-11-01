@@ -56,7 +56,7 @@
 </template>
 
 <script>
-import Navbar from '@parent-theme/components/Navbar.vue'
+import Navbar from '@theme/components/Navbar.vue'
 import QR from '@theme/components/QR.vue'
 import Bar from '@theme/components/Bar.vue'
 import dayjs from 'dayjs'
