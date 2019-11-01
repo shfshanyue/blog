@@ -31,9 +31,10 @@
     </Sidebar>
 
     <Home v-if="$page.frontmatter.home"/>
+    <Archive v-if="$page.frontmatter.archive"/>
 
     <Page
-      v-else
+      v-if="!$page.frontmatter.home && !$page.frontmatter.archive"
       :sidebar-items="sidebarItems"
     >
       <template #top>
@@ -54,16 +55,17 @@
 </template>
 
 <script>
-import Home from '@theme/components/Home.vue'
 import Navbar from '@theme/components/Navbar.vue'
 import Page from '@theme/components/Page.vue'
 import Sidebar from '@theme/components/Sidebar.vue'
 import QR from '@theme/components/QR.vue'
 import Bar from '@theme/components/Bar.vue'
+import Archive from '@theme/components/Archive.vue'
+import Home from '@theme/components/Home.vue'
 import { resolveSidebarItems } from '../util'
 
 export default {
-  components: { Home, Page, Sidebar, Navbar, QR, Bar },
+  components: { Home, Page, Sidebar, Navbar, QR, Bar, Archive },
 
   data () {
     return {

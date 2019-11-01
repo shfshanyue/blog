@@ -121,13 +121,13 @@ module.exports = {
             {
               path: '/post/',
               frontmatter: {
-                layout: 'Archive' 
+                archive: true
               }
             },
             {
               path: '/',
               frontmatter: {
-                layout: 'Home' 
+                home: true
               }
             }
           ]

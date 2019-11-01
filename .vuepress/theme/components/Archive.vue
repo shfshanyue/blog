@@ -1,52 +1,46 @@
 <template>
-  <div
-    class="theme-container no-sidebar"
-  >
-    <Navbar />
-    <div class="container">
-      <main class="main-page">
-        <div class="tip custom-block">
-          <p class="custom-block-title">TIP</p>
-          <p>
-            本博客备份在我的仓库 <a href="https://github.com/shfshanyue/blog">shfshanyue/blog</a> 中，欢迎 Star
-          </p>
-        </div>
-        <div v-for="tag in sortTags" :key="tag">
-          <h3>{{tag}}</h3>
-          <hr>
-          <div v-for="post in postsByTag[tag]" class="archive-post" :key="post.path">
-            <span v-text="dayjs(post.frontmatter.date).format('YYYY/MM/DD')" class="archive-post-date"></span>
-            <router-link
-              class="nav-link"
-              :to="post.path"
-            >{{ post.title }}</router-link>
-          </div>
-        </div>
-      </main>
-      <aside class="aside-page">
-        <Bar/>
-        <h3>友情链接</h3>
+  <div class="container">
+    <main class="main-page">
+      <div class="tip custom-block">
+        <p class="custom-block-title">TIP</p>
+        <p>
+          本博客备份在我的仓库 <a href="https://github.com/shfshanyue/blog">shfshanyue/blog</a> 中，欢迎 Star
+        </p>
+      </div>
+      <div v-for="tag in sortTags" :key="tag">
+        <h3>{{tag}}</h3>
         <hr>
-        <ul class="friend-link">
-          <li>
-            <a href="https://biaochenxuying.cn/">夜尽天明的个人博客网站</a>
-          </li>
-        </ul>
-        <hr>
-        <QR/> 
-      </aside>
-    </div>
+        <div v-for="post in postsByTag[tag]" class="archive-post" :key="post.path">
+          <span v-text="dayjs(post.frontmatter.date).format('YYYY/MM/DD')" class="archive-post-date"></span>
+          <router-link
+            class="nav-link"
+            :to="post.path"
+          >{{ post.title }}</router-link>
+        </div>
+      </div>
+    </main>
+    <aside class="aside-page">
+      <Bar/>
+      <h3>友情链接</h3>
+      <hr>
+      <ul class="friend-link">
+        <li>
+          <a href="https://biaochenxuying.cn/">夜尽天明的个人博客网站</a>
+        </li>
+      </ul>
+      <hr>
+      <QR/> 
+    </aside>
   </div>
 </template>
 
 <script>
-import Navbar from '@theme/components/Navbar.vue'
 import QR from '@theme/components/QR.vue'
 import Bar from '@theme/components/Bar.vue'
 import dayjs from 'dayjs'
 
 export default {
-  components: { Navbar, QR, Bar },
+  components: { QR, Bar },
   data () {
     return {
       dayjs
