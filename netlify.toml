@@ -4,15 +4,15 @@
   command = "npm run build"
 
 [[headers]]
-  for = "/assets/*"
-
-  [headers.values]
-    cache-control = "max-age=31536000"
-
-
-[[headers]]
   for = "/*"
 
   [headers.values]
     cache-control = "max-age=7200"
+
+
+[[headers]]
+  for = "/assets/*"
+
+  [headers.values]
+    cache-control = "max-age=31536000"
 
