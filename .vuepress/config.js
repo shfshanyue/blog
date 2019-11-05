@@ -81,7 +81,9 @@ module.exports = {
         {
           title: 'kubernetes 与应用开发',
           collapsable: false,
-          children: []
+          children: [
+            ['deploy-drone', '持续集成方案 drone.ci']
+          ]
         },
         {
           title: '监控',
