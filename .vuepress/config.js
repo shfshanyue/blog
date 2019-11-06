@@ -9,6 +9,7 @@ module.exports = {
     repo: 'shfshanyue/blog',
     nav: [
       { text: '主页', link: '/' },
+      { text: '每日一题', link: 'https://github.com/shfshanyue/Daily-Question' },
       { text: '博客', link: '/post/' },
       // { text: 'GraphQL', link: '/post/graphql-guide/' },
       { text: '炳烛', link: '/record/' },
@@ -47,7 +48,8 @@ module.exports = {
           title: '如果没有服务器',
           collapsable: false,
           children: [
-            ['if-you-want-a-blog', '如果你只想搭建博客']
+            ['if-you-want-a-blog', '如果你只想搭建博客'],
+            ['deploy-fe-with-netlify', '使用 netlify 部署前端应用']
           ]
         },
         {
@@ -74,7 +76,7 @@ module.exports = {
           title: 'docker 与应用开发',
           collapsable: false,
           children: [
-            ['deploy-fe-with-docker', '前端部署'],
+            ['deploy-fe-with-docker', '使用 docker 部署前端应用'],
             ['deploy-sentry', '部署异常监控服务 sentry']
           ]
         },
@@ -82,7 +84,8 @@ module.exports = {
           title: 'kubernetes 与应用开发',
           collapsable: false,
           children: [
-            ['deploy-drone', '持续集成方案 drone.ci']
+            ['deploy-drone', '持续集成方案 drone.ci'],
+            ['deploy-fe', '前端部署发展史']
           ]
         },
         {
