@@ -58,6 +58,7 @@ $ netstat -tan | grep 124.200
 + TCP 为什么是可靠的连接
 + 为什么刚好是三次握手
 + TCP 如何进行拥塞控制
-+ 一个 node 中 TCP 连接的上限是多少
++ 一个主机中 TCP 连接的上限是多少
 + 如何查看某个服务的TCP连接数
 + 如何查看 mysql/postgres 的TCP连接数
++ 如何判断某个端口号是TCP连接还是UDP连接
