@@ -10,13 +10,13 @@
 
 > 点击阅读原文，方便访问本篇文章页面链接
 
-![如果你对全栈面试，前端工程化，graphql，devops，个人服务器运维以及微服务感兴趣的话，可以关注我](https://mmbiz.qpic.cn/mmbiz_jpg/po6IxVbAMcQq4RosFyywaHAURTGZolyVTXlxtfPUlU9sh3MEwkWrSRBhuTZCl4d1IvLxgNjkxhngibJcWstBAyw/640?wx_fmt=jpeg)
+![如果你对全栈面试，前端工程化，graphql，devops，个人服务器运维以及微服务感兴趣的话，可以关注我](https://camo.githubusercontent.com/274aa186e44c87f27172a35842806b704d896eb2/68747470733a2f2f7368616e7975652e746563682f7172636f64652e6a7067)
 
 ---
 
 <hr>
 
-> 我是山月，一个喜欢跑步与爬山的程序员，我会定期分享全栈文章在个人公众号中。如果你对全栈面试，前端工程化，graphql，devops，个人服务器运维以及微服务感兴趣的话，可以关注我
+> 我是山月，我会定期分享全栈文章在个人公众号中。如果你对全栈面试，前端工程化，graphql，devops，个人服务器运维以及微服务感兴趣的话，可以关注我
 
 ![如果你对全栈面试，前端工程化，graphql，devops，个人服务器运维以及微服务感兴趣的话，可以关注我](https://shanyue.tech/qrcode.jpg)
 

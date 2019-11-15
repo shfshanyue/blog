@@ -2,12 +2,14 @@
 
 当通过 DNS 解析查找到域名对应的 IP 地址后，就会进行 IP 寻址与 ARP 寻址，找到目标主机。
 
+## 报文
+
+## ping
+
 使用 `ping` 命令发送 `ICMP` 报文，查看主机是否可达。`ping` 也可以直接测试域名
 
 + `shanyue.tech`
 + `shici.xiange.tech`
-
-## ping
 
 ``` bash
 $ ping -c 3 shici.xiange.tech
@@ -125,9 +127,7 @@ default via 192.168.1.253 dev eth0
 $ netstat -nr
 ```
 
-在进行路由寻址时，有一系列步骤
-
-1. 
+在根据路由表寻址时，有一系列步骤
 
 ## 面试追问
 
