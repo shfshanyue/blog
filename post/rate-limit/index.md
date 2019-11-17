@@ -37,7 +37,7 @@ curl 'https://graphql.xiange.tech/graphql' -H 'Content-Type: application/json' -
 
 ## Leaky Bucket (漏桶算法)
 
-![漏桶算法](https://user-gold-cdn.xitu.io/2019/5/5/16a875f5cc21896c?w=443&h=299&f=png&s=30927)
+![漏桶算法](./leaky-bucket.png)
 
 漏桶算法表示水滴（请求）先进入到漏桶里，漏桶（bucket）以一定的速度出水，当漏桶中水满时，无法再加水。
 
@@ -124,7 +124,7 @@ TODO
 
 ## Token Bucket (令牌桶算法)
 
-![令牌算法](https://user-gold-cdn.xitu.io/2019/5/5/16a875f5cc1d3f8a?w=363&h=215&f=png&s=25244)
+![令牌算法](./token-bucket.png)
 
 由图先看一看令牌桶与漏桶的不同
 
