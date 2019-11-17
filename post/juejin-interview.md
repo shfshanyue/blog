@@ -1,18 +1,19 @@
 ---
-title: 面向面试编程，面向掘金面试
+title: 面向面试编程，面向掘金面试，一入掘金门，方知面试易
 keywords: 前端面试,后端面试
+date: 2019-11-17 10:00
 
 ---
 
 一九年已末，二零年将至。
 
-我使用 `curl` 与 `jq` 一行简单的命令爬取了掘金的面试集合榜单，有兴趣的同学可以看看爬取过程: [使用 jq 与 sed 制作掘金面试文章排行榜](https://github.com/shfshanyue/op/blob/master/jq-sed-case.md)，可以提高你使用命令行的乐趣
+我使用 `curl` 与 `jq` 一行简单的命令爬取了掘金的面试集合榜单，有兴趣的同学可以看看爬取过程: [使用 jq 与 sed 制作掘金面试文章排行榜](https://github.com/shfshanyue/op-note/blob/master/jq-sed-case.md)，可以提高你使用命令行的乐趣
 
-前端，后端，移动端，这里统统都有，希望可以在面试的过程中帮助到你。
+关于前端，后端，移动端的面试，这里统统都有，希望可以在面试的过程中帮助到你。另外我也有一个仓库 [日问](https://github.com/shfshanyue/Daily-Question) 来记录前后端以及 devops 一些有意思的问题，欢迎交流
 
 <!--more-->
 
-+ 原文地址: <https://github.com/shfshanyue/blog/blob/master/post/jq-juejin.md>，欢迎 Star
++ 原文地址: <https://github.com/shfshanyue/blog/blob/master/post/juejin-interview.md>，欢迎 Star
 
 ## 前端
 

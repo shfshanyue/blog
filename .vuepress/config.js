@@ -105,6 +105,7 @@ module.exports = {
             ['jq', 'jq命令及示例'],
             ['iptables', 'iptables命令及示例'],
             ['htop', 'htop'],
+            ['jq-sed-case', '案例: jq 与 sed'],
           ]
         }
       ]
