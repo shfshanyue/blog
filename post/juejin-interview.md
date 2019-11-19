@@ -15,6 +15,25 @@ date: 2019-11-17 10:00
 
 + 原文地址: <https://github.com/shfshanyue/blog/blob/master/post/juejin-interview.md>，欢迎 Star
 
+## 生成过程
+
+**面试集合榜单的 markdown 制作只需要一行命令，详细过程如下**
+
+[使用一行命令制作掘金面试文章榜单](https://juejin.im/post/5dd1d58e6fb9a0202646cfa8)
+
+使用以下命令，可以直接获取前端面试榜单
+
+``` bash
+$ curl -s 'https://web-api.juejin.im/query' -H 'Content-Type: application/json' -H 'X-Agent: Juejin/Web' --data-binary '{"operationName":"","query":"","variables":{"tags":["55979fe6e4b08a686ce562fe"],"category":"5562b415e4b00c57d9b94ac8","first":100,"after":"","order":"HOTTEST"},"extensions":{"query":{"id":"653b587c5c7c8a00ddf67fc66f989d42"}}}' --compressed | \
+ jq -c '.data.articleFeed.items.edges | .[].node | { likeCount, title, originalUrl } | select(.likeCount > 600) ' | jq -cs '. | sort_by(-.likeCount) | .[] | "+ 【👍 \(.likeCount)】[\(.title)](\(.originalUrl))"' | sed s/\"//g
+
++ 【👍 5059】[一个合格(优秀)的前端都应该阅读这些文章](https://juejin.im/post/5d387f696fb9a07eeb13ea60)
++ 【👍 4695】[2018前端面试总结，看完弄懂，工资少说加3K | 掘金技术征文](https://juejin.im/post/5b94d8965188255c5a0cdc02)
++ 【👍 4425】[中高级前端大厂面试秘籍，为你保驾护航金三银四，直通大厂(上)](https://juejin.im/post/5c64d15d6fb9a049d37f9c20)
++ 【👍 3013】[2018春招前端面试: 闯关记(精排精校) | 掘金技术征文](https://juejin.im/post/5a998991f265da237f1dbdf9)
++ 【👍 2493】[前端面试考点多？看这些文章就够了（2019年6月更新版）](https://juejin.im/post/5aae076d6fb9a028cc6100a9)
+```
+
 ## 前端
 
 + 【👍  5053】[一个合格(优秀)的前端都应该阅读这些文章](https://juejin.im/post/5d387f696fb9a07eeb13ea60)

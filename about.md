@@ -22,7 +22,6 @@ menu: main
 
 ## 找到我
 
-+ 微信: xiange9
 + [github](http://github.com/shfshanyue)
 + [掘金](https://juejin.im/user/56a34361816dfa005925a654)
 
