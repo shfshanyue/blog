@@ -12,7 +12,7 @@
 + [限流与漏桶算法](https://shanyue.tech/post/rate-limit)
 + [如何快速了解新业务](https://shanyue.tech/post/business-get-started)
 + [SQL必知必会](https://shanyue.tech/post/sql-examples)
-+ [jwt实践](https://shanyue.tech/post/jwt-guide)
++ [jwt 实践应用以及特殊案例思考](https://shanyue.tech/post/jwt-guide)
 
 ## 系列文章
 
