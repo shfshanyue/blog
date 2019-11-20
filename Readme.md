@@ -17,8 +17,9 @@
 ## 系列文章
 
 + [个人服务器运维指南](https://github.com/shfshanyue/op-note)
-+ [k8s实践](https://github.com/shfshanyue/learn-k8s)
-+ [使用graphql构建web应用](https://github.com/shfshanyue/graphql-guide)
++ [k8s与微服务实践](https://github.com/shfshanyue/learn-k8s)
++ [使用 GraphQL 构建web应用](https://github.com/shfshanyue/graphql-guide)
++ [全栈之路，日拱一卒](https://github.com/shfshanyue/Daily-Question)
 
 ## 日问
 

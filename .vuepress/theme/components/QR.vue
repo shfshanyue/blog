@@ -2,7 +2,7 @@
   <div class="qr">
     <img src="../qr.jpg" alt="山月行" width="120" height="120" loading="lazy">
     <p class="we-intro">
-      欢迎关注公众号<span style="color: #3eaf7c;font-weight:800;">山月行</span>，我将在这里发表我的每日回顾以及关于前后端，运维以及 devops 的文章。
+      如果你对全栈面试，graphql，devops，个人服务器运维以及微服务感兴趣的话，可以关注我。另外可以添加我微信 shanyue94，进群交流。
     </p>
   </div>
 </template>
@@ -23,6 +23,6 @@ export default {
 .qr .we-intro {
   color: #0006;
   font-size: .8em;
-  width: 48%;
+  width: 64%;
 }
 </style>

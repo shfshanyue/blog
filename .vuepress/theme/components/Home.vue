@@ -1,6 +1,14 @@
 <template>
   <div class="container">
     <main class="main-page">
+      <h3>系列文章</h3>
+      <hr>
+      <ul>
+        <li><a href="https://github.com/shfshanyue/graphql-guide">使用 GraphQL 构建 web 应用</a></li>
+        <li><a href="https://github.com/shfshanyue/op-note">个人服务器运维指南</a></li>
+        <li><a href="https://github.com/shfshanyue/learn-k8s">k8s与微服务实践</a></li>
+        <li><a href="https://github.com/shfshanyue/Daily-Question">全栈之路，日拱一卒</a></li>
+      </ul>
       <h3>最新文章</h3>
       <hr>
       <div v-for="post in recentPosts" class="archive-post" :key="post.path + ':recent'">
