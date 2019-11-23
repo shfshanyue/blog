@@ -24,9 +24,12 @@
 
 ## 更多文章
 
++ [前端部署发展史](https://juejin.im/post/5dc4ae67f265da4cfa7bbb9a)
++ [docker 简易入门](https://juejin.im/post/5dd72b16e51d45351409073d)
 + [个人服务器运维指南](https://juejin.im/post/5db7a9e2f265da4cf85d6fb9)
-+ [如果你想搭建一个博客](https://juejin.im/post/5db78500f265da4d0a68cef7)
 + [当我有一台服务器时我做了什么](https://juejin.im/post/5c9232a8e51d45729b3b71e1)
++ [如果你想搭建一个博客](https://juejin.im/post/5db78500f265da4d0a68cef7)
++ [github actions 入门指南及博客自动部署实践](https://juejin.im/post/5ddb2cabe51d45232250b8b3)
 + [使用 k8s 部署你的第一个应用: Pod，Deployment 与 Service](https://juejin.im/post/5db8c2b46fb9a020256692dc)
 + [使用 k8s 为你的应用配置域名: Ingress](https://juejin.im/post/5db8da4b6fb9a0204520b310)
 + [使用 k8s 为你的域名加上 https](https://juejin.im/post/5db8d94be51d4529f73e2833)

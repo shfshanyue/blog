@@ -50,7 +50,8 @@ module.exports = {
           collapsable: false,
           children: [
             ['if-you-want-a-blog', '如果你只想搭建博客'],
-            ['deploy-fe-with-netlify', '使用 netlify 部署前端应用']
+            ['deploy-fe-with-netlify', 'netlify 部署'],
+            ['github-action-guide', 'github action 与 CI/CD']
           ]
         },
         {
@@ -61,8 +62,7 @@ module.exports = {
             ['ssh-setting', 'ssh key 以及 git 配置'],
             ['system-info', 'linux 基础信息查看及命令'],
             ['vim-setting', 'vim 及其熟练使用'],
-            ['tmux-setting', '窗口复用与 tmux'],
-            ['vpn-config', 'openvpn 配置及内网安全'],
+            ['tmux-setting', '窗口复用与 tmux']
           ]
         },
         {
@@ -77,6 +77,7 @@ module.exports = {
           title: 'docker 与应用开发',
           collapsable: false,
           children: [
+            ['docker', 'docker 简易入门'],
             ['deploy-fe-with-docker', '使用 docker 部署前端应用'],
             ['deploy-sentry', '部署异常监控服务 sentry']
           ]
