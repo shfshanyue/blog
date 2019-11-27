@@ -38,8 +38,8 @@
       :sidebar-items="sidebarItems"
     >
       <template #top>
-        <div :style="{ marginBottom: '-5rem' }" class="theme-default-content">
-          <Bar />
+        <div :style="{ marginBottom: '-5rem' }" class="theme-default-content" v-if="$page.frontmatter.thumbnail">
+          <img :src="$page.frontmatter.thumbnail">
         </div>
       </template>
       <!-- <slot
