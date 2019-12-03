@@ -116,6 +116,9 @@ module.exports = {
     // displayAllHeaders: true
   },
   plugins: [
+    [ 'feed', {
+        
+    }],
     [ 
       '@vuepress/google-analytics',
       {
