@@ -3,7 +3,7 @@ name: deploy to aliyun oss
 on:
   push:
   schedule:
-  - cron:  '* 4 * * *'
+  - cron:  '30 20 * * *'
 
 jobs:
   build:
