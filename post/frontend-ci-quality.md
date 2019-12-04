@@ -1,6 +1,5 @@
 ---
 title: Frontend-Ci-Quality
-date: 2019-07-16T20:47:50+08:00
 thumbnail: ""
 categories:
   - 前端
@@ -8,3 +7,5 @@ categories:
 tags:
   - node
 ---
+
+date: 2019-07-16T20:47:50+08:00

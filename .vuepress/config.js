@@ -9,9 +9,9 @@ module.exports = {
     repo: 'shfshanyue/blog',
     nav: [
       { text: '主页', link: '/' },
-      { text: '每日一题', link: 'https://github.com/shfshanyue/Daily-Question' },
-      { text: '使用graphql构建web应用', link: 'https://github.com/shfshanyue/graphql-guide' },
-      { text: '博客', link: '/post/' },
+      { text: '日问', link: 'https://github.com/shfshanyue/Daily-Question' },
+      // { text: '使用graphql构建web应用', link: 'https://github.com/shfshanyue/graphql-guide' },
+      { text: '存档', link: '/post/' },
       // { text: 'GraphQL', link: '/post/graphql-guide/' },
       { text: '炳烛', link: '/record/' },
       { text: '个人服务器运维指南', link: '/op/' },

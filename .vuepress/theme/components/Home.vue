@@ -56,7 +56,13 @@
         </li>
       </ul>
       <hr>
-      <QR/> 
+      <h3>找到我</h3>
+      <ul>
+        <li>微信(shanyue94)</li>
+        <li><a href="https://www.zhihu.com/people/shfshanyue/activities">知乎</a></li>
+        <li><a href="https://juejin.im/user/56a34361816dfa005925a654">掘金</a></li>
+        <li><a href="https://www.jianshu.com/u/f014acb0b697">简书</a></li>
+      </ul>
     </aside>
   </div>
 </template>

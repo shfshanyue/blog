@@ -1,8 +1,8 @@
 name: deploy to aliyun oss
 
 on:
-- push
-- schedule:
+  push:
+  schedule:
   - cron:  '* 4 * * *'
 
 jobs:
@@ -40,7 +40,8 @@ jobs:
         access-key-secret: ${{ secrets.OSS_KEY_SECRET }}
     - name: 删除冗余文件
       run: ossutil rm oss://shanyue-blog/assets -rf
+      if: github.event_name == 'schedule'
     - name: 复制文件到阿里云OSS
       run: ossutil cp -rf .vuepress/dist oss://shanyue-blog/
     - name: 设置永久缓存
-      run: ossutil set-meta cache-control:"max-age=31536000" oss://shanyue-blog/assets --update -r
+      run: ossutil set-meta oss://shanyue-blog/assets cache-control:"max-age=31536000" --update -rf
