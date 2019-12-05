@@ -5,11 +5,12 @@ categories:
   - 前端
   - 后端
   - 运维
+keywords: git,git blame,git小技巧
 tags:
   - git
 ---
 
-前些月，写了一个关于 git 的表格，叫[Git Cheat Sheet](https://shfshanyue.github.io/cheat-sheets/git)，现分享一些有用的小技巧，更多内容请移步，另有一个非常不错的关于 git 小技巧的项目 [git-tips](https://github.com/git-tips/tips)。
+前些月，写了一个关于 git 的表格，叫[Git Cheat Sheet](https://shfshanyue.github.io/cheat-sheets/git)，现分享一些有用的小技巧。另推荐一个非常不错的关于 git 小技巧的项目 [git-tips](https://github.com/git-tips/tips)。
 
 <!--more-->
 
@@ -57,8 +58,8 @@ git shortlog -sn --no-merges      # 不包含 merge commit
 ```sh
 git log --since="0 am" 　　　     # 查看今日的提交
 git log --author="shfshanyue"     # 查看 shfshanyue 的提交
-git log --grep="#12"              # 查找提交信息中包换关键字的提交
-git log -S "setTimeout"           # 查看提交内容中包换关机子的提交
+git log --grep="#12"              # 查找提交信息中包含关键字的提交
+git log -S "setTimeout"           # 查看提交内容中包含关键字的提交
 ```
 
 ## 快速定位字符串 
@@ -78,8 +79,3 @@ git grep <keyword>
 ag <keyword>
 ```
 
-<hr/>
-
-欢迎关注我的公众号**山月行**，在这里记录着我的技术成长，欢迎交流
-
-![欢迎关注公众号山月行，在这里记录我的技术成长，欢迎交流](https://shanyue.tech/qrcode.jpg)
