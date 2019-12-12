@@ -25,8 +25,8 @@
 ✔ k8s(38) @created(18-07-04 16:28) @done (18-08-10 14:37)
 ✘ istio(38) @created(18-08-11 19:48) @cancelled (18-09-16 19:00)
 ✔ k8s-arch (48) @created(19-08-28 16:28) @done (19-09-07 14:37)
-o graphql (48) @created(19-09-07 16:28) @done (19-09-21 19:56)
-o what happens (48) @created(19-09-21 20:00) @done(19-09-28 21:00)
+ graphql (48) @created(19-09-07 16:28) @done (19-09-21 19:56)
+✔ what happens (48) @created(19-09-21 20:00) @done(19-09-28 21:00)
 o server dev maganement @created(19-09-30 20:00)
 o k8s resource
 o flutter
