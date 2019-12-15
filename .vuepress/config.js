@@ -62,33 +62,44 @@ module.exports = {
             ['init', '服务器登录配置'],
             ['ssh-setting', 'ssh key 以及 git 配置'],
             ['system-info', 'linux 基础信息查看及命令'],
-            ['vim-setting', 'vim 及其熟练使用'],
-            ['tmux-setting', '窗口复用与 tmux']
+            ['vim-setting', 'vim 基本操作及配置'],
+            ['tmux-setting', 'tmux 与窗口管理']
           ]
         },
         {
           title: '自动化运维',
           collapsable: false,
           children: [
-            ['ansible-guide', '使用 ansible 做自动化运维'],
-            ['ansible-problem', '使用 ansible 的一些问题'],
+            ['ansible-guide', 'ansible 简易入门'],
+            ['ansible-problem', 'ansible 必知必会'],
           ]
         },
         {
-          title: 'docker 与应用开发',
+          title: '了解 docker',
           collapsable: false,
           children: [
             ['docker', 'docker 简易入门'],
-            ['deploy-fe-with-docker', '使用 docker 部署前端应用'],
-            ['deploy-sentry', '部署异常监控服务 sentry']
+            ['dockerfile-practice', 'Dockerfile 最佳实践'],
+            ['deploy-fe-with-docker', '案例: 使用 docker 部署前端应用']
           ]
         },
         {
-          title: 'kubernetes 与应用开发',
+          title: '使用 docker compose 编排容器',
+          collapsable: false,
+          children: [
+            ['docker-compose-arch', 'docker compose 编排架构简介'],
+            ['docker-compose', 'docker-compose 简易入门'],
+            ['traefik', '使用 traefik 做反向代理'],
+            ['openvpn', '使用 openvpn 访问内部集群私有服务'],
+            ['deploy-sentry', '使用 sentry 做异常监控'],
+          ]
+        },
+        {
+          title: '使用 kubernetes 编排容器',
           collapsable: false,
           children: [
             ['deploy-drone', '持续集成方案 drone.ci'],
-            ['deploy-fe', '前端部署发展史']
+            ['deploy-fe', '案例: 前端部署发展史'],
           ]
         },
         {
