@@ -90,6 +90,7 @@ module.exports = {
             ['docker-compose-arch', 'docker compose 编排架构简介'],
             ['docker-compose', 'docker-compose 简易入门'],
             ['traefik', '使用 traefik 做反向代理'],
+            ['dnsmasq', '使用 dnsmasq 搭建本地 DNS 服务'],
             ['openvpn', '使用 openvpn 访问内部集群私有服务'],
             ['deploy-sentry', '使用 sentry 做异常监控'],
           ]
