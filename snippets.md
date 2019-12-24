@@ -51,3 +51,8 @@
 ---
 
 日问，评测一个业务开发人员的专业技能，助你走向全栈之路
+
+
+## 更多
+
+如果你对全栈比较感兴趣，可以关注我的另一个仓库 [每日一题](https://github.com/shfshanyue/Daily-Question)。https://github.com/shfshanyue/Daily-Question

@@ -60,7 +60,8 @@ module.exports = {
           collapsable: false,
           children: [
             ['init', '服务器登录配置'],
-            ['ssh-setting', 'ssh key 以及 git 配置'],
+            ['git', 'git 配置及安装'],
+            ['ssh-setting', 'ssh key 以及 github 配置'],
             ['system-info', 'linux 基础信息查看及命令'],
             ['vim-setting', 'vim 基本操作及配置'],
             ['tmux-setting', 'tmux 与窗口管理']
