@@ -43,6 +43,7 @@ module.exports = {
           children: [
             ['', '系列文章介绍'],
             ['when-server', '序·当我有一台服务器时我做了什么'],
+            ['when-server-2019', '序·当我有一台服务器时我做了什么(2019)'],
           ]
         },
         {
@@ -94,6 +95,7 @@ module.exports = {
             ['dnsmasq', '使用 dnsmasq 搭建本地 DNS 服务'],
             ['openvpn', '使用 openvpn 访问内部集群私有服务'],
             ['deploy-sentry', '使用 sentry 做异常监控'],
+            ['blog-to-wechat', '案例: 黑客增长 - 从博客向公众号引流'],
           ]
         },
         {
@@ -108,7 +110,9 @@ module.exports = {
           title: '监控',
           collapsable: false,
           children: [
-            ['linux-monitor', '各项监控指标小记']
+            ['linux-monitor', '各项监控指标小记'],
+            ['htop', '使用 htop 监控进程指标'],
+            ['ctop', '使用 ctop 监控容器指标']
           ]
         },
         {

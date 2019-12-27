@@ -66,5 +66,3 @@
 另外可以添加微信 `shanyue94` 备注加群，进群交流技术问题
 
 ![如果你对全栈面试，前端工程化，graphql，devops，个人服务器运维以及微服务感兴趣的话，可以关注我](https://shanyue.tech/qrcode.jpg)
-
-
