@@ -28,4 +28,7 @@ export default {
   padding-bottom 2rem
   display block
 
+
+.theme-default-content:not(.custom).content__default
+  margin-top -3rem
 </style>
