@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "@types/graphql": "^14.5.0",
+    "axios": "^0.19.0",
     "bluebird": "^3.5.5",
     "dayjs": "^1.8.16",
     "graphql": "^14.5.8",

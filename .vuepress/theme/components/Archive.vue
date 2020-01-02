@@ -20,7 +20,6 @@
       </div>
     </main>
     <aside class="aside-page">
-      <Bar/>
       <h3>友情链接</h3>
       <hr>
       <ul class="friend-link">
