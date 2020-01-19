@@ -9,16 +9,6 @@ module.exports = [
     ]
   },
   {
-    title: '如果没有服务器',
-    collapsable: false,
-    children: [
-      ['if-you-want-a-blog', '如果你只想搭建博客'],
-      ['deploy-fe-with-netlify', 'netlify 个人网站托管与自动部署'],
-      ['deploy-fe-with-alioss', '阿里云OSS 个人网站托管'],
-      ['github-action-guide', 'Github Actions 与持续集成'],
-    ]
-  },
-  {
     title: '初始配置',
     collapsable: false,
     children: [
@@ -86,6 +76,7 @@ module.exports = [
     children: [
       ['linux-sed', 'sed命令及示例'],
       ['linux-awk', 'awk命令及示例'],
+      ['linux-tcpdump', 'tcpdump命令及示例'],
       ['jq', 'jq命令及示例'],
       ['iptables', 'iptables命令及示例'],
       ['htop', 'htop命令及示例'],
