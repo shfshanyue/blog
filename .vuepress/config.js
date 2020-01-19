@@ -6,7 +6,7 @@ module.exports = {
   title: '山月行',
   description: '分享前后端以及 DevOps 相关文章，使各端开发者能够突破瓶颈进一步成长。',
   head: [
-    ['link', { rel: 'shortcut icon', href: '/favicon.ico', type: 'image/x-icon' }]
+    ['link', { rel: 'shortcut icon', href: '/favicon.ico', type: 'image/x-icon' }],
     ['meta', { name: 'baidu-site-verification', content: 'ZAdkE6LA10'}]
   ],
   themeConfig: {
