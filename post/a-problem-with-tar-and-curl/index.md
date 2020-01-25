@@ -1,17 +1,22 @@
 ---
-title: 记录一个有关 curl 和 tar 的小问题
+title: 记录一个有关 curl 和重定向的小问题
+path: a-problem-with-tar-and-curl
 date: 2019-04-12T20:35:01+08:00
+keywords: curl,linux,重定向
+description: "gzip: stdin: not in gzip format"
 categories:
   - 运维
 tags:
   - linux
 ---
 
-这是我今天在工作时遇到的一个有关解压的问题，先还原下问题
+# 记录一个有关 curl 和重定向的小问题
+
+今天在工作时遇到一个有关解压的问题，先来还原问题
 
 **今天在解压一个压缩包时解压失败，以下是命令以及失败提示**
 
-```shell
+``` bash
 $ curl -O https://github.com/alibaba/canal/releases/download/canal-1.1.3/canal.deployer-1.1.3.tar.gz
 $ tar -zxvf canal.deployer-1.1.3.tar.gz
 
@@ -20,32 +25,29 @@ tar: Child returned status 1
 tar: Error is not recoverable: exiting now
 ```
 
-> 这里首先提示，造成这个问题的原因以及解决方案很简单，对你很有可能没有借鉴意义。不过寻找原因的过程以及从这个问题上学到的东西还是有点意思的。
+> 造成这个问题的原因以及解决方案很简单，对你很有可能没有借鉴意义。不过寻找原因的过程以及从这个问题上学到的东西还是有点意思的
 
 <!--more-->
-
-本文链接 <https://blog.xiange.tech/post/a-problem-with-tar-and-curl/>
 
 ## StackOverflow
 
 作为程序员的两大利器之一，`StackOverflow` 和 `github`。第一步就跟踪到了 `StackOverflow`，查找到了这个问题，问题描述一模一样
 
-[How to extract filename.tar.gz file](https://stackoverflow.com/questions/15744023/how-to-extract-filename-tar-gz-file)
+> [How to extract filename.tar.gz file](https://stackoverflow.com/questions/15744023/how-to-extract-filename-tar-gz-file)
 
-首先，先使用 `file` 查看下文件的类型
+首先，使用 `file` 查看文件的类型
 
-```shell
+``` bash
 $ file canal.deployer-1.1.3.tar.gz
 canal.deployer-1.1.3.tar.gz: HTML document, ASCII text, with very long lines, with no line terminators
 ```
 
 如果没有使用 `gzip` 压缩，那需要使用 `tar` 解压的时候，去掉 `-z` 参数。
 
-无果。
+**无果。**
 
-这里安利一个工具，`explainshell` 可以以图文可视化 shell 命令各个参数的意义，当参数较多，命令较长时，非常试用，强烈推荐。
-
-[explainshell](https://www.explainshell.com/explain?cmd=tar+-zxvf+canal.deployer-1.1.3.tar.gz)
+> 这里安利一个工具，`explainshell` 可以以图文可视化 shell 命令各个参数的意义，当参数较多，命令较长时，非常试用，强烈推荐。
+> [explainshell](https://www.explainshell.com/explain?cmd=tar+-zxvf+canal.deployer-1.1.3.tar.gz)
 
 不过，我从 `file` 命令中意识到有可能文件有问题，因为它的输出是 `HTML document`，且是纯文本类型。
 
@@ -53,7 +55,7 @@ canal.deployer-1.1.3.tar.gz: HTML document, ASCII text, with very long lines, wi
 
 当我意识到文件有问题时，觉得应该从文件源找出问题。文件是通过 `curl` 下载而来，我添加了 `-v` 参数用来查看 http 详细的报文。
 
-```shell
+``` bash
 $ curl -Ov https://github.com/alibaba/canal/releases/download/canal-1.1.3/canal.deployer-1.1.3.tar.gz
 ...
 > User-Agent: curl/7.29.0
@@ -70,14 +72,14 @@ $ curl -Ov https://github.com/alibaba/canal/releases/download/canal-1.1.3/canal.
 
 为了验证一下，我查看了压缩包的内容。
 
-```shell
+``` bash
 $ cat canal.deployer-1.1.3.tar.gz
 <html><body>You are being <a href="https://github-production-release-asset-2e65be.s3.amazonaws.com/7587038/6df81900-56c6-11e9-8140-7d9ae25b1ca8?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20190412%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20190412T132310Z&amp;X-Amz-Expires=300&amp;X-Amz-Signature=3cb0943449b8d86bf6292b399409fddfa9fbef1c646c20910f10ae7fe836e53e&amp;X-Amz-SignedHeaders=host&amp;actor_id=0&amp;response-content-disposition=attachment%3B%20filename%3Dcanal.deployer-1.1.3.tar.gz&amp;response-content-type=application%2Foctet-stream">redirected</a>.</body></html>
 ```
 
 **果然如此，我突然意识到在刚开始 `curl` 成功后根据 `Received` 的大小就可以定位到问题了。不过我一般自动忽略 `curl` 的输出，而且当下载东西的时候，我一般就切窗口了...**
 
-```shell
+``` bash
 # 接收到的文件只有 616 个字节大小
 $ curl -O https://github.com/alibaba/canal/releases/download/canal-1.1.3/canal.deployer-1.1.3.tar.gz
 % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -85,13 +87,13 @@ $ curl -O https://github.com/alibaba/canal/releases/download/canal-1.1.3/canal.d
 100   616    0   616    0     0    444      0 --:--:--  0:00:01 --:--:--   444
 ```
 
-找到了问题就很好解决了。
+找到了问题就很好解决了: **没有跟踪重定向**
 
 ## 问题解决
 
 找到 `curl` 追踪重定向的参数，重新下载问题解决。
 
-```shell
+``` bash
 # 找到参数为 -L
 $ curl --help | grep -e follow -e redirect
 -L, --location      Follow redirects (H)
@@ -120,9 +122,3 @@ $ curl -OL https://github.com/alibaba/canal/releases/download/canal-1.1.3/canal.
 ## 参考
 
 + https://www.shellhacks.com/grep-or-grep-and-grep-not-match-multiple-patterns/
-
-<hr/>
-
-欢迎关注我的公众号**山月行**，在这里记录着我的技术成长，欢迎交流
-
-![欢迎关注公众号山月行，在这里记录我的技术成长，欢迎交流](https://shanyue.tech/qrcode.jpg)

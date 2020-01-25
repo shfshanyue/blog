@@ -1,8 +1,10 @@
 ---
 title: 由 GraphQL 来思考 API Design
-description: 他山之石可以攻玉。qraphql 一些天然的设计或者思想对写 Rest API 有很大的借鉴或参考意义。这里总结下一些受启发的 API 设计规范。
-keywords: graphql,api design
+path: api-design-inspire-by-graphql
+description: GraphQL 一些天然的设计或者思想对设计 Rest API 有很大的借鉴或参考意义。这里总结下一些受启发的 API 设计规范
+keywords: graphql,api design,rest api
 date: 2019-03-14T19:07:50+08:00
+thumbnail: ../../assets/graphql-logo.jpg
 categories:
   - 后端
 tags:
@@ -10,17 +12,19 @@ tags:
   - node
 ---
 
-目前我已经写了一年多 graphql，也时常思考和 Rest API 的不同，以及对 API Design 的启发。
+# 由 GraphQL 来思考 API Design
 
-他山之石可以攻玉。qraphql 一些天然的设计或者思想对写 Rest API 有很大的借鉴或参考意义。
+目前我已经写了一年多 QraphQL，也时常思考和 Rest API 的不同，以及对 API Design 的启发。
+
+> 他山之石可以攻玉。
+
+GraphQL 一些天然的设计或者思想对写 Rest API 有很大的借鉴或参考意义。
 
 这里总结下一些受启发的 API 设计规范。
 
 <!--more-->
 
-如果你对 graphql 不熟悉，可以先参考 [graphql 中文文档](http://graphql.cn/learn/)
-
-> 本文链接 [http://shanyue.tech/post/api-design-inspire-by-graphql/](https://shanyue.tech/post/api-design-inspire-by-graphql/)
+如果你对 GraphQL 不熟悉，可以先通读 [GraphQL 中文文档](http://graphql.cn/learn/)
 
 ## 对所有的资源返回 id
 
@@ -173,4 +177,3 @@ date.toISOString()
 如果你使用 node.js 来写服务器应用，可以使用 [apiDoc](https://github.com/apidoc/apidoc)
 
 另外，注意不要把文档暴露到生产环境，graphql 需要在生产环境中关掉 introspection。
-

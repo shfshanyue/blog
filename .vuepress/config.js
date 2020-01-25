@@ -4,7 +4,7 @@ const k8s = require('./k8s.header')
 module.exports = {
   base: '/',
   title: '山月行',
-  description: '分享前后端以及 DevOps 相关文章，使各端开发者能够突破瓶颈进一步成长。',
+  description: '全栈成长之路，分享前后端以及 DevOps 相关文章，使各端开发者能够突破瓶颈进一步成长。',
   head: [
     ['link', { rel: 'shortcut icon', href: '/favicon.ico', type: 'image/x-icon' }],
     ['meta', { name: 'baidu-site-verification', content: 'ZAdkE6LA10'}]
@@ -17,7 +17,7 @@ module.exports = {
       // { text: '使用graphql构建web应用', link: 'https://github.com/shfshanyue/graphql-guide' },
       { text: '存档', link: '/post/' },
       // { text: 'GraphQL', link: '/post/graphql-guide/' },
-      { text: '炳烛', link: '/record/' },
+      // { text: '炳烛', link: '/record/' },
       { text: '个人服务器运维指南', link: '/op/' },
       { text: 'kubernetes 实践', link: '/k8s/' },
       { text: 'SQL必知必会', link: '/post/sql-guide/' },
@@ -44,8 +44,7 @@ module.exports = {
       '/op/': op,
       '/k8s/': k8s,
     },
-    lastUpdated: 'Last Updated',
-    // displayAllHeaders: true
+    lastUpdated: 'Last Updated'
   },
   plugins: [
     [ 'feed', {

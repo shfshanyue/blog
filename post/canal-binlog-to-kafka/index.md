@@ -1,15 +1,22 @@
 ---
-title: 关于 canal 的安装以及配置
+title: canal 的安装以及配置
+keywords: canal,canal安装,canal配置
 date: 2019-04-12T14:24:52+08:00
+thumbnail: https://camo.githubusercontent.com/a9d41336a07581745beaa933f28a8f1860cb4eda/68747470733a2f2f696d672d626c6f672e6373646e696d672e636e2f32303139313130343130313733353934372e706e67
 categories:
-  - 前端
   - 后端
 tags:
-  - java
   - 大数据
+  - java
 ---
 
-最近在公司的测试环境搭了一套 canal 用以同步 mysql 的 binlog。环境搭建步骤如下，和官方文档无异，权作记录
+# 关于 canal 的安装以及配置
+
+`canal` 主要用途是基于 `mysql` 数据库增量日志解析，提供增量数据订阅和消费。
+
+最近在公司的测试环境搭了一套 canal 用以同步 `mysql` 的 binlog。环境搭建步骤如下，和官方文档无异，权作记录。
+
+> 更多详细内容参考官方文档 [Canal Kafka RocketMQ QuickStart](https://github.com/alibaba/canal/wiki/Canal-Kafka-RocketMQ-QuickStart)
 
 <!--more-->
 
@@ -29,7 +36,7 @@ tar -zxvf canal.deployer-1.1.3.tar.gz -C /usr/local/canal
 
 ## 配置
 
-修改数据库以及如何与Topic对应的配置
+修改数据库以及如何与 Topic 对应的配置
 
 ```shell
 $ cd /usr/local/canal/
@@ -43,7 +50,7 @@ canal.mq.topic=example
 canal.mq.dynamicTopic=mytest,.*,mytest.user,mytest\\..*,.*\\..*
 ```
 
-修改 kafka 的配置
+修改关于 kafka 的配置
 
 ```shell
 $ vim /usr/local/canal/conf/canal.properties
@@ -51,5 +58,3 @@ $ vim /usr/local/canal/conf/canal.properties
 canal.serverMode = kafka
 canal.mq.servers = 127.0.0.1:9092
 ```
-
-更多详细内容参考官方文档 [Canal Kafka RocketMQ QuickStart](https://github.com/alibaba/canal/wiki/Canal-Kafka-RocketMQ-QuickStart)

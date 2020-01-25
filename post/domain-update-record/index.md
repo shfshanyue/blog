@@ -1,7 +1,7 @@
 ---
 title: 网站域名更换记录以及一系列衍生问题
-date: 2019-04-26
 keywords: 域名更换,traefik配置,域名更换与SEO,devops
+date: 2019-04-26
 tags:
   - devops
 categories:
@@ -97,9 +97,3 @@ services:
 鉴于只是一个简单的博客，应该没有什么工作量了
 
 如果域名需要 SEO，也就比较麻烦些，如果不需要的话，基本可以使用 nginx 或者 traefik 配置多个域名就可以了
-
-<hr/>
-
-欢迎关注我的公众号**山月行**进行交流
-
-![欢迎关注公众号山月行，在这里记录我的技术成长，欢迎交流](https://shanyue.tech/qrcode.jpg)
