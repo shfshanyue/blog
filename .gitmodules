@@ -4,3 +4,6 @@
 [submodule "k8s"]
 	path = k8s
 	url = https://github.com/shfshanyue/learn-k8s.git
+[submodule "no-vps"]
+	path = no-vps
+	url = https://github.com/shfshanyue/you-dont-need-vps.git
