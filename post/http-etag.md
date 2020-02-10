@@ -1,11 +1,3 @@
----
-title: http 响应头中的 ETag 值是如何生成的
-date: 2019-12-10 22:00
-keywords: http,http缓存
-tags:
-  - http
----
-
 # http 静态文件响应头的 ETag 如何生成
 
 关于 `etag` 的生成需要满足几个条件

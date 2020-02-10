@@ -1,21 +1,6 @@
----
-title: SQL必知必会
-description: 本篇文章是 SQL 必知必会 的读书笔记，SQL必知必会的英文名叫做 Sams Teach Yourself in 10 Minutes。
-keywords: sql,sql必知必会
-date: 2019-10-28 21:00
-tags:
-  - 数据库
-categories:
-  - 后端
-hot: 9
-
----
+# SQL 必知必会
 
 本篇文章是 **SQL 必知必会** 的读书笔记，记录如下
-
-<!--more-->
-
-+ 原文链接: [SQL必知必会](https://shanyue.tech/post/sql-examples)
 
 ## 检索数据
 

@@ -1,7 +1,23 @@
+const _ = require('lodash')
+const path = require('path')
 const op = require('./op.header')
 const k8s = require('./k8s.header')
+const posts = require('./post')
+
+const postsByPath = _.keyBy(posts, 'path')
+function getFrontMatter (path) {
+  const p = path.split(/\.|\//)[2]
+  return _.get(postsByPath, p)
+}
 
 module.exports = {
+  configureWebpack: {
+    resolve: {
+      alias: {
+        '@assets': path.resolve(__dirname, '../assets')
+      }
+    }
+  },
   base: '/',
   title: '山月行',
   description: '全栈成长之路，分享前后端以及 DevOps 相关文章，使各端开发者能够突破瓶颈进一步成长。',
@@ -76,6 +92,15 @@ module.exports = {
           ]
         },
         extendPageData ($page) {
+          if ($page.path.includes('/post')) {
+            const fm = getFrontMatter($page.path)
+            if (fm) {
+              $page.frontmatter = {
+                ...fm,
+                ...$page.frontmatter
+              }
+            }
+          }
           if ($page.frontmatter.keywords) {
             const meta = $page.frontmatter.meta
             $page.frontmatter.meta = meta ? [
@@ -91,7 +116,7 @@ module.exports = {
               }
             ]
           }
-          if (/^\/(post|code)\/.+?$/.test($page.path)) {
+          if (/^\/(code)\/.+?$/.test($page.path)) {
             $page.frontmatter.sidebar = 'auto'
           }
           if (/^\/op\/.+?$/.test($page.path)) {

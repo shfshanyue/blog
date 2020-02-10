@@ -69,8 +69,6 @@ accept4(18, NULL, NULL, SOCK_CLOEXEC|SOCK_NONBLOCK)
 
 write to a file descriptor. 
 
-也包括标准输出
-
 ```c
 #include <unistd.h>
 ssize_t write(int fd, const void *buf, size_t count);

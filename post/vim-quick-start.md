@@ -1,14 +1,4 @@
----
-title: vim 快速入门
-description: 以下是能够在零配置下快速使用 vim 的一系列步骤，只需要多加练习，便能快速熟练使用 vim。
-date: 2018-07-31
-tags:
-  - vim
-categories:
-  - 工具
-hot: 1
-
----
+# vim 快速入门
 
 有一个段子。
 
@@ -23,8 +13,6 @@ hot: 1
 以下是能够在 **零配置零插件** 下快速使用 vim 的一系列步骤，只需要多加练习，便能快速熟练使用 vim。 **无他，唯手熟尔。**
 
 <!--more-->
-
-原文链接见 [山月的博客](https://shanyue.tech/post/vim-quick-start/)
 
 ## 快速移动
 

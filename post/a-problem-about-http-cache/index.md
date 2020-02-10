@@ -1,16 +1,4 @@
----
-title: http 缓存问题与 lm factor 算法
-keywords: http缓存,service worker,lm factor
-description: 比没有缓存更严重的问题是缓存了不该缓存的东西。前者属于性能优化，而后者可能使你不厌其烦地充当客服工作
-date: 2019-03-15
-categories:
-  - 前端
-tags:
-  - http
-  - service worker
----
-
-# 关于 http 缓存的一个小问题以及引发的思考
+# http 缓存问题与 LM Factor 算法
 
 前几天写了一篇博客，[浏览器中的二进制](../binary-in-frontend/)，其中使用 [draw.io](draw.io) 总结了一张图，并且附在了我的博客里。
 
@@ -22,7 +10,7 @@ tags:
 
 **这时候问题出现了，图片并没有更新！**
 
-**比没有缓存更严重的问题是缓存了不该缓存的东西！**，前者属于性能优化，而后者可能使你不厌其烦地充当客服工作
+**比没有缓存更严重的问题是缓存了不该缓存的东西！** 前者属于性能优化，而后者可能就属于故障了，使你不厌其烦地充当客服工作。有时就是这样，性能优化时会增进复杂度，而增加复杂度就会引来新的问题。一切都需要权衡。
 
 关于 http 的问题，则应该专注于它的报文信息。我研究了下该图片的 `Request`/`Response` 信息，总结为以下三点
 
@@ -64,9 +52,9 @@ factor 即 LM factor，设置为 (0, 1)。
 > no-cache 代表需要每次校验资源的新鲜度，来决定是否从缓存中取
 > no-store 代表从不存缓存
 
-由于博客没有能做长期缓存的资源，统一对博客的所有请求添加了响应头 `Cache-Control: no-cache`。我使用了 `traefik` 作为反向代理，并使用 `docker-compose` 部署。
+由于博客没有能做长期缓存的资源，统一对博客的所有请求添加了响应头 `Cache-Control: no-cache`。
 
-修改 `docker-compose.yml` 配置文件如下所示
+我使用了 `traefik` 作为反向代理，并使用 `docker-compose` 部署，修改 `docker-compose.yml` 配置文件如下所示
 
 ```yaml
  version: "3"

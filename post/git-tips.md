@@ -1,14 +1,4 @@
----
-title: 一些实用的 git 小技巧
-date: 2017-05-25
-categories:
-  - 前端
-  - 后端
-  - 运维
-keywords: git,git blame,git小技巧
-tags:
-  - git
----
+# 是谁改了我的代码
 
 前些月，写了一个关于 git 的表格，叫[Git Cheat Sheet](https://shfshanyue.github.io/cheat-sheets/git)，现分享一些有用的小技巧。另推荐一个非常不错的关于 git 小技巧的项目 [git-tips](https://github.com/git-tips/tips)。
 
@@ -16,13 +6,15 @@ tags:
 
 ## 是谁动了我的代码
 
-谁动了我的代码？
+是谁动了我的代码？
 
-谁的 bug 指到了我的头上？
+又是谁的 bug 指到了我的头上？
 
-团队合作时，经常会出现这样的问题。这时候可以使用 `git blame <file>` 来定位代码的最后一次修改。但是，有一个问题，这并不能看出本行代码以前的修改。比如项目组中某人对全部代码进行了格式化，`git blame` 就失去了作用。此时，可以与另一个有用的命令 `git log -p <file>` 结合使用，可以查看文件的更改历史与明细，最终找到这个锅究竟应该由谁来背。
+团队合作时，这样的问题相信大家已经家常便饭司空见惯屡见不鲜了。这时候可以祭出杀器 `blame`: 使用 `git blame <file>` 来定位代码的最后一次修改。
 
-```sh
+但是，此时有一个问题，这只能查看本行代码的上体提交，而无法定位本行代码的提交历史。比如项目合作中某人对全部代码进行了格式化，`git blame` 就失去了作用。此时，可以与另一个有用的命令 `git log -p <file>` 结合使用，可以查看文件的更改历史与明细，最终找到这个锅究竟应该由谁来背。
+
+``` bash
 git blame -L 10,12 package.json
 git log -p -L 10,12:package.json
 ```
@@ -31,12 +23,12 @@ git log -p -L 10,12:package.json
 
 当你经常工作于 A 与 B 两个分支，需要来回切。这时命令应该是 `git checkout A`，但这里有一个更简单的命令，`git checkout -`，表示切到最近的一次分支。如果你需要把 B 分支的内容合并过来，可以使用 `git merge -`。
 
-题外话，`cd -` 代表进入最近目录，也相当实用。
-
-```sh
+``` bash
 git checkout -
 git merge -
 ```
+
+而 `-` 往往代表最近一次，如 `cd -` 代表进入最近目录，也相当实用。
 
 ## 统计项目
 

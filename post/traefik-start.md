@@ -1,13 +1,6 @@
----
-title: Traefik 入手与简单配置
-date: 2019-01-30T16:31:01+08:00
-thumbnail: ""
-categories:
-  - 后端
-  - 运维
-tags:
-  - devops
----
+# Traefik 快速指南
+
+> 本文章介绍的是 traefik V1，很可能已不适用
 
 Traefik 与 nginx 一样，是一款反向代理的工具，至于使用他原因基于以下几点
 

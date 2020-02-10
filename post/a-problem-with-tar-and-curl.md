@@ -1,15 +1,3 @@
----
-title: 记录一个有关 curl 和重定向的小问题
-path: a-problem-with-tar-and-curl
-date: 2019-04-12T20:35:01+08:00
-keywords: curl,linux,重定向
-description: "gzip: stdin: not in gzip format"
-categories:
-  - 运维
-tags:
-  - linux
----
-
 # 记录一个有关 curl 和重定向的小问题
 
 今天在工作时遇到一个有关解压的问题，先来还原问题

@@ -1,17 +1,3 @@
----
-title: 由 GraphQL 来思考 API Design
-path: api-design-inspire-by-graphql
-description: GraphQL 一些天然的设计或者思想对设计 Rest API 有很大的借鉴或参考意义。这里总结下一些受启发的 API 设计规范
-keywords: graphql,api design,rest api
-date: 2019-03-14T19:07:50+08:00
-thumbnail: ../../assets/graphql-logo.jpg
-categories:
-  - 后端
-tags:
-  - graphql
-  - node
----
-
 # 由 GraphQL 来思考 API Design
 
 目前我已经写了一年多 QraphQL，也时常思考和 Rest API 的不同，以及对 API Design 的启发。

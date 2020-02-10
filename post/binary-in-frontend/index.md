@@ -1,62 +1,44 @@
----
-title: 浏览器中的二进制以及相关转换
-path: binary-in-frontend
-description: 浏览器，或者前端更多处理的是 View 层，即 `UI = f(state)`，状态至界面的转化。但是也有很多关于二进制的处理，如下载 Excel，文档生成 PDF，对多个文件打包下载。本篇文章总结了浏览器端的二进制以及之间的转化，如 ArrayBuffer 转 Blob，Base64 转 TypedArray 等等
-keywords: ArrayBuffer to Blob,Blob to ArrayBuffer,String to ArrayBuffer
-date: 2019-03-12 18:00
-thumbnail: ./transform.jpg
-categories:
-  - 前端
-tags:
-  - javascript
-top: 7
-
----
-
 # 浏览器中的二进制以及相关转换
 
-最近工作中遇到了很多有关二进制的处理，如PDF的生成，多个PDF的打包，音频的拼接。为了数据的一致性，以及减少与后端通信的复杂度，工作量都在浏览器端。
+作为一名前端，在工作中也会遇到很多有关二进制处理的需求，如EXCEL表格的导出，PDF的生成，多个文件的打包，音频的处理。
 
-浏览器，或者前端更多处理的是 View 层，即 `UI = f(state)`，状态至界面的转化。但是也有很多关于二进制的处理，如
+从前后端整体上来说前端代表 UI 层，它的外在表现是 `human readable` 的，而服务端代表数据层，所表现出来的是 `machine readable`。如果 EXCEL 以及 PDF 的处理交由服务端处理，服务端免不了要做一层格式化的逻辑处理，以便与前端保持一致。一来增加了复杂度，二来容易造成前端与服务器端的数据不一致。此时为了减少复杂度，工作量有可能都尽可能在浏览器端完成。
 
-+ 下载 Excel
-+ 文档生成 PDF
-+ 对多个文件打包下载
+本篇文章总结了浏览器端的二进制以及有关数据之间的转化，如 `ArrayBuffer`，`TypedArray`，`Blob`，`DataURL`，`ObjectURL`，`Text` 之间的互相转换。为了更好的理解与方便以后的查询，特意做了一张图做总结。
 
-<!--more-->
-
-本篇文章总结了浏览器端的二进制以及有关数据之间的转化，如 ArrayBuffer，TypedArray，Blob，DataURL，ObjectURL，Text 之间的互相转换。为了更好的理解与方便以后的查询，特意做了一张图做总结。
-
-原文链接见 [http://shanyue.tech/post/binary-in-frontend/](https://shanyue.tech/post/binary-in-frontend/)
+![二进制相互转换图](./transform.jpg)
 
 ## 二进制相关数据类型
 
-在此之前，首先简单介绍下几种相关的数据类型，更多文档请参考 MDN
+在介绍常见的二进制数据处理之前，先简单介绍下几种二进制相关的数据类型
 
 ### ArrayBuffer && TypedArray
 
-`TypedArray` 是 ES6+ 新增的描述二进制数据的类数组数据结构。但它本身不可以被实例化，甚至无法访问，你可以把它理解为 `Abstract Class` 或者 `Interface`。而基于 `TypedArray`，有如下数据类型。
+`TypedArray` 是 ES6+ 新增的描述二进制数据的类数组数据结构。但它本身不可以被实例化，甚至无法访问，你可以把它理解为 `Abstract Class` 或者 `Interface`。而基于 `TypedArray`，有如下数据类型：
 
-+ Uint8Array
-    `Uint` 代表数组的每一项是无符号整型
++ `Uint8Array`
+    `Uint` 及 `Unsigned Int` 代表数组的每一项是无符号整型
     `8` 代表数据的每一项占 8 个比特位，即一个字节
-+ Int8Array
-+ Uint8Array
-+ Int16Array
++ `Int8Array`
++ `Uint16Array`
++ `Int16Array`
 + ...
 
-```javascript
-const array = new Int8Array([1, 2, 3])
+通过 `Uint8Array`，即可知道 `Uint16Array`，`Int8Array` 所代表的意义。
 
-// .length 代表数据大小
+``` javascript
+const array = new Int32Array([1, 2, 3])
+
+// .length 代表数组的大小
 // 3
 array.length
 
 // .btyeLength 代表数据所占字节大小
+// 12
 array.byteLength
 ```
 
-`ArrayBuffer` 代表二进制数据结构，**只读**。需要转化为 `TypedArray` 进行操作。
+`ArrayBuffer` 代表二进制数据结构，**并且只读**，需要转化为 `TypedArray` 进行写操作。
 
 ```javascript
 const array = new Int16Array([1, 2, 3])
@@ -73,7 +55,7 @@ array.buffer.length === array.byteLength
 
 ### 连接多个 TypedArray
 
-`TypedArray` 没有像数组那样的 Array.prototype.concat 方法用来连接多个 `TypedArray`。不过它提供了 `TypedArray.prototype.set` 可以用来间接连接字符串
+`TypedArray` 没有像数组那样的 `Array.prototype.concat` 方法用来连接多个 `TypedArray`。不过它提供了 `TypedArray.prototype.set` 可以用来间接连接字符串
 
 > 可以参考 MDN 文档：https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/set
 
