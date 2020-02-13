@@ -1,14 +1,8 @@
----
-title: 如何判断文件中的换行符是 LF(\n) 还是 CRLF(\r\n)
-date: 2019-07-25
-thumbnail: ""
-tags:
-  - linux
----
+# 换行符 LF(\n) 与 CRLF(\r\n)
 
-最近遇到了很多 `\n` 与 `\r\n`，虽然一直知道他们都是换行符，但也没有细究，今天顺手查了下。
+最近遇到了很多 `\n` 与 `\r\n` 的问题，虽然一直知道他们都是换行符，但也没有细究，今天顺手查了下。
 
-首先，先解释下 `\n` 与 `\r\n` 的区别，在 [Difference between \n and \r?](https://stackoverflow.com/questions/15433188/r-n-r-and-n-what-is-the-difference-between-them) 中有这样的示意
+首先，要了解 `\n` 与 `\r\n` 的区别，在 [Difference between \n and \r?](https://stackoverflow.com/questions/15433188/r-n-r-and-n-what-is-the-difference-between-them) 中有这样的示意：
 
 **\r** = CR (Carriage Return) → Used as a new line character in Mac OS before X
 **\n** = LF (Line Feed) → Used as a new line character in Unix/Mac OS X

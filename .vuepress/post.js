@@ -89,5 +89,52 @@ module.exports = [
     tags: ['javascript'],
     categories: ['前端'],
     date: '2019-05-13 18:00'
+  },
+  {
+    title: 'Service Worker 实践与在 create-react-app 中所遇到的问题解决方案',
+    path: 'cache-for-sw',
+    description: '对于静态资源，采取了所有静态资源添加hash，除部署后第一次外均不需再访问服务器。如果这里采用 workbox 的术语的话，那么静态资源则是采用了 Cache-First 的策略，当缓存不可取时才回退到网络，而对于动态 API，则采用 Network-First 的策略，只有在离线状态下才使用缓存。',
+    keywords: 'service worker,PWA,service worker缓存动态API,静态资源预缓存',
+    date: '2018-02-29',
+    categories: ['前端'],
+    tags: ['service worker'],
+  },
+  {
+    title: '如何判断文件中换行符是 LF 还是 CRLF',
+    path: 'LF-CRLF',
+    description: '最近遇到了很多 \n 与 \r\n 的问题，虽然一直知道他们都是换行符，但也没有细究，今天顺手查了下。',
+    keywords: 'LF,CRLF,\n与\r\n的区别,换行符,\r\n是什么意思',
+    date: '2019-07-25 18:00:03',
+    categories: ['运维'],
+    tags: ['linux']
+  },
+  {
+    title: '谈谈 redis 在项目中的常见使用场景',
+    path: 'redis-case',
+    description: '最近写了一个关于 graphql 的脚手架，其中 redis 的使用场景还挺多，于是总结下它的常见使用场景。',
+    keywords: 'redis,redis分布式锁,redis集群,redis数据类型',
+    date: '2019-07-17T09:39:20+08:00',
+    categories: ['后端'],
+    tags: ['redis']
+  },
+  {
+    title: 'typescript 高级技巧',
+    path: 'ts-tips',
+    description: '用了一段时间的 typescript 之后，深感中大型项目中 typescript 的必要性，它能够提前在编译期避免许多 bug，如很恶心的拼写问题。而越来越多的 package 也开始使用 ts，学习 ts 已是势在必行。',
+    keywords: 'typescript,typescript react',
+    date: '2019-06-11 18:00',
+    categories: ['前端'],
+    tags: ['javascript'],
+    hot: 7
+  },
+  {
+    title: '邮件发送中的限流算法: 漏桶与令牌桶',
+    path: 'rate-limit',
+    keywords: '限流算法,redis,漏桶算法',
+    description: '在短信验证码和邮箱验证码，如果不限速，被恶意攻击造成大量的 QPS，不仅拖垮了服务，也会心疼如水的资费。鉴于君子固穷的原则，在我的邮箱服务里加上限速。',
+    date: '2019-05-05 18:00',
+    categories: ['后端'],
+    tags: ['node'],
+    hot: 6
   }
 ]

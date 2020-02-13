@@ -1,14 +1,6 @@
----
-title: 谈谈 redis 在项目中的常见使用场景
-date: 2019-07-17T09:39:20+08:00
-thumbnail: ""
-categories:
-  - 后端
-tags:
-  - node
----
+# 谈谈 redis 在项目中的常见使用场景
 
-最近在写一个[脚手架](https://github.com/shfshanyue/apollo-server-starter)，其中 `redis` 的使用场景还挺多，于是总结下它的常见使用场景
+最近写了一个关于 graphql 的[脚手架](https://github.com/shfshanyue/apollo-server-starter)，其中 `redis` 的使用场景还挺多，于是总结下它的常见使用场景。
 
 <!--more-->
 
@@ -176,9 +168,3 @@ if (res.consumedPoints > this.points) {
 可以通过 redis 的 `PUB/SUB` 来在 websocket server 间进行交流。可以参考以下项目
 
 + [socket.io-redis](https://github.com/socketio/socket.io-redis)
-
-<hr/>
-
-欢迎关注我的公众号**山月行**，在这里记录着我的技术成长，欢迎交流
-
-![欢迎关注公众号山月行，在这里记录我的技术成长，欢迎交流](https://shanyue.tech/qrcode.jpg)

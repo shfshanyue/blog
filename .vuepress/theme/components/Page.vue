@@ -9,7 +9,7 @@
         <p>即可在关注期间<span>无限制</span>浏览本站全部文章内容</p>
         <img src="../qr.jpg" width="180" height="180">
         <!-- <p>该提示信息随机出现，你可以<span>再次刷新</span>页面，来浏览本站全部文章</p> -->
-        <p><span @click="lock = false">关闭</span></p>
+        <p><span @click="lock = false">点击关闭</span></p>
         <p>
           你也可以在文章<a href="https://github.com/shfshanyue/op-note/blob/master/blog-to-wechat.md">关于回复公众号扫码解锁全站的技术实现</a>中获得解锁代码，永久解锁本站全部文章
         </p>
@@ -111,16 +111,17 @@ export default {
   span
     color #3eaf7c
     font-weight 600
+    cursor pointer
 
 .theme-default-content.lock
   .content__default
-    > :nth-child(15)
+    > :nth-last-child(3)
       opacity .5
 
-    > :nth-child(16)
+    > :nth-last-child(2)
       opacity .2
 
-    > :nth-child(n+17)
+    > :nth-last-child(-n+1)
       display none
 
   .content-lock

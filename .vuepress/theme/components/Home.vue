@@ -49,7 +49,7 @@
           <a href="https://github.com/LuckyWinty/blog">winty 的博客</a>
         </li>
         <li>
-          <a href="http://www.inode.club">程序员成长之北</a>
+          <a href="http://www.inode.club">程序员成长指北</a>
         </li>
         <li>
           <a href="https://biaochenxuying.cn/">夜尽天明的个人博客网站</a>
@@ -62,6 +62,9 @@
         </li>
         <li>
           <a href="http://www.javadaily.cn">Java 日知录</a>
+        </li>
+        <li>
+          <a href="https://blog.yinuxy.com/">YINUXY | 理想的生活就是生活的理想</a>
         </li>
       </ul>
       <hr>

@@ -1,13 +1,4 @@
----
-title: "Service Worker 与在 create-react-app 中所遇到的问题解决方案"
-date: 2018-02-29
-categories:
-  - 前端
-  - 后端
-tags:
-  - cache
-  - service worker
----
+# Service Worker 实践与在 create-react-app 中所遇到的问题解决方案
 
 ## 缓存策略
 

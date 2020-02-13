@@ -35,17 +35,17 @@ module.exports = {
       // { text: 'GraphQL', link: '/post/graphql-guide/' },
       // { text: '炳烛', link: '/record/' },
       { text: '个人服务器运维指南', link: '/op/' },
-      { text: 'kubernetes 实践', link: '/k8s/' },
-      { text: 'SQL必知必会', link: '/post/sql-guide/' },
-      { text: '关于我', link: '/about' },
-      {
-        text: '笔记', items: [
-          { text: 'flutter', link: '/post/flutter-guide/' },
-          { text: 'Grid Layout', link: '/post/Grid-Guide/' },
-          { text: 'spark', link: '/post/learning-spark/' },
-          { text: 'scala', link: '/post/learning-scala/' },
-        ]
-      },
+      // { text: 'kubernetes 实践', link: '/k8s/' },
+      { text: '前端武器库', link: 'https://wuqiku.buzuosheng.com' },
+      // { text: '关于我', link: '/about' },
+      // {
+      //   text: '笔记', items: [
+      //     { text: 'flutter', link: '/post/flutter-guide/' },
+      //     { text: 'Grid Layout', link: '/post/Grid-Guide/' },
+      //     { text: 'spark', link: '/post/learning-spark/' },
+      //     { text: 'scala', link: '/post/learning-scala/' },
+      //   ]
+      // },
     ],
     sidebar: {
       '/record/': [

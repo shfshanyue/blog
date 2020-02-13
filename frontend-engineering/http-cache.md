@@ -46,11 +46,31 @@ Cache-Control: no-cache
 
 而在最底层，`Last-Modified` 往往通过文件系统(file system)中的 `mtime` 属性生成，而 `ETag` 提供比 `Last-Modified` 更精细的粒度，由 `hash` 或者 `mtime/size` 生成。可以参看我的每日一题：[http 响应头中的 ETag 值是如何生成的](https://github.com/shfshanyue/Daily-Question/issues/112)
 
-## 总是为你的资源添加 Cache-Control 响应头
+## 一定要为你的资源添加 Cache-Control 响应头
 
 我会经常接触到一些网站，他们的资源文件并没有 `Cache-Control` 这个响应头。究其原因，在于缓存策略配置这个工作的职责不清，有时候它需要协调前端和运维。
 
-那如果不添加 `Cache-Control` 这个响应头会怎么样？
+**那如果不添加 `Cache-Control` 这个响应头会怎么样？**
 
 是不是每次都会自动去服务器校验新鲜度，很可惜，不是。 **此时会对资源进行强制缓存，而对不带有指纹信息的资源很有可能获取到过期资源。** 如果过期资源存在于浏览器上，还可以通过强制刷新浏览器来获取最新资源。但是如果过期资源存在于 CDN 的边缘节点上，CDN 的刷新就会复杂很多，而且有可能需要多人协作解决。
+
+**那默认的强制缓存时间是多少**
+
+首先要明确两个响应头代表的含义：
+
+1. `Date`: 指源服务器响应报文生成的时间，差不多与发请求的时间等价
+1. `Last-Modified`: 指静态资源上次修改的时间，取决于 `mtime`
+
+`LM factor` 算法认为当请求服务器时，如果没有设置 `Cache-Control`，如果距离上次的 `Last-Modified` 越远，则生成的强制缓存时间越长。
+
+用公式表示如下，其实 `factor` 介于 0 与 1 之间
+
+``` js
+MaxAge = (Date - LastModified) * factor
+```
+
+![LM factor](./assets/http-lm-factor.jpg)
+
+## 分包：尽量减少资源变更
+
 
