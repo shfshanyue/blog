@@ -220,7 +220,7 @@ module.exports = [
     path: 'server-structed-error',
     date: '2019-06-25T17:37:15+08:00',
     description: '在一个后端服务设计中，异常捕获是必不可少需要考虑的因素。而当异常发生时，能够第一时间捕捉到并且能够获得足够的信息定位到问题至关重要，这也是本篇文章的内容',
-    keywords: '异常收集,异常上报,node,异常监控,'
+    keywords: '异常收集,异常上报,node,异常监控',
     categories: ['后端'],
     tags: ['node']
   },
@@ -236,7 +236,7 @@ module.exports = [
   {
     title: 'jwt 实践应用以及不适用特殊案例思考',
     path: 'jwt-guide',
-    description: 'JSON Web Token 是 [rfc7519](https://tools.ietf.org/html/rfc7519) 出的一份标准，使用 JSON 来传递数据，用于判定用户是否登录状态。jwt 之前，使用 session 来做用户认证。'
+    description: 'JSON Web Token 是 [rfc7519](https://tools.ietf.org/html/rfc7519) 出的一份标准，使用 JSON 来传递数据，用于判定用户是否登录状态。jwt 之前，使用 session 来做用户认证。',
     keywords: 'json web token (JWT), jwt实践,用户认证',
     date: '2018-07-21',
     sidebarDepth: 3,
@@ -251,5 +251,47 @@ module.exports = [
     description: '文章指出如果没有特别的用户注销及单用户多设备登录的需求，可以使用 jwt，而 jwt 的最大的特征就是无状态，且不加密。除了用户登录方面外，还可以使用 jwt 验证邮箱验证码，其实也可以验证手机验证码，但是鉴于我囊中羞涩，只能验证邮箱了。',
     categories: ['后端'],
     tags: ['node', 'graphql', 'jwt']
+  },
+  {
+    title: '如何快速了解新业务',
+    path: 'business-get-started',
+    description: '最近接触新业务较多，关于了解新业务有一点感想，总结如下: 1. 比了解新业务代码更重要的是要了解新业务，比了解新业务更重要的是业务意识 2. 如果是业务开发，毕业前三年更应该关注于技术以及技术细节，三到五年技术业务并重，五年以后业务为主',
+    date: '2019-08-08 18:00',
+    tags: ['node'],
+    hot: 4
+  },
+  {
+    title: '使用纯 CSS 实现仿 Material Design 的 input 过渡效果',
+    path: 'login-input-style',
+    description: `至于 Material Design 是什么样的效果，如上所示。实现以上效果，可以简单把问题归结为以下两点的实现
+1. 当 input 中没有值且没有获得焦点时，hint 信息灰色呈现在 input 框内
+1. 当 input 获取到焦点或者有值时，hint 信息以动画形式位移到 input 上方`,
+    date: '2019-04-23T18:12:38+08:00',
+    categories: ['前端'],
+    tags: ['css', 'react']
+  },
+  {
+    title: '使用 Grid 进行常见布局',
+    path: 'Grid-Layout-Common-Usage',
+    description: 'grid 布局是W3C提出的一个二维布局系统，通过 display: grid 来设置使用，对于以前一些复杂的布局能够得到更简单的解决。本篇文章通过几个布局来对对 grid 布局进行一个简单的了解。',
+    date: '2016-07-22 07:00',
+    keywords: 'grid,grid布局实践,css grid,grid 常见布局',
+    tags: ['css', 'grid'],
+    categories: ['前端']
+  },
+  {
+    title: '[翻译] Grid 布局完全指南',
+    description: 'JSON Web Token 是 [rfc7519](https://tools.ietf.org/html/rfc7519) 出的一份标准，使用 JSON 来传递数据，用于判定用户是否登录状态。jwt 之前，使用 session 来做用户认证。',
+    path: 'Grid-Guide',
+    date: '2017-02-09 06:32',
+    tags: ['css', 'grid'],
+    categories: ['前端']
+  },
+  {
+    title: '如果 http 响应头中 ETag 值改变了，是否意味着文件内容一定已经更改',
+    path: 'http-last-modified',
+    date: '2019-12-12 22:00',
+    keywords: 'http,http缓存,etag',
+    tags: ['http']
   }
 ]

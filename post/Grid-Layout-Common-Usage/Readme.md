@@ -1,13 +1,4 @@
----
-title: 使用 Grid 进行常见布局
-description: "grid 布局是W3C提出的一个二维布局系统，通过 display: grid 来设置使用，对于以前一些复杂的布局能够得到更简单的解决。本篇文章通过几个布局来对对 grid 布局进行一个简单的了解。"
-date: 2016-07-22
-tags:
-  - css
-  - grid
-categories:
-  - 前端
----
+# 使用 Grid 进行常见布局
 
 `grid` 布局是W3C提出的一个二维布局系统，通过 `display: grid` 来设置使用，对于以前一些复杂的布局能够得到更简单的解决。本篇文章通过几个布局来对对 `grid` 布局进行一个简单的了解。目前，`grid` 仅仅只有 `Edge`使用前缀能够支持，为了更好地体验，可以使用 Chrome 浏览器，在 `chrome://flags` 开启 ` #enable-experimental-web-platform-features` 选项。
 
@@ -22,7 +13,9 @@ categories:
 原文链接见: [山月的博客](https://shanyue.tech/post/grid-layout-common-usage/readme/)
 
 ## 左右固定中间自适应
+
 以前，这需要使用 `negative margin`，`float`, `position` 解决，圣杯布局是一个比较好的解决方案。后来，`flex`横空出世，使用 `flex-grow` 与 `flex-basis` 完成自适应布局。`grid` 布局相比 `flex` 布局更加简单，只需要在 `container` 上设置 `grid-template-columns: 100px auto 100px`。
+
 ![](https://shanyue.tech/post/Grid-Layout-Common-Usage/images/1.png)
 
 ```css

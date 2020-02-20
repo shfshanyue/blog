@@ -1,11 +1,13 @@
 ---
-title: Promise 简单实现
+title: 如何实现一个简单的 Promise
 date: 2019-08-03
 tags:
   - javascript
 categories:
   - 前端
 ---
+
+# 如何实现一个简单的 Promise
 
 ## 实现
 

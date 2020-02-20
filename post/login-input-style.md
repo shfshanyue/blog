@@ -1,13 +1,4 @@
----
-title: 使用纯 CSS 实现仿 Material Design 的 input 过渡效果
-date: 2019-04-23T18:12:38+08:00
-thumbnail: ""
-categories:
-  - 前端
-tags:
-  - css
-  - React
----
+# 使用纯 CSS 实现仿 Material Design 的 input 过渡效果
 
 以前一段时间，基于对 `next` 与 `graphql` 的调研，再加上本人的兴趣，我做了一个站点，也作为我以后各种技术折腾，实践以及兴趣交汇的试验田。
 
@@ -22,9 +13,6 @@ tags:
 + `input:valid`
 + `input:not(:placeholder-shown)`
 
-<!--more-->
-
-本文地址见 <https://shanyue.tech/post/login-input-style/>
 
 ## 问题概述
 
@@ -205,8 +193,3 @@ input.getAttribute('value') // '4'
 + [Detect if an input has text in it using CSS — on a page I am visiting and do not control?
 ](https://stackoverflow.com/questions/16952526/detect-if-an-input-has-text-in-it-using-css-on-a-page-i-am-visiting-and-do-no)
 
-<hr/>
-
-关注公众号**山月行**，在这里记录了我的技术成长，欢迎交流
-
-![欢迎关注公众号山月行，记录我的技术成长，欢迎交流](https://shanyue.tech/qrcode.jpg)

@@ -1,17 +1,6 @@
----
-title: "[翻译] Grid 布局完全指南"
-description: JSON Web Token 是 [rfc7519](https://tools.ietf.org/html/rfc7519) 出的一份标准，使用 JSON 来传递数据，用于判定用户是否登录状态。jwt 之前，使用 session 来做用户认证。
-date: 2017-02-09
-tags:
-  - css
-  - grid
-categories:
-  - 前端
----
+# 译: Grid 布局完全指南
 
-原文链接 [山月的博客](https://shanyue.tech/post/grid-guide/readme/)
-
-[英文链接](https://css-tricks.com/snippets/css/complete-guide-grid/)
+> [英文链接](https://css-tricks.com/snippets/css/complete-guide-grid/)
 
 ## [简介](#grid-introduction)
 
