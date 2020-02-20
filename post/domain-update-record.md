@@ -1,13 +1,3 @@
----
-title: 网站域名更换记录以及一系列衍生问题
-keywords: 域名更换,traefik配置,域名更换与SEO,devops
-date: 2019-04-26
-tags:
-  - devops
-categories:
-  - 运维
----
-
 # 博客域名更换记录以及衍生问题解决方案
 
 拖延了半年后，我终于在最近把我的域名 <https://shanyue.tech> 通过了备案，趁此对我的域名进行更换: 由 <https://blog.xiange.tech> 更换到了 <https://shanyue.tech>
@@ -15,8 +5,6 @@ categories:
 如果刚开始就使用新域名，倒是很简单。但是更换域名就需要做一些额外的琐碎的东西了，如 https，反向代理，SEO需求等等，记录一下
 
 <!--more-->
-
-> 本文地址: <https://shanyue.tech/post/domain-update-record/>
 
 ## https
 

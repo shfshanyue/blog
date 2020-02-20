@@ -1,19 +1,6 @@
----
-title: "sequelize V5 升级记录以及编译时与运行时问题解决方案"
-date: 2019-06-19
-categories:
-  - 后端
-  - 运维
-tags:
-  - devops
-  - typescript
----
+# sequelize V5 升级记录以及编译时与运行时问题解决方案
 
-最近把项目中的 sequelize 由 `4.38.0` 升级到了 `5.8.7`，以下是升级记录
-
-<!--more-->
-
-本文地址: <https://shanyue.tech/post/sequelize-upgrade/>
+最近把项目中的 sequelize 由 `4.38.0` 升级到了 `5.8.7`，不过最后事实告诉我这真是一个错误的决定，说多了全是泪，升级记录如下
 
 ## 01 删包
 

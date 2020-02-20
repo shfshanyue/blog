@@ -1,17 +1,3 @@
----
-title: 从数据库到前端，使用 enum 代替 constant number
-keywords: graphql,enum,魔法数字,数据库
-description: 以下展示一个简单的 TODO List。以 TODO 的三种状态 TODO，DONE 以及 DOING 来描述数据库，后端和前端应如何传输以及展示
-date: 2019-05-07
-categories:
-  - 前端
-  - 后端
-tags:
-  - node
-  - graphql
-  - 数据库
----
-
 # 从数据库到前端，使用 enum 代替 constant number
 
 在我经历过几个以 node 为主的后端项目中，都有一个文件 `constant.js`。顾名思义，里边保存着各种常量，而大多是字符串与数字的对应关系。

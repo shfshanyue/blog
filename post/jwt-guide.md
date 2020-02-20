@@ -1,17 +1,4 @@
----
-title: jwt 实践应用以及特殊案例思考
-description: JSON Web Token 是 [rfc7519](https://tools.ietf.org/html/rfc7519) 出的一份标准，使用 JSON 来传递数据，用于判定用户是否登录状态。jwt 之前，使用 session 来做用户认证。
-keywords: json web token (JWT), jwt实践,用户认证
-date: 2018-07-21
-sidebarDepth: 3
-tags:
-  - node
-  - jwt
-categories:
-  - 后端
-hot: 4
-
----
+# JWT 实践应用以及不适用特殊案例思考
 
 JSON Web Token 是 [rfc7519](https://tools.ietf.org/html/rfc7519) 出的一份标准，使用 JSON 来传递数据，用于判定用户是否登录状态。
 

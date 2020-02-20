@@ -1,13 +1,4 @@
----
-title: Node 中异常收集与监控
-date: 2019-06-25T17:37:15+08:00
-thumbnail: ""
-categories:
-  - 前端
-  - 后端
-tags:
-  - node
----
+# Node 中异常收集与监控
 
 在一个后端服务设计中，异常捕获是必不可少需要考虑的因素
 
@@ -17,11 +8,6 @@ tags:
 
 1. 在生产环境中后端连接的数据库挂了，是否能够第一时间收到通知并定位到问题，而不是等到用户反馈之后又用了半天时间才找到问题 (虽然运维肯定会在第一时间知道数据库挂了)
 1. 在生产环境中有一条 API 出了问题，能否衡量该错误的紧急重要程度，并根据报告解决问题
-<!--more-->
-本文链接:
-
-+ [监控系统 Sentry 的部署](https://shanyue.tech/post/sentry-docker-install/)
-+ [Node 中异常收集与监控](https://shanyue.tech/post/server-structed-error/)
 
 ## 异常收集
 
@@ -207,9 +193,3 @@ Error.prepareStackTrace(error, structuredStackTrace)
 ```typescript
 beforeSend?(event: Event, hint?: EventHint): Promise<Event | null> | Event | null;
 ```
-
-<hr/>
-
-欢迎关注我的公众号**山月行**，在这里记录着我的技术成长，欢迎交流
-
-![欢迎关注公众号山月行，在这里记录我的技术成长，欢迎交流](https://shanyue.tech/qrcode.jpg)

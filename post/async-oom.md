@@ -1,13 +1,6 @@
----
-title: 关于 async/await 的两个 OOM 的示例
-date: 2019-08-17
-tags:
-  - node
-  - linux
-categories:
-  - 后端
----
+# 关于 async/await 的两个 OOM 的示例
 
+两个在开发过程中因为使用 async/await 而导致的 OOM 示例，简单记录一下
 
 ## 01 Promise.map 与 并发控制
 

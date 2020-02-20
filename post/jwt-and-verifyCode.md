@@ -1,14 +1,4 @@
----
-title: jwt 实践邮件验证与登录
-date: 2019-04-26T19:27:38+08:00
-categories:
-  - 前端
-  - 后端
-tags:
-  - node
-  - graphql
-  - jwt
----
+# JWT 实践邮件验证与登录
 
 去年我写了一篇介绍 `jwt` 的[文章](https://shanyue.tech/post/jwt-guide/readme/)。
 

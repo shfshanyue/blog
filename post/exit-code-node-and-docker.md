@@ -1,20 +1,6 @@
----
-title: Node 中异常，exit code 与 docker
-date: 2019-07-29
-categories:
-  - 后端
-tags:
-  - node
-  - devops
-  - docker
-  - 监控
----
+# Node 中异常，exit code 与 docker
 
 最近观察项目 `CI` 跑的情况如何时，会偶尔发现一两个镜像虽然构建成功但是容器跑不起来的情况。究其原因，是因为一个 `exit code` 的问题
-
-<!--more-->
-
-本文地址: <https://shanyue.tech/post/exit-code-node-and-docker>
 
 ## `throw new Error` 与 `Promise.reject` 区别
 
@@ -53,6 +39,8 @@ error()
 从一个比较底层的角度来说，两者的 `exit code` 不一样，那 `exit code` 是什么东西？
 
 ## exit code
+
+那 exit code 到底是什么呢？
 
 **`exit code` 代表一个进程的返回码，通过系统调用 `exit_group` 来触发。在 `POSIX` 中，`0` 代表正常的返回码，而 `1-255` 代表异常返回码，不过一般错误码都是 `1`。这里有一张附表 [Appendix E. Exit Codes With Special Meanings](http://www.tldp.org/LDP/abs/html/exitcodes.html)**
 

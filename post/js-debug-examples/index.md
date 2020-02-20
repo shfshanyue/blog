@@ -1,20 +1,8 @@
----
-title: JS 调试示例
-date: 2019-07-30
-thumbnail: ""
-categories:
-  - 前端
-  - 后端
-tags:
-  - node
-  - javascript
----
+# JS 调试问题汇总与示例
 
 在写 node 应用或者 react 应用时，经常需要看一些库的源码，而在看源码时，除了一个顺手的 IDE 外，学会调试也至关重要。因此，我把常见的调试的一些小问题记录下来。
 
 <!--more-->
-
-+ 本文链接: <https://shanyue.tech/post/js-debug-examples/>
 
 ## Return Value
 

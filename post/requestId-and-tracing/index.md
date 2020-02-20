@@ -1,21 +1,10 @@
----
-title: 使用 requestId 标记全链路日志
-date: 2019-07-05T20:02:20+08:00
-categories:
-  - 后端
-tags:
-  - node
-  - 监控
----
-
 # 使用 requestId 标记全链路日志
 
-标记全链路日志有助于更好的解决 bug 和分析接口性能，本篇文章使用 `node` 来作为示例
+在微服务架构中，标记全链路日志有助于更好的解决 bug 和分析接口性能，本篇文章使用 `node` 来作为示例
 
 <!--more-->
 
 + [代码示例](https://github.com/shfshanyue/apollo-server-starter/blob/master/lib/logger.ts)
-+ [本文地址](https://shanyue.tech/post/requestid-and-tracing/)
 + [github](https://github.com/shfshanyue/blog)
 
 ## 当一个请求到来时，会产生哪些日志

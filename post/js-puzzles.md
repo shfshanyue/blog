@@ -1,21 +1,8 @@
----
-title: You-Dont-Know-JS 疑难汇总
-keywords: you dont know js,你不知道的js,读书笔记,javascript
-description: 最近我看了 You-Dont-Know-JS 的两个小册，在看书的过程中，为了方便以后索引与更深入的了解，也为了避免遗忘，我对每一册的较为复杂的点做了总结，编辑如下
-date: 2017-05-22T21:53:28+08:00
-categories:
-  - 前端
-tags:
-  - javascript
-hot: 3
-
----
+# You-Dont-Know-JS 疑难汇总
 
 最近我看了 You-Dont-Know-JS 的两个小册，在看书的过程中，为了方便以后索引与更深入的了解，也为了避免遗忘，我对每一册的较为复杂的点做了总结，编辑如下
 
 <!--more-->
-
-本文地址: <https://shanyue.tech/post/js-puzzles/>
 
 ## types & grammer
 

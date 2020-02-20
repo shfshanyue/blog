@@ -2,11 +2,6 @@
 
 最近写了一个关于 graphql 的[脚手架](https://github.com/shfshanyue/apollo-server-starter)，其中 `redis` 的使用场景还挺多，于是总结下它的常见使用场景。
 
-<!--more-->
-
-+ 本文链接: <https://shanyue.tech/post/redis-case/>
-+ github 备份: <https://github.com/shfshanyue/blog>
-
 ## 缓存
 
 ```shell

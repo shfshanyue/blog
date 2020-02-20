@@ -136,5 +136,120 @@ module.exports = [
     categories: ['后端'],
     tags: ['node'],
     hot: 6
+  },
+  {
+    title: 'You-Dont-Know-JS 疑难汇总',
+    path: 'js-puzzles',
+    description: '最近我看了 You-Dont-Know-JS 的两个小册，在看书的过程中，为了方便以后索引与更深入的了解，也为了避免遗忘，我对每一册的较为复杂的点做了总结，编辑如下',
+    keywords: 'you dont know js,你不知道的js,javascript,前端面试汇总',
+    date: '2017-05-22T21:53:28+08:00',
+    categories: ['前端'],
+    tags: ['javascript'],
+    hot: 3
+  },
+  {
+    title: '网站域名更换记录以及一系列衍生问题',
+    path: 'domain-update-record',
+    description: '拖延了半年后，我终于在最近把我的域名 <https://shanyue.tech> 通过了备案，趁此对我的域名进行更换: 由 <https://blog.xiange.tech> 更换到了 <https://shanyue.tech>，本篇文章简单介绍下其中所要注意的事项',
+    keywords: '域名更换,traefik配置,域名更换与SEO,devops',
+    date: '2019-04-26 18:00',
+    tags: ['devops'],
+    categories: ['运维']
+  },
+  {
+    title: 'Node 中异常，exit code 与 docker',
+    path: 'exit-code-node-and-docker',
+    description:  '最近观察项目 CI 跑的情况如何时，会偶尔发现一两个镜像虽然构建成功但是容器跑不起来的情况。究其原因，是因为一个 EXIT CODE 的问题',
+    keywords: 'node,devops,exit code是什么,异常码是什么,docker',
+    date: '2019-07-29 21:00',
+    categories: ['后端'],
+    tags: ['node', 'devops', 'docker']
+  },
+  {
+    title: 'sequelize V5 升级记录以及编译时与运行时问题解决方案',
+    path: 'sequelize-upgrade',
+    date: '2019-06-19',
+    description: '最近把项目中的 sequelize 由 `4.38.0` 升级到了 `5.8.7`，不过最后事实告诉我这真是一个错误的决定，说多了全是泪，升级记录如下',
+    keywords: 'sequelize v5升级',
+    categories: ['后端'],
+    tags: ['node']
+  },
+  {
+    title: '关于 async/await 的两个 OOM 的示例',
+    path: 'async-oom',
+    description: '两个在开发过程中因为使用 async/await 而导致的 OOM 示例，简单记录一下',
+    keywords: 'OOM,async await',
+    date: '2019-08-17',
+    tags: ['node', 'linux'],
+    categories: ['后端']
+  },
+  {
+    title: '关于统计诗词字云的解决方案',
+    path: 'poem-char-frequent-stat',
+    date: '2019-08-17 12:00',
+    keywords: 'node,postgres,redis原子性,诗词飞花令,隔离级,悲观锁',
+    tags: ['node', 'database'],
+    categories: ['数据库']
+  },
+  {
+    title: 'GraphQL 开发指南',
+    path: 'graphql-guide',
+    date: '2019-07-31T14:20:47+08:00',
+    categories: ['后端'],
+    tags: ['graphql']
+  },
+  {
+    title: 'JS 调试问题汇总与示例',
+    path: 'js-debug-examples',
+    date: '2019-07-30 19:27',
+    description: '在写 node 应用或者 react 应用时，经常需要看一些库的源码，而在看源码时，除了一个顺手的 IDE 外，学会调试也至关重要。因此，我把常见的调试的一些小问题记录下来。',
+    categories: ['前端', '后端'],
+    tags: ['javascript', 'node']
+  },
+  {
+    title: '使用 requestId 标记全链路日志',
+    path: 'requestId-and-tracing',
+    description: '在微服务架构中，标记全链路日志有助于更好的解决 bug 和分析接口性能，本篇文章使用 node 来作为示例',
+    keywords: '微服务架构,requestId,全链路日志',
+    date: '2019-07-05T20:02:20+08:00',
+    categories: ['后端'],
+    tags: ['node', '监控'],
+  },
+  {
+    title: 'Node 中异常收集，结构化与监控',
+    path: 'server-structed-error',
+    date: '2019-06-25T17:37:15+08:00',
+    description: '在一个后端服务设计中，异常捕获是必不可少需要考虑的因素。而当异常发生时，能够第一时间捕捉到并且能够获得足够的信息定位到问题至关重要，这也是本篇文章的内容',
+    keywords: '异常收集,异常上报,node,异常监控,'
+    categories: ['后端'],
+    tags: ['node']
+  },
+  {
+    title: '从数据库到前端，使用 enum 代替 constant number',
+    path: 'constant-db-to-client',
+    description: '以下展示一个简单的 TODO List。以 TODO 的三种状态 TODO，DONE 以及 DOING 来描述数据库，后端和前端应如何传输以及展示',
+    keywords: 'graphql,enum,魔法数字,数据库',
+    date: '2019-05-07',
+    tags: ['node', 'graphql'],
+    categories: ['后端'],
+  },
+  {
+    title: 'jwt 实践应用以及不适用特殊案例思考',
+    path: 'jwt-guide',
+    description: 'JSON Web Token 是 [rfc7519](https://tools.ietf.org/html/rfc7519) 出的一份标准，使用 JSON 来传递数据，用于判定用户是否登录状态。jwt 之前，使用 session 来做用户认证。'
+    keywords: 'json web token (JWT), jwt实践,用户认证',
+    date: '2018-07-21',
+    sidebarDepth: 3,
+    tags: ['node', 'jwt'],
+    hot: 4
+  },
+  {
+    title: 'jwt 实践邮件验证与登录',
+    path: 'jwt-and-verifyCode',
+    date: '2019-04-26T19:27:38+08:00',
+    keywords: 'jwt,graphql,邮件验证码,邮件激活,手机验证码',
+    description: '文章指出如果没有特别的用户注销及单用户多设备登录的需求，可以使用 jwt，而 jwt 的最大的特征就是无状态，且不加密。除了用户登录方面外，还可以使用 jwt 验证邮箱验证码，其实也可以验证手机验证码，但是鉴于我囊中羞涩，只能验证邮箱了。',
+    categories: ['后端'],
+    tags: ['node', 'graphql', 'jwt']
   }
 ]

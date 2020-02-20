@@ -1,13 +1,4 @@
----
-title: GraphQL 开发指南
-date: 2019-07-31T14:20:47+08:00
-categories:
-  - 前端
-  - 后端
-tags:
-  - graphql
-  - node
----
+# GraphQL 开发指南
 
 ## 单文件管理 `typeDef` 与 `resolver`
 
