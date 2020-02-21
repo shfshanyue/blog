@@ -2,7 +2,7 @@
 
 这是山月关于高级前端进阶暨前端工程系列文章的第 M 篇文章 (M 随便打的，毕竟也不知道能写多少篇)，关于前 M-1 篇文章，可以从我的 github repo [shfshanyue/blog](https://github.com/shfshanyue/blog) 中找到，如果点进去的话可以捎带~点个赞~，如果没有点进去的话，那就给这篇文章点个赞。今天的文章开始了
 
-无论大中小企业，基于分支的前端环境基本上已成为了标配。今天山月就循序渐进来讲解下多分支环境的实现方式，这里是基于 Docker 与 CICD 的实现。
+无论大中小企业，基于分支的前端环境基本上已成为了标配。今天山月就循序渐进来讲解下多分支环境的实现方式，这里是基于 Docker 与 CICD 的实现。至于服务器端的多分支环境，思路与前端一致。
 
 另外本篇文章要求你有一定的 Docker，DevOps 以及前端工程化的知识储备。如果没有的话，本系列文章以及 [个人服务器运维指南](https://github.com/shfshanyue/blog#%E4%B8%AA%E4%BA%BA%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%90%E7%BB%B4%E6%8C%87%E5%8D%97) 中的 docker 部分会对你有所帮助。
 
@@ -39,7 +39,7 @@
 
 CI，`Continous Integration` 持续集成使项目变得更加自动化，充分减少程序员的手动操作，并且在产品快速迭代的同时提高代码质量。基于 CICD 的工作流也大大改善了 Git 的工作流。其中就增加了一个基于分支的前端环境：
 
-1. 特性环境 (也不知道叫啥名字，就这么起吧)，对应于 `feature` 分支。每个 `feature` 分支都会有一个环境，可以视为本地环境与测试环境的结合体，在 `feature-footer.dev.shanyue.tech` 类似的三级域名进行测试。
+1. 特性环境 (也不知道叫啥名字，就这么起吧)，对应于 `feature` 分支。每个 `feature` 分支都会有一个环境，可以视为本地环境与测试环境的结合体。如对功能 `feature-A` 的开发在 `feature-A.dev.shanyue.tech` 类似的三级域名进行测试。
 
 此时对于开发，测试，产品交付来讲，整个流程的体验就顺滑了很多。于是终于到了今天的正题：
 
@@ -69,10 +69,59 @@ FROM nginx:10-alpine
 COPY --from=builder /code/public /usr/share/nginx/html
 ```
 
-如果你对 docker 不熟悉，可以查看本系列暨前端工程暨高级前端进阶的系列文章第 N 篇：[使用 Docker 部署前端项目](./docker.html)
+另外由于此时不在生产环境，完全没有必要把所有静态资源扔到 CDN 去处理，甚至为了方便调试，在打包时也可以避免做过多的混淆及压缩。如果你对 docker 不熟悉，可以查看本系列暨前端工程暨高级前端进阶的系列文章第 N 篇：[使用 Docker 部署前端项目](https://shanyue.tech/frontend-engineering/docker.html)
 
-## 基于 CICD 与容器的前端部署
+## 基于容器的前端部署与反向代理
 
-现在流行的 `kubernetes`，`docker-compose` 应用编排,
+现在流行的 `kubernetes`，`docker-compose` 应用编排都是基于容器的，所以我们只需要着力于容器，思考如何利用它做多分支部署。
 
-`shanyue`
+首先解决的问题是多分支部署环境的多域名问题，因此首先要了解如何利用容器来映射域名，以下是两种常见的方案，但是利用容器的 label 的方式还是多一些
+
+1. 基于 container label，如 `traefik` 以及 `kubernetes ingress`。
+1. 基于 environment，如 `docker-nginx`。
+
+但是无论基于那种方式的部署，我们总是可以在给它封装一层来简化操作，一来方便运维管理，一来方便开发者直接接入。如把部署抽象为一个命令，我们这里暂时把这个命令命名为 `deploy`
+
+如假设要部署一个应用 `shanyue-feature-A`，设置它的域名为 `feature-A.dev.shanyue.tech`，则这个命令为
+
+``` bash
+$ deploy shanyue-feature-A --host feature-A.dev.shanyue.tech
+```
+
+现在只剩下了一个问题：找到当前分支。
+
+## 基于 CICD 的多分支部署
+
+在 CICD 中很容易获取当前分支的信息，在 CI 环境中可以通过环境变量获取到。
+
+如在 gitlab CI 中可以通过环境变量 `CI_COMMIT_REF_SLUG` 获取，该环境变量还会做相应的分支名替换，如 `feature/A` 到 `feature-a` 的转化。
+
++ `CI_COMMIT_REF_SLUG`: $CI_COMMIT_REF_NAME lowercased, shortened to 63 bytes, and with everything except 0-9 and a-z replaced with -. No leading / trailing -. Use in URLs, host names and domain names.
+
+以下是一个基于 `gitlab CI` 的一个多分支部署的简单示例
+
+``` bash
+deploy-for-feature:
+  stage: deploy
+  only:
+    refs:
+      - /^feature\/.*$/
+  script:
+    - deploy shanyue-$CI_COMMIT_REF_SLUG --host https://$CI_COMMIT_REF_SLUG.sp.dev.smartstudy.com 
+  environment:
+    name: review/$CI_COMMIT_REF_NAME
+    url: http://$CI_COMMIT_REF_SLUG.dev.shanyue.tech
+```
+
+## 小结
+
+随着 CICD 的发展，对快速迭代以及代码质量提出了更高的要求，而基于分支的多测试环境则成为了刚需。对于该环境的搭建，思路也很清晰
+
+1. 借用现有的 CICD 服务，如 `jenkins`，`gitlab CI` 或者 `drone CI`，获取当前分支信息
+1. 借用 Docker 快速
+
+另外，这不仅仅使用于前端，同样也适用于后端。而现实的业务中复杂多样，如又分为已下几种，这需要在项目的使用场景中灵活处理。
+
++ `feature-A` 的前端分支对应 `feature-A` 的后端分支环境
++ `feature-A` 的前端分支对应 `develop` 的后端分支环境
++ `feature-A` 的前端分支对应 `master` 的后端分支环境
