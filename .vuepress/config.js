@@ -2,6 +2,7 @@ const _ = require('lodash')
 const path = require('path')
 const op = require('./op.header')
 const k8s = require('./k8s.header')
+const postsHeader = require('./post.header')
 const posts = require('./post')
 
 const postsByPath = _.keyBy(posts, 'path')
@@ -31,7 +32,8 @@ module.exports = {
       { text: '主页', link: '/' },
       { text: '日问', link: 'https://github.com/shfshanyue/Daily-Question' },
       // { text: '使用graphql构建web应用', link: 'https://github.com/shfshanyue/graphql-guide' },
-      { text: '存档', link: '/post/' },
+      // { text: '存档', link: '/post/' },
+      { text: '博客', link: '/post/binary-in-frontend/' },
       // { text: 'GraphQL', link: '/post/graphql-guide/' },
       // { text: '炳烛', link: '/record/' },
       { text: '个人服务器运维指南', link: '/op/' },
@@ -59,6 +61,7 @@ module.exports = {
       ],
       '/op/': op,
       '/k8s/': k8s,
+      '/post/': postsHeader
     },
     lastUpdated: 'Last Updated'
   },
@@ -77,12 +80,12 @@ module.exports = {
         name: 'archive',
         async additionalPages () {
           return [
-            {
-              path: '/post/',
-              frontmatter: {
-                archive: true
-              }
-            },
+            // {
+            //   path: '/post/',
+            //   frontmatter: {
+            //     archive: true
+            //   }
+            // },
             {
               path: '/',
               frontmatter: {

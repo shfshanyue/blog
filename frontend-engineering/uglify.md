@@ -1,4 +1,4 @@
-# 如何压缩 javascript 代码的体积
+# javascript 代码的体积是如何被压缩的
 
 ---
 
