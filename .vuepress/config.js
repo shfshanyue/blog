@@ -3,10 +3,11 @@ const path = require('path')
 const op = require('./op.header')
 const k8s = require('./k8s.header')
 const postsHeader = require('./post.header')
-const posts = require('./post')
+const feHeader = require('./fe.header')
 
-const postsByPath = _.keyBy(posts, 'path')
-function getFrontMatter (path) {
+function getFrontMatter (path, pp = './post') {
+  const posts = require(pp)
+  const postsByPath = _.keyBy(posts, 'path')
   const p = path.split(/\.|\//)[2]
   return _.get(postsByPath, p)
 }
@@ -30,13 +31,14 @@ module.exports = {
     repo: 'shfshanyue/blog',
     nav: [
       { text: '主页', link: '/' },
-      { text: '日问', link: 'https://github.com/shfshanyue/Daily-Question' },
       // { text: '使用graphql构建web应用', link: 'https://github.com/shfshanyue/graphql-guide' },
       // { text: '存档', link: '/post/' },
       { text: '博客', link: '/post/binary-in-frontend/' },
+      { text: '前端工程化系列', link: '/frontend-engineering/' },
       // { text: 'GraphQL', link: '/post/graphql-guide/' },
       // { text: '炳烛', link: '/record/' },
       { text: '个人服务器运维指南', link: '/op/' },
+      { text: '日问', link: 'https://github.com/shfshanyue/Daily-Question' },
       // { text: 'kubernetes 实践', link: '/k8s/' },
       { text: '前端武器库', link: 'https://wuqiku.buzuosheng.com' },
       // { text: '关于我', link: '/about' },
@@ -61,7 +63,8 @@ module.exports = {
       ],
       '/op/': op,
       '/k8s/': k8s,
-      '/post/': postsHeader
+      '/post/': postsHeader,
+      '/frontend-engineering/': feHeader
     },
     lastUpdated: 'Last Updated'
   },
@@ -95,6 +98,15 @@ module.exports = {
           ]
         },
         extendPageData ($page) {
+          if ($page.path.includes('/frontend-engineering')) {
+            const fm = getFrontMatter($page.path, '../frontend-engineering/meta.json')
+            if (fm) {
+              $page.frontmatter = {
+                ...fm,
+                ...$page.frontmatter
+              }
+            }
+          }
           if ($page.path.includes('/post')) {
             const fm = getFrontMatter($page.path)
             if (fm) {

@@ -1,6 +1,4 @@
-# javascript 代码的体积是如何被压缩的
-
----
+# javascript 代码是如何被压缩的
 
 随着前端的发展，特别是 `React`，`Vue` 等构造单页应用的兴起，前端的能力得以很大提升，随之而来的是项目的复杂度越来越大。此时的前端的静态资源也越来越庞大，而毫无疑问 `javascript` 资源已是前端的主体资源，对于压缩它的体积至为重要。
 
@@ -108,23 +106,78 @@ b||c||d||e
 
 这个示例更是需要解析 AST 了
 
-## AST 与 UglifyJS 3
+## AST
 
-> 心灵鸡汤之所以被人诟病，是因为它只给你鸡汤却不给你勺子？
-> 
-> 山月我是不给勺子的人吗？
-> 
-> 我是
+`AST`，抽象语法树，js 代码解析后的最小词法单元，而这个过程就是通过 Parser 来完成的。
 
-不要重复造轮子！
+那么 AST 可以做什么呢？
 
-于是我找了一个久负盛名的关于代码压缩的库: [UglifyJS3](https://github.com/mishoo/UglifyJS2)，一个用以代码压缩混淆的库。
++ eslint: 校验你的代码风格
++ babel: 编译代码到 ES 低版本
++ taro/mpvue: 各种可以多端运行的小程序框架
++ GraphQL: 解析客户端查询
+
+我们在日常工作中经常会不经意间与它打交道，如 `eslint` 与 `babel`，都会涉及到 `js` 与代码中游走。不同的解析器会生成不同的 AST，司空见惯的是 babel 使用的解析器 `babylon`，而 `uglify` 在代码压缩中使用到的解析器是 `UglifyJS`。
+
+你可以在 [AST Explorer](https://astexplorer.net/) 中直观感受到，如下图：
 
 ![](./assets/ast.png)
 
+那压缩代码的过程：code -> AST -> (transform)一颗更小的AST -> code，这与 `babel` 和 `eslint` 的流程一模一样。
+
+![](./assets/ast.jpg)
+
+## UglifyJS
+
+不要重复造轮子！
+
+于是我找了一个久负盛名的关于代码压缩的库: [UglifyJS3](https://github.com/mishoo/UglifyJS2)，一个用以代码压缩混淆的库。那它是如何完成一些压缩功能的，比如替换空白符，答案是 AST。
+
+`webpack` 中内置的代码压缩插件就是使用了它，它的工作流程大致如下：
+
+``` javascript
+// 原始代码
+const code = `const a = 3;`
+
+// 通过 UglifyJS 把代码解析为 AST
+const ast = UglifyJS.parse(code);
+ast.figure_out_scope();
+
+
+// 转化为一颗更小的 AST 树
+compressor = UglifyJS.Compressor();
+ast = ast.transform(compressor);
+
+// 再把 AST 转化为代码
+code = ast.print_to_string();
+```
+
+而当你真正使用它来压缩代码时，你只需要面向配置编程即可，文档参考 [uglify 官方文档](https://github.com/mishoo/UglifyJS2#parse-options)
+
+``` js
+{
+  {
+    ecma: 8,
+  },
+  compress: {
+    ecma: 5,
+    warnings: false,
+    comparisons: false,
+    inline: 2,
+  },
+  output: {
+    ecma: 5,
+    comments: false,
+    ascii_only: true,
+  }
+}
+```
+
 ## 在 webpack 中压缩代码
 
-在知道代码压缩是怎么完成的之后，我们终于可以把它搬到生产环境中去压缩代码。终于到了实践的时候了，虽然它只是简单的调用 API 并且调调参数，
+在知道代码压缩是怎么完成的之后，我们终于可以把它搬到生产环境中去压缩代码。终于到了实践的时候了，虽然它只是简单的调用 API 并且调调参数。
+
+一切与性能优化相关的都可以在 `optimization` 中找到，`TerserPlugin` 是一个底层基于 `uglifyjs` 的用来压缩 JS 的插件。
 
 ``` javascript
 optimization: {

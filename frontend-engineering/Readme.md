@@ -1,7 +1,7 @@
-# 前端工程化及 DevOps
+# 前端工程化实践
 
-1. [javascript 代码的体积是如何被压缩](./unlify.md)
-1. [在前端中如何更好地优化打包资](./bundle.md)
+1. [前端高级进阶：javascript 代码是如何被压缩](./uglify.md)
+1. [前端高级进阶：如何更好地优化打包资源](./bundle.md)
 
 以下 TODO
 
