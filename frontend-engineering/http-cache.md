@@ -73,3 +73,11 @@ MaxAge = (Date - LastModified) * factor
 
 ## 分包：尽量减少资源变更
 
+
+1. `webpack-runtime`: 应用中的 `webpack` 的版本比较稳定，分离出来，保证长久的永久缓存
+1. `react-runtime`: `react` 的版本更新频次也较低
+1. `vundor`: 常用的第三方模块打包在一起，如 `lodash`，`classnames` 基本上每个页面都会引用到，但是它们的更新频率会更高一些
+1. `pageA`: A 页面，当 A 页面的组件发生变更后，它的缓存将会失效
+1. `pageB`: B 页面
+1. `echarts`: 不常用且过大的第三方模块单独打包
+1. `mathjax`: 不常用且过大的第三方模块单独打包
