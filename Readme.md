@@ -36,8 +36,8 @@
 
 ## 前端工程化
 
-1. [javascript 代码的体积是如何被压缩](./unlify.md)
-1. [在前端中如何更好地优化打包资](./bundle.md)
+1. [javascript 代码的体积是如何被压缩](./uglify.md)
+1. [如何更好地优化打包资源](./bundle.md)
 
 以下 TODO
 
