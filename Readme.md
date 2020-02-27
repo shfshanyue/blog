@@ -36,8 +36,10 @@
 
 ## 前端工程化
 
-1. [javascript 代码的体积是如何被压缩](./uglify.md)
-1. [如何更好地优化打包资源](./bundle.md)
+1. [前端高级进阶：javascript 代码是如何被压缩](https://shanyue.tech/frontend-engineering/uglify.html)
+1. [前端高级进阶：如何更好地优化打包资源](https://shanyue.tech/frontend-engineering/bundle.html)
+1. [前端高级进阶：网站的缓存控制策略最佳实践及注意事项](https://shanyue.tech/frontend-engineering/http-cache.html)
+
 
 以下 TODO
 
