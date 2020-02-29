@@ -112,6 +112,4 @@ MaxAge = (Date - LastModified) * factor
 
 ## 小结
 
-本张图便是本篇文章的总结，
-
 ![缓存控制策略](./assets/http-cache-2.png)
