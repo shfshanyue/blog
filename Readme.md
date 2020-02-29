@@ -40,17 +40,7 @@
 1. [前端高级进阶：如何更好地优化打包资源](https://shanyue.tech/frontend-engineering/bundle.html)
 1. [前端高级进阶：网站的缓存控制策略最佳实践及注意事项](https://shanyue.tech/frontend-engineering/http-cache.html)
 
-
-以下 TODO
-
-1. [图片处理与工程化]()
-1. [网站的缓存控制策略最佳实践及注意事项]()
-1. [静态资源打包优化]()
-1. [使用 CDN 加速你的网站]()
-1. [npm install 在生产环境部署时的速度优化]()
-1. [在 CI 中使用 npm ci 代替 npm i]()
-1. [使用 docker 高效部署前端应用]()
-1. [CICD 下基于 git 分支的前端多特性环境部署]()
+更多文章: [前端工程化系列](https://shanyue.tech/frontend-engineering/)
 
 ## 前端
 
