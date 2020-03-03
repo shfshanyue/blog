@@ -79,3 +79,27 @@
 这是山月关于高级前端进阶暨前端工程系列文章的第 M 篇文章 (M 随便打的，毕竟也不知道能写多少篇)，关于前 M-1 篇文章，可以从我的 github repo [shfshanyue/blog](https://github.com/shfshanyue/blog) 中找到，如果点进去的话可以捎带~点个赞~，如果没有点进去的话，那就给这篇文章点个赞。今天的文章开始了
 
 本篇文章地址在 [前端工程化系列](https://github.com/shfshanyue/blog/tree/master/frontend-engineering)，欢迎订阅。
+
+---
+
+## 关注我
+
+![更多大厂招聘，面试面经，技能要求，请关注公众号【互联网大厂招聘】](http://mmbiz.qpic.cn/mmbiz_jpg/w7L7YMmnfhic7ooecF6PU5cGlHoakmTNBwKXf6VCC5TfAiagrmiahQ2kFxYLibPYgicicWsEgAFwsOrrOS16Bw2eml0w/0)
+
+---
+
+## 大厂招聘
+
+欢迎关注公众号【互联网大厂招聘】，作者将在公众号里持续推送各个大厂的招聘职位及要求，并与大厂面试官以及招聘负责人直通，感兴趣的可以直接与负责人交流。
+
+另外，作者也将持续推送优质的大厂面试经验，各种大厂独家面试题以及优秀文章分享，不限于前端，后端，运维和系统设计。
+
+我在 github 上新建了一个仓库 [每日一题](https://github.com/shfshanyue/Daily-Question)，每天一道面试题，欢迎交流。
+
++ [前端面试题小记](https://q.shanyue.tech/fe/)
++ [计算机基础面试题小计](https://q.shanyue.tech/base/)
+
+![更多大厂招聘，面试面经，技能要求，请关注公众号【互联网大厂招聘】](http://mmbiz.qpic.cn/mmbiz_jpg/w7L7YMmnfhic7ooecF6PU5cGlHoakmTNBwKXf6VCC5TfAiagrmiahQ2kFxYLibPYgicicWsEgAFwsOrrOS16Bw2eml0w/0)
+
+---
+

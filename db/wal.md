@@ -14,7 +14,7 @@ archive_mode=on
 
 ## 查看 WAL
 
-WAL 日志位于 postgres 数据文件的 ,nf
+WAL 日志位于 postgres 数据文件的
 
 ```shell
 $ cd /var/lib/postgresql/data

@@ -78,7 +78,7 @@ function sum (x, y) {
 }
 
 // 再压缩: 去除空余字符
-function s(x,y){return a+b}
+function s(x,y){return x+y}
 ```
 
 在这个示例中，当完成代码压缩 (`compress`) 时，代码的混淆 (`mangle`) 也捎带完成。 **但此时缩短变量的命名也需要 AST 支持，不至于在作用域中造成命名冲突。**

@@ -2,6 +2,9 @@
 
 乍一眼看 `npm ci`，CI，恩，看这名字就很适合放在持续集成中。事实也是如此，它更快，更严格，也更适合于放在 CI 中，至于为什么这么说，将会在以下分别做介绍。
 
+`npm ci` 基于一个独立的库 [libcipm](https://github.com/npm/libcipm) 安装依赖，而它拥有和 `npm install` 兼容的 API。当它安装依赖时，默认是缓存优先的，它会充分利用缓存，从而加速装包。
+
+
 直接从官方文档看 `npm ci` 与 `npm i` 的不同之处吧
 
 > In short, the main differences between using npm install and npm ci are:

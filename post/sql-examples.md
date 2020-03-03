@@ -1,6 +1,104 @@
 # SQL 必知必会
 
-本篇文章是 **SQL 必知必会** 的读书笔记，记录如下
++ 检索数据
++ 排序
++ 数据过滤
++ 计算字段
++ 数据聚合 (aggregation)
++ 数据分组
++ 子查询
++ 联接
++ 插入数据
++ 修改数据
++ 创建表与更新表
++ 视图
++ 约束及索引
++ 触发器
++ 存储过程
+
+## 新建数据库
+
+我们创建一个数据库，有关学校管理系统，故命名为 `school`。
+
+``` sql
+create database school;
+
+use school;
+```
+
+## 准备数据
+
+新建数据库完成后，我为新建的数据库准备了几张样例表，用于以后的学习。
+
+示例中有两个表，分为 student 学生表与 class 班级表，具体班级以及学生的字段如下：
+
+> 在接下来的 SQL 语法学习中，将使用这两张表作为样例表。
+
+#### mysql
+
+如果你使用的是 `mysql`，执行以下 sql 语句生成数据
+
+```sql
+create table class (
+  id int(11) not null auto_increment comment '班级id',
+  name varchar(50) not null comment '班级名',
+  primary key (id)
+) comment '班级表';
+
+create table student (
+  id int(11) not null auto_increment comment '学生id',
+  name varchar(50) not null comment '学生姓名',
+  age tinyint unsigned default 20 comment '学生年龄',
+  sex enum('male', 'famale') comment '性别',
+  score tinyint comment '入学成绩',
+  class_id int(11) comment '班级',
+  createTime timestamp default current_timestamp comment '创建时间',
+  primary key (id),
+  foreign key (class_id) references class (id)
+) comment '学生表';
+
+insert into class (name) values ('软件工程'), ('市场营销');
+
+insert into student (name, age, sex, score, class_id) values ('张三', 21, 'male', 100, 1);
+insert into student (name, age, sex, score, class_id) values ('李四', 22, 'male', 98, 1);
+insert into student (name, age, sex, score, class_id) values ('王五', 22, 'male', 99, 1);
+insert into student (name, age, sex, score, class_id) values ('燕七', 21, 'famale', 34, 2);
+insert into student (name, age, sex, score, class_id) values ('林仙儿', 23, 'famale', 78, 2);
+```
+
+#### postgres
+
+如果你使用的是 `postgres`，执行以下 sql 语句生成数据
+
+```sql
+create table class (
+  id serial not null,
+  name varchar(50) not null,
+  primary key (id)
+);
+
+create type sex_type as enum('male', 'famale');
+
+create table student (
+  id serial not null,
+  name varchar(50) not null,
+  age smallint  default 20,
+  sex sex_type,
+  score smallint,
+  class_id int,
+  createTime timestamp default current_timestamp,
+  primary key (id),
+  foreign key (class_id) references class (id)
+);
+
+insert into class (name) values ('软件工程'), ('市场营销');
+
+insert into student (name, age, sex, score, class_id) values ('张三', 21, 'male', 100, 1);
+insert into student (name, age, sex, score, class_id) values ('李四', 22, 'male', 98, 1);
+insert into student (name, age, sex, score, class_id) values ('王五', 22, 'male', 99, 1);
+insert into student (name, age, sex, score, class_id) values ('燕七', 21, 'famale', 34, 2);
+insert into student (name, age, sex, score, class_id) values ('林仙儿', 23, 'famale', 78, 2);
+```
 
 ## 检索数据
 
