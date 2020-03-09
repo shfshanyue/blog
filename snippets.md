@@ -99,6 +99,10 @@
 + [前端面试题小记](https://q.shanyue.tech/fe/)
 + [计算机基础面试题小计](https://q.shanyue.tech/base/)
 
+扫码添加我的微信，一定要**备注面试**，进入面试群，或者与我交流。
+
+![加我微信拉你进入面试交流群](https://shanyue.tech/wechat.jpeg)
+
 ![更多大厂招聘，面试面经，技能要求，请关注公众号【互联网大厂招聘】](http://mmbiz.qpic.cn/mmbiz_jpg/w7L7YMmnfhic7ooecF6PU5cGlHoakmTNBwKXf6VCC5TfAiagrmiahQ2kFxYLibPYgicicWsEgAFwsOrrOS16Bw2eml0w/0)
 
 ---
@@ -107,10 +111,15 @@
 
 > 如果你觉得准备地不够充分，可以**点击阅读原文查看更多面试题分享**
 
-可以扫码添加我的微信，一定要**备注面试**，进入面试群，或者与我交流
+扫码添加我的微信，一定要**备注面试**，进入面试群，或者与我交流。
 
 ![加我微信拉你进入面试交流群](https://shanyue.tech/wechat.jpeg)
 
-可以关注该公众号接收各大厂招聘信息，直达大厂负责人。如果你准备的不够充分，可以**阅读原文查看更多面试题**
+关注该公众号接收各大厂招聘信息，直达大厂负责人。如果你是技术负责人，欢迎投递内推信息。
 
 ![更多大厂招聘，面试面经，技能要求，请关注公众号【互联网大厂招聘】](http://mmbiz.qpic.cn/mmbiz_jpg/w7L7YMmnfhic7ooecF6PU5cGlHoakmTNBwKXf6VCC5TfAiagrmiahQ2kFxYLibPYgicicWsEgAFwsOrrOS16Bw2eml0w/0)
+
+
+---
+
+> 为了不浪费彼此的时间，这里为你准备了一份内推前面试题。如果你自己感觉在以下面试题中可以答对一半，请直接联系我(**wechat: Mustard_Sir**)进行内推

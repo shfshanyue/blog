@@ -40,6 +40,7 @@
 1. [前端高级进阶：如何更好地优化打包资源](https://shanyue.tech/frontend-engineering/bundle.html)
 1. [前端高级进阶：网站的缓存控制策略最佳实践及注意事项](https://shanyue.tech/frontend-engineering/http-cache.html)
 1. [前端高级进阶：在生产环境中使你的 npm i 速度提升 50%](https://shanyue.tech/frontend-engineering/npm-install.html)
+1. [前端高级进阶：使用 docker 高效部署你的前端应用](https://shanyue.tech/frontend-engineering/docker.html)
 
 更多文章: [前端工程化系列](https://shanyue.tech/frontend-engineering/)
 
