@@ -117,6 +117,8 @@ added 1154 packages in 35s
 
 另外，当 `package.json` 与 `package-lock.json` 版本不匹配时，`npm ci` 将会报出异常，提前检测出不安全信息，及早发现问题，及早解决问题。
 
+关于安装依赖速度的优化，可以参考我以前的文章 [前端高级进阶：在生产环境中使你的 npm i 速度提升 50%](https://shanyue.tech/frontend-engineering/npm-install.html) 
+   
 ## 多阶段构建
 
 得益于缓存，现在镜像构建时间已经快了不少。但是，此时镜像的体积依旧过于庞大，这也将会导致部署时间的加长。原因如下

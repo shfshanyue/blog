@@ -5,6 +5,8 @@ tags:
   - flutter
 categories:
   - 移动端
+sidebar: auto
+
 ---
 
 # flutter

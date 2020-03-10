@@ -97,6 +97,7 @@
 我在 github 上新建了一个仓库 [每日一题](https://github.com/shfshanyue/Daily-Question)，每天一道面试题，欢迎交流。
 
 + [前端面试题小记](https://q.shanyue.tech/fe/)
++ [前端大厂面经大全集](https://q.shanyue.tech/interview.html)
 + [计算机基础面试题小计](https://q.shanyue.tech/base/)
 
 扫码添加我的微信，一定要**备注面试**，进入面试群，或者与我交流。
