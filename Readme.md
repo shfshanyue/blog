@@ -10,6 +10,19 @@
 
 再后来读书读多了，觉得 `松风吹解带，山月照弹琴` 与 `水风轻，蘋花渐老，月露冷，梧叶飘黄` 的意境也不错，也很喜欢。
 
+## 前端工程化
+
+1. [前端高级进阶：javascript 代码是如何被压缩](https://github.com/shfshanyue/blog/tree/master/frontend-engineering/uglify.md)
+1. [前端高级进阶：如何更好地优化打包资源](https://github.com/shfshanyue/blog/tree/master/frontend-engineering/bundle.md)
+1. [前端高级进阶：网站的缓存控制策略最佳实践及注意事项](https://github.com/shfshanyue/blog/tree/master/frontend-engineering/http-cache.md)
+1. [前端高级进阶：在生产环境中使你的 npm i 速度提升 50%](https://github.com/shfshanyue/blog/tree/master/frontend-engineering/npm-install.md)
+1. [前端高级进阶：使用 docker 高效部署你的前端应用](https://github.com/shfshanyue/blog/tree/master/frontend-engineering/docker.md)
+1. [前端高级进阶：CICD 下的前端多特性分支环境的部署](https://github.com/shfshanyue/blog/tree/master/frontend-engineering/feature-deploy.md)
+1. [前端高级进阶：前端部署的发展历程](https://github.com/shfshanyue/blog/tree/master/frontend-engineering/deploy.md)
+
+更多文章: [前端工程化系列](https://github.com/shfshanyue/blog/tree/master/frontend-engineering/)
+
+
 ## 后端
 
 1. [各种架构图乱七八糟的图索引](https://github.com/shfshanyue/graph)
@@ -33,16 +46,6 @@
 1. [域名更改注意事项须知](https://shanyue.tech/post/domain-update-record.html)
 1. [从数据库到前端，使用 enum 代替 constant number](https://shanyue.tech/post/constant-db-to-client.html)
 1. [SQL必知必会](https://shanyue.tech/post/sql-examples.html)
-
-## 前端工程化
-
-1. [前端高级进阶：javascript 代码是如何被压缩](https://shanyue.tech/frontend-engineering/uglify.html)
-1. [前端高级进阶：如何更好地优化打包资源](https://shanyue.tech/frontend-engineering/bundle.html)
-1. [前端高级进阶：网站的缓存控制策略最佳实践及注意事项](https://shanyue.tech/frontend-engineering/http-cache.html)
-1. [前端高级进阶：在生产环境中使你的 npm i 速度提升 50%](https://shanyue.tech/frontend-engineering/npm-install.html)
-1. [前端高级进阶：使用 docker 高效部署你的前端应用](https://shanyue.tech/frontend-engineering/docker.html)
-
-更多文章: [前端工程化系列](https://shanyue.tech/frontend-engineering/)
 
 ## 前端
 

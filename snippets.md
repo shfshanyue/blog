@@ -42,6 +42,12 @@
 + [使用 k8s 为你的应用配置域名: Ingress](https://juejin.im/post/5db8da4b6fb9a0204520b310)
 + [使用 k8s 为你的域名加上 https](https://juejin.im/post/5db8d94be51d4529f73e2833)
 
+1. [前端高级进阶：javascript 代码是如何被压缩](https://mp.weixin.qq.com/s?__biz=MjM5NTk4MDA1MA==&mid=2458073285&idx=2&sn=063efcd44a700acc5958aab4736a5966&chksm=b187aeb886f027aed5ccaaecd511e8986c4f161581ef8044c3968aaf17f1c97238a42d841916&token=1220258650&lang=zh_CN#rd)
+1. [前端高级进阶：如何更好地优化打包资源](https://mp.weixin.qq.com/s?__biz=MjM5NTk4MDA1MA==&mid=2458073257&idx=1&sn=c2cf508cf95f92031c16f91111b38ad8&chksm=b187aed486f027c25c95dc58a26ef3ca6502ac5b28051c4bb6440a705795c3c938b74d800c7c&token=1220258650&lang=zh_CN#rd)
+1. [前端高级进阶：网站的缓存控制策略最佳实践及注意事项](https://mp.weixin.qq.com/s?__biz=MjM5NTk4MDA1MA==&mid=2458073285&idx=1&sn=da3acbb864c10cfeacffda7a72891c4c&chksm=b187aeb886f027ae7bfee589b2e4f7a632738d3abac4cd5980136bd12fec4852f487b808601e&token=1220258650&lang=zh_CN#rd)
+---
+
+
 ---
 
 你好，欢迎关注山月行，我每周会至少原创两篇文章，关于前后端以及运维方向。如果你对全栈面试，前端工程化，graphql，devops，个人服务器运维以及微服务感兴趣的话，可以关注我
@@ -117,6 +123,23 @@
 ![加我微信拉你进入面试交流群](https://shanyue.tech/wechat.jpeg)
 
 关注该公众号接收各大厂招聘信息，直达大厂负责人。如果你是技术负责人，欢迎投递内推信息。
+
+![更多大厂招聘，面试面经，技能要求，请关注公众号【互联网大厂招聘】](http://mmbiz.qpic.cn/mmbiz_jpg/w7L7YMmnfhic7ooecF6PU5cGlHoakmTNBwKXf6VCC5TfAiagrmiahQ2kFxYLibPYgicicWsEgAFwsOrrOS16Bw2eml0w/0)
+
+
+---
+
+> 为了不浪费彼此的时间，这里为你准备了一份内推前面试题。如果你自己感觉在以下面试题中可以答对一半，请直接联系我(**wechat: Mustard_Sir**)进行内推
+
+---
+
+## 关注我
+
+扫码添加我的微信，备注进群，加入高级前端进阶群
+
+![加我微信拉你进入面试交流群](https://shanyue.tech/wechat.jpeg)
+
+另外，欢迎关注公众号 【互联网大厂招聘】 接收各大厂招聘信息，直达大厂负责人。如果你是技术负责人，欢迎投递内推信息。
 
 ![更多大厂招聘，面试面经，技能要求，请关注公众号【互联网大厂招聘】](http://mmbiz.qpic.cn/mmbiz_jpg/w7L7YMmnfhic7ooecF6PU5cGlHoakmTNBwKXf6VCC5TfAiagrmiahQ2kFxYLibPYgicicWsEgAFwsOrrOS16Bw2eml0w/0)
 
