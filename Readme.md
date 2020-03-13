@@ -1,6 +1,11 @@
 # 山月的琐碎博客记录
 
-关于平常工作中遇到问题的一些文章记录，总体上说比较随性。
+关于平常工作中在前端，后端以及运维中遇到问题的一些文章总结。以后也会做系列文章进行输出，如前端高级进阶系列，个人服务器指南系列。
+
+说到个人服务器，如果你是新人的话，在阿里云有优惠，这里有连接进行购买：[阿里云新人优惠服务器](https://www.aliyun.com/minisite/goods?userCode=4sm8juxu)。如果你对服务器完全没有概念，建议购买配置 `1核2G`，也就八十来快钱。如果对云主机有所了解，建议购买配置 `2核4G`。
+
++ **[阿里云新人优惠服务器](https://www.aliyun.com/minisite/goods?userCode=4sm8juxu)**
++ **[跟着山月管理个人服务器](https://shanyue.tech/op/)**
 
 ## 名字由来
 
@@ -22,6 +27,50 @@
 
 更多文章: [前端工程化系列](https://github.com/shfshanyue/blog/tree/master/frontend-engineering/)
 
+## 个人服务器运维指南
+
+你可以在阿里云新购一台服务器作为实践：
+
++ **[阿里云新人优惠服务器](https://www.aliyun.com/minisite/goods?userCode=4sm8juxu)**
+
+1. 序
+    1. [序·当我有一台服务器时我做了什么](https://shanyue.tech/op/when-server.html)
+    1. [序·当我有一台服务器时我做了什么(2019)](https://shanyue.tech/op/when-server-2019.html)
+1. 服务器初始化配置
+    1. [服务器快速登录配置：ssh-config](https://shanyue.tech/op/init.html)
+    1. [git 基本命令及安装](https://shanyue.tech/op/git.html)
+    1. [服务器ssh key 及 github 配置](https://shanyue.tech/op/ssh-setting.html)
+    1. [系统信息查看相关命令](https://shanyue.tech/op/system-info.html)
+    1. [vim 基本操作及配置](https://shanyue.tech/op/vim-setting.html)
+    1. [tmux 与多窗口管理](https://shanyue.tech/op/tmux-vim-setting.html)
+1. 自动化运维
+    1. [ansible 简易入门](https://shanyue.tech/op/ansible-guide.html)
+1. 了解 docker 
+    1. [docker 简易入门](https://shanyue.tech/op/docker.html)
+    1. [Dockerfile 最佳实践](https://shanyue.tech/op/dockerfile-practice.html)
+    1. [案例: 使用 docker 高效部署前端应用](https://shanyue.tech/op/deploy-fe-with-docker.html)
+1. 使用 docker compose 编排容器
+    1. [docker compose 编排架构简介](https://shanyue.tech/op/docker-compose-arch.html)
+    1. [docker compose 简易入门](https://shanyue.tech/op/docker-compose.html)
+    1. [使用 traefik 做反向代理](https://shanyue.tech/op/traefik.html)
+    1. [使用 traefik 自动生成 https 的证书](https://shanyue.tech/op/traefik-https.html)
+    1. [使用 dnsmasq 搭建本地 DNS 服务](https://shanyue.tech/op/dnsmasq.html)
+    1. [使用 openvpn 访问内部集群私有服务](https://shanyue.tech/op/openvpn.html)
+    1. [使用 postgres 做数据存储](https://shanyue.tech/op/deploy-postgres.html)
+    1. [使用 redis 做缓存服务](https://shanyue.tech/op/deploy-redis.html)
+    1. [使用 sentry 做异常监控](https://shanyue.tech/op/deploy-sentry.html)
+    1. [案例：黑客增长 - 从博客向公众号引流](https://shanyue.tech/op/blog-to-wechat.html)
+    1. [案例：黑客增长 - 使用公众号开发模拟面试](https://shanyue.tech/op/wechat-interview.html)
+1. 服务器及容器监控
+    1. [linux 各项监控指标](https://shanyue.tech/op/linux-monitor.html)
+    1. [使用 htop 监控进程指标](https://shanyue.tech/op/htop.html)
+    1. [使用 ctop 监控容器指标](https://shanyue.tech/op/ctop.html)
+1. 高频 linux 命令
+    1. [sed 命令详解及示例](https://shanyue.tech/op/linux-sed.html)
+    1. [awk 命令详解及示例](https://shanyue.tech/op/linux-awk.html)
+    1. [jq 命令详解及示例](https://shanyue.tech/op/jq.html)
+    1. [tcpdump 命令详解及示例](https://shanyue.tech/op/linux-tcpdump.html)
+    1. [案例: 使用jq与sed制作掘金面试文章榜单](https://shanyue.tech/op/jq-sed-case.html)
 
 ## 后端
 
@@ -66,48 +115,6 @@
 1. [是谁动了我的代码](https://shanyue.tech/post/git-tips.html)
 1. [tmux 与多窗口管理](https://shanyue.tech/op/tmux-vim-setting.html)
 1. [ssh 快速登录服务器](https://shanyue.tech/op/init.html)
-
-## 个人服务器运维指南
-
-1. 序
-    1. [序·当我有一台服务器时我做了什么](https://shanyue.tech/op/when-server.html)
-    1. [序·当我有一台服务器时我做了什么(2019)](https://shanyue.tech/op/when-server-2019.html)
-1. 服务器初始化配置
-    1. [服务器快速登录配置：ssh-config](https://shanyue.tech/op/init.html)
-    1. [git 基本命令及安装](https://shanyue.tech/op/git.html)
-    1. [服务器ssh key 及 github 配置](https://shanyue.tech/op/ssh-setting.html)
-    1. [系统信息查看相关命令](https://shanyue.tech/op/system-info.html)
-    1. [vim 基本操作及配置](https://shanyue.tech/op/vim-setting.html)
-    1. [tmux 与多窗口管理](https://shanyue.tech/op/tmux-vim-setting.html)
-1. 自动化运维
-    1. [ansible 简易入门](https://shanyue.tech/op/ansible-guide.html)
-1. 了解 docker 
-    1. [docker 简易入门](https://shanyue.tech/op/docker.html)
-    1. [Dockerfile 最佳实践](https://shanyue.tech/op/dockerfile-practice.html)
-    1. [案例: 使用 docker 高效部署前端应用](https://shanyue.tech/op/deploy-fe-with-docker.html)
-1. 使用 docker compose 编排容器
-    1. [docker compose 编排架构简介](https://shanyue.tech/op/docker-compose-arch.html)
-    1. [docker compose 简易入门](https://shanyue.tech/op/docker-compose.html)
-    1. [使用 traefik 做反向代理](https://shanyue.tech/op/traefik.html)
-    1. [使用 traefik 自动生成 https 的证书](https://shanyue.tech/op/traefik-https.html)
-    1. [使用 dnsmasq 搭建本地 DNS 服务](https://shanyue.tech/op/dnsmasq.html)
-    1. [使用 openvpn 访问内部集群私有服务](https://shanyue.tech/op/openvpn.html)
-    1. [使用 postgres 做数据存储](https://shanyue.tech/op/deploy-postgres.html)
-    1. [使用 redis 做缓存服务](https://shanyue.tech/op/deploy-redis.html)
-    1. [使用 sentry 做异常监控](https://shanyue.tech/op/deploy-sentry.html)
-    1. [案例：黑客增长 - 从博客向公众号引流](https://shanyue.tech/op/blog-to-wechat.html)
-    1. [案例：黑客增长 - 使用公众号开发模拟面试](https://shanyue.tech/op/wechat-interview.html)
-1. 服务器及容器监控
-    1. [linux 各项监控指标](https://shanyue.tech/op/linux-monitor.html)
-    1. [使用 htop 监控进程指标](https://shanyue.tech/op/htop.html)
-    1. [使用 ctop 监控容器指标](https://shanyue.tech/op/ctop.html)
-1. 高频 linux 命令
-    1. [sed 命令详解及示例](https://shanyue.tech/op/linux-sed.html)
-    1. [awk 命令详解及示例](https://shanyue.tech/op/linux-awk.html)
-    1. [jq 命令详解及示例](https://shanyue.tech/op/jq.html)
-    1. [tcpdump 命令详解及示例](https://shanyue.tech/op/linux-tcpdump.html)
-    1. [案例: 使用jq与sed制作掘金面试文章榜单](https://shanyue.tech/op/jq-sed-case.html)
-
 
 ## 关注我
 

@@ -4,6 +4,8 @@
 
 + [邀请你一起 86元/年 购买云服务器](https://www.aliyun.com/1111/2019/group-buying-share?ptCode=FDDDB2D258660CD9C81A96E25077465B647C88CF896EF535&userCode=4sm8juxu&share_source=copy_link)
 
++ [](https://www.aliyun.com/minisite/goods?userCode=4sm8juxu)
+
 ---
 
 ## 关注我
