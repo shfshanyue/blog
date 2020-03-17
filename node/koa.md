@@ -127,7 +127,7 @@ app.listen(3000)
 
 下一步要做的将是构建 `Context` 对象。
 
-### 构建 Context
+## 构建 Context
 
 在 koa 中，`app.use` 的回调参数为一个 `ctx` 对象，而非原生的 `req/res`。因此在这一步要构建一个 `Context` 对象，并使用 `ctx.body` 构建响应：
 

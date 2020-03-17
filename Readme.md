@@ -27,6 +27,12 @@
 
 更多文章: [前端工程化系列](https://github.com/shfshanyue/blog/tree/master/frontend-engineering/)
 
+## Node 实践
+
+1. [Node实践: 使用 40 行代码完成一个精简版 koa](https://github.com/shfshanyue/blog/tree/master/node/koa.md)
+
+更多文章: [Node 实践](https://github.com/shfshanyue/blog/tree/master/frontend-engineering/)
+
 ## 个人服务器运维指南
 
 你可以在阿里云新购一台服务器作为实践：
