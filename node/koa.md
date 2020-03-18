@@ -8,6 +8,8 @@
 
 > **源码实现：<https://github.com/shfshanyue/koa-mini>**
 
+![](./assets/koa.jpg)
+
 这是一个拥有 koa 几乎所有核心功能最简化的示例：
 
 ``` js
@@ -42,6 +44,8 @@ app.listen(3000)
 + Application: 基本服务器框架
 + Context: 服务器框架基本数据结构的封装，用以 http 请求解析及响应
 + Middleware: 中间件，也是洋葱模型的核心机制
+
+![](./assets/koa-module.jpg)
 
 我们开始逐步实现这三个模块：
 
@@ -231,14 +235,14 @@ class Application {
 
 接下来，着重完成 `compose` 函数
 
-### compose
+### 完成 compose 函数的封装
 
 ![](./assets/yangcong.png)
 
 koa 的洋葱模型指出每一个中间件都像是洋葱的每一层，当从洋葱中心穿过时，每层都会一进一出穿过两次，且最先穿入的一层最后穿出。
 
-+ middleware: 第一个中间件将会执行
-+ next: 每个中间件将会通过 next 来执行下一个中间件
++ `middleware`: 第一个中间件将会执行
++ `next`: 每个中间件将会通过 next 来执行下一个中间件
 
 我们如何实现所有的中间件的洋葱模型呢?
 
