@@ -1,5 +1,33 @@
 # 使用 async_hooks 监听异步资源的生命周期
 
+## 为什么需要监听异步资源
+
+``` js
+const session = new Map()
+
+app.use((ctx, next) => {
+  try {
+    await next()
+  } catch (e) {
+    const user = session.get('user')
+
+    // 把 user 上报给异常监控系统
+  }
+})
+
+app.use((ctx, next) => {
+  // 设置用户信息
+  const user = getUserById()
+  session.set('user', user)
+})
+```
+
+而异步资源监听使用场景最多的地方在于：
+
++ 异常捕捉用户信息配置
++ 全链路式日志追踪: 第三方服务、数据库、Redis 等
++ 一些可能的业务处理
+
 ## async_hooks
 
 官方文档如此描述 `async_hooks`: 它被用来追踪异步资源，也就是监听异步资源的生命周期。
@@ -84,3 +112,80 @@ setTimeout(() => {
 调试大法最重要的是调试工具，并且不停地打断点与 Step In 吗？
 
 不，调试大法是 `console.log`。
+
+但如果调试 `async_hooks` 时使用 `console.log` 就会出现问题，因为 `console.log` 也属于异步资源: `TickObject`。那 `console.log` 有没有替代品呢？
+
+此时可利用 `write` 系统调用，用它向标准输出(`STDOUT`)中打印字符，而标准输出的文件描述符是 1。由此也可见，操作系统知识对于服务端开发的重要性不言而喻。
+
+node 中调用 API 如下:
+
+``` js
+fs.writeSync(1, 'hello, world')
+```
+
+> [什么是文件描述符 (file descriptor)](https://github.com/shfshanyue/Daily-Question/issues/171)
+
+完整的调试代码如下:
+
+``` js
+function log (...args) {
+  fs.writeSync(1, args.join(' ') + '\n')
+}
+
+async_hooks.createHook({
+  init(asyncId, type, triggerAsyncId, resource) {
+    log('Init: ', `${type}(asyncId=${asyncId}, parentAsyncId: ${triggerAsyncId})`)
+  },
+  before(asyncId) {
+    log('Before: ', asyncId)
+  },
+  after(asyncId) {
+    log('After: ', asyncId)
+  },
+  destroy(asyncId) {
+    log('Destory: ', asyncId);
+  }
+}).enable()
+```
+
+## Continuation Local Storage
+
+> Continuation-local storage works like thread-local storage in threaded programming, but is based on chains of Node-style callbacks instead of threads. 
+
+`CLS` 是存在于异步资源生命周期的一个键值对存储，对于在同一异步资源中将会维护一份数据，而不会被其它异步资源所修改。社区中有许多优秀的实现，而在高版本的 Node (>=8.2.1) 可直接使用 `async_hooks` 实现。
+
++ [node-continuation-local-storage](https://github.com/othiym23/node-continuation-local-storage): implementation of https://github.com/joyent/node/issues/5243
++ [cls-hooked](https://github.com/jeff-lewis/cls-hooked): CLS using AsynWrap or async_hooks instead of async-listener for node 4.7+
+
+而我自己使用 `async_hooks` 也实现了一个 CLS: [cls-session](https://github.com/shfshanyue/cls-session]
+
+``` js
+const Session = require('cls-session')
+
+const session = new Session()
+
+function timeout (id) {
+  session.scope(() => {
+    session.set('a', id)
+    setTimeout(() => {
+      const a = session.get('a')
+      console.log(a)
+    })
+  })
+}
+
+timeout(1)
+timeout(2)
+timeout(3)
+
+// Output:
+// 1
+// 2
+// 3
+```
+
+## 小结
+
+1. 开启 async_hooks 后，每一个异步资源都有一个 asyncId 与 trigerAsyncId，通过二者可查知异步调用关系
+1. CLS 是基于异步资源生命周期的存储，可通过 async_hooks 实现
+1. CLS 常用场景在异常监控及全链路式日志处理中
