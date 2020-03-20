@@ -1,6 +1,13 @@
 # 使用 async_hooks 监听异步资源的生命周期
 
-## 为什么需要监听异步资源
+> 为什么需要监听异步资源？
+
+在一个 Node 应用中，异步资源监听使用场景最多的地方在于：
+
++ 异常捕捉时需要提供用户信息，在每次客户端请求中保持一致的用户信息
++ 全链路式日志追踪，设计每次请求的第三方服务、数据库、Redis携带一致的 requestId
+
+以下是在异常处理中配置用户信息的示例：
 
 ``` js
 const session = new Map()
@@ -22,11 +29,7 @@ app.use((ctx, next) => {
 })
 ```
 
-而异步资源监听使用场景最多的地方在于：
-
-+ 异常捕捉用户信息配置
-+ 全链路式日志追踪: 第三方服务、数据库、Redis 等
-+ 一些可能的业务处理
+由于此时采用的 session 与异步资源不挂钩，用户信息及其容器被随后而来的请求而覆盖，那如何正确获取用户信息呢？
 
 ## async_hooks
 
@@ -107,7 +110,7 @@ setTimeout(() => {
 })
 ```
 
-## 调试及测试
+## async_hooks 调试及测试
 
 调试大法最重要的是调试工具，并且不停地打断点与 Step In 吗？
 
@@ -148,7 +151,7 @@ async_hooks.createHook({
 }).enable()
 ```
 
-## Continuation Local Storage
+## Continuation Local Storage 实现
 
 > Continuation-local storage works like thread-local storage in threaded programming, but is based on chains of Node-style callbacks instead of threads. 
 
@@ -186,6 +189,8 @@ timeout(3)
 
 ## 小结
 
-1. 开启 async_hooks 后，每一个异步资源都有一个 asyncId 与 trigerAsyncId，通过二者可查知异步调用关系
+本篇文章讲解了异步资源监听的使用场景及实现方式，可总结为以下三点：
+
 1. CLS 是基于异步资源生命周期的存储，可通过 async_hooks 实现
+1. 开启 async_hooks 后，每一个异步资源都有一个 asyncId 与 trigerAsyncId，通过二者可查知异步调用关系
 1. CLS 常用场景在异常监控及全链路式日志处理中

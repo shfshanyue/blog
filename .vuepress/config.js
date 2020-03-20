@@ -3,13 +3,25 @@ const path = require('path')
 const op = require('./op.header')
 const k8s = require('./k8s.header')
 const postsHeader = require('./post.header')
-const feHeader = require('./fe.header')
+const { fe: feHeader, node: nodeHeader } = require('./fe.header')
 
 function getFrontMatter (path, pp = './post') {
   const posts = require(pp)
   const postsByPath = _.keyBy(posts, 'path')
   const p = path.split(/\.|\//)[2]
   return _.get(postsByPath, p)
+}
+
+function extendMetaByPath (page, path) {
+  if (page.path.includes(`/${path}`)) {
+    const fm = getFrontMatter(page.path, `../${path}/meta.json`)
+    if (fm) {
+      page.frontmatter = {
+        ...fm,
+        ...page.frontmatter
+      }
+    }
+  }
 }
 
 module.exports = {
@@ -35,6 +47,7 @@ module.exports = {
       // { text: '存档', link: '/post/' },
       { text: '博客', link: '/post/binary-in-frontend/' },
       { text: '前端工程化系列', link: '/frontend-engineering/' },
+      { text: 'Node 实践', link: '/node/' },
       // { text: 'GraphQL', link: '/post/graphql-guide/' },
       // { text: '炳烛', link: '/record/' },
       { text: '个人服务器运维指南', link: '/op/' },
@@ -65,7 +78,8 @@ module.exports = {
       '/op/': op,
       '/k8s/': k8s,
       '/post/': postsHeader,
-      '/frontend-engineering/': feHeader
+      '/frontend-engineering/': feHeader,
+      '/node/': nodeHeader
     },
     lastUpdated: 'Last Updated'
   },
@@ -99,15 +113,8 @@ module.exports = {
           ]
         },
         extendPageData ($page) {
-          if ($page.path.includes('/frontend-engineering')) {
-            const fm = getFrontMatter($page.path, '../frontend-engineering/meta.json')
-            if (fm) {
-              $page.frontmatter = {
-                ...fm,
-                ...$page.frontmatter
-              }
-            }
-          }
+          extendMetaByPath($page, 'frontend-enginerring')
+          extendMetaByPath($page, 'node')
           if ($page.path.includes('/post')) {
             const fm = getFrontMatter($page.path)
             if (fm) {
