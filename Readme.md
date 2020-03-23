@@ -79,6 +79,12 @@
     1. [tcpdump 命令详解及示例](https://shanyue.tech/op/linux-tcpdump.html)
     1. [案例: 使用jq与sed制作掘金面试文章榜单](https://shanyue.tech/op/jq-sed-case.html)
 
+## 技术反思分享
+
+> 以下都是关于技术思考的文章分享
+
+1. [10 Things Every Developer Should Learn](https://medium.com/better-programming/10-things-every-developer-should-learn-72697ed5d94a) · [中文翻译](https://mp.weixin.qq.com/s?__biz=MjM5NTk4MDA1MA==&mid=2458073334&idx=2&sn=0d0c3f9552c1632baa3f25a46e0d28d1&chksm=b187ae8b86f0279d0482bbfd98dfaa579b451c44754c8b1ed1b33151de9803691c4fe59e3757&token=1024506330&lang=zh_CN#rd)
+
 ## 后端
 
 1. [各种架构图乱七八糟的图索引](https://github.com/shfshanyue/graph)
