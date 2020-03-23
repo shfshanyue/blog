@@ -34,6 +34,15 @@
 
 更多文章: [Node 实践](https://github.com/shfshanyue/blog/tree/master/node/)
 
+## 技术中的用户增长手段
+
+### 案例篇
+
++ [使用 wechaty 实现一个疫情机器人](https://shanyue.tech/growth/wechaty.html)
++ [使用公众号开发进行网站向公众号的导流](https://shanyue.tech/op/blog-to-wechat.html)
+
+更多文章: [用户增长](https://github.com/shfshanyue/blog/tree/master/growth/)
+
 ## 个人服务器运维指南
 
 你可以在阿里云新购一台服务器作为实践：
