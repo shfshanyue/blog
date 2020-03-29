@@ -252,14 +252,14 @@ module.exports = [
     categories: ['后端'],
     tags: ['node', 'graphql', 'jwt']
   },
-  {
-    title: '如何快速了解新业务',
-    path: 'business-get-started',
-    description: '最近接触新业务较多，关于了解新业务有一点感想，总结如下: 1. 比了解新业务代码更重要的是要了解新业务，比了解新业务更重要的是业务意识 2. 如果是业务开发，毕业前三年更应该关注于技术以及技术细节，三到五年技术业务并重，五年以后业务为主',
-    date: '2019-08-08 18:00',
-    tags: ['node'],
-    hot: 4
-  },
+  // {
+  //   title: '如何快速了解新业务',
+  //   path: 'business-get-started',
+  //   description: '最近接触新业务较多，关于了解新业务有一点感想，总结如下: 1. 比了解新业务代码更重要的是要了解新业务，比了解新业务更重要的是业务意识 2. 如果是业务开发，毕业前三年更应该关注于技术以及技术细节，三到五年技术业务并重，五年以后业务为主',
+  //   date: '2019-08-08 18:00',
+  //   tags: ['node'],
+  //   hot: 4
+  // },
   {
     title: '使用纯 CSS 实现仿 Material Design 的 input 过渡效果',
     path: 'login-input-style',

@@ -95,6 +95,11 @@
 1. [tcpdump 命令详解及示例](https://shanyue.tech/op/linux-tcpdump.html)
 1. [案例: 使用jq与sed制作掘金面试文章榜单](https://shanyue.tech/op/jq-sed-case.html)
 
+# 业务与技术
+
++ [新人如何快速熟悉业务](https://shanyue.tech/business/business-get-started.html)
++ [前端如何在业务中提升自己](https://shanyue.tech/business/learn-in-business.html)
+
 ## 技术反思分享
 
 > 以下都是关于技术思考的文章分享
@@ -127,7 +132,6 @@
 
 ## 前端
 
-1. [前端部署演化史](https://shanyue.tech/op/deploy-fe.html)
 1. [JS 调试问题汇总及示例](https://shanyue.tech/post/js-debug-examples/)
 1. [如何实现 Promise 的限流](https://shanyue.tech/code/Promise/)
 1. [如何实现一个简单的 Promise](https://shanyue.tech/code/Promise-map/)
