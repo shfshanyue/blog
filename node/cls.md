@@ -98,8 +98,10 @@ const asyncHook = async_hooks.createHook({
 
 + `init`: 监听异步资源的创建，在该函数中我们可以获取异步资源的调用链，也可以获取异步资源的类型，这两点很重要。
 + `destory`: 监听异步资源的销毁。要注意 `setTimeout` 可以销毁，而 `Promise` 无法销毁，如果通过 async_hooks 实现 CLS 可能会在这里造成内存泄漏！
-+ `before`
-+ `after`
++ `before`: 异步资源回调函数开始执行时
++ `after`: 异步资源回调函数执行后
+
+从以下代码可看出 `before` 及 `after` 的位置
 
 ``` js
 setTimeout(() => {
@@ -113,6 +115,8 @@ setTimeout(() => {
   console.log('Async After')
 })
 ```
+
+> 注意: Promise 无 destory 的生命周期，要注意由此造成的内存泄漏。另外，如果使用 `await prom`，Promise 也不会有 before/after 的生命周期
 
 ## async_hooks 调试及测试
 

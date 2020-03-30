@@ -110,6 +110,75 @@ $ npm install eslint --save-dev
 
 团队合作中的编码规范有一点是，虽然自己有可能不舒服，但是不能让别人因为自己的代码而不舒服。
 
+git 自身包含许多 hooks，在 `commit`，`push` 等 git 事件前后触发执行。与 `pre-commit hook` 结合可以帮助校验 Lint，如果非通过代码规范则不允许提交。
+
+[husky](https://github.com/typicode/husky) 是一个使 `git hooks` 变得更简单的工具，只需要配置几行 `package.json` 就可以愉快的开始工作。
+
+> husky 的原理是什么？
+
+``` json
+// package.json
+{
+  "scripts": {
+    "lint": "eslint . --cache"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm lint",
+    }
+  }
+}
+```
+
+或者结合 [lint-staged](https://github.com/okonet/lint-staged) 调用校验规则
+
+``` json
+{
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js|{lib,setup,bin,hot,tooling,schemas}/**/*.js|test/*.js|{test,examples}/**/webpack.config.js}": [
+      "eslint --cache"
+    ],
+    "*.{ts,json,yml,yaml,md}|examples/*.md": [
+      "prettier --check"
+    ],
+    "*.md|{.github,benchmark,bin,examples,hot,lib,schemas,setup,tooling}/**/*.{md,yml,yaml,js,json}": [
+      "cspell"
+    ]
+  }
+}
+```
+
+不过做前端的都明白，客户端校验是不可信的，通过一条命令即可绕过 `git hooks`。
+
+``` bash
+$ git commit -n
+```
+
+![](http://devhumor.com/content/uploads/images/July2017/client-side-validation.jpg)
+
 ## 第三层约束: CI
 
+`git hooks` 可以绕过，但 CI(持续集成) 是绝对绕不过的，因为它在服务端校验。使用 `gitlab CI` 做持续集成，配置文件 `.gitlab-ci.yaml` 如下所示
+
+``` yaml
+lint:
+  stage: lint
+  only:
+    - /^feature\/.*$/
+  script:
+    - npm lint
+```
+
 ## 小结
+
+1. 团队中代码规范统一是极有必要的
+1. 使用成熟的 eslint config，并做细节修改
+1. 设置部分 eslint rule 为警告，保障开发体验，并且在 `pre-commit` 与 `CI` 中把警告视为不通过，保证严格的代码规范
+1. 可以在 `IDE (vscode)`，`git hooks`，`CI` 中添加规范校验拦截
+1. 可以使用 `husky` 与 `lint-staged` 很方便地做关于 lint 的 `git hooks`
+1. `git hooks` 的规范校验可以通过 `git commit -n` 跳过，需要在 CI 层继续加强校验

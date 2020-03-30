@@ -48,6 +48,8 @@
 1. [前端高级进阶：如何更好地优化打包资源](https://mp.weixin.qq.com/s?__biz=MjM5NTk4MDA1MA==&mid=2458073257&idx=1&sn=c2cf508cf95f92031c16f91111b38ad8&chksm=b187aed486f027c25c95dc58a26ef3ca6502ac5b28051c4bb6440a705795c3c938b74d800c7c&token=1220258650&lang=zh_CN#rd)
 1. [前端高级进阶：网站的缓存控制策略最佳实践及注意事项](https://mp.weixin.qq.com/s?__biz=MjM5NTk4MDA1MA==&mid=2458073285&idx=1&sn=da3acbb864c10cfeacffda7a72891c4c&chksm=b187aeb886f027ae7bfee589b2e4f7a632738d3abac4cd5980136bd12fec4852f487b808601e&token=1220258650&lang=zh_CN#rd)
 1. [前端高级进阶：在生产环境中使你的 npm i 速度提升 50%](https://mp.weixin.qq.com/s?__biz=MjM5NTk4MDA1MA==&mid=2458073303&idx=1&sn=1bf274e857d21316396e9bd7fe6449fc&chksm=b187aeaa86f027bc9328c602063368d14628ab5b099e41210b7691f093ed08036d6352c1ba1f&token=352443757&lang=zh_CN#rd)
+1. [前端高级进阶：前端部署的发展历程](https://mp.weixin.qq.com/s?__biz=MjM5NTk4MDA1MA==&mid=2458073311&idx=1&sn=c132105ab64bc13f8a6245de513231db&chksm=b187aea286f027b4f6e2772d6a183c85911b87c0b61149ac56760acd930babcdfdce0e4d9a54&token=2089781434&lang=zh_CN#rd)
+
 ---
 
 

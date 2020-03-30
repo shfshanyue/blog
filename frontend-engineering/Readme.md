@@ -3,6 +3,7 @@
 1. [前端高级进阶：javascript 代码是如何被压缩](./uglify.md)
 1. [前端高级进阶：如何更好地优化打包资源](./bundle.md)
 1. [前端高级进阶：网站的缓存控制策略最佳实践及注意事项](./http-cache.md)
+1. [前端高级进阶：团队代码规范约束最佳实践](./eslint.md)
 1. [前端高级进阶：npm i 在生产环境下的速度优化](./npm-install.md)
 1. [前端高级进阶：使用 docker 高效部署你的前端应用](./docker.md)
 1. [前端高级进阶：CICD 下的前端多特性分支环境的部署](./feature-deploy.md)

@@ -104,12 +104,12 @@ module.exports = {
             //     archive: true
             //   }
             // },
-            {
-              path: '/',
-              frontmatter: {
-                home: true
-              }
-            }
+            // {
+            //   path: '/',
+            //   frontmatter: {
+            //     home: true
+            //   }
+            // }
           ]
         },
         extendPageData ($page) {

@@ -15,11 +15,32 @@
 
 再后来读书读多了，觉得 `松风吹解带，山月照弹琴` 与 `水风轻，蘋花渐老，月露冷，梧叶飘黄` 的意境也不错，也很喜欢。
 
+## 开源及个人项目
+
++ [shfshanyue/cls-session (npm)](https://github.com/shfshanyue/cls-session): Node CLS 的实现，并避免了 Promise 在 async_hooks 中内存泄漏问题
++ [shfshanyue/koa-mini](https://github.com/shfshanyue/koa-mini): 40 行代码实现一个 koa
++ [shfshanyue/ansible-op](https://github.com/shfshanyue/ansible-op): 个人服务器运维脚本
++ [shfshanyue/spider](https://github.com/shfshanyue/spider): python 写的网页定时备份小工具
++ [shfshanyue/2019-ncov (Star 466)](https://github.com/shfshanyue/2019-ncov): 全国新型冠状病毒，肺炎疫情实时省市地图，单日 PV 最高48万 <https://ncov.shanyue.tech/>
++ [shfshanyue/tomato](https://github.com/shfshanyue/tomato): 基于 vue 与 cordova 的番茄闹钟APP，由于太卡未上架...
++ [shfshanyue/eleven](https://github.com/shfshanyue/eleven): 小程序十一选五小助手，单日 PV 不到100
++ [shfshanyue/cheat-sheets](https://github.com/shfshanyue/cheat-sheets): cheat sheets，单日 PV 不到十个
++ [shfshanyue/reacht-rubic](https://github.com/shfshanyue/react-rubic): 使用 react 开发的魔方
++ [shfshanyue/shici](https://github.com/shfshanyue/shici): 使用 next.js 与 graphql 做一个诗词小站，并使用自建的 gitlab-ci/traefik 自动部署，单日 PV 不到100，服务器架构切换时闭站...
++ [shfshanyue/shici-server](https://github.com/shfshanyue/shici-server): 使用 graphql 做一个诗词小站的服务端，并使用自建的 gitlab-ci/traefik 自动部署
++ [shfshanyue/apollo-server-starter](https://github.com/shfshanyue/apollo-server-starter): 基于 apollo-server 的 graphql 后端脚手架
++ [shfshanyue/wechat-ncov](https://github.com/shfshanyue/wechat-ncov): 个人微信机器人，用以自动通过好友，加群后欢迎语以及基金、疫情信息监控
++ [shfshanyue/wechat](https://github.com/shfshanyue/wechat): 个人公众号的微信开发，包括面试题API及看文需扫码关注功能
++ [shfshanyue/tieba_post](https://github.com/shfshanyue/tieba_post): 模拟百度贴吧的登录及自动发帖
++ [shfshanyue/vim-config](https://github.com/shfshanyue/vim-config): vim config
++ [shfshanyue/tmux-config](https://github.com/shfshanyue/tmux-config): tmux config
+
 ## 前端工程化
 
 1. [前端高级进阶：javascript 代码是如何被压缩](https://github.com/shfshanyue/blog/tree/master/frontend-engineering/uglify.md)
 1. [前端高级进阶：如何更好地优化打包资源](https://github.com/shfshanyue/blog/tree/master/frontend-engineering/bundle.md)
 1. [前端高级进阶：网站的缓存控制策略最佳实践及注意事项](https://github.com/shfshanyue/blog/tree/master/frontend-engineering/http-cache.md)
+1. [前端高级进阶：团队代码规范约束最佳实践](https://shanyue.tech/frontend-engineering/eslint.html)
 1. [前端高级进阶：在生产环境中使你的 npm i 速度提升 50%](https://github.com/shfshanyue/blog/tree/master/frontend-engineering/npm-install.md)
 1. [前端高级进阶：使用 docker 高效部署你的前端应用](https://github.com/shfshanyue/blog/tree/master/frontend-engineering/docker.md)
 1. [前端高级进阶：CICD 下的前端多特性分支环境的部署](https://github.com/shfshanyue/blog/tree/master/frontend-engineering/feature-deploy.md)
@@ -36,12 +57,33 @@
 
 ## 技术中的用户增长手段
 
-### 案例篇
-
 + [使用 wechaty 实现一个疫情机器人](https://shanyue.tech/growth/wechaty.html)
 + [使用公众号开发进行网站向公众号的导流](https://shanyue.tech/op/blog-to-wechat.html)
 
 更多文章: [用户增长](https://github.com/shfshanyue/blog/tree/master/growth/)
+
+## 使用 k8s 管理多服务器
+
+### 集群搭建
+
+1. [预备工作](https://github.com/shfshanyue/learn-k8s/blob/master/prepare.md)
+1. [搭建过程中常见 linux 命令使用](https://github.com/shfshanyue/learn-k8s/blob/master/linux-command.md)
+1. [docker 的安装与配置](https://github.com/shfshanyue/learn-k8s/blob/master/install-docker.md)
+1. [kubelet/kubeadm 简介与安装](https://github.com/shfshanyue/learn-k8s/blob/master/install-kubeadm.md)
+1. [搭建一个集群的主节点 (control plane node)](https://github.com/shfshanyue/learn-k8s/blob/master/install-master-node.md)
+1. [为集群添加一个工作节点 (work node)](https://github.com/shfshanyue/learn-k8s/blob/master/install-work-node.md)
+1. [在本地环境管理集群](https://github.com/shfshanyue/learn-k8s/blob/master/local-kubectl.md)
+
+### 资源部署
+
+1. [部署你的第一个应用: Pod，Deployment 与 Service](https://github.com/shfshanyue/learn-k8s/blob/master/pod.md)
+1. [通过外部域名访问你的应用: Ingress](https://github.com/shfshanyue/learn-k8s/blob/master/ingress.md)
+1. [自动为你的域名添加 https](https://github.com/shfshanyue/learn-k8s/blob/master/https.md)
+
+### 工具与运维
+
+1. [部署利器 Helm 安装及简介](https://github.com/shfshanyue/learn-k8s/blob/master/helm.md)
+1. [易用轻量的持续集成方案: helm 结合 drone](https://github.com/shfshanyue/learn-k8s/blob/master/deploy-drone.md)
 
 ## 个人服务器运维指南
 
@@ -95,10 +137,20 @@
 1. [tcpdump 命令详解及示例](https://shanyue.tech/op/linux-tcpdump.html)
 1. [案例: 使用jq与sed制作掘金面试文章榜单](https://shanyue.tech/op/jq-sed-case.html)
 
-# 业务与技术
+## 你并不需要云服务器
+
+1. [如果你只想搭建一个博客](https://shanyue.tech/no-vps/if-you-want-a-blog.html)
+1. [使用 Netlify 托管静态网站与持续集成](https://shanyue.tech/no-vps/deploy-fe-with-netlify.html)
+1. [使用 AliOSS 部署及加速你的静态网站](https://shanyue.tech/no-vps/deploy-fe-with-alioss.html)
+1. [Github Actions 持续集成简介及实践](https://shanyue.tech/no-vps/github-action-guide.html)
+
+更多文章: [你并不需要云服务器](https://github.com/shfshanyue/you-dont-need-vps)
+
+## 业务与技术
 
 + [新人如何快速熟悉业务](https://shanyue.tech/business/business-get-started.html)
 + [前端如何在业务中提升自己](https://shanyue.tech/business/learn-in-business.html)
++ [如何为测试环境制造假数据](https://shanyue.tech/business/dev-data-create.html)
 
 ## 技术反思分享
 
@@ -115,7 +167,6 @@
 1. [GraphQL 开发指南](https://shanyue.tech/post/graphql-guide.html)
 1. [由 GraphQL 来思考 API Design](https://shanyue.tech/post/api-design-inspire-by-graphql.html)
 1. [Node 中异常，EXIT CODE 与 dockerfile ](https://shanyue.tech/post/exit-code-node-and-docker.html)
-1. [如何快速了解新业务](https://shanyue.tech/post/business-get-started.html)
 1. [限流算法: 漏桶与令牌桶简介](https://shanyue.tech/post/rate-limit/)
 1. [使用 requestId 标记全链路日志](https://shanyue.tech/post/requestId-and-tracing/)
 1. [Node 中的异常收集，结构化与监控](https://shanyue.tech/post/server-structed-error.html)
