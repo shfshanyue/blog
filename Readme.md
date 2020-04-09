@@ -18,8 +18,10 @@
 ## 开源及个人项目
 
 + [shfshanyue/cls-session (npm)](https://github.com/shfshanyue/cls-session): Node CLS 的实现，并避免了 Promise 在 async_hooks 中内存泄漏问题
++ [shfshanyue/promise-map (npm)](https://github.com/shfshanyue/cls-session): promise 并发数控制，并支持 promise.allsettled
++ [shfshanyue/ansible-op (ansible role)](https://github.com/shfshanyue/ansible-op): 个人服务器运维脚本
++ [shfshanyue/serverless-template-zh](https://github.com/shfshanyue/serverless-template-zh): 中国云厂商 serverless framework 模板及示例 （更快的访问速度）
 + [shfshanyue/koa-mini](https://github.com/shfshanyue/koa-mini): 40 行代码实现一个 koa
-+ [shfshanyue/ansible-op](https://github.com/shfshanyue/ansible-op): 个人服务器运维脚本
 + [shfshanyue/spider](https://github.com/shfshanyue/spider): python 写的网页定时备份小工具
 + [shfshanyue/2019-ncov (Star 466)](https://github.com/shfshanyue/2019-ncov): 全国新型冠状病毒，肺炎疫情实时省市地图，单日 PV 最高48万 <https://ncov.shanyue.tech/>
 + [shfshanyue/tomato](https://github.com/shfshanyue/tomato): 基于 vue 与 cordova 的番茄闹钟APP，由于太卡未上架...
@@ -138,12 +140,15 @@
 1. [tcpdump 命令详解及示例](https://shanyue.tech/op/linux-tcpdump.html)
 1. [案例: 使用jq与sed制作掘金面试文章榜单](https://shanyue.tech/op/jq-sed-case.html)
 
-## 有可能你并不需要云服务器
+## 有可能你并不需要云服务器 | 如何更好地薅羊毛
+
+但仅仅是开发一个简单的项目(弱数据存储)，有可能你并不需要一个云服务器。
 
 1. [如果你只想搭建一个博客](https://shanyue.tech/no-vps/if-you-want-a-blog.html)
 1. [使用 Netlify 托管静态网站与持续集成](https://shanyue.tech/no-vps/deploy-fe-with-netlify.html)
 1. [使用 AliOSS 部署及加速你的静态网站](https://shanyue.tech/no-vps/deploy-fe-with-alioss.html)
 1. [Github Actions 持续集成简介及实践](https://shanyue.tech/no-vps/github-action-guide.html)
+1. [Serverless 与 Serverless Framework](https://shanyue.tech/no-vps/serverless.html)
 
 更多文章: [你并不需要云服务器](https://github.com/shfshanyue/you-dont-need-vps)
 
