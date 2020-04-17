@@ -18,7 +18,7 @@
 ## 开源及个人项目
 
 + [shfshanyue/cls-session (npm)](https://github.com/shfshanyue/cls-session): Node CLS 的实现，并避免了 Promise 在 async_hooks 中内存泄漏问题
-+ [shfshanyue/promise-map (npm)](https://github.com/shfshanyue/cls-session): promise 并发数控制，并支持 promise.allsettled
++ [shfshanyue/promise-map (npm)](https://github.com/shfshanyue/promise-map): promise 并发数控制，并支持 promise.allsettled
 + [shfshanyue/ansible-op (ansible role)](https://github.com/shfshanyue/ansible-op): 个人服务器运维脚本
 + [shfshanyue/serverless-template-zh](https://github.com/shfshanyue/serverless-template-zh): 中国云厂商 serverless framework 模板及示例 （更快的访问速度）
 + [shfshanyue/koa-mini](https://github.com/shfshanyue/koa-mini): 40 行代码实现一个 koa
@@ -65,28 +65,18 @@
 
 更多文章: [用户增长](https://github.com/shfshanyue/blog/tree/master/growth/)
 
-## 使用 k8s 管理多服务器
+## 有可能你并不需要云服务器 | 如何更好地薅羊毛
 
-### 集群搭建
+但仅仅是开发一个简单的项目(弱数据存储)，有可能你并不需要一个云服务器。
 
-1. [预备工作](https://github.com/shfshanyue/learn-k8s/blob/master/prepare.md)
-1. [搭建过程中常见 linux 命令使用](https://github.com/shfshanyue/learn-k8s/blob/master/linux-command.md)
-1. [docker 的安装与配置](https://github.com/shfshanyue/learn-k8s/blob/master/install-docker.md)
-1. [kubelet/kubeadm 简介与安装](https://github.com/shfshanyue/learn-k8s/blob/master/install-kubeadm.md)
-1. [搭建一个集群的主节点 (control plane node)](https://github.com/shfshanyue/learn-k8s/blob/master/install-master-node.md)
-1. [为集群添加一个工作节点 (work node)](https://github.com/shfshanyue/learn-k8s/blob/master/install-work-node.md)
-1. [在本地环境管理集群](https://github.com/shfshanyue/learn-k8s/blob/master/local-kubectl.md)
+1. [如果你只想搭建一个博客](https://shanyue.tech/no-vps/if-you-want-a-blog.html)
+1. [使用 Netlify 托管静态网站与持续集成](https://shanyue.tech/no-vps/deploy-fe-with-netlify.html)
+1. [使用 AliOSS 部署及加速你的静态网站](https://shanyue.tech/no-vps/deploy-fe-with-alioss.html)
+1. [Github Actions 持续集成简介及实践](https://shanyue.tech/no-vps/github-action-guide.html)
+1. [Serverless 与 Serverless Framework](https://shanyue.tech/no-vps/serverless.html)
+1. [使用 serverless Component 开发第一个 Koa 应用](https://shanyue.tech/no-vps/sls-koa.html)
 
-### 资源部署
-
-1. [部署你的第一个应用: Pod，Deployment 与 Service](https://github.com/shfshanyue/learn-k8s/blob/master/pod.md)
-1. [通过外部域名访问你的应用: Ingress](https://github.com/shfshanyue/learn-k8s/blob/master/ingress.md)
-1. [自动为你的域名添加 https](https://github.com/shfshanyue/learn-k8s/blob/master/https.md)
-
-### 工具与运维
-
-1. [部署利器 Helm 安装及简介](https://github.com/shfshanyue/learn-k8s/blob/master/helm.md)
-1. [易用轻量的持续集成方案: helm 结合 drone](https://github.com/shfshanyue/learn-k8s/blob/master/deploy-drone.md)
+更多文章: [你并不需要云服务器](https://github.com/shfshanyue/you-dont-need-vps)
 
 ## 个人服务器运维指南
 
@@ -140,17 +130,28 @@
 1. [tcpdump 命令详解及示例](https://shanyue.tech/op/linux-tcpdump.html)
 1. [案例: 使用jq与sed制作掘金面试文章榜单](https://shanyue.tech/op/jq-sed-case.html)
 
-## 有可能你并不需要云服务器 | 如何更好地薅羊毛
+## 使用 k8s 管理多服务器
 
-但仅仅是开发一个简单的项目(弱数据存储)，有可能你并不需要一个云服务器。
+### 集群搭建
 
-1. [如果你只想搭建一个博客](https://shanyue.tech/no-vps/if-you-want-a-blog.html)
-1. [使用 Netlify 托管静态网站与持续集成](https://shanyue.tech/no-vps/deploy-fe-with-netlify.html)
-1. [使用 AliOSS 部署及加速你的静态网站](https://shanyue.tech/no-vps/deploy-fe-with-alioss.html)
-1. [Github Actions 持续集成简介及实践](https://shanyue.tech/no-vps/github-action-guide.html)
-1. [Serverless 与 Serverless Framework](https://shanyue.tech/no-vps/serverless.html)
+1. [预备工作](https://github.com/shfshanyue/learn-k8s/blob/master/prepare.md)
+1. [搭建过程中常见 linux 命令使用](https://github.com/shfshanyue/learn-k8s/blob/master/linux-command.md)
+1. [docker 的安装与配置](https://github.com/shfshanyue/learn-k8s/blob/master/install-docker.md)
+1. [kubelet/kubeadm 简介与安装](https://github.com/shfshanyue/learn-k8s/blob/master/install-kubeadm.md)
+1. [搭建一个集群的主节点 (control plane node)](https://github.com/shfshanyue/learn-k8s/blob/master/install-master-node.md)
+1. [为集群添加一个工作节点 (work node)](https://github.com/shfshanyue/learn-k8s/blob/master/install-work-node.md)
+1. [在本地环境管理集群](https://github.com/shfshanyue/learn-k8s/blob/master/local-kubectl.md)
 
-更多文章: [你并不需要云服务器](https://github.com/shfshanyue/you-dont-need-vps)
+### 资源部署
+
+1. [部署你的第一个应用: Pod，Deployment 与 Service](https://github.com/shfshanyue/learn-k8s/blob/master/pod.md)
+1. [通过外部域名访问你的应用: Ingress](https://github.com/shfshanyue/learn-k8s/blob/master/ingress.md)
+1. [自动为你的域名添加 https](https://github.com/shfshanyue/learn-k8s/blob/master/https.md)
+
+### 工具与运维
+
+1. [部署利器 Helm 安装及简介](https://github.com/shfshanyue/learn-k8s/blob/master/helm.md)
+1. [易用轻量的持续集成方案: helm 结合 drone](https://github.com/shfshanyue/learn-k8s/blob/master/deploy-drone.md)
 
 ## 业务与技术
 
