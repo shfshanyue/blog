@@ -74,7 +74,8 @@
 1. [使用 AliOSS 部署及加速你的静态网站](https://shanyue.tech/no-vps/deploy-fe-with-alioss.html)
 1. [Github Actions 持续集成简介及实践](https://shanyue.tech/no-vps/github-action-guide.html)
 1. [Serverless 与 Serverless Framework](https://shanyue.tech/no-vps/serverless.html)
-1. [使用 serverless Component 开发第一个 Koa 应用](https://shanyue.tech/no-vps/sls-koa.html)
+1. [使用 serverless 开发第一个 Koa 应用](https://shanyue.tech/no-vps/sls-koa.html)
+1. [使用 serverless 开发第一个 Next 应用](https://shanyue.tech/no-vps/sls-next.html)
 
 更多文章: [你并不需要云服务器](https://github.com/shfshanyue/you-dont-need-vps)
 
