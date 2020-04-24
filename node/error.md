@@ -141,6 +141,14 @@ Error.prepareStackTrace(error, structuredStackTrace)
 + HTTP/1.1 403 Forbidden
 + HTTP/1.1 429 Too Many Requests
 
+## 过滤
+
+在本地开发时，往往不需要把异常上报到 `Sentry`。`Sentry` 也提供了 hook 再上报之前对异常进行过滤
+
+```typescript
+beforeSend?(event: Event, hint?: EventHint): Promise<Event | null> | Event | null;
+```
+
 ## 监控系统
 
 监控首先需要有一个监控系统，我这里比较推荐 `Sentry`，具体如何部署可以参考我的上一篇文章：[如何部署 Sentry](https://shanyue.tech/post/sentry-docker-install/)。
@@ -151,7 +159,8 @@ Error.prepareStackTrace(error, structuredStackTrace)
 
 这里有关于 `Sentry` 的文档
 
-###  指标
+
+##  指标
 
 异常监控除了异常本身以外，还要采集更多一些的指标。
 
@@ -186,10 +195,3 @@ Error.prepareStackTrace(error, structuredStackTrace)
 
 由上可见，对于采集指标的数据一般来源于两个方面，http 报文以及环境变量
 
-### Filter
-
-在本地开发时，往往不需要把异常上报到 `Sentry`。`Sentry` 也提供了 hook 再上报之前对异常进行过滤
-
-```typescript
-beforeSend?(event: Event, hint?: EventHint): Promise<Event | null> | Event | null;
-```
