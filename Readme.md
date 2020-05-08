@@ -17,25 +17,34 @@
 
 ## 开源及个人项目
 
-+ [shfshanyue/cls-session (npm)](https://github.com/shfshanyue/cls-session): Node CLS 的实现，并避免了 Promise 在 async_hooks 中内存泄漏问题
-+ [shfshanyue/promise-map (npm)](https://github.com/shfshanyue/promise-map): promise 并发数控制，并支持 promise.allsettled
+### Maintainer
+
++ [shfshanyue/cls-session (npm)](https://github.com/shfshanyue/cls-session): Node 类似 CLS 的实现，并避免了 Promise 在 async_hooks 中内存泄漏问题
++ [shfshanyue/promise-map (npm)](https://github.com/shfshanyue/promise-map): Map over promises concurrently and support promise.allsettled
++ [shfshanyue/serverless-http (npm, serverless component)](https://github.com/shfshanyue/serverless-http): Serverless Http Component for Tencent Cloud
++ [shfshanyue/whoami (docker)](https://github.com/shfshanyue/whoami): Tiny node.js webserver that prints os information and HTTP request to output
++ [shfshanyue/serverless-template-zh (serverless templates)](https://github.com/shfshanyue/serverless-template-zh): 中国云厂商 serverless framework 模板及示例 （更快的访问速度）
 + [shfshanyue/ansible-op (ansible role)](https://github.com/shfshanyue/ansible-op): 个人服务器运维脚本
-+ [shfshanyue/serverless-template-zh](https://github.com/shfshanyue/serverless-template-zh): 中国云厂商 serverless framework 模板及示例 （更快的访问速度）
-+ [shfshanyue/koa-mini](https://github.com/shfshanyue/koa-mini): 40 行代码实现一个 koa
-+ [shfshanyue/spider](https://github.com/shfshanyue/spider): python 写的网页定时备份小工具
-+ [shfshanyue/2019-ncov (Star 466)](https://github.com/shfshanyue/2019-ncov): 全国新型冠状病毒，肺炎疫情实时省市地图，单日 PV 最高48万 <https://ncov.shanyue.tech/>
-+ [shfshanyue/tomato](https://github.com/shfshanyue/tomato): 基于 vue 与 cordova 的番茄闹钟APP，由于太卡未上架...
++ [shfshanyue/apollo-server-starter (graphql template)](https://github.com/shfshanyue/apollo-server-starter): 基于 apollo-server 的 graphql 后端脚手架
++ [shfshanyue/vim-config](https://github.com/shfshanyue/vim-config): vim config
++ [shfshanyue/tmux-config](https://github.com/shfshanyue/tmux-config): tmux config
+
+
+### Side Project
+
+> 我自己的应用大多部署在我自建的服务器，serverless (微信公众号开发)以及阿里云的 OSS (纯前端)上。
+
++ [shfshanyue/2019-ncov (Star 466)](https://github.com/shfshanyue/2019-ncov): 全国新型冠状病毒，肺炎疫情实时省市地图， **单日 PV 最高48万** <https://ncov.shanyue.tech/>
++ [shfshanyue/shici](https://github.com/shfshanyue/shici): 使用 next.js 与 graphql 做一个诗词小站，并使用自建的 gitlab-ci/traefik 自动部署，单日 PV 500 <https://shici.xiange.tech/>
++ [shfshanyue/tomato](https://github.com/shfshanyue/tomato): 基于 vue 与 cordova 的番茄闹钟APP
 + [shfshanyue/eleven](https://github.com/shfshanyue/eleven): 小程序十一选五小助手，单日 PV 不到100
 + [shfshanyue/cheat-sheets](https://github.com/shfshanyue/cheat-sheets): cheat sheets，单日 PV 不到十个
-+ [shfshanyue/reacht-rubic](https://github.com/shfshanyue/react-rubic): 使用 react 开发的魔方
-+ [shfshanyue/shici](https://github.com/shfshanyue/shici): 使用 next.js 与 graphql 做一个诗词小站，并使用自建的 gitlab-ci/traefik 自动部署，单日 PV 不到100，服务器架构切换时闭站...
-+ [shfshanyue/shici-server](https://github.com/shfshanyue/shici-server): 使用 graphql 做一个诗词小站的服务端，并使用自建的 gitlab-ci/traefik 自动部署
-+ [shfshanyue/apollo-server-starter](https://github.com/shfshanyue/apollo-server-starter): 基于 apollo-server 的 graphql 后端脚手架
++ [shfshanyue/reacht-rubic](https://github.com/shfshanyue/react-rubic): 使用 react 开发的魔方，尚未正式上线
 + [shfshanyue/wechat-ncov](https://github.com/shfshanyue/wechat-ncov): 个人微信机器人，用以自动通过好友，加群后欢迎语以及基金、疫情信息监控
 + [shfshanyue/wechat](https://github.com/shfshanyue/wechat): 个人公众号的微信开发，包括面试题API及看文需扫码关注功能
 + [shfshanyue/tieba_post](https://github.com/shfshanyue/tieba_post): 模拟百度贴吧的登录及自动发帖
-+ [shfshanyue/vim-config](https://github.com/shfshanyue/vim-config): vim config
-+ [shfshanyue/tmux-config](https://github.com/shfshanyue/tmux-config): tmux config
++ [shfshanyue/spider (python)](https://github.com/shfshanyue/spider): python 写的网页定时备份小工具
++ [shfshanyue/koa-mini](https://github.com/shfshanyue/koa-mini): 40 行代码实现一个 koa
 
 ## 前端工程化
 
