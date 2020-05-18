@@ -1,11 +1,6 @@
-const world = require('./b')
+exports.a = 1
 
-const hello = () => {
-  console.log('hello')
-  world()
-  return 'hello'
-}
+require('./b')
 
-hello()
+exports.b = 2
 
-module.exports = hello

@@ -1,6 +1,7 @@
-const world = () => {
-  console.log('world')
-  return 'world'
-}
+const o = require('./a')
 
-module.exports = world
+console.log(o)
+
+setTimeout(() => {
+  console.log(o)
+})
