@@ -7,3 +7,6 @@
 [submodule "no-vps"]
 	path = no-vps
 	url = https://github.com/shfshanyue/you-dont-need-vps.git
+[submodule "graphql-guide"]
+	path = graphql-guide
+	url = https://github.com/shfshanyue/graphql-guide.git
