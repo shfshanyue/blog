@@ -13,11 +13,13 @@
 
 + [koa 中的 ctx.req 与 ctx.request]()
 + [Clipboard API 与 devtools 问题]()
++ [df 被 hang 住，无法查看磁盘使用情况](./df-hang.md)
 
 ## 幼虫集
 
 + [上游服务不存在或未响应](./upstream.md)
-+ [df 被 hang 住，无法查看磁盘使用情况](./df-hang.md)
++ []()
++ [Vary: Origin 与 cors]()
 
 ## 成虫集
 

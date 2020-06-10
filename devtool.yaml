@@ -1,0 +1,113 @@
+- name: enjoycss
+- name: devdocs
+  href: https://devdocs.io/
+  labels:
+    - dev
+- name: hub
+  href: https://hub.github.com/
+  labels:
+    - dev
+- name: svgomg
+  href: https://jakearchibald.github.io/svgomg/
+  labels:
+    - performance
+- name: ohmyzsh
+  href: https://ohmyz.sh/
+  labels:
+    - dev
+- name: css dinner
+  href: https://flukeout.github.io/
+  labels:
+    - css
+- name: share button
+  href: https://sharingbuttons.io/
+  labels:
+    - css
+- name: hyper
+  href: https://github.com/vercel/hyper
+  labels:
+    - dev
+- name: Ast Explorer
+  href: https://astexplorer.net/
+  labels:
+    - js
+    - playground
+- name: mdx
+  href: https://mdxjs.com/
+  labels:
+    - editor
+- name: codemirror
+  href: https://codemirror.net/
+  labels:
+    - editor
+- name: Node ES+ Support
+  href: https://node.green/
+  labels:
+    - js
+- name: Browser ES+ Support
+  href: https://kangax.github.io/compat-table/es6/
+  labels:
+    - js
+- name: mdx
+  href: https://mdxjs.com/playground
+  labels:
+    - playground
+- name: HTML Arrows
+  href: https://www.toptal.com/designers/htmlarrows/numbers/
+  labels:
+    - html
+    - encode
+- name: charref
+  href: https://dev.w3.org/html5/html-author/charref
+  labels:
+    - encode
+    - encode
+- name: CSS Gradient
+  href: https://cssgradient.io/
+  labels:
+    - css
+- name: CSS Shadows
+  href: https://brumm.af/shadows
+  labels:
+    - css
+- name: lighthouse
+  href: https://github.com/GoogleChrome/lighthouse
+  labels:
+    - performance
+- name: squoosh
+  href: https://squoosh.app/
+  labels:
+    - performance
+    - image
+- name: shrinkme
+  href: https://shrinkme.app/
+  labels:
+    - performance
+    - image
+- name: RegExp
+  href: https://regexr.com/
+  labels:
+    - playground
+- name: prettier
+  href: https://prettier.io/playground/
+  labels:
+    - playground
+- name: draw.io
+  href: https://app.diagrams.net/
+  labels:
+    - dev
+- name: Process On
+  href: https://www.processon.com/
+  desc: "Flowchart, Mindmapping Online. Support FlowChart, MindMap, UI, UML, Network. Collabration in Real-time."
+  labels:
+    - dev
+- name: carbon
+  href: https://carbon.now.sh/
+  desc: "Create and share beautiful images of your source code."
+  labels:
+    - dev
+- name: unDraw
+  href: https://undraw.co/illustrations
+  desc: 
+  labels:
+    - design

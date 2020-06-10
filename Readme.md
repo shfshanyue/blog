@@ -104,7 +104,7 @@
 1. [高效简单的服务器登录配置](https://shanyue.tech/op/init.html)
 1. [服务器上 git 安装及基本配置](https://shanyue.tech/op/git.html)
 1. [服务器上 ssh key 管理及 github 配置](https://shanyue.tech/op/ssh-setting.html)
-1. [系统信息查看相关命令](https://shanyue.tech/op/system-info.html)
+1. [云服务器基本指标信息查看及命令](https://shanyue.tech/op/system-info.html)
 1. [vim 基本操作及配置](https://shanyue.tech/op/vim-setting.html)
 1. [tmux 与多窗口管理](https://shanyue.tech/op/tmux-vim-setting.html)
 1. [ansible 简易入门](https://shanyue.tech/op/ansible-guide.html)
