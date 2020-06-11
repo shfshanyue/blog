@@ -154,7 +154,7 @@ fetch('/api/ping').then(res => {
 })
 ```
 
-另外，`Response API` 既可以可以使用 `TypedArray`，`Blob`，`Text` 作为输入，又可以使用它们作为输出。
+另外，万能的 `Response API` 既可以可以使用 `TypedArray`，`Blob`，`Text` 作为输入，又可以使用它们作为输出。
 
 **这意味着关于这三种数据类型的转换完全可以通过 Response**
 
@@ -239,7 +239,7 @@ function download (url, name) {
 
 ## 二进制数据转换
 
-![二进制数据转换](https://shanyue.tech/post/binary-in-frontend/transform.jpg)
+![二进制相互转换图](./transform.jpg)
 
 以上是二进制数据间的转换图，有一些转换可以直接通过 API，有些则需要代码，以下贴几种常见转换的代码
 
@@ -314,9 +314,11 @@ const json = {
 }
 const str = JSON.stringify(json, null, 2)
 
+// 方案一：Text -> DataURL
 const dataUrl = `data:,${str}`
-const url = URL.createObjectURL(new Blob(str.split('')))
-
 download(dataUrl, 'demo.json')
+
+// 方案二：Text -> Blob -> ObjectURL
+const url = URL.createObjectURL(new Blob(str.split('')))
 download(url, 'demo1.json')
 ```

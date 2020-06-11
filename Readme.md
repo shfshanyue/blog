@@ -67,6 +67,43 @@
 
 更多文章: [Node 实践](https://github.com/shfshanyue/blog/tree/master/node/)
 
+## 虫子集
+
+山月在测试环境及生产环境中遇到的那些有关前端，后端及运维的虫子 (BUG)
+
+## 防虫器
+
++ [谈测试]()
++ [当生产出现问题时如何定位]()
++ [如何得知 develop 分支是一个干净的分支]()
++ [如何回滚服务]()
++ [如何快速定位异常]()
++ [如何优化慢接口]()
+
+## 虫卵集
+
++ [koa 中的 ctx.req 与 ctx.request]()
++ [Clipboard API 与 devtools 问题]()
++ [df 被 hang 住，无法查看磁盘使用情况](./bug/df-hang.md)
+
+## 幼虫集
+
++ [上游服务不存在或未响应](./bug/upstream.md)
++ [Vary: Origin 与 cors]()
+
+## 羽化集
+
+> 生产环境中的一些性能优化
+
++ [ORM 层分页查询过慢优化](./bug/perf-orm-pagination.md)
+
+## 成虫集
+
++ [最新手机号无法注册问题]()
++ [node 8 -> node 10]()
++ [循环引用所造成的 OOM]()
++ [上线未生效](上线未生效)
+
 ## 技术中的用户增长手段
 
 + [使用 wechaty 实现一个疫情机器人](https://shanyue.tech/growth/wechaty.html)
@@ -169,13 +206,15 @@
 + [前端如何在业务中提升自己](https://shanyue.tech/business/learn-in-business.html)
 + [如何为测试环境制造假数据](https://shanyue.tech/business/dev-data-create.html)
 
-## 技术反思分享
+## 杂记
+
+### 技术反思分享
 
 > 以下都是关于技术思考的文章分享
 
 1. [10 Things Every Developer Should Learn](https://medium.com/better-programming/10-things-every-developer-should-learn-72697ed5d94a) · [中文翻译](https://mp.weixin.qq.com/s?__biz=MjM5NTk4MDA1MA==&mid=2458073334&idx=2&sn=0d0c3f9552c1632baa3f25a46e0d28d1&chksm=b187ae8b86f0279d0482bbfd98dfaa579b451c44754c8b1ed1b33151de9803691c4fe59e3757&token=1024506330&lang=zh_CN#rd)
 
-## 后端
+### 后端
 
 1. [各种架构图乱七八糟的图索引](https://github.com/shfshanyue/graph)
 1. [linux 性能监控指标速查](https://shanyue.tech/op/linux-monitor)
@@ -198,7 +237,7 @@
 1. [从数据库到前端，使用 enum 代替 constant number](https://shanyue.tech/post/constant-db-to-client.html)
 1. [SQL必知必会](https://shanyue.tech/post/sql-examples.html)
 
-## 前端
+### 前端
 
 1. [JS 调试问题汇总及示例](https://shanyue.tech/post/js-debug-examples/)
 1. [如何实现 Promise 的限流](https://shanyue.tech/code/Promise/)
@@ -210,7 +249,7 @@
 1. [使用 Grid 进行常见布局](https://shanyue.tech/post/Grid-Layout-Common-Usage/)
 1. [浏览器中的二进制以及相互转化](https://shanyue.tech/post/binary-in-frontend/)
 
-## 工具与增效
+### 工具与增效
 
 1. [vim 快速入门](https://shanyue.tech/post/vim-quick-start.html)
 1. [是谁动了我的代码](https://shanyue.tech/post/git-tips.html)
