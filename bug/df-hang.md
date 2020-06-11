@@ -1,35 +1,36 @@
-# 上游服务不存在或未响应
+date: 2020-04-10 20:00
+
+--- 
+
+# df 被 hang 住，无法查看磁盘使用情况
 
 ## 情景再现
 
-当日产品反馈在测试环境中某个请求变红 (status code: 400)
+在 `centos7` 中，当使用 `df` 命令查看磁盘空间时被 hang 住，时隔两周决定处理这个问题
 
 ## 捉虫
 
-1. 该请求为 GET，拿到 curl 进行多次重放，bug 复现
-1. sentry 顺利接收异常，获取到错误码
-1. 异常为自定义异常，未携带原始异常 (originalError)
-1. 在本地启动后端服务，curl 重放，bug 复现
-1. **检索代码**，根据路由及错误码定位到异常位置: 一个请求考试服务(内部服务)的接口
-1. 打印该考试服务异常请求的 http request/response，reponse 为 502，上游服务不存在
+1. `df` 命令 `hanging`
+1. `strace df`，查看系统调用，发现阻塞在了 `stat("/proc/sys/fs/binfmt_misc")`
+1. `mount | grep binfmt`，查看挂载情况，输出 `systemd-1 on /proc/sys/fs/binfmt_misc type autofs (rw,relatime,fd=31,pgrp=1,timeout=300,minproto=5,maxproto=5,direct)
+`
+### 补充知识
+
+1. `df`: 查看磁盘使用情况
+1. `strace`: 查看某命令的系统调用
 
 ## 原因
 
-内部服务无疑应该是最健壮最稳定的服务，为什么会不存在？
-
-**原因是该考试服务对个别业务后端开启了分支环境，通过在 k8s 中为分支新建 service 来部署，而这些业务后端直接请求考试服务的分支环境。**
-
-而运维同学在近一天中清理了测试环境许多无用的分支环境（避免过多资源消耗），造成误杀。
+`proc-sys-fs-binfmt_misc.automount` 与 `proc-sys-fs-binfmt_misc.mount` 这两个之间存在竞争条件
 
 ## 解决
 
-对考试服务切对应分支，git push，CICD 中自动部署分支环境，解决问题。
+``` bash
+$ systemctl restart proc-sys-fs-binfmt_misc.mount
+```
 
-## 反思
+### 参考
 
-从定位到解决问题，花费了近两个小时，而排查时间本可以更短。
-
-**而瓶颈处在于需要在本地调试服务，检索代码，定位异常，这大大加大了排查问题的时间**
-
-直接原因是自定义异常中丢失了原始异常信息(originalError)，从而丢失了上下文信息，如 uri/request/response，需要在本地调试来获取这些丢失的上下文
-
+1. [解决CentOS 7 df命令卡住问题](https://www.jianshu.com/p/7e71b5248cb3)
+1. [why is df hanging](https://unix.stackexchange.com/questions/21199/why-is-df-hanging)
+1. [centos7 系统 df hang 问题处理说明](https://www.colabug.com/2018/0607/3072371/)
