@@ -1,3 +1,7 @@
+date: 2019-08-20 19:00
+
+---
+
 # 如何能够快速了解新业务
 
 最近接触新业务较多，关于了解新业务有一点感想，总结如下
@@ -144,9 +148,3 @@ select type, count(*) from business group by type order by count desc
 
 > 如果没有接入数据系统怎么办?
 > 参考上一条，手动查 SQL
-
-<hr/>
-
-欢迎关注我的公众号**山月行**，在这里记录着我的技术成长，欢迎交流
-
-![欢迎关注公众号山月行，在这里记录我的技术成长，欢迎交流](https://shanyue.tech/qrcode.jpg)
