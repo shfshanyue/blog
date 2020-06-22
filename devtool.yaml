@@ -40,6 +40,11 @@
   href: https://codemirror.net/
   labels:
     - editor
+- name: drawio with VSCode
+  href: https://codemirror.net/
+  labels:
+    - editor
+    - dev
 - name: Node ES+ Support
   href: https://node.green/
   labels:
