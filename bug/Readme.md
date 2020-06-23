@@ -13,11 +13,17 @@
 
 ## 虫卵集
 
+> 发生在开发环境的问题
+
 + [koa 中的 ctx.req 与 ctx.request]()
 + [Clipboard API 与 devtools 问题]()
 + [df 被 hang 住，无法查看磁盘使用情况](./df-hang.md)
++ [k8s 部署 ES 时，挂载目录权限问题](./es-failed.md)
++ [npm package missing file]()
 
 ## 幼虫集
+
+> 发生在测试环境的问题
 
 + [上游服务不存在或未响应](./upstream.md)
 + []()
@@ -25,11 +31,13 @@
 
 ## 羽化集
 
-> 生产环境中的一些性能优化
+> 关于生产环境的性能优化
 
 + [ORM 层分页查询过慢优化](./perf-orm-pagination.md)
 
 ## 成虫集
+
+> 关于生产环境中的问题
 
 + [最新手机号无法注册问题]()
 + [node 8 -> node 10]()

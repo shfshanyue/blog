@@ -106,7 +106,8 @@
 
 ## 技术中的用户增长手段
 
-+ [使用 wechaty 实现一个疫情机器人](https://shanyue.tech/growth/wechaty.html)
++ [如何使用 wechaty 开发一个微信机器人](https://shanyue.tech/growth/wechaty-start.html)
++ [如何使用公众号开发从 PC 端网站引流](https://shanyue.tech/op/blog-to-wechat.html)
 + [使用公众号开发进行网站向公众号的导流](https://shanyue.tech/op/blog-to-wechat.html)
 
 更多文章: [用户增长](https://github.com/shfshanyue/blog/tree/master/growth/)
@@ -228,7 +229,6 @@
 1. [Node 中的异常收集，结构化与监控](https://shanyue.tech/post/server-structed-error.html)
 1. [谈谈 Redis 在项目中的常见使用场景](./post/redis-case)
 1. [项目实践: 使用微信公众号开发模拟面试功能](https://shanyue.tech/op/wechat-interview.html)
-1. [黑客增长: 如何把用户从博客引到公众号](https://shanyue.tech/op/blog-to-wechat.html)
 1. [Sequelize V5 升级记录及注意事项](https://shanyue.tech/post/sequelize-upgrade.html)
 1. [如何判断文件中换行符 LF(\n) 与 CRLF(\r\n)](https://shanyue.tech/post/LF-CRLF.html)
 1. [两个由于 async/await 导致 OOM 的示例](https://shanyue.tech/post/async-oom.html)
