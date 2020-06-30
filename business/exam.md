@@ -359,9 +359,11 @@ docker run -e "MAX_QUEUE_LENGTH=10 MAX_CONCURRENT_SESSIONS=10" -p 3000:3000 --re
 
 ## 总结
 
+### 技术栈要求
+
 ### 技术重难点
 
-### 业务关键点
-
 ### 业务梳理
+
+### 业务关键点
 

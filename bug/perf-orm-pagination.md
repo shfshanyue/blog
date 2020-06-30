@@ -16,7 +16,7 @@ date: 2020-04-10 14:00
 
 ## 捉虫
 
-![通过 requestId 找到对应的慢 SQL](./elk-db-low-query.png)
+![通过 requestId 找到对应的慢 SQL](./assets/elk-db-low-query.png)
 
 该 API 请求资源 `Practice` 分页数据，在 `ORM` 层使用了 `sequelize`，并通过 `findAndCountAll` 获取资源总数及列表。
 
