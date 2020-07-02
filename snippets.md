@@ -126,19 +126,6 @@
 
 ---
 
-## 更多招聘信息
-
-> 如果你觉得准备地不够充分，可以**点击阅读原文查看更多面试题分享**
-
-扫码添加我的微信，一定要**备注面试**，进入面试群，或者与我交流。
-
-![加我微信拉你进入面试交流群](https://shanyue.tech/wechat.jpeg)
-
-关注该公众号接收各大厂招聘信息，直达大厂负责人。如果你是技术负责人，欢迎投递内推信息。
-
-![更多大厂招聘，面试面经，技能要求，请关注公众号【互联网大厂招聘】](http://mmbiz.qpic.cn/mmbiz_jpg/w7L7YMmnfhic7ooecF6PU5cGlHoakmTNBwKXf6VCC5TfAiagrmiahQ2kFxYLibPYgicicWsEgAFwsOrrOS16Bw2eml0w/0)
-
-
 ---
 
 > 为了不浪费彼此的时间，这里为你准备了一份内推前面试题。如果你自己感觉在以下面试题中可以答对一半，请直接联系我(**wechat: Mustard_Sir**)进行内推
@@ -149,13 +136,40 @@
 
 扫码添加我的微信，备注进群，加入高级前端进阶群
 
-![加我微信拉你进入面试交流群](https://shanyue.tech/wechat.jpeg)
+<figure>
+  <img width="240" src="https://user-gold-cdn.xitu.io/2020/6/29/172fe14e18d2b38c?w=430&h=430&f=jpeg&s=38173" alt="加我微信拉你进入面试交流群">
+  <figcaption>加我微信拉你进入面试交流群</figcaption>
+</figure>
 
-另外，欢迎关注公众号 【互联网大厂招聘】 接收各大厂招聘信息，直达大厂负责人。如果你是技术负责人，欢迎投递内推信息。
+欢迎关注公众号【互联网大厂招聘】，定时推送大厂内推信息及面试题简答，**每天学习五分钟，半年进入大厂中**
 
-![更多大厂招聘，面试面经，技能要求，请关注公众号【互联网大厂招聘】](http://mmbiz.qpic.cn/mmbiz_jpg/w7L7YMmnfhic7ooecF6PU5cGlHoakmTNBwKXf6VCC5TfAiagrmiahQ2kFxYLibPYgicicWsEgAFwsOrrOS16Bw2eml0w/0)
+<figure>
+  <img width="240" src="https://user-gold-cdn.xitu.io/2020/6/30/17302a9e47a3a422?w=430&h=430&f=webp&s=7634" alt="更多大厂招聘，面试面经，技能要求，请关注公众号【互联网大厂招聘】">
+  <figcaption>每天五分钟，半年大厂中</figcaption>
+</figure>
 
+# 关注我
+
+扫码添加我的微信，备注进群，加入高级前端进阶群
+
+<figure>
+  <img width="240" src="https://user-gold-cdn.xitu.io/2020/6/29/172fe14e18d2b38c?w=430&h=430&f=jpeg&s=38173" alt="加我微信拉你进入面试交流群">
+  <figcaption>加我微信拉你进入面试交流群</figcaption>
+</figure>
+
+欢迎关注公众号【全栈成长之路】，定时推送 Node 原创及全栈成长文章
+
+<figure>
+  <img width="240" src="https://shanyue.tech/qrcode.jpg" alt="加我微信拉你进入面试交流群">
+  <figcaption>加我微信拉你进入面试交流群</figcaption>
+</figure>
 
 ---
+
+这是 **[山月七八月原创计划](https://mp.weixin.qq.com/s?__biz=MjM5NTk4MDA1MA==&mid=2458074149&idx=1&sn=b041b2f96c7584ba91eaf068d94db43f&chksm=b187aa5886f0234e92c8bce3fba7801025b1a2b350a56999bd2f7c6872ef1b7f726407b071b5&token=579177530&lang=zh_CN#rd)** 中的**第一篇**文章，简述了如何监控 Node 服务的内存。
+
+我将在接下来的时间完成 Node 系列及 GraphQL 系列的创作
+
+
 
 > 为了不浪费彼此的时间，这里为你准备了一份内推前面试题。如果你自己感觉在以下面试题中可以答对一半，请直接联系我(**wechat: Mustard_Sir**)进行内推

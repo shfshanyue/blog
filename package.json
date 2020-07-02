@@ -30,6 +30,7 @@
     "dayjs": "^1.8.16",
     "graphql": "^14.5.8",
     "graphql-tag": "^2.10.1",
+    "koa": "^2.13.0",
     "promise-limit": "^2.7.0",
     "vuepress-plugin-sitemap": "^2.3.0"
   }
