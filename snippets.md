@@ -101,7 +101,7 @@
 
 ## 日问
 
-> 本文收录于 GitHub 日问: [DailyQuestion](https://github.com/shfshanyue/Daily-Question)，内含大厂内推机会、面经大全及若干面试题，每天学习五分钟，一年进入大肠中。
+> 本文收录于 GitHub 日问: [DailyQuestion](https://github.com/shfshanyue/Daily-Question)，内含大厂内推机会、面经大全及若干面试题，每天学习五分钟，一年进入大厂中。
 > 
 > + [大厂面经大全](https://github.com/shfshanyue/Daily-Question#%E5%A4%A7%E5%8E%82%E9%9D%A2%E7%BB%8F)
 > + [大厂内推](https://q.shanyue.tech/infer/toutiao-media-arch.html)
