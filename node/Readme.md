@@ -5,6 +5,7 @@ Node 做服务端开发时，你要了解的这些事
 + [Node实践源码篇: 40 行代码实现精简版 koa](./koa.md)
 + [Node实践代码篇: 为你的应用添加单元测试 (WIP)](./test.md)
 + [Node实践日志篇: 异步资源监听与 CLS 实现](./cls.md)
++ [Node实践监控篇: 如何监控 Node 服务的内存](./mem.md)
 
 
 ## TODO

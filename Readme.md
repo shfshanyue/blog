@@ -64,6 +64,7 @@
 + [Node实践源码篇: 40 行代码实现精简版 koa](https://shanyue.tech/node/koa.html)
 + [Node实践日志篇: 异步资源监听与 CLS 实现](https://shanyue.tech/node/cls.html)
 + [Node实践代码篇: 为你的应用添加单元测试 (WIP)](https://shanyue.tech/node/test.html)
++ [Node实践监控篇: 如何监控 Node 服务的内存](https://shanyue.tech/node/mem.html)
 
 更多文章: [Node 实践](https://github.com/shfshanyue/blog/tree/master/node/)
 
