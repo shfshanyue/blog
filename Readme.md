@@ -19,9 +19,9 @@
 
 ### Maintainer
 
-+ [shfshanyue/cls-session (npm)](https://github.com/shfshanyue/cls-session): Node 类似 CLS 的实现，并避免了 Promise 在 async_hooks 中内存泄漏问题
-+ [shfshanyue/promise-map (npm)](https://github.com/shfshanyue/promise-map): Map over promises concurrently and support promise.allsettled
-+ [shfshanyue/serverless-http (npm, serverless component)](https://github.com/shfshanyue/serverless-http): Serverless Http Component for Tencent Cloud
++ [cls-session (npm)](https://github.com/shfshanyue/cls-session): Node 类似 CLS 的实现，并避免了 Promise 在 async_hooks 中内存泄漏问题
++ [@shanyue/promise-utils (npm)](https://github.com/shfshanyue/promise-utils): 一些有用的 promise 工具函数，如 map, filter, retry 与 sleep
++ [we-api (npm)](https://github.com/shfshanyue/we-api): 关于微信公众号 API 封装的 SDK，支持 TS，更好用的 API
 + [shfshanyue/whoami (docker)](https://github.com/shfshanyue/whoami): Tiny node.js webserver that prints os information and HTTP request to output
 + [shfshanyue/serverless-template-zh (serverless templates)](https://github.com/shfshanyue/serverless-template-zh): 中国云厂商 serverless framework 模板及示例 （更快的访问速度）
 + [shfshanyue/ansible-op (ansible role)](https://github.com/shfshanyue/ansible-op): 个人服务器运维脚本
@@ -72,7 +72,7 @@
 
 山月在测试环境及生产环境中遇到的那些有关前端，后端及运维的虫子 (BUG)
 
-## 防虫器
+### 防虫器
 
 + [谈测试]()
 + [当生产出现问题时如何定位]()
@@ -81,24 +81,24 @@
 + [如何快速定位异常]()
 + [如何优化慢接口]()
 
-## 虫卵集
+### 虫卵集
 
 + [koa 中的 ctx.req 与 ctx.request]()
 + [Clipboard API 与 devtools 问题]()
 + [df 被 hang 住，无法查看磁盘使用情况](./bug/df-hang.md)
 
-## 幼虫集
+### 幼虫集
 
 + [上游服务不存在或未响应](./bug/upstream.md)
 + [Vary: Origin 与 cors]()
 
-## 羽化集
+### 羽化集
 
 > 生产环境中的一些性能优化
 
 + [ORM 层分页查询过慢优化](./bug/perf-orm-pagination.md)
 
-## 成虫集
+### 成虫集
 
 + [最新手机号无法注册问题]()
 + [node 8 -> node 10]()
