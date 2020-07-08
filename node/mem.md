@@ -138,6 +138,54 @@ $ htop -p 31796
 
 ![使用 htop 监控内存](./assets/htop-pid.png)
 
+## 内存监控原理
+
+无论使用 `top/htop`，`pidstat` 及 `process.memoryUsage` 监控 Node 进程的内存，在 `linux` 中，其原理都是监听 `procfs` 文件变化
+
++ `cat /proc/100/stat`: 100 号进程的信息，以机器读的格式输出
++ `cat /proc/100/status`: 100 好进程的信息，以可读的格式输出
+
+``` bash
+# machine-readable
+$ cat /proc/100/stat
+100 (kauditd) S 2 0 0 0 -1 2105408 0 0 0 0 0 3455 0 0 20 0 1 0 63 0 0 18446744073709551615 0 0 0 0 0 0 0 2147483647 0 18446744072255378100 0 0 17 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+# human-readable
+$ cat /proc/100/status
+Name:   kauditd
+Umask:  0000
+State:  S (sleeping)
+Tgid:   100
+Ngid:   0
+Pid:    100
+PPid:   2
+TracerPid:      0
+Uid:    0       0       0       0
+Gid:    0       0       0       0
+FDSize: 64
+Groups:
+Threads:        1
+SigQ:   0/63460
+SigPnd: 0000000000000000
+ShdPnd: 0000000000000000
+SigBlk: 0000000000000000
+SigIgn: ffffffffffffffff
+SigCgt: 0000000000000000
+CapInh: 0000000000000000
+CapPrm: 0000001fffffffff
+CapEff: 0000001fffffffff
+CapBnd: 0000001fffffffff
+CapAmb: 0000000000000000
+Seccomp:        0
+Speculation_Store_Bypass:       vulnerable
+Cpus_allowed:   3
+Cpus_allowed_list:      0-1
+Mems_allowed:   00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001
+Mems_allowed_list:      0
+voluntary_ctxt_switches:        2353755
+nonvoluntary_ctxt_switches:     26
+```
+
 ## 生产环境内存监控
 
 由于目前生产环境大都部署在 `k8s`，**因此生产环境对于某个应用的内存监控本质上是 k8s 对于某个 `workload/deployment` 的内存监控**，关于内存监控 `metric` 的数据流向大致如下:
@@ -164,7 +212,7 @@ $ htop -p 31796
 
 本章介绍了关于 Node 服务的内存在本地环境及生产环境的监控
 
-1. 本地使用 `htop/top` 或者 `pidstat` 监控进程内存
+1. 本地使用 `htop/top` 或者 `pidstat` 监控进程内存及其原理
 1. 生产环境使用 `k8s/metric-server/prometheus/grafana` 监控 node 整个应用的内存
 
 当监控到某一服务发生内存泄漏后，如何解决问题？因此接下来的文章将会讲到
