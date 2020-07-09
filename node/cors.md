@@ -71,7 +71,7 @@ app.use(cors())
 
 ## CORS 如何设置多域名
 
-由上，貌似很简单，只需要服务端设置一下 `app.use(cors())` 就可以轻松解决问题，但其中的坑有可能比你想象地要多很多！
+由上，貌似很简单，只需要服务端设置一下 `Access-Control-Allow-Origin` 就可以轻松解决问题，但其中的坑有可能比你想象地要多很多！
 
 先说回 `Access-Control-Allow-Origin`，它所允许的值只有两个
 
