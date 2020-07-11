@@ -82,7 +82,9 @@ app.use(cors())
 
 > [CORS 如果需要指定多个域名怎么办](https://q.shanyue.tech/base/http/364.html)
 
-这个问题需要写代码来解决，根据请求头中的 Origin 来设置响应头 `Access-Control-Allow-Origin`
+**如果使用 `Access-Control-Allow-Origin: *`，则所有的请求不能够携带 `cookie`**，因此这种方案被摈弃。
+
+因此这个问题需要写代码来解决，根据请求头中的 Origin 来设置响应头 `Access-Control-Allow-Origin`
 
 1. 如果请求头不带有 Origin，证明未跨域，则不作任何处理
 1. 如果请求头带有 Origin，证明跨域，根据 Origin 设置相应的 `Access-Control-Allow-Origin: <Origin>`
@@ -146,12 +148,6 @@ func (c *Cors) handleActualRequest(w http.ResponseWriter, r *http.Request) {
 ```
 
 **那此时是不关于 `CORS` 的问题就解决了？从中间件处理层面是这样的，但仍然有一些服务端中间件使用问题及浏览器问题**
-
-## CORS 与 HSTS
-
-```
-Provisional headers are shown
-```
 
 ## CORS 中间件及异常处理中间件
 
