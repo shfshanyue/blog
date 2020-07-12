@@ -8,6 +8,7 @@
 1. [前端高级进阶：使用 docker 高效部署你的前端应用](./docker.md)
 1. [前端高级进阶：CICD 下的前端多特性分支环境的部署](./feature-deploy.md)
 1. [前端高级进阶：前端部署的发展历程](./deploy.md)
+1. [前端高级进阶：如何为前端本地环境配置 https 证书](./local-https.md)
 
 以下 TODO
 

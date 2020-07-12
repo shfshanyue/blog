@@ -36,6 +36,8 @@
 
 ### Side Project
 
+> 以下项目均部署在我的个人服务器中，详情见 [当我有一台服务器时我做了什么](https://github.com/shfshanyue/op-note)
+
 + [shfshanyue/2019-ncov](https://github.com/shfshanyue/2019-ncov): 全国新型冠状病毒，肺炎疫情实时省市地图，单日 PV 最高48万
 + [shfshanyue/shici](https://github.com/shfshanyue/shici): 诗词小站，服务器容器运维、爬虫及前后端开发可参考我的博客，单日 PV 500 <https://shici.xiange.tech/>
 + [shfshanyue/shici-spider](https://github.com/shfshanyue/shici-server): 诗词小站的爬虫
@@ -61,15 +63,16 @@
 1. [前端高级进阶：使用 docker 高效部署你的前端应用](https://github.com/shfshanyue/blog/tree/master/frontend-engineering/docker.md)
 1. [前端高级进阶：CICD 下的前端多特性分支环境的部署](https://github.com/shfshanyue/blog/tree/master/frontend-engineering/feature-deploy.md)
 1. [前端高级进阶：前端部署的发展历程](https://github.com/shfshanyue/blog/tree/master/frontend-engineering/deploy.md)
+1. [前端高级进阶：本地环境 https 证书配置](https://github.com/shfshanyue/blog/tree/master/frontend-engineering/https-local.md)
 
 更多文章: [前端工程化系列](https://github.com/shfshanyue/blog/tree/master/frontend-engineering/)
 
-## Node 实践
+## Node 工程及实践
 
-+ [Node实践源码篇: 40 行代码实现精简版 koa](https://shanyue.tech/node/koa.html)
-+ [Node实践日志篇: 异步资源监听与 CLS 实现](https://shanyue.tech/node/cls.html)
-+ [Node实践代码篇: 为你的应用添加单元测试 (WIP)](https://shanyue.tech/node/test.html)
-+ [Node实践监控篇: 如何监控 Node 服务的内存](https://shanyue.tech/node/mem.html)
++ [Node实践源码篇: 40 行代码实现精简版 koa](./node/koa.md)
++ [Node实践日志篇: 异步资源监听与 CLS 实现](./node/cls.md)
++ [Node实践代码篇: 为你的应用添加单元测试 (WIP)](./node/test.md)
++ [Node实践监控篇: 如何监控 Node 服务的内存](./node/mem.md)
 
 更多文章: [Node 实践](https://github.com/shfshanyue/blog/tree/master/node/)
 
