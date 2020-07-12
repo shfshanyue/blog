@@ -76,6 +76,10 @@ shanyue-production-69d9884864-vt22t
 + [zipkin](https://zipkin.io/): Zipkin is a distributed tracing system. It helps gather timing data needed to troubleshoot latency problems in service architectures. Features include both the collection and lookup of this data.
 + [jaeger](https://www.jaegertracing.io/): open source, end-to-end distributed tracing
 
+### label
+
+**即日志的类型**，如 SQL、Request、Access、Corn 等
+
 ### userId
 
 **即用户信息**，当然有的服务可能没有用户信息，这个要视后端服务的性质而定。当用户未登录时，以 -1 替代，方便索引。
@@ -119,6 +123,7 @@ function createLogger (label: string) {
   return winston.createLogger({
     defaultMeta: {
       serverName: os.hostname(),
+      // 指定日志类型，如 SQL / Request / Access
       label
     },
     format: format.combine(
@@ -280,7 +285,7 @@ const sequelize = new Sequelize({
 
 `redis` 日志一般来说不是很重要，如果有必要也可以记录。
 
-如果使用 `ioredis` 作为 redis 操作库，可侵入 `Redis.prototype.sendCommand` 来打印日志
+如果使用 `ioredis` 作为 redis 操作库，可侵入 `Redis.prototype.sendCommand` 来打印日志，对 `redis` 进行封装如下
 
 ``` js
 import Redis from 'ioredis'
@@ -303,6 +308,27 @@ Redis.prototype.sendCommand = async function (...options: any[]) {
 export { redis }
 ```
 
+## 微服务请求日志: RequestLog
+
+第三方请求可以通过 `axios` 发送请求，并在 `axios.interceptors` 中拦截请求打印日志。
+
+主要，此时不仅注入了日志，而且注入了 `requestId`，传递给下一个微服务
+
+``` js
+import { requestLogger } from './logger'
+
+axios.interceptors.request.use(function (config) {
+  // Do something before request is sent
+  const message = `${config.method} ${config.url}`
+  requestLogger.info(message, config)
+  // 从 CLS 中获取 RequestId，传递给微服务，组成全链路
+  config.headers['X-Request-Id'] = session.requestId
+  return config
+}, function (error) {
+  return Promise.reject(error)
+})
+```
+
 ## 总结
 
 在一个后端项目中，以下类型需要打日志记录，本篇文章介绍了如何使用 Node 来做这些处理并附有代码
@@ -314,3 +340,4 @@ export { redis }
 + `RedisLog`: 缓存，也有一些非缓存的操作如 `zset` 及分布式锁等
 + `Message Queue Log`: 记录生产消息及消费消息的日志
 + `CronLog`: 记录定时任务执行的时间以及是否成功
++ 关键业务逻辑
