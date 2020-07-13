@@ -122,6 +122,23 @@ date: 2020-06-21 19:32
 
 > 关于考试背后的题库系统，对于教育公司是相当重要的基础支撑服务，可参考我以前的文章分析
 
+## 考试及其用户并发数限制的技术实现
+
+**一些 toB 的产品一般拿机构用户数及用户并发数作为卖点**，机构用户数用一条 SQL 即可实现
+
+而并发数限制可以用 `redis` 中 `zset` 实现，**不过个人感觉并发数限制是个 ROI 低并且费力不讨好的伪需求**
+
+> 此时略有瑕疵，使用 userId 作为标志，可以考虑使用用户端传过来的 `fingerprint`
+
+``` js
+// 当一个用户访问接口时
+await redis.zadd(`Organization:${organizationId}:concurrent`, Date.now(), `User:${userId}`)
+
+// 查询当前机构的并发数
+// 通过查询一分钟内的活跃用户来确认并发数
+const count = await redis.zrangebyscore(`Organization:${organizationId}:concurrent`, Date.now() - 1000 * 60, Date.now())
+```
+
 ## 防作弊，技术、业务与用户(学生)的折中
 
 从中学到大学，每次考试总会听说有几个考试作弊的，对于考试作弊的手段也屡见不鲜。
@@ -203,6 +220,33 @@ ip.cidrSubnet('192.168.1.134/26').contains('192.168.1.190') // true
 
 为了避免学生考试替考，当考生在场外有人替答时，在考场本人的电脑上显示整屏并且醒目的提示语，使得老师巡考时就能够发现该学生作弊。
 
+1. 创建学生答题卡时，在 redis 中存入该答题卡对应的用户 token (答题卡是某学生针对某次考试的唯一记录)
+1. 每次学生答题时，对比 token 是否一致
+
+**当然 `token` 是可以共享的，严格意义上来说也有可能导致并非真正的单设备登录，此时可以替换为 `fingerprint`**
+
+``` js
+// 当创建学生答题卡时，存入该学生的 fingerprint
+await redis.set(`Sheet:1285`, ctx.fingerprint)
+
+// 每次提交答案时，对比此时的 fingerprint 与数据库中是否对应
+const fingerprint = await redis.get(`Sheet:1285`)
+if (ctx.fingerprint !== fingerprint) {
+
+}
+```
+
+#### fingerprint
+
+> 如何在浏览器获取唯一标识 `fingerprint` 呢？
+
+越常见的需求就有越成熟的解决方案，在 github 中可以使用 [fingerprintjs2](https://github.com/fingerprintjs/fingerprintjs2) 来获取浏览器指纹信息，原理根据如下条件判断
+
+1. UserAgent
+1. WebGL
+1. Canvas
+1. 关于新型API的支持程度
+
 ### 避免传答案：AB卷
 
 AB 卷并非指两套不同的卷子，而是指以下两方面的混淆，用以保证每个学生收到的考试卷子都是不一样的
@@ -215,6 +259,16 @@ AB 卷并非指两套不同的卷子，而是指以下两方面的混淆，用�
 ``` js
 _.shuffle([1, 2, 3, 4]);
 ```
+
+### 反作弊：补偿措施
+
+当机器发现学生作弊时，弹出不可作答的界面，如果监考老师发现可以继续作答时
+
+可在教师端进行操作解除限制
+
+1. 清空离屏次数
+1. 清空离屏时间
+1. 清空单设备 Fingerprint/Token
 
 ## 答题优化：拍照答题
 
@@ -258,6 +312,12 @@ _.shuffle([1, 2, 3, 4]);
 + 易错项
 + 混淆项
 + 答题轨迹
+
+## 考试报告分析与邮件通知
+
+发送邮件，邮件服务即可。难点在于邮件的样式中
+
+此时可以通过 `juice` 来注入样式
 
 ## 试卷及班级报告 EXCEL/PDF 批量生成
 

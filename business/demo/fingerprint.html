@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script src="https://cdn.bootcdn.net/ajax/libs/fingerprintjs2/2.1.0/fingerprint2.min.js"></script>
+  <script>
+    requestIdleCallback(function () {
+      Fingerprint2.get((components) => {
+        console.log(components) // an array of components: {key: ..., value: ...}
+      })
+    })
+  </script>
+</body>
+</html>
