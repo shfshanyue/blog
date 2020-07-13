@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  hello, world.
+  <script>
+  window.addEventListener('focus', () => console.log('FOCUS'));
+  window.addEventListener('blur', () => console.log('BLUR'));
+
+  window.addEventListener('pageshow', () => console.log('PAGESHOW'));
+  window.addEventListener('pagehide', () => console.log('PAGEHIDE'));
+
+  document.addEventListener('visibilitychange', () => {
+    console.log('VISIBILITY', document.visibilityState)
+  });
+  </script>
+</body>
+</html>

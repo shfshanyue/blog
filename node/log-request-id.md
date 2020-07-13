@@ -71,7 +71,8 @@ app.use('/todos/:id', (ctx) => {
 如下代码中
 
 + `lib/session.ts`: CLS 异步资源存储
-+ `lib/logger.ts`: 全局 logger，可参考上一章 [如何在 Node 中高效地打日志](https://shanyue.tech/node/log.html)
++ `middleware/session.ts`: 关于 requestId 的中间件，从客户端获取 requestId，并存入 CLS 中
++ `lib/logger.ts`: 全局 logger，通过 CLS 注入 requestId，可参考上一章 [如何在 Node 中高效地打日志](https://shanyue.tech/node/log.html)
 
 ``` typescript
 // lib/session.ts
@@ -80,6 +81,18 @@ import { createNamespace } from 'cls-hooked'
 const session = createNamespace('hello, world')
 
 export { session }
+
+// middleware/session.ts
+function session (ctx: KoaContext, next: any) {
+  await session.runPromise(() => {
+    // 获取 requestId
+    const requestId = ctx.header['x-request-id'] || uuid()
+    ctx.res.setHeader('X-Request-ID', requestId)
+    // CLS 中设置 requestId
+    session.set('requestId', requestId)
+    return next()
+  })
+}
 
 // lib/logger.ts
 import winston, { format } from 'winston'
@@ -96,6 +109,7 @@ const logger = winston.createLogger({
     format.json()
   )
 })
+
 ```
 
 如果你使用过 `zipkin`，一款全链路式日志分析工具的话，它其中也是用了 `CLS`

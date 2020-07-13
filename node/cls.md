@@ -2,9 +2,9 @@ date: 2020-04-10 20:00
 
 ---
 
-# 使用 async_hooks 监听异步资源的生命周期
+# async_hooks、Continuation Local Storage 与 Node 中异步资源生命周期监听
 
-> 为什么需要监听异步资源？
+> 在 Node 中为什么需要监听异步资源？
 
 在一个 Node 应用中，异步资源监听使用场景最多的地方在于：
 
@@ -15,10 +15,17 @@ date: 2020-04-10 20:00
 
 ![zipkin 全链路追踪](https://zipkin.io/public/img/web-screenshot.png)
 
-我们来看一个在异常处理中配置用户信息的示例：
+我们来看一个在异常处理中配置用户信息的**错误示例**:
 
 ``` js
 const session = new Map()
+
+app.use((ctx, next) => {
+  // 设置用户信息
+  const user = getUserById()
+  session.set('user', user)
+  await next()
+})
 
 app.use((ctx, next) => {
   try {
@@ -29,15 +36,9 @@ app.use((ctx, next) => {
     // 把 user 上报给异常监控系统
   }
 })
-
-app.use((ctx, next) => {
-  // 设置用户信息
-  const user = getUserById()
-  session.set('user', user)
-})
 ```
 
-当在后端服务全局配置用户信息，以便异常及日志追踪。由于此时采用的 session 是异步的，用户信息极其容易被随后而来的请求而覆盖，那如何正确获取用户信息呢？
+当在后端服务全局配置用户信息，以便异常及日志追踪。**由于此时采用的 session 是异步的，用户信息极其容易被随后而来的请求而覆盖，那如何正确获取用户信息呢？**
 
 ## async_hooks
 
@@ -102,7 +103,7 @@ const asyncHook = async_hooks.createHook({
 
 + `init`: 监听异步资源的创建，在该函数中我们可以获取异步资源的调用链，也可以获取异步资源的类型，这两点很重要。
 + `destory`: 监听异步资源的销毁。要注意 `setTimeout` 可以销毁，而 `Promise` 无法销毁，如果通过 async_hooks 实现 CLS 可能会在这里造成内存泄漏！
-+ `before`: 异步资源回调函数开始执行时
++ `before`: 异步资源回调函数开始执行前
 + `after`: 异步资源回调函数执行后
 
 从以下代码可看出 `before` 及 `after` 的位置
@@ -126,7 +127,7 @@ setTimeout(() => {
 
 调试大法最重要的是调试工具，并且不停地打断点与 Step In 吗？
 
-不，调试大法是 `console.log`。
+不，调试大法是 `console.log`
 
 但如果调试 `async_hooks` 时使用 `console.log` 就会出现问题，因为 `console.log` 也属于异步资源: `TickObject`。那 `console.log` 有没有替代品呢？
 
@@ -167,12 +168,31 @@ async_hooks.createHook({
 
 > Continuation-local storage works like thread-local storage in threaded programming, but is based on chains of Node-style callbacks instead of threads. 
 
-`CLS` 是存在于异步资源生命周期的一个键值对存储，对于在同一异步资源中将会维护一份数据，而不会被其它异步资源所修改。社区中有许多优秀的实现，而在高版本的 Node (>=8.2.1) 可直接使用 `async_hooks` 实现。
+`CLS` 是存在于异步资源生命周期的一个键值对存储，对于在同一异步资源中将会维护一份数据，而不会被其它异步资源所修改。
+
+**社区中有许多优秀的实现，而在高版本的 Node (>=8.2.1) 可直接使用 `async_hooks` 实现。目前 Node (>10.0.0) 中，`async_hooks` 可直接使用在生产环境，我们已将几乎所有的Node 服务接入了基于 `async_hooks` 实现的 CLS: `cls-hooked`。**
+
+社区中最流行的两种实现如下：
 
 + [node-continuation-local-storage](https://github.com/othiym23/node-continuation-local-storage): implementation of https://github.com/joyent/node/issues/5243
 + [cls-hooked](https://github.com/jeff-lewis/cls-hooked): CLS using AsynWrap or async_hooks instead of async-listener for node 4.7+
 
-而我自己使用 `async_hooks` 也实现了一个 CLS: [cls-session](https://github.com/shfshanyue/cls-session]
+以下是关于读写值的最简示例：
+
+``` js
+const createNamespace = require('cls-hooked').createNamespace
+const session = createNamespace('shanyue case')
+
+session.run(() => {
+  session.set('a', 3)
+  setTimeout(() => {
+    // 获取值
+    session.get('a')
+  }, 1000)
+})
+```
+
+我自己也使用 `async_hooks` 也实现了一个类似 CLS 功能的库: [cls-session](https://github.com/shfshanyue/cls-session]
 
 ``` js
 const Session = require('cls-session')
@@ -199,10 +219,67 @@ timeout(3)
 // 3
 ```
 
+## cls-hooked 与 session 中间件
+
+为了在 `Node` 中全局异步资源获取 Context 信息更加方便，一般会在 `logger` 中加入 `requestId` 以及 `userId`。
+
+以下是利用 `cls-hooked` 存储 `userId` 的 `koa` 中间件示例
+
+``` js
+function session (ctx: KoaContext, next: any) {
+  await session.runPromise(() => {
+    // 获取 requestId
+    const requestId = ctx.header['x-request-id'] || uuid()
+    const userId = await getUserIdByCtx()
+
+    ctx.res.setHeader('X-Request-ID', requestId)
+    // CLS 中设置 requestId/userId
+
+    session.set('requestId', requestId)
+    session.set('userId', userId)
+    return next()
+  })
+}
+```
+
+## AsyncLocalStorage
+
+由于 `CLS` 的呼声实在过高，呼吁官方实现类似 API，于是 `ALS` 就在 `node v13.10.0` 之后的版本实现了，与 `CLS` 功能类似，但是 API 有微弱的差别
+
+以下是关于读写值的最简示例：
+
+``` js
+const store = { userId: 10086 }
+// 设置值
+asyncLocalStorage.run(store, () => {
+  // 获取值
+  asyncLocalStorage.getStore()
+})
+```
+
+写一个 `koa` 的中间件如下所示
+
+``` js
+const { AsyncLocalStorage } = require('async_hooks')
+
+const asyncLocalStorage = new AsyncLocalStorage()
+
+function session (ctx: KoaContext, next: any) {
+  const requestId = ctx.header['x-request-id'] || uuid()
+  const userId = await getUserIdByCtx()
+  const context = { requestId, userId }
+  await asyncLocalStorage.run(context, () => {
+    return next()
+  })
+}
+```
+
 ## 小结
 
 本篇文章讲解了异步资源监听的使用场景及实现方式，可总结为以下三点：
 
 1. CLS 是基于异步资源生命周期的存储，可通过 async_hooks 实现
-1. 开启 async_hooks 后，每一个异步资源都有一个 asyncId 与 trigerAsyncId，通过二者可查知异步调用关系
-1. CLS 常用场景在异常监控及全链路式日志处理中
+1. Promise 无 `destroy()` 生命周期，需要注意内存泄漏，必要时可与 `lru-cache` 结合
+1. 开启 `async_hooks` 后，每一个异步资源都有一个 asyncId 与 trigerAsyncId，通过二者可查知异步调用关系
+1. CLS 常用场景在异常监控及全链路式日志处理中，目前可以使用基于 `async_hooks` 的 `cls-hooked` 作为 CLS 实现
+1. 在 `node13.10` 之后官方实现了 `ALS`
