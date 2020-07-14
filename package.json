@@ -18,20 +18,20 @@
   },
   "homepage": "https://github.com/shfshanyue/blog#readme",
   "devDependencies": {
-    "@vuepress/plugin-google-analytics": "^1.2.0",
-    "npm-check-updates": "^3.1.25",
-    "vuepress": "^1.2.0",
+    "@vuepress/plugin-google-analytics": "^1.5.2",
+    "npm-check-updates": "^7.0.1",
+    "vuepress": "^1.5.2",
     "vuepress-plugin-feed": "^0.1.8"
   },
   "dependencies": {
     "@types/graphql": "^14.5.0",
-    "axios": "^0.19.0",
-    "bluebird": "^3.5.5",
-    "dayjs": "^1.8.16",
-    "graphql": "^14.5.8",
-    "graphql-tag": "^2.10.1",
+    "axios": "^0.19.2",
+    "bluebird": "^3.7.2",
+    "dayjs": "^1.8.29",
+    "graphql": "^15.3.0",
+    "graphql-tag": "^2.10.4",
     "koa": "^2.13.0",
     "promise-limit": "^2.7.0",
-    "vuepress-plugin-sitemap": "^2.3.0"
+    "vuepress-plugin-sitemap": "^2.3.1"
   }
 }
