@@ -283,12 +283,15 @@ ip.cidrSubnet('192.168.1.134/26').contains('192.168.1.190') // true
 **当然 `token` 是可以共享的，严格意义上来说也有可能导致并非真正的单设备登录，此时可以替换为 `fingerprint`**
 
 ``` js
+// 获取浏览器的指纹信息与用户的 token，共同组成 fingerprint
+const fp = ctx.fingerprint + ctx.token
+
 // 当创建学生答题卡时，存入该学生的 fingerprint
-await redis.set(`Sheet:1285`, ctx.fingerprint)
+await redis.set(`Sheet:1285`, fp)
 
 // 每次提交答案时，对比此时的 fingerprint 与数据库中是否对应
-const fingerprint = await redis.get(`Sheet:1285`)
-if (ctx.fingerprint !== fingerprint) {
+const lastFp = await redis.get(`Sheet:1285`)
+if (fp !== lastFp) {
 
 }
 ```
