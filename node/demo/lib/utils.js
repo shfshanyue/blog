@@ -1,7 +1,2 @@
-console.log('Utils: ', module)
+console.log('Utils: ')
 
-module.exports = function() {}
-
-setTimeout(() => {
-  console.log('Utils: ', module)
-})

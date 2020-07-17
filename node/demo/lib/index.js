@@ -1,3 +1,4 @@
-console.log('Index', module)
-
 require('./utils')
+require('./utils')
+
+console.log(require)
