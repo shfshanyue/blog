@@ -1,3 +1,8 @@
 const fs = require('fs')
 
-console.log(require)
+require('axios')
+
+require('./utils')
+require('./utils')
+
+console.log(module)

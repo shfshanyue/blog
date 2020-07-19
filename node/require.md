@@ -1,6 +1,6 @@
 # Node 中如何引入一个模块及其细节
 
-在 `node` 环境中，有两个内置的全局变量无需引入即可直接使用，并且无处不见，它们构成了 `nodejs` 的模块体系: `module` 与 `require`
+在 `node` 环境中，有两个内置的全局变量无需引入即可直接使用，并且无处不见，它们构成了 `nodejs` 的模块体系: `module` 与 `require`。以下是一个简单的示例
 
 ``` js
 const fs = require('fs')
@@ -14,11 +14,38 @@ module.exports = add
 
 1. 如何在不重启应用时热加载模块？如 `require` 一个 json 文件时会产生缓存，但是重写文件时如何 `watch`
 1. 如何通过不侵入代码进行打印日志
-1. 循环引用会产生什么问题？由此产生的 OOM 问题如何解决
+1. 循环引用会产生什么问题？
+
+## module wrapper
+
+当我们使用 `node` 中写一个模块时，实际上该模块被一个函数包裹，如下所示:
+
+``` js
+(function(exports, require, module, __filename, __dirname) {
+  // 所有的模块代码都被包裹在这个函数中
+  const fs = require('fs')
+
+  const add = (x, y) = x + y
+
+  module.exports = add
+});
+```
+
+因此在一个模块中自动会注入以下变量：
+
++ `exports`
++ `require`
++ `module`
++ `__filename`
++ `__dirname`
 
 ## module
 
-假设有两个文件 `index.js`
+调试最好的办法就是打印，我们想知道 `module` 是何方神圣，那就把它打印出来！
+
+``` js
+
+```
 
 ## module.exports 与 exports
 

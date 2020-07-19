@@ -1,4 +1,4 @@
-# 在 Node 中 require 时发生了什么
+# 在 Node 中引入一个模块时发生了什么
 
 ``` js
 const fs = require('fs')
@@ -11,12 +11,88 @@ const _ = require('lodash')
 ``` js
 (function(exports, require, module, __filename, __dirname) {
   // 所有的模块代码都被包裹在这个函数中
+  const fs = require('fs')
+  const _ = require('lodash')
 });
 ```
 
 ``` js
-Module.require (<node_internals>/internal/modules/cjs/loader.js:1019)
-require (<node_internals>/internal/modules/cjs/helpers.js:72)
+require('internal/modules/cjs/loader').Module.runMain(process.argv[1]);
+```
+
+``` js
+Module._extensions['.js'] = function(module, filename) {
+  if (filename.endsWith('.js')) {
+    const pkg = readPackageScope(filename);
+    // Function require shouldn't be used in ES modules.
+    if (pkg && pkg.data && pkg.data.type === 'module') {
+      const parentPath = module.parent && module.parent.filename;
+      const packageJsonPath = path.resolve(pkg.path, 'package.json');
+      throw new ERR_REQUIRE_ESM(filename, parentPath, packageJsonPath);
+    }
+  }
+  const content = fs.readFileSync(filename, 'utf8');
+  module._compile(content, filename);
+};
+```
+
+``` js
+Module.prototype._compile = function(content, filename) {
+  let moduleURL;
+  let redirects;
+  if (manifest) {
+    moduleURL = pathToFileURL(filename);
+    redirects = manifest.getRedirector(moduleURL);
+    manifest.assertIntegrity(moduleURL, content);
+  }
+
+  maybeCacheSourceMap(filename, content, this);
+  const compiledWrapper = wrapSafe(filename, content, this);
+
+  var inspectorWrapper = null;
+  if (getOptionValue('--inspect-brk') && process._eval == null) {
+    if (!resolvedArgv) {
+      // We enter the repl if we're not given a filename argument.
+      if (process.argv[1]) {
+        try {
+          resolvedArgv = Module._resolveFilename(process.argv[1], null, false);
+        } catch {
+          // We only expect this codepath to be reached in the case of a
+          // preloaded module (it will fail earlier with the main entry)
+          assert(ArrayIsArray(getOptionValue('--require')));
+        }
+      } else {
+        resolvedArgv = 'repl';
+      }
+    }
+
+    // Set breakpoint on module start
+    if (resolvedArgv && !hasPausedEntry && filename === resolvedArgv) {
+      hasPausedEntry = true;
+      inspectorWrapper = internalBinding('inspector').callAndPauseOnStart;
+    }
+  }
+  const dirname = path.dirname(filename);
+  const require = makeRequireFunction(this, redirects);
+  let result;
+  const exports = this.exports;
+  const thisValue = exports;
+  const module = this;
+  if (requireDepth === 0) statCache = new Map();
+  if (inspectorWrapper) {
+    result = inspectorWrapper(compiledWrapper, thisValue, exports,
+                              require, module, filename, dirname);
+  } else {
+    result = compiledWrapper.call(thisValue, exports, require, module,
+                                  filename, dirname);
+  }
+  hasLoadedAnyUserCJSModule = true;
+  if (requireDepth === 0) statCache = null;
+  return result;
+};
+```
+
+``` js
 <anonymous> (/root/Documents/blog/node/demo/require/index.js:1)
 Module._compile (<node_internals>/internal/modules/cjs/loader.js:1138)
 Module._extensions..js (<node_internals>/internal/modules/cjs/loader.js:1158)
@@ -109,4 +185,15 @@ Module._load = function(request, parent, isMain) {
 
   return module.exports;
 };
+```
+
+``` js
+function loadNativeModule(filename, request) {
+  const mod = NativeModule.map.get(filename);
+  if (mod) {
+    debug('load native module %s', request);
+    mod.compileForPublicLoader();
+    return mod;
+  }
+}
 ```
