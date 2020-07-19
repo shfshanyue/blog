@@ -19,14 +19,15 @@ Node 做服务端开发时，你要了解的这些事
 + [Node实践交互篇: 客户端与服务端是数据交互之body-parser](./body.md) TODO:
 + [Node实践交互篇: 客户端如何上传大文件](./body.md) TODO:
 
-+ [Node实践日志篇: 异步资源监听与 CLS 实现](./cls.md)
-+ [Node实践日志篇: 使用 CLS 实现全链路式日志](./cls.md) TODO:
++ [Node实践日志篇: async_hooks，CLS 与异步资源生命周期监听](./cls.md)
++ [Node实践日志篇: 如何正确且高效地打印日志](./log.md)
++ [Node实践日志篇: Node 中全链路式日志实践](./log-request-id.md)
 
-+ [Node实践异常篇: 使用 CLS 实现全链路式日志](./cls.md) TODO:
++ [Node实践异常篇: 生产环境出现问题时如何排查](./mem.md) TODO:
 + [Node实践异常篇: 生产环境出现问题时如何排查](./mem.md) TODO:
 
 + [Node实践监控篇: 如何监控 Node 服务的内存](./mem.md)
-+ [Node实践监控篇: 如何监控生产环境的内存及 CPU](./mem.md)
++ [Node实践监控篇: 如何监控生产环境的内存及 CPU](./mem.md) TODO:
 
 + [Node实践分布式: 分布式锁如何实现](./mem.md) TODO:
 + [Node实践分布式: 如何处理分布式定时任务](./mem.md) TODO:
@@ -35,19 +36,3 @@ Node 做服务端开发时，你要了解的这些事
 
 + [Node实践部署篇: 如何使用 docker 部署 Node 应用](./body.md) TODO:
 + [Node实践部署篇: 如何使用 k8s 部署 Node 应用](./body.md) TODO:
-
-## TODO:
-
-+ [你为什么需要用到 node-gyp](./gyp.md)
-+ [堆与栈]()
-+ [gc]()
-+ [rpc]()
-+ [mq]()
-+ [数据库连接池]()
-+ [流量平滑切换及滚动升级](./roll-update.md)
-+ [如何正确地打日志](./log.md)
-+ [分布式日志及ELK]()
-+ [日志分析与报警]()
-+ [应该如何捕捉异常]()
-+ [异常结构化，上报与监控]()
-+ [你的应用需要用到 cluster 吗]()

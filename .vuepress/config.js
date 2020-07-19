@@ -49,12 +49,12 @@ module.exports = {
       { text: '前端工程化系列', link: '/frontend-engineering/' },
       { text: 'Node 实践', link: '/node/' },
       // { text: 'GraphQL', link: '/post/graphql-guide/' },
-      // { text: '炳烛', link: '/record/' },
+      { text: '极客时间返利', link: 'https://geek.shanyue.tech' },
       { text: '个人服务器运维指南', link: '/op/' },
       { text: 'flutter 笔记', link: '/flutter-guide/' },
-      { text: '日问', link: 'https://github.com/shfshanyue/Daily-Question' },
-      // { text: 'kubernetes 实践', link: '/k8s/' },
-      { text: '前端武器库', link: 'https://wuqiku.buzuosheng.com' },
+      { text: '面试日问', link: 'https://github.com/shfshanyue/Daily-Question' },
+      // // { text: 'kubernetes 实践', link: '/k8s/' },
+      // { text: '前端武器库', link: 'https://wuqiku.buzuosheng.com' },
       // { text: '关于我', link: '/about' },
       // {
       //   text: '笔记', items: [

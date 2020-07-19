@@ -70,8 +70,10 @@
 ## Node 工程及实践
 
 + [Node实践源码篇: 40 行代码实现精简版 koa](./node/koa.md)
-+ [Node实践日志篇: 异步资源监听与 CLS 实现](./node/cls.md)
-+ [Node实践代码篇: 为你的应用添加单元测试 (WIP)](./node/test.md)
++ [Node实践代码篇: 为你的应用添加单元测试](./node/test.md)
++ [Node实践日志篇: 如何正确且高效地打印日志](./node/log.md)
++ [Node实践日志篇: async_hooks，CLS 与异步资源生命周期监听](./node/cls.md)
++ [Node实践日志篇: Node 中全链路式日志实践](./node/log-request-id.md)
 + [Node实践监控篇: 如何监控 Node 服务的内存](./node/mem.md)
 
 更多文章: [Node 实践](https://github.com/shfshanyue/blog/tree/master/node/)

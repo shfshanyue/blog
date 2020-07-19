@@ -110,7 +110,7 @@ const asyncHook = async_hooks.createHook({
 
 ``` js
 setTimeout(() => {
-  // after 生命周期在回调函数最前边
+  // before 生命周期在回调函数最前边
   console.log('Async Before')
   op()
   op()
