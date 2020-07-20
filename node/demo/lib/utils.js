@@ -1,2 +1,2 @@
-console.log('Utils: ')
+console.log('Utils: ', module)
 

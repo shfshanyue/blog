@@ -191,7 +191,7 @@ const count = await redis.zrangebyscore(`Organization:${organizationId}:concurre
 对于离屏检测的设置可以总结为两个方面，次数及时间
 
 + 离屏五次
-+ 并且累计丽萍时间超过三分钟
++ 并且累计离屏时间超过三分钟
 
 满足以上条件则判为作弊
 

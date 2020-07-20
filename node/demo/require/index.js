@@ -1,8 +1,7 @@
 const fs = require('fs')
 
-require('axios')
+const add = (x, y) => x + y
 
-require('./utils')
-require('./utils')
+module.exports = add
 
-console.log(module)
+console.log(module, require)
