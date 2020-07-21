@@ -1,5 +1,10 @@
 [
   {
+    "title": "Node 中的 require 与 module",
+    "path": "require",
+    "description": "在 `node` 环境中，有两个内置的全局变量无需引入即可直接使用，并且无处不见，它们构成了 `nodejs` 的模块体系: `module` 与 `require`。"
+  },
+  {
     "title": "40 行代码实现精简版 koa",
     "path": "koa",
     "date": "2020-03-14 16:10",

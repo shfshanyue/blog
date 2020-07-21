@@ -1,3 +1,7 @@
+date: 2020-07-21 22:00
+
+---
+
 # Node 中如何引入一个模块及其细节
 
 在 `node` 环境中，有两个内置的全局变量无需引入即可直接使用，并且无处不见，它们构成了 `nodejs` 的模块体系: `module` 与 `require`。以下是一个简单的示例
@@ -39,6 +43,8 @@ module.exports = add
 + `__filename`
 + `__dirname`
 
+![module wrapper](./assets/module-wrapper.png)
+
 ## module
 
 调试最好的办法就是打印，我们想知道 `module` 是何方神圣，那就把它打印出来！
@@ -64,7 +70,7 @@ console.log(module)
 
 > [`module.exports` 与 `exports` 有什么关系？](https://github.com/shfshanyue/Daily-Question/issues/351)
 
-从以下源码中可以看到 `module wrapper` 的调用方，因此很容易理解一个模块中的内置变量：
+从以下源码中可以看到 `module wrapper` 的调用方 `module._compile` 是如何注入内置变量的，因此根据源码很容易理解一个模块中的变量：
 
 + `exports`: 实际上是 `module.exports` 的引用
 + `require`: 大多情况下是 `Module.prototype.require`
@@ -73,22 +79,27 @@ console.log(module)
 + `__dirname`: `path.dirname(__filename)`
 
 ``` js
-// 
-const dirname = path.dirname(filename);
-const require = makeRequireFunction(this, redirects);
-let result;
+// <node_internals>/internal/modules/cjs/loader.js:1138
 
-// 从中可以看出：exports = module.exports
-const exports = this.exports;
-const thisValue = exports;
-const module = this;
-if (requireDepth === 0) statCache = new Map();
-if (inspectorWrapper) {
-  result = inspectorWrapper(compiledWrapper, thisValue, exports,
-                            require, module, filename, dirname);
-} else {
-  result = compiledWrapper.call(thisValue, exports, require, module,
-                                filename, dirname);
+Module.prototype._compile = function(content, filename) {
+  // ...
+  const dirname = path.dirname(filename);
+  const require = makeRequireFunction(this, redirects);
+  let result;
+
+  // 从中可以看出：exports = module.exports
+  const exports = this.exports;
+  const thisValue = exports;
+  const module = this;
+  if (requireDepth === 0) statCache = new Map();
+  if (inspectorWrapper) {
+    result = inspectorWrapper(compiledWrapper, thisValue, exports,
+                              require, module, filename, dirname);
+  } else {
+    result = compiledWrapper.call(thisValue, exports, require, module,
+                                  filename, dirname);
+  }
+  // ...
 }
 ```
 
@@ -270,5 +281,18 @@ console.log(require)
 
 ![](./assets/require-cache.png)
 
+那回到本章刚开始的问题：
+
+> 如何不重启应用热加载模块呢？
+
+答：**删掉 `Module._cache`**，但同时会引发问题，如这种 [一行 delete require.cache 引发的内存泄漏血案](https://zhuanlan.zhihu.com/p/34702356)
+
+所以说嘛，这种黑魔法大幅修改核心代码的东西开发环境玩一玩就可以了，千万不要跑到生产环境中去，毕竟黑魔法是不可控的。
+
 ## 总结
 
+1. 模块中执行时会被 `module wrapper` 包裹，并注入全局变量 `require` 及 `module` 等
+1. `module.exports` 与 `exports` 的关系实际上是 `exports = module.exports`
+1. `require` 实际上是 `module.require`
+1. `require.cache` 会保证模块不会被执行多次
+1. 不要使用 `delete require.cache` 这种黑魔法
