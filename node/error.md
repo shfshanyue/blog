@@ -1,3 +1,7 @@
+date: 2018-07-18 21:00
+
+---
+
 # Node 中异常上报与监控
 
 在一个后端服务设计中，异常捕获是必不可少需要考虑的因素
@@ -158,7 +162,6 @@ beforeSend?(event: Event, hint?: EventHint): Promise<Event | null> | Event | nul
 相比自建版本，使用 SaaS 免了一些运维的日常工作。最主要的是， **自建系统有功能限制**。
 
 这里有关于 `Sentry` 的文档
-
 
 ##  指标
 

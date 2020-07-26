@@ -26,7 +26,7 @@
 > 发生在测试环境的问题
 
 + [上游服务不存在或未响应](./upstream.md)
-+ []()
++ [sentry 429 rate-limit](./sentry-429.md)
 + [Vary: Origin 与 cors]()
 
 ## 羽化集
