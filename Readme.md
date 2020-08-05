@@ -97,6 +97,7 @@
 ### 幼虫集
 
 + [上游服务不存在或未响应](./bug/upstream.md)
++ [sentry 429 rate-limit](./bug/sentry-429.md)
 + [Vary: Origin 与 cors]()
 
 ### 羽化集

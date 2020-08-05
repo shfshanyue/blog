@@ -19,6 +19,7 @@
 + [Clipboard API 与 devtools 问题]()
 + [df 被 hang 住，无法查看磁盘使用情况](./df-hang.md)
 + [k8s 部署 ES 时，挂载目录权限问题](./es-failed.md)
++ [Unexpected end of JSON input while parsing near '...oyNMOOPIvOSSv8aveUYxO'](./npm-error.md)
 + [npm package missing file]()
 
 ## 幼虫集
