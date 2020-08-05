@@ -17,7 +17,7 @@ function counter(state = 0, action) {
   }
 }
 
-// 在 React 项目中需要维护: App.js，一个 React 项目的根组件
+// 在 React 项目中需要维护: store.js
 const store = createStore(counter)
 store.subscribe(() => console.log(store.getState()))
 
@@ -37,3 +37,13 @@ store.dispatch({ type: INCREMENT })
 + `Provider`
 + `mapStateToProps`
 + `mapDispatchToProps`
+
+## Redux TechStack
+
++ `redux`
++ `react-redux`
++ `redux-thunk`
++ `redux-saga`
++ `redux-actions`
++ `reselect`
++ `redux-persist`
