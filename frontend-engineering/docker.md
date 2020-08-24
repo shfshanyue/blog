@@ -18,7 +18,7 @@ Docker 变得越来越流行，它可以轻便灵活地隔离环境，进行扩�
 
 介绍完部署流程后，简单写一个 Dockerfile
 
-``` docker
+``` dockerfile
 FROM node:10-alpine
 
 # 代表生产环境
