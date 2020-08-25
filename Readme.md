@@ -73,6 +73,7 @@
 + [Node实践日志篇: async_hooks，CLS 与异步资源生命周期监听](./node/cls.md)
 + [Node实践日志篇: Node 中全链路式日志实践](./node/log-request-id.md)
 + [Node实践监控篇: 如何监控 Node 服务的内存](./node/mem.md)
++ [Node实践部署篇: 如何使用 Docker 部署 Node 应用](./node/docker.md)
 
 更多文章: [Node 实践](https://github.com/shfshanyue/blog/tree/master/node/)
 

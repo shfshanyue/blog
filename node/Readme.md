@@ -34,5 +34,5 @@ Node 做服务端开发时，你要了解的这些事
 
 + [Node实践微服务: 限流及漏桶算法实现](./rate-limit.md) TODO:
 
-+ [Node实践部署篇: 如何使用 docker 部署 Node 应用](./body.md) TODO:
++ [Node实践部署篇: 如何使用 docker 部署 Node 应用](./docker.md)
 + [Node实践部署篇: 如何使用 k8s 部署 Node 应用](./body.md) TODO:

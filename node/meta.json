@@ -39,5 +39,10 @@
     "path": "mem",
     "date": "2020-07-02 19:06",
     "description": "如何知道跑在线上的 Node 服务消耗了多少内存呢？"
+  },
+  {
+    "title": "使用 Docker 部署 Node 应用",
+    "path": "docker",
+    "description": "如何在生产环境部署一个 Node 应用？"
   }
 ]
