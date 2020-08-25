@@ -13,7 +13,7 @@ Node 做服务端开发时，你要了解的这些事
 + [Node实践质量篇: 使用 JOI 做入口数据类型校验](./env.md) TODO:
 + [Node实践质量篇: 为你的应用添加单元测试 (WIP)](./test.md) TODO:
 + [Node实践质量篇: 通过 CI Pipeline 保障项目质量](./test.md) TODO:
-+ [Node实践质量篇: CI 脚本遭遇异常时如何优雅退出]() TODO:
++ [Node实践质量篇: Node 脚本遭遇异常时如何安全退出](./exit-code.md)
 
 + [Node实践交互篇: 浏览器跨域与服务器中的 CORS](./cors.md)
 + [Node实践交互篇: 客户端与服务端是数据交互之body-parser](./body.md) TODO:

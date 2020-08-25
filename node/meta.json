@@ -44,5 +44,10 @@
     "title": "使用 Docker 部署 Node 应用",
     "path": "docker",
     "description": "如何在生产环境部署一个 Node 应用？"
+  },
+  {
+    "title": "Node 脚本异常时如何安全退出",
+    "path": "exit-code",
+    "description": "最近观察项目镜像构建，会偶尔发现一两个镜像虽然构建成功，但容器却跑不起来的情况。"
   }
 ]
