@@ -10,7 +10,7 @@ Node 做服务端开发时，你要了解的这些事
 
 + [Node实践国际化: timestamp 与时区问题](./env.md) TODO:
 
-+ [Node实践质量篇: Controller 层如何做数据类型校验](./joi.md)
++ [Node实践质量篇: Node 应用中如何做数据类型校验](./joi.md)
 + [Node实践质量篇: 为你的应用添加单元测试 (WIP)](./test.md) TODO:
 + [Node实践质量篇: 通过 CI Pipeline 保障项目质量](./test.md) TODO:
 + [Node实践质量篇: Node 脚本遭遇异常时如何安全退出](./exit-code.md)

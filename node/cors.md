@@ -4,26 +4,26 @@
 
 > [什么是跨域？](https://q.shanyue.tech/fe/js/216.html)
 
-跨域，这或许是前端面试中最常考的问题了。前端常问，这也是因为跨域问题是浏览器环境中的特有问题，**而在服务器发起 HTTP 请求时是不会有跨域问题的**。
+跨域，这或许是前端面试中最常碰到的问题了，大概因为跨域问题是浏览器环境中的特有问题，而且随处可见，如同蚊子不仅盯你肉而且处处围着你转让你心烦。**你看，在服务器发起 HTTP 请求就不会有跨域问题的**。
 
-当谈到跨域问题的解决方案时，最流行也是最简单的便是 CORS 了。
+当谈到跨域问题的解决方案时，最流行也最简单的当属 CORS 了。
 
 ## CORS
 
-CORS 即跨域资源共享 (Cross-Origin Resource Sharing, CORS)，简而言之，就是在服务器端的响应中加入几个 Header，使得浏览器能够跨域访问资源，听起来简单，但细节诸多。
+CORS 即跨域资源共享 (Cross-Origin Resource Sharing, CORS)。简而言之，就是在服务器端的响应中加入几个标头，使得浏览器能够跨域访问资源。
+
+这个响应头的字段设置就是 `Access-Control-Allow-Origin: *`，如下图所示
 
 ![简单的 CORS 请求](https://mdn.mozillademos.org/files/17214/simple-req-updated.png)
 
-先来看一个简单的 CORS 请求
+以下是最简单的一个 CORS 请求
 
 ``` txt
 GET / HTTP/1.1
 Host: shanyue.tech
 Origin: http://shanyue.tech
 User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36
-```
 
-``` txt
 HTTP/1.1 200 OK
 Access-Control-Allow-Origin: *
 Content-Type: text/plain; charset=utf-8
@@ -32,7 +32,25 @@ Date: Wed, 08 Jul 2020 17:03:44 GMT
 Connection: keep-alive
 ```
 
+## 预请求与 Options
+
+当一个请求跨域且不是简单请求时就会发起预请求，也就是 `Options`。如果没有预请求，万一有一个毁灭性的 POST 跨域请求直接执行，虽然最后告知浏览器你没有跨域权限，但是损失已造成，岂不亏大的。
+
+以下条件构成了简单请求：
+
+1. `Method`: 请求的方法是 `GET`、`POST` 及 `HEAD`
+1. `Header`: 请求头是 `Content-Type` (有限制)、`Accept-Language`、`Content-Language` 等
+1. `Content-Type`: 请求类型是 `application/x-www-form-urlencoded`、`multipart/form-data` 或 `text/plain`
+
+非简单请求一般需要开发者主动构造，在项目中常见的 `Content-Type: application/json` 及 `Authorization: <token>` 为典型的**非简单请求**。与之有关的三个字段如下：
+
+- `Access-Control-Allow-Methods`: 请求所允许的方法, **用于预请求 (preflight request) 中**
+- `Access-Control-Allow-Headers`: 请求所允许的头，**用于预请求 (preflight request) 中**
+- `Access-Control-Max-Age`: 预请求的缓存时间
+
 ## 写一个 CORS Middleware
+
+既然 CORS 原理如此简单，那就拿起键盘写一个简单的 CORS 中间件吧，CORS 大致是设置几个响应头吧
 
 > [关于 cors 的响应头有哪些？](https://q.shanyue.tech/base/http/328.html)
 
@@ -44,7 +62,7 @@ Connection: keep-alive
 - `Access-Control-Allow-Credentials`: 请求是否可以带 cookie
 - `Access-Control-Allow-Methods`: 请求所允许的方法, **用于预请求 (preflight request) 中**
 - `Access-Control-Allow-Headers`: 请求所允许的头，**用于预请求 (preflight request) 中**
-- `Access-Control-Expose-Headers`: 那些头可以在响应中列出 **无用**
+- `Access-Control-Expose-Headers`: 那些头可以在响应中列出
 - `Access-Control-Max-Age`: 预请求的缓存时间
 
 而关于 CORS 的中间件即是使用默认值与配置来设置这些头，如 `koa/cors` 需要传递以下参数。
@@ -125,13 +143,13 @@ ctx.set('Access-Control-Allow-Origin', requestOrigin)
 
 ``` js
 return async function cors(ctx, next) {
-    // If the Origin header is not present terminate this set of steps.
-    // The request is outside the scope of this specification.
-    const requestOrigin = ctx.get('Origin');
+  // If the Origin header is not present terminate this set of steps.
+  // The request is outside the scope of this specification.
+  const requestOrigin = ctx.get('Origin');
 
-    // Always set Vary header
-    // https://github.com/rs/cors/issues/10
-    ctx.vary('Origin');
+  // Always set Vary header
+  // https://github.com/rs/cors/issues/10
+  ctx.vary('Origin');
 }
 ```
 
@@ -147,19 +165,16 @@ func (c *Cors) handleActualRequest(w http.ResponseWriter, r *http.Request) {
 }
 ```
 
-**那此时是不关于 `CORS` 的问题就解决了？从中间件处理层面是这样的，但仍然有一些服务端中间件使用问题及浏览器问题**
-
-## CORS 中间件及异常处理中间件
-
-## 总结
+进一步改进相关代码：
 
 ``` js
 // 获取 Origin 请求头
 const requestOrigin = ctx.get('Origin');
 
+// 不管有没有跨域都要设置 Vary: Origin
 ctx.set('Vary', 'Origin')
 
-// 如果没有，则跳过
+// 如果没有设置，说明没有跨域，跳过
 if (!requestOrigin) {
   return await next();
 }
@@ -167,3 +182,66 @@ if (!requestOrigin) {
 // 设置响应头
 ctx.set('Access-Control-Allow-Origin', requestOrigin)
 ```
+
+**那此时是不关于 `CORS` 的问题就解决了？从中间件处理层面是这样的，但仍然有一些服务端中间件使用问题及浏览器问题**
+
+## HSTS 与 CORS
+
+HSTS (HTTP Strict Transport Security) 为了避免 HTTP 跳转到 HTTPS 时遭受潜在的中间人攻击，由浏览器本身控制到 HTTPS 的跳转。如同 CORS 一样，它也是有一个服务器的响应头来控制
+
+``` txt
+Strict-Transport-Security: max-age=5184000
+```
+
+此时浏览器访问该域名时，会使用 `307 Internal Redirect`，无需服务器干涉，自动跳转到HTTPS请求。
+
+**如果前端访问 HTTP 跨域请求，此时浏览器通过 HSTS 跳转到 HTTPS，但浏览器不会给出相应的 CORS 响应头部，就会发生跨域问题。**
+
+``` txt
+GET / HTTP/1.1
+Host: shanyue.tech
+Origin: http://shanyue.tech
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36
+
+Access to XMLHttpRequest at 'xxx' from origin 'xxx' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+```
+
+## 服务器异常处理与跨域异常
+
+当与其他中间件一起工作时，也有可能出现问题，由于不正确的执行顺序也可能导致跨域失败。
+
+假设有一个参数校验中间件，置于 CORS 中间件上方，由于校验失败，并未穿过 CORS 中间件，在前端会报错跨域失败，真正的参数校验问题掩盖其中。
+
+``` js
+const Koa = require('koa')
+const app = new Koa()
+const cors = require('@koa/cors')
+
+// 异常处理中间件
+app.use(async (ctx, next) => {
+  try {
+    await next()
+  } catch (e) {
+    ctx.body = 'hello, error'
+  }
+})
+
+// 某一个特定时刻肯定会报错的中间件
+app.use(async (ctx, next) => {
+  throw new Error('hello, world')
+})
+
+// CORS 中间件
+app.use(cors())
+
+app.listen(3000)
+```
+
+## 总结
+
+本篇文章介绍了跨域问题及其相应的 CORS 解决方案，并列出了若干细节问题。
+
+1. CORS 通过服务器端设置若干响应头来正常工作
+1. `Access-Control-Allow-Origin: *` 无法携带 Cookie，因此以此为多域名跨域设置有缺陷
+1. 服务器端通过响应头 `Origin` 来判断是否为跨域请求，并以此设置多域名跨域，但要加上 `Vary: Origin`
+1. 在编码过程中要注意 HSTS 配置及服务器的中间件顺序带来的潜在风险
