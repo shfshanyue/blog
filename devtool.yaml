@@ -133,3 +133,9 @@
   labels:
     - dev
     - playground
+- name: NPM runkit
+  href: https://npm.runkit.com/
+  desc: Try any Node.js package right in your browser
+  labels:
+    - dev
+    - playground
