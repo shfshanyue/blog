@@ -1,8 +1,9 @@
 ---
 title: github actions 入门指南及博客部署实践
 description: CI/CD 已经是大势所趋，而对于普通开发者甚至小公司可以先从 github actions 始感受 CI/CD 的魅力。本文浅显易懂，并且以博客部署作为实践，对于广大开发者更为友好。
+keywords: github actions,博客部署,serverless
 thumbnail: http://cdn02.mindtheproduct.com/wp-content/uploads/2015/12/409-images-for-snap-blog-postedit_image1.png
-date: 2019-11-23
+date: 2019-11-23 19:27
 tags:
   - devops
 
