@@ -56,7 +56,7 @@
 
 ![拌面](./assets/banmian2.jpg)
 
-![拌在一起的过油肉版面](./assets/banmian3.jpg)
+![拌在一起的过油肉拌面](./assets/banmian3.jpg)
 
 ## 椒麻鸡
 
