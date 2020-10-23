@@ -87,6 +87,11 @@ module.exports = {
     [ 'feed', {
         
     }],
+    [
+      'sitemap', {
+        hostname: 'https://shanyue.tech'
+      },
+    ],
     [ 
       '@vuepress/google-analytics',
       {
