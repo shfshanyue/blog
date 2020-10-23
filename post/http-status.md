@@ -127,13 +127,38 @@ $ curl www.zhihu.com -vvv
 
 ## 400 Bad Request
 
-可以用于做 API 的参数校验
+对于服务器无法理解的参数，将会使用 400 作为返回码
+
+示例一: 当 Content-Type: JSON 时，服务器解析 JSON 却失败
+
+``` bash
+HTTP/1.1 400 Bad Request
+Content-Length: 35
+
+{"message":"Problems parsing JSON"}
+```
 
 ## 401 Unauthorized
 
 当没有权限的用户请求需要带有权限的资源时，会返回 401，此时携带正确的权限凭证再试一次可以解决问题
 
+有时认证失败也会返回 401
+
+示例一: 知乎登录时密码不正确
+
 ![知乎登录失败时](./assets/401.png)
+
+示例二: Github中错误的凭证信息请求带权限资源
+
+``` bash
+$ curl -i https://api.github.com -u foo:bar
+> HTTP/1.1 401 Unauthorized
+
+> {
+>   "message": "Bad credentials",
+>   "documentation_url": "https://developer.github.com/v3"
+> }
+```
 
 ## 403 Forbidden
 
@@ -170,6 +195,14 @@ $ curl www.zhihu.com -vvv
 Github 上给某个项目点赞时，故意设置一个不正确的参数命名，会返回状态码 422
 
 ![422](./assets/422.png)
+
+## 429 Too Many Request
+
+请求过多被限流。
+
+超过某一个 API 的 Rate Limit 规则，会被限流，返回 429 状态码
+
+示例: 在 Sentry 中异常上报过于频繁被限流
 
 ## 500 Internal Server Error
 
