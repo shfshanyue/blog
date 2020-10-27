@@ -6,9 +6,20 @@ date: 2020-10-22 20:39
 
 # HTTP 有哪些状态码
 
++ 肯定会碰到: 101/200/301/302/304/400/404/502
++ 可能会碰到: 101/200/201/204/206/301/304/307/400/401/403/404/405/413/418/422/429/500/501/502/503/504
+
 ## 101 Switch Protocol
 
-升级协议，如从 http 到 ws
+升级协议，如从 http 到 ws，此时需要反向代理支持，如 Nginx，在 Nginx 配置 websockt 如下:
+
+``` nginx
+location / {
+  proxy_http_version 1.1;
+  proxy_set_header Upgrade $http_upgrade;
+  proxy_set_header Connection  $connection_upgrade;
+}
+```
 
 示例:
 
@@ -16,7 +27,7 @@ date: 2020-10-22 20:39
 
 ## 200 Ok
 
-表示资源请求成功
+表示资源请求成功，也是最常见到的状态码
 
 示例:
 
@@ -210,7 +221,7 @@ Github 上给某个项目点赞时，故意设置一个不正确的参数命名�
 
 ## 502 Bad Gateway
 
-网关超时，Nginx 上常见，从上游应用层返回了响应
+Nginx 上常见，从上游应用层未返回响应，上游应用层挂了
 
 ## 503 Service Unavailable
 
