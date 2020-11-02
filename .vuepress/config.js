@@ -38,6 +38,7 @@ module.exports = {
   head: [
     ['link', { rel: 'shortcut icon', href: '/favicon.ico', type: 'image/x-icon' }],
     ['meta', { name: 'baidu-site-verification', content: 'ZAdkE6LA10'}]
+    ['meta', { name: 'google-site-verification', content: '_rNB9Nt0ukzWmMfhXSSxCHUAeeMs24OiuhGm4QjdwXA'}] 
   ],
   themeConfig: {
     repo: 'shfshanyue/blog',

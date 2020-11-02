@@ -139,3 +139,9 @@
   labels:
     - dev
     - playground
+- name: geojson.io
+  href: http://geojson.io
+  desc: simply edit geojson map data
+  labels:
+    - dev
+    - playground
