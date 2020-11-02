@@ -145,3 +145,10 @@
   labels:
     - dev
     - playground
+    - gis
+- name: 坐标拾取系统
+  href: http://api.map.baidu.com/lbsapi/getpoint/index.html
+  desc: 坐标拾取系统
+  labels:
+    - dev
+    - gis
