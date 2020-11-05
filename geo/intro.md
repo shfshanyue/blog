@@ -1,5 +1,7 @@
 # 经纬度与大地坐标系
 
+> 最近在成都正在做一个省市县的地图钻透，涉及到一些地理知识，简单做做科普
+
 如何准确标识地球上某一位置？
 
 从初中地理学到的东西可以知道：经纬度
@@ -21,7 +23,7 @@
 
 世界经度与时区图:
 
-![世界经度与时区图](https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/World_Time_Zones_Map.png/1600px-World_Time_Zones_Map.png)
+![世界经度与时区图](./assets/1600px-World_Time_Zones_Map.png)
 
 ## 纬度
 
