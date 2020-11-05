@@ -5,16 +5,18 @@ const k8s = require('./k8s.header')
 const postsHeader = require('./post.header')
 const { fe: feHeader, node: nodeHeader } = require('./fe.header')
 
-function getFrontMatter (path, pp = './post') {
-  const posts = require(pp)
+function getFrontMatter (path, metaFilePath) {
+  const posts = require(metaFilePath)
   const postsByPath = _.keyBy(posts, 'path')
   const p = path.split(/\.|\//)[2]
   return _.get(postsByPath, p)
 }
 
+// 根据 meta.json 扩展 frontmatter
+// 知识库：所有相关博客维护在一个文件夹，并由 meta.json 书写 frontmatter
 function extendMetaByPath (page, path) {
   if (page.path.includes(`/${path}`)) {
-    const fm = getFrontMatter(page.path, `../${path}/meta.json`)
+    const fm = getFrontMatter(page.path, `../${path}/meta`)
     if (fm) {
       page.frontmatter = {
         ...fm,
@@ -50,21 +52,18 @@ module.exports = {
       { text: '前端工程化系列', link: '/frontend-engineering/' },
       { text: 'Node 实践', link: '/node/' },
       // { text: 'GraphQL', link: '/post/graphql-guide/' },
-      { text: '极客时间返利', link: 'https://geek.shanyue.tech' },
       { text: '个人服务器运维指南', link: '/op/' },
-      { text: 'flutter 笔记', link: '/flutter-guide/' },
-      { text: '面试日问', link: 'https://github.com/shfshanyue/Daily-Question' },
       { text: 'kubernetes 实践', link: '/k8s/' },
+      { text: 'flutter 笔记', link: '/flutter-guide/' },
       // { text: '前端武器库', link: 'https://wuqiku.buzuosheng.com' },
       // { text: '关于我', link: '/about' },
-      // {
-      //   text: '笔记', items: [
-      //     { text: 'flutter', link: '/post/flutter-guide/' },
-      //     { text: 'Grid Layout', link: '/post/Grid-Guide/' },
-      //     { text: 'spark', link: '/post/learning-spark/' },
-      //     { text: 'scala', link: '/post/learning-scala/' },
-      //   ]
-      // },
+      {
+        text: '我的应用', items: [
+          { text: '极客时间返利', link: 'https://geek.shanyue.tech' },
+          { text: '面试每日一题', link: 'https://q.shanyue.tech' },
+          { text: '诗词小站', link: 'https://shici.xiange.tech' },
+        ]
+      },
     ],
     sidebar: {
       '/record/': [
@@ -121,15 +120,8 @@ module.exports = {
         extendPageData ($page) {
           extendMetaByPath($page, 'frontend-enginerring')
           extendMetaByPath($page, 'node')
-          if ($page.path.includes('/post')) {
-            const fm = getFrontMatter($page.path)
-            if (fm) {
-              $page.frontmatter = {
-                ...fm,
-                ...$page.frontmatter
-              }
-            }
-          }
+          extendMetaByPath($page, 'post')
+
           if ($page.frontmatter.keywords) {
             const meta = $page.frontmatter.meta
             $page.frontmatter.meta = meta ? [
