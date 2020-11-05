@@ -54,7 +54,7 @@ module.exports = {
       { text: '个人服务器运维指南', link: '/op/' },
       { text: 'flutter 笔记', link: '/flutter-guide/' },
       { text: '面试日问', link: 'https://github.com/shfshanyue/Daily-Question' },
-      // // { text: 'kubernetes 实践', link: '/k8s/' },
+      { text: 'kubernetes 实践', link: '/k8s/' },
       // { text: '前端武器库', link: 'https://wuqiku.buzuosheng.com' },
       // { text: '关于我', link: '/about' },
       // {
