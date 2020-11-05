@@ -2,7 +2,7 @@ const _ = require('lodash')
 const path = require('path')
 const fs = require('fs')
 
-const posts = require('./post')
+const posts = require('../post/meta')
 const tags = _.uniq(posts.map(x => x.tags[0]))
 const postsByTag = _.groupBy(posts, x => x.tags[0])
 

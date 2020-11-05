@@ -49,19 +49,19 @@ module.exports = {
       // { text: '使用graphql构建web应用', link: 'https://github.com/shfshanyue/graphql-guide' },
       // { text: '存档', link: '/post/' },
       { text: '博客', link: '/post/binary-in-frontend/' },
+      // { text: 'GraphQL', link: '/post/graphql-guide/' },
       { text: '前端工程化系列', link: '/frontend-engineering/' },
       { text: 'Node 实践', link: '/node/' },
-      // { text: 'GraphQL', link: '/post/graphql-guide/' },
       { text: '个人服务器运维指南', link: '/op/' },
       { text: 'kubernetes 实践', link: '/k8s/' },
       { text: 'flutter 笔记', link: '/flutter-guide/' },
-      // { text: '前端武器库', link: 'https://wuqiku.buzuosheng.com' },
       // { text: '关于我', link: '/about' },
       {
         text: '我的应用', items: [
           { text: '极客时间返利', link: 'https://geek.shanyue.tech' },
           { text: '面试每日一题', link: 'https://q.shanyue.tech' },
           { text: '诗词小站', link: 'https://shici.xiange.tech' },
+          { text: '前端武器库', link: 'https://wuqiku.buzuosheng.com' },
         ]
       },
     ],

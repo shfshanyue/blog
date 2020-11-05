@@ -1,7 +1,6 @@
 ---
 title: 常见系统调用
 date: 2019-07-11T16:31:01+08:00
-thumbnail: ""
 categories:
   - 后端
 tags:
