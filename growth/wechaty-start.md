@@ -8,7 +8,7 @@
 
 你还可以把你的常用公众号挂一个机器人，每天早上七点左右向你的女朋友道一句早安，这样她就会在每天醒来时对你的问候充满期待。
 
-哦对，忘了，程序员是没有女朋友的。
+**哦对，忘了，程序员是没有女朋友的。**
 
 好了，来实现一个机器人吧。接下来本篇文章开始介绍微信机器人的常见使用场景，及如何用代码来把你的微信变成小助手。
 
@@ -20,7 +20,7 @@
 > 1. 自动推送技术面试题并在群里讨论
 > 1. 基金、天气预报、百科、名言、诗词等自动回复及每日推送功能
 >
-> 部分代码开源在 [wechat-bot](https://github.com/shfshanyue/wechat-bot "wechat-bot")，欢迎来玩
+> 部分代码开源在 [wechat-bot](https://github.com/shfshanyue/wechat-bot)，欢迎来玩
 > 
 > 另外也欢迎加入我的前端交流群，添加微信 `shanyue-bot`
 
@@ -84,7 +84,7 @@ $ WECHATY_PUPPET_PADPLUS_TOKEN=HELLOSHANYUE ts-node index.ts
 
 毕竟现在 `node12` 已经是处于活跃期的 LTS，`node10` 已进入维护期，所以赶快升级 node 版本吧。
 
-![Node Release](https://github.com/nodejs/Release/blob/master/schedule.svg)
+![Node Release](./assets/node-schedule.svg)
 
 ## 社群管理
 

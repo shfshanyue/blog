@@ -2,7 +2,7 @@
 
 ## 代码
 
-+ [wechat-ncov](https://github.com/shfshanyue/wechat-ncov)，欢迎 Star
++ [wechat-ncov](https://github.com/shfshanyue/wechat-bot)，欢迎 Star
 
 ## 技术栈
 

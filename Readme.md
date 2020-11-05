@@ -125,7 +125,7 @@
 + [如何使用公众号开发从 PC 端网站引流](https://shanyue.tech/op/blog-to-wechat.html)
 + [使用公众号开发进行网站向公众号的导流](https://shanyue.tech/op/blog-to-wechat.html)
 
-更多文章: [用户增长](https://github.com/shfshanyue/blog/tree/master/growth/)
+更多文章: [用户增长](./growth/)
 
 ## 有可能你并不需要云服务器 | 如何更好地薅羊毛
 

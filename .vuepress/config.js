@@ -3,7 +3,7 @@ const path = require('path')
 const op = require('./op.header')
 const k8s = require('./k8s.header')
 const postsHeader = require('./post.header')
-const { fe: feHeader, node: nodeHeader } = require('./fe.header')
+const { fe: feHeader, node: nodeHeader } = require('./dir.header')
 
 function getFrontMatter (path, metaFilePath) {
   const posts = require(metaFilePath)
