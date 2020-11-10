@@ -3,7 +3,7 @@ const path = require('path')
 const op = require('./op.header')
 const k8s = require('./k8s.header')
 const postsHeader = require('./post.header')
-const { fe: feHeader, node: nodeHeader } = require('./dir.header')
+const { fe: feHeader, node: nodeHeader, tour: tourHeader } = require('./dir.header')
 
 function getFrontMatter (path, metaFilePath) {
   const posts = require(metaFilePath)
@@ -50,17 +50,23 @@ module.exports = {
       // { text: '存档', link: '/post/' },
       { text: '博客', link: '/post/binary-in-frontend/' },
       // { text: 'GraphQL', link: '/post/graphql-guide/' },
-      { text: '前端工程化系列', link: '/frontend-engineering/' },
+      { text: '前端工程化', link: '/frontend-engineering/' },
       { text: 'Node 实践', link: '/node/' },
-      { text: '个人服务器运维指南', link: '/op/' },
-      { text: 'kubernetes 实践', link: '/k8s/' },
-      { text: 'flutter 笔记', link: '/flutter-guide/' },
+      { text: '服务器运维', link: '/op/' },
+      { text: 'kubernetes', link: '/k8s/' },
+      { text: 'flutter 小记', link: '/flutter-guide/' },
       // { text: '关于我', link: '/about' },
+      {
+        text: '无关技术', items: [
+          { text: '山月的裸辞之行', link: '/tour/' },
+        ]
+      },
       {
         text: '我的应用', items: [
           { text: '极客时间返利', link: 'https://geek.shanyue.tech' },
           { text: '面试每日一题', link: 'https://q.shanyue.tech' },
           { text: '诗词小站', link: 'https://shici.xiange.tech' },
+          { text: '句子集', link: 'https://juzi.shanyue.tech' },
           { text: '前端武器库', link: 'https://wuqiku.buzuosheng.com' },
         ]
       },
@@ -79,7 +85,8 @@ module.exports = {
       '/k8s/': k8s,
       '/post/': postsHeader,
       '/frontend-engineering/': feHeader,
-      '/node/': nodeHeader
+      '/node/': nodeHeader,
+      '/tour/': tourHeader
     },
     lastUpdated: 'Last Updated'
   },

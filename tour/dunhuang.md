@@ -5,7 +5,7 @@ loc: 酒泉肃州区
 spend: 9
 --- 
 
-# 敦煌
+# 敦煌游记
 
 ![敦煌博物馆中的对联](./assets/dunhuangduilian.jpg)
 
