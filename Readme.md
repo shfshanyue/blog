@@ -145,7 +145,7 @@
 
 你可以在阿里云新购一台服务器作为实践：
 
-+ **[阿里云新人优惠服务器](https://www.aliyun.com/minisite/goods?userCode=4sm8juxu)**
++ **[阿里云新人优惠服务器](https://www.aliyun.com/1111/pintuan-share?ptCode=MTY5MzQ0Mjc1MzQyODAwMHx8MTE0fDE%3D&userCode=4sm8juxu)**
 
 ### 序
 
