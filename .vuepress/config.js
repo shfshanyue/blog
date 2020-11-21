@@ -3,7 +3,7 @@ const path = require('path')
 const op = require('./op.header')
 const k8s = require('./k8s.header')
 const postsHeader = require('./post.header')
-const { fe: feHeader, node: nodeHeader, tour: tourHeader } = require('./dir.header')
+const { fe: feHeader, node: nodeHeader, tour: tourHeader, china: chinaHeader } = require('./dir.header')
 
 function getFrontMatter (path, metaFilePath) {
   const posts = require(metaFilePath)
@@ -59,6 +59,7 @@ module.exports = {
       {
         text: '无关技术', items: [
           { text: '山月的裸辞之行', link: '/tour/' },
+          { text: '全国旅游攻略', link: '/note/china/'}
         ]
       },
       {
@@ -86,7 +87,9 @@ module.exports = {
       '/post/': postsHeader,
       '/frontend-engineering/': feHeader,
       '/node/': nodeHeader,
-      '/tour/': tourHeader
+      '/tour/': tourHeader,
+      // '/note/': chinaHeader.map(([path, title]) => ['china/' + path, title])
+      '/note/china/': chinaHeader
     },
     lastUpdated: 'Last Updated'
   },
@@ -128,6 +131,7 @@ module.exports = {
           extendMetaByPath($page, 'frontend-enginerring')
           extendMetaByPath($page, 'node')
           extendMetaByPath($page, 'post')
+          extendMetaByPath($page, 'note/china')
 
           if ($page.frontmatter.keywords) {
             const meta = $page.frontmatter.meta
