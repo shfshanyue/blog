@@ -48,14 +48,18 @@ module.exports = {
       { text: '主页', link: '/' },
       // { text: '使用graphql构建web应用', link: 'https://github.com/shfshanyue/graphql-guide' },
       // { text: '存档', link: '/post/' },
-      { text: '博客', link: '/post/binary-in-frontend/' },
+      { text: '随记博客', link: '/post/binary-in-frontend/' },
       // { text: 'GraphQL', link: '/post/graphql-guide/' },
-      { text: '前端工程化', link: '/frontend-engineering/' },
-      { text: 'Node 实践', link: '/node/' },
-      { text: '服务器运维', link: '/op/' },
-      { text: 'kubernetes', link: '/k8s/' },
-      { text: 'flutter 小记', link: '/flutter-guide/' },
       // { text: '关于我', link: '/about' },
+      {
+        text: '系列文章', items: [
+          { text: 'flutter小记', link: '/flutter-guide/' },
+          { text: '前端工程化', link: '/frontend-engineering/' },
+          { text: 'Node实践', link: '/node/' },
+          { text: '个人服务器', link: '/op/' },
+          { text: 'k8s运维', link: '/k8s/' },
+        ]
+      },
       {
         text: '无关技术', items: [
           { text: '山月的裸辞之行', link: '/tour/' },
