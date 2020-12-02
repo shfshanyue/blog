@@ -90,12 +90,12 @@ module.exports = {
       '/op/': op,
       '/k8s/': k8s,
       '/post/': postsHeader,
-      '/frontend-engineering/': feHeader,
+      '/frontend-engineering/': [{ title: '前端工程化', children: feHeader }],
       '/node/': nodeHeader,
       '/tour/': tourHeader,
       // '/note/': chinaHeader.map(([path, title]) => ['china/' + path, title])
       '/note/china/': chinaHeader,
-      '/no-vps/': noVpsHeader
+      '/no-vps/': [{ title: '有可能你并不需要服务器', collapsable: false, children: noVpsHeader }],
     },
     lastUpdated: 'Last Updated'
   },

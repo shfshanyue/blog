@@ -25,9 +25,6 @@ tags:
 
 <!--more-->
 
-+ 原文链接: [github actions 入门指南及实践](https://github.com/shfshanyue/op-note/blob/master/github-action-guide.md)
-+ 系列文章: [个人服务器运维指南](https://github.com/shfshanyue/op-note)
-
 ## 快速开始
 
 在 `github` 上进入个人仓库，找到 `Actions` 的标签页
@@ -78,6 +75,8 @@ jobs:
 ## 配置
 
 参考官方文档: [Workflow syntax for GitHub Actions](https://help.github.com/en/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)
+
+以下是常用到的配置
 
 ### on
 
@@ -220,11 +219,11 @@ jobs:
 
 更多 `context` 信息可以参考官方文档 [Contexts and expression syntax for GitHub Actions](https://help.github.com/en/actions/automating-your-workflow-with-github-actions/contexts-and-expression-syntax-for-github-actions#job-context)
 
-## 自动部署实践
+## 实践一：博客自动部署
 
 我的博客目前托管在阿里云OSS上，以下 `action.yaml` 描述了自动部署的流程。可以参考我的配置 [shfshanyue/blog](https://github.com/shfshanyue/blog/blob/master/.github/workflows/nodejs.yml)
 
-关于托管在阿里云OSS的细节，可以参考 [在阿里云OSS托管你的前端应用](https://github.com/shfshanyue/op-note/blob/master/deploy-fe-with-alioss.md)
+**关于托管在阿里云OSS的细节，可以参考 [在阿里云OSS托管你的前端应用](./deploy-fe-with-alioss.md)**
 
 ``` yaml
 name: deploy to aliyun oss
@@ -271,3 +270,38 @@ jobs:
 部署成功
 
 ![部署成功](./assets/action-result.png)
+
+## 实践二：Github Readme 自动生成
+
+2020年8月份，就是我裸辞的那个月，Github 上线了个人主页功能，即创建 Github 用户名的同名 Repo，其中的 Readme.md 就是自己的个人主页。例如我，创建一个 `shfshanyue/shfshanyue` 的仓库，既可以通过 `Readme.md` 来创建个人主页
+
+此时涌现了各种各样的 Github Actions 来自定义个人主页，大致思路如下：
+
+1. Github API 获取自身 Github 动态，写入指定格式的 Readme
+1. Github Actions 自动提交代码
+
++ [优秀 Github 个人主页的 Actions](https://github.com/abhisheknaiidu/awesome-github-profile-readme#github-actions-)
+
+其中一个 [waka-readme-stats](https://github.com/anmol098/waka-readme-stats)，可制作以下漂亮的个人主页
+
+``` bash
+📅 I'm Most Productive on Sundays
+
+Monday       50 commits     ███░░░░░░░░░░░░░░░░░░░░░░   13.19% 
+Tuesday      85 commits     █████░░░░░░░░░░░░░░░░░░░░   22.43% 
+Wednesday    56 commits     ███░░░░░░░░░░░░░░░░░░░░░░   14.78% 
+Thursday     44 commits     ███░░░░░░░░░░░░░░░░░░░░░░   11.61% 
+Friday       28 commits     █░░░░░░░░░░░░░░░░░░░░░░░░   7.39% 
+Saturday     30 commits     ██░░░░░░░░░░░░░░░░░░░░░░░   7.92% 
+Sunday       86 commits     █████░░░░░░░░░░░░░░░░░░░░   22.69%
+```
+
+## 实践三：定时任务的脚本服务器
+
+**这简直是在薅羊毛啊！**
+
+先献上一个使用了 Github Actions 的工具：[B站自动签到工具](https://github.com/RayWangQvQ/BiliBiliTool)。
+
+> 通过GitHub Actions实现每日线上自动运行任务：每日自动登录、观看、分享、投币视频，获取每日任务的满额经验，轻松升级Level 6，实现自动领取大会员权益、月底自动为自己充电等功能。
+
+关于其它有趣的可薅羊毛的定时任务，就需要充分发挥你的想象力了！

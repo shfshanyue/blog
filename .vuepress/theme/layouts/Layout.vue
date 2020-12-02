@@ -40,7 +40,7 @@
       <template #top>
         <div :style="{ marginTop: '3.6rem', paddingTop: 0, paddingBottom: 0 }" class="theme-default-content">
           <Bar/>
-          <img :src="src" v-if="$page.frontmatter.thumbnail">
+          <!-- <img :src="src" v-if="$page.frontmatter.thumbnail"> -->
         </div>
       </template>
       <!-- <slot
@@ -76,7 +76,7 @@ export default {
 
   computed: {
     src () {
-      return this.$page.frontmatter.thumbnail
+      return require(this.$page.frontmatter.thumbnail)
     },
     shouldShowNavbar () {
       const { themeConfig } = this.$site
