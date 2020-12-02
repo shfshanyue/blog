@@ -3,7 +3,7 @@ const path = require('path')
 const op = require('./op.header')
 const k8s = require('./k8s.header')
 const postsHeader = require('./post.header')
-const { fe: feHeader, node: nodeHeader, tour: tourHeader, china: chinaHeader } = require('./dir.header')
+const { fe: feHeader, node: nodeHeader, tour: tourHeader, china: chinaHeader, noVps: noVpsHeader } = require('./dir.header')
 
 function getFrontMatter (path, metaFilePath) {
   const posts = require(metaFilePath)
@@ -56,8 +56,9 @@ module.exports = {
           { text: 'flutter小记', link: '/flutter-guide/' },
           { text: '前端工程化', link: '/frontend-engineering/' },
           { text: 'Node实践', link: '/node/' },
-          { text: '个人服务器', link: '/op/' },
-          { text: 'k8s运维', link: '/k8s/' },
+          { text: '有可能你并不需要服务器', link: '/no-vps/' },
+          { text: 'docker 个人服务器运维', link: '/op/' },
+          { text: 'kubernetes 服务器集群运维', link: '/k8s/' },
         ]
       },
       {
@@ -93,7 +94,8 @@ module.exports = {
       '/node/': nodeHeader,
       '/tour/': tourHeader,
       // '/note/': chinaHeader.map(([path, title]) => ['china/' + path, title])
-      '/note/china/': chinaHeader
+      '/note/china/': chinaHeader,
+      '/no-vps/': noVpsHeader
     },
     lastUpdated: 'Last Updated'
   },
