@@ -6,6 +6,8 @@
 
 随着一些云服务的发展与兴起，应用部署及上线的成本越来越低，甚至可以实现零成本部署。本系列文章将介绍如何使用薅羊毛的方式来搭建各个项目。
 
+目前，首先更新在博客中，见: <https://shanyue.tech/no-vps/>
+
 **但仅仅是开发一个简单的项目(弱数据存储)，有可能你并不需要一个云服务器。**
 
 1. [如果你只想搭建一个博客](https://shanyue.tech/no-vps/if-you-want-a-blog.html)
@@ -19,3 +21,6 @@
 1. [使用 Serverless 搭建博客]() - TODO
 1. [Sentry，指标与异常上报]() - TODO
 1. [Dynomodb，TableStore 与数据存储]() - TODO
+
++ [free-for-dev](https://github.com/ripienaar/free-for-dev)
++ [public-apis](https://github.com/public-apis/public-apis)

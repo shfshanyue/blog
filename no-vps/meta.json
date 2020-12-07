@@ -17,5 +17,9 @@
   {
     "sideTitle": "4. AliOSS: 按量付费前端托管",
     "path": "deploy-fe-with-alioss"
+  },
+  {
+    "sideTitle": "5. Vercel: API 后端服务部署",
+    "path": "api"
   }
 ]
