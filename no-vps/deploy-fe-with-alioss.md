@@ -16,12 +16,22 @@ tags:
 <!--more-->
 ## 按量付费
 
-如果你的域名已经备案，且执着于国内的网络时延，推荐在阿里云的 `OSS` 部署你的应用。你可以直接在阿里云官网购买 `OSS`，**按量付费**，对于个人来说，每个月的花费不足一块(如果流量不大)。
+如果你的域名已经备案，且执着于国内的网络时延，推荐在阿里云的 `OSS` 部署你的应用。你可以直接在阿里云官网购买 `OSS`，**按量付费**，对于个人来说，每个月的花费不足一块(如果流量不大，且不上 CDN 的话)。
 
-那付费的项目有哪些呢，以下所列：
+那付费的项目有哪些呢，大约是以下所列：
 
-1. Bucket Read: 一万次
-1. Https Request: 一万次
+1. OSS Bucket Read/Write: 0.01元/万次
+1. OSS 外网流量: 0.5元/G
+1. OSS CDN 回流: 0.15元/G
+1. CDN 流量: 0.24元/G
+1. CDN HTTPS: 0.05元/万次
+1. CDN Log: 0.01元/万次
+
+> CDN 计费请查看 [CDN计费规则](https://www.aliyun.com/price/product?spm=a2c4g.11186623.2.13.26ad38c2v2ipvP#/cdn/detail)
+
+以下是我的 OSS(CDN/Log) 相关费用账单，嗯，每个月还是一笔不菲的支持 (这超出我每月花费的价格使我需要考虑迁移到 Vercel 了)！
+
+![阿里云 OSS 相关费用](./assets/ali-price.png)
 
 ## OSS 配置
 
@@ -66,7 +76,9 @@ $ ossutil cp -rf .vuepress/dist oss://shanyue-blog/
 
 ## Trailing slash 问题与 http rewrite
 
-在阿里云的 CDN 中配置 http rewrite，相对 vercel/netlify 而言，阿里云的配置还是略为复杂的。
+在阿里云的 CDN 中配置 http rewrite，相对 vercel/netlify 而言，阿里云的配置还是相当复杂的。
+
+如关于以下路由的映射：
 
 + `/posts/` -> `/posts/index.html`
 + `/about` -> `/about.html`
