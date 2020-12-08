@@ -23,5 +23,10 @@
     "title": "宜宾之行",
     "sideTitle": "合江城门",
     "path": "yibin"
+  },
+  {
+    "title": "宜昌沿长江之行",
+    "sideTitle": "宜昌沿江",
+    "path": "xia-binjiang"
   }
 ]
