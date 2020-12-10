@@ -1,25 +1,26 @@
 [
   {
-    "title": "博客搭建指南",
     "sideTitle": "1. 博客搭建指南",
     "path": "if-you-want-a-blog"
   },
   {
-    "title": "Github Actions 指南",
     "sideTitle": "2. Github Actions 指南",
     "path": "github-action-guide"
   },
   {
-    "title": "Netlify: 免费前端托管平台",
-    "sideTitle": "3. Netlify: 免费前端托管平台",
+    "sideTitle": "3. Netlify: 前端托管",
     "path": "deploy-fe-with-netlify"
   },
   {
-    "sideTitle": "4. AliOSS: 按量付费前端托管",
+    "sideTitle": "4. AliOSS: 国内托管",
     "path": "deploy-fe-with-alioss"
   },
   {
-    "sideTitle": "5. Vercel: API 后端服务部署",
+    "sideTitle": "5. Vercel: API 服务",
     "path": "api"
+  },
+  {
+    "sideTitle": "6. Sentry: 异常监控",
+    "path": "sentry"
   }
 ]

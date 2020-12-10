@@ -77,3 +77,4 @@ Runtime 拥有更多的 API 及配置，可见文档：
 + [shields.io](https://github.com/badges/shields): 设计各种漂亮的 Badge
 + [qrcode api](http://goqr.me/api/): 生成二维码
 + [imageproxy](https://github.com/willnorris/imageproxy): 一个对图片进行处理的服务，也可以用来反防盗链
++ [avatar api](https://github.com/itsthatguy/avatars-api-middleware): 生成指定或随机的头像
