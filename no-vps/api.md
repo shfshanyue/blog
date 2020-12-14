@@ -39,7 +39,7 @@ module.exports = (req, res) => {
 虽然很简单，但是也有可能出错，以下是源码及演示地址:
 
 + 源码: <https://github.com/shfshanyue/vercel-api>
-+ 演示地址: <https://vercel-api-orpin-omega.vercel.app/api>
++ 演示地址: <https://vercel-api-orpin-omega.vercel.app/api?name=shanyue>
 
 以上是使用 `Node` 作为运行时的代码，但其实它还可以使用以下编程语言:
 

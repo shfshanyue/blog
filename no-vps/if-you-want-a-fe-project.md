@@ -11,6 +11,11 @@ tags:
 
 # 如果你想搭建一个博客
 
++ gitignore
++ devdocs
++ document (react/vue/lodash/antd)
++ 
+
 如果你只想搭建一个博客，那么你很可能不需要一个服务器，而且会更容易些
 
 如果你需要在个人服务器上部署，有可能会经历以下步骤:
