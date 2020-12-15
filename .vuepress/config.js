@@ -53,12 +53,12 @@ module.exports = {
       // { text: '关于我', link: '/about' },
       {
         text: '系列文章', items: [
-          { text: 'flutter小记', link: '/flutter-guide/' },
+          { text: 'Flutter 小记', link: '/flutter-guide/' },
           { text: '前端工程化', link: '/frontend-engineering/' },
-          { text: 'Node实践', link: '/node/' },
+          { text: 'Node 实践', link: '/node/' },
           { text: '有可能你并不需要服务器', link: '/no-vps/' },
-          { text: 'docker 个人服务器运维', link: '/op/' },
-          { text: 'kubernetes 服务器集群运维', link: '/k8s/' },
+          { text: 'Docker 个人服务器运维', link: '/op/' },
+          { text: 'Kubernetes 服务器集群运维', link: '/k8s/' },
         ]
       },
       {
@@ -90,12 +90,12 @@ module.exports = {
       '/op/': op,
       '/k8s/': k8s,
       '/post/': postsHeader,
-      '/frontend-engineering/': [{ title: '前端工程化', children: feHeader }],
+      '/frontend-engineering/': feHeader,
       '/node/': nodeHeader,
       '/tour/': tourHeader,
       // '/note/': chinaHeader.map(([path, title]) => ['china/' + path, title])
       '/note/china/': chinaHeader,
-      '/no-vps/': [{ title: '有可能你并不需要服务器', collapsable: false, children: noVpsHeader }],
+      '/no-vps/': noVpsHeader,
     },
     lastUpdated: 'Last Updated'
   },
