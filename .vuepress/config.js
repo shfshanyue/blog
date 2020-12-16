@@ -3,7 +3,11 @@ const path = require('path')
 const op = require('./op.header')
 const k8s = require('./k8s.header')
 const postsHeader = require('./post.header')
-const { fe: feHeader, node: nodeHeader, tour: tourHeader, china: chinaHeader, noVps: noVpsHeader } = require('./dir.header')
+const { fe: feHeader, node: nodeHeader, tour: tourHeader,
+  china: chinaHeader,
+  noVps: noVpsHeader,
+  bug: bugHeader
+} = require('./dir.header')
 
 function getFrontMatter (path, metaFilePath) {
   const posts = require(metaFilePath)
@@ -59,6 +63,7 @@ module.exports = {
           { text: '有可能你并不需要服务器', link: '/no-vps/' },
           { text: 'Docker 个人服务器运维', link: '/op/' },
           { text: 'Kubernetes 服务器集群运维', link: '/k8s/' },
+          { text: '虫子集', link: '/bug/' },
         ]
       },
       {
@@ -96,6 +101,7 @@ module.exports = {
       // '/note/': chinaHeader.map(([path, title]) => ['china/' + path, title])
       '/note/china/': chinaHeader,
       '/no-vps/': noVpsHeader,
+      '/bug/': bugHeader,
     },
     lastUpdated: 'Last Updated'
   },
