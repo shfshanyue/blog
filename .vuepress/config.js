@@ -6,7 +6,8 @@ const postsHeader = require('./post.header')
 const { fe: feHeader, node: nodeHeader, tour: tourHeader,
   china: chinaHeader,
   noVps: noVpsHeader,
-  bug: bugHeader
+  bug: bugHeader,
+  code: codeHeader
 } = require('./dir.header')
 
 function getFrontMatter (path, metaFilePath) {
@@ -64,6 +65,7 @@ module.exports = {
           { text: 'Docker 个人服务器运维', link: '/op/' },
           { text: 'Kubernetes 服务器集群运维', link: '/k8s/' },
           { text: '虫子集', link: '/bug/' },
+          { text: '经典代码实现', link: '/code/Promise/' },
         ]
       },
       {
@@ -102,6 +104,7 @@ module.exports = {
       '/note/china/': chinaHeader,
       '/no-vps/': noVpsHeader,
       '/bug/': bugHeader,
+      '/code/': codeHeader,
     },
     lastUpdated: 'Last Updated'
   },

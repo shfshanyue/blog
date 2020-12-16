@@ -4,6 +4,7 @@ const tourPosts = require('../tour/meta')
 const chinaPosts = require('../note/china/meta')
 const noVpsPosts = require('../no-vps/meta')
 const bugPosts = require('../bug/meta')
+const codePosts = require('../code/meta')
 
 // {
 //   sideTitle,
@@ -34,5 +35,6 @@ module.exports = {
   tour: getHeader(tourPosts),
   china: getHeader(chinaPosts),
   noVps: getHeader(noVpsPosts),
-  bug: getHeader(bugPosts)
+  bug: getHeader(bugPosts),
+  code: getHeader(codePosts)
 }
