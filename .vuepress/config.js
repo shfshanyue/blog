@@ -163,9 +163,9 @@ module.exports = {
               }
             ]
           }
-          if (/^\/(code)\/.+?$/.test($page.path)) {
-            $page.frontmatter.sidebar = 'auto'
-          }
+          // if (/^\/(code)\/.+?$/.test($page.path)) {
+          //   $page.frontmatter.sidebar = 'auto'
+          // }
           if (/^\/op\/.+?$/.test($page.path)) {
             $page.frontmatter.metaTitle = `${$page.title} | 个人服务器运维指南 | 山月行`
           }

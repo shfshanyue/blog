@@ -1,11 +1,7 @@
 [
   {
     "sideTitle": "Promise",
-    "path": "Promise/"
-  },
-  {
-    "sideTitle": "Promise.map",
-    "path": "Promise-map/"
+    "path": "promise/"
   },
   {
     "sideTitle": "graphql-tag",
