@@ -57,15 +57,19 @@ module.exports = {
       // { text: 'GraphQL', link: '/post/graphql-guide/' },
       // { text: '关于我', link: '/about' },
       {
-        text: '系列文章', items: [
+        text: '我的技术栈', items: [
           { text: 'Flutter 小记', link: '/flutter-guide/' },
           { text: '前端工程化', link: '/frontend-engineering/' },
           { text: 'Node 实践', link: '/node/' },
           { text: '有可能你并不需要服务器', link: '/no-vps/' },
           { text: 'Docker 个人服务器运维', link: '/op/' },
           { text: 'Kubernetes 服务器集群运维', link: '/k8s/' },
+        ]
+      },
+      {
+        text: '经验总结', items: [
           { text: '虫子集', link: '/bug/' },
-          { text: '经典代码实现', link: '/code/Promise/' },
+          { text: '经典代码实现', link: '/code/' },
         ]
       },
       {

@@ -9,12 +9,7 @@ tags:
 
 ---
 
-# 如果你想搭建一个博客
-
-+ gitignore
-+ devdocs
-+ document (react/vue/lodash/antd)
-+ 
+# 如何使用免费服务来构建前端项目
 
 如果你只想搭建一个博客，那么你很可能不需要一个服务器，而且会更容易些
 
