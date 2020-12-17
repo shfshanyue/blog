@@ -14,6 +14,10 @@
     "category": "幼虫集"
   },
   {
+    "sideTitle": "Mac Git 文件大小写敏感",
+    "path": "mac-git-ignorecase"
+  },
+  {
     "sideTitle": "上游服务不存在",
     "path": "upstream-miss"
   }
