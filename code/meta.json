@@ -1,5 +1,9 @@
 [
   {
+    "sideTitle": "JSONP",
+    "path": "jsonp/"
+  },
+  {
     "sideTitle": "Promise",
     "path": "promise/"
   },

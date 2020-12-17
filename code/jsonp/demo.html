@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <script src="./index.js" type="text/javascript"></script>
+  <script type="text/javascript">
+  jsonp({
+    url: 'http://localhost:10010',
+    params: { id: 10000 },
+    onData (data) {
+      console.log('Data:', data)
+    }
+  })
+  </script>
+</body>
+</html>

@@ -1,4 +1,12 @@
-# 如何实现 jsonp 及原理
+---
+date: 2020-12-17 22:00
+loc: 武汉江汉区
+keywords: "jsonp原理,jsonp原理解析,面试题,头条,jsonp跨域原理,jsonp跨域,jsonp请求"
+description: 有可能是讲解JSONP最好的文章
+
+---
+
+# 如何实现 jsonp 及其原理
 
 ## 一个正常的请求: JSON
 
@@ -101,4 +109,85 @@ jsonp({
 })
 ```
 
-## 完整代码
+## 代码附录
+
+完整代码可见[山月博客的 github 仓库](https://github.com/shfshanyue/blog/tree/master/code): <https://github.com/shfshanyue/blog/tree/master/code/jsonp/>
+
+**JSONP 实现完整代码:**
+
+``` js
+function stringify (data) {
+  const pairs = Object.entries(data)
+  const qs = pairs.map(([k, v]) => {
+    let noValue = false
+    if (v === null || v === undefined || typeof v === 'object') {
+      noValue = true
+    }
+    return `${encodeURIComponent(k)}=${noValue ? '' : encodeURIComponent(v)}`
+  }).join('&')
+  return qs
+}
+
+function jsonp ({ url, onData, params }) {
+  const script = document.createElement('script')
+
+  // 一、为了避免全局污染，使用一个随机函数名
+  const cbFnName = `JSONP_PADDING_${Math.random().toString().slice(2)}`
+  // 二、默认 callback 函数为 cbFnName
+  script.src = `${url}?${stringify({ callback: cbFnName, ...params })}`
+  // 三、使用 onData 作为 cbFnName 回调函数，接收数据
+  window[cbFnName] = onData;
+
+  document.body.appendChild(script)
+}
+```
+
+**JSONP 服务端适配相关代码:**
+
+``` js
+const http = require('http')
+const url = require('url')
+const qs = require('querystring')
+
+const server = http.createServer((req, res) => {
+  const { pathname, query } = url.parse(req.url)
+  const params = qs.parse(query)
+
+  const data = { name: 'shanyue', id: params.id }
+
+  if (params.callback) {
+    str = `${params.callback}(${JSON.stringify(data)})`
+    res.end(str)
+  } else {
+    res.end()
+  }
+
+})
+
+server.listen(10010, () => console.log('Done'))
+```
+
+**JSONP 页面调用相关代码**
+
+``` html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <script src="./index.js" type="text/javascript"></script>
+  <script type="text/javascript">
+  jsonp({
+    url: 'http://localhost:10010',
+    params: { id: 10000 },
+    onData (data) {
+      console.log('Data:', data)
+    }
+  })
+  </script>
+</body>
+</html>
+```
