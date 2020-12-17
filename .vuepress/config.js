@@ -7,7 +7,8 @@ const { fe: feHeader, node: nodeHeader, tour: tourHeader,
   china: chinaHeader,
   noVps: noVpsHeader,
   bug: bugHeader,
-  code: codeHeader
+  code: codeHeader,
+  life: lifeHeader
 } = require('./dir.header')
 
 function getFrontMatter (path, metaFilePath) {
@@ -109,7 +110,9 @@ module.exports = {
       '/no-vps/': noVpsHeader,
       '/bug/': bugHeader,
       '/code/': codeHeader,
+      '/life/': lifeHeader
     },
+
     lastUpdated: 'Last Updated'
   },
   plugins: [
