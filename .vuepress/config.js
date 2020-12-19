@@ -88,6 +88,11 @@ module.exports = {
           { text: '前端武器库', link: 'https://wuqiku.buzuosheng.com' },
         ]
       },
+      {
+        text: '友情链接', items: [
+          { text: 'itclanCoder', link: 'https://coder.itclan.cn/' },
+        ]
+      },
     ],
     sidebar: {
       '/record/': [
