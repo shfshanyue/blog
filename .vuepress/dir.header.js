@@ -6,6 +6,7 @@ const noVpsPosts = require('../no-vps/meta')
 const bugPosts = require('../bug/meta')
 const codePosts = require('../code/meta')
 const lifePosts = require('../life/meta')
+const growthPosts = require('../growth/meta')
 
 // {
 //   sideTitle,
@@ -38,5 +39,6 @@ module.exports = {
   noVps: getHeader(noVpsPosts),
   bug: getHeader(bugPosts),
   code: getHeader(codePosts),
-  life: getHeader(lifePosts)
+  life: getHeader(lifePosts),
+  growth: getHeader(growthPosts)
 }

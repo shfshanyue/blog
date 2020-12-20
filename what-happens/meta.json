@@ -1,0 +1,18 @@
+[
+  {
+    "sideTitle": "DNS",
+    "path": "dns"
+  },
+  {
+    "sideTitle": "ARP",
+    "path": "arp"
+  },
+  {
+    "sideTitle": "IP",
+    "path": "ip"
+  },
+  {
+    "sideTitle": "TCP",
+    "path": "tcp"
+  }
+]

@@ -8,7 +8,8 @@ const { fe: feHeader, node: nodeHeader, tour: tourHeader,
   noVps: noVpsHeader,
   bug: bugHeader,
   code: codeHeader,
-  life: lifeHeader
+  life: lifeHeader,
+  growth: growthHeader
 } = require('./dir.header')
 
 function getFrontMatter (path, metaFilePath) {
@@ -70,12 +71,14 @@ module.exports = {
       {
         text: '经验总结', items: [
           { text: '虫子集', link: '/bug/' },
+          { text: '用户增长', link: '/growth/' },
           { text: '经典代码实现', link: '/code/' },
         ]
       },
       {
         text: '无关技术', items: [
-          { text: '山月的裸辞之行', link: '/tour/' },
+          { text: '北漂生活', link: '/life/2019-day.html' },
+          { text: '裸辞之行', link: '/tour/' },
           { text: '全国旅游攻略', link: '/note/china/'}
         ]
       },
@@ -91,6 +94,7 @@ module.exports = {
       {
         text: '友情链接', items: [
           { text: 'itclanCoder', link: 'https://coder.itclan.cn/' },
+          { text: '若川', link: 'https://lxchuan12.gitee.io' },
         ]
       },
     ],
@@ -115,7 +119,8 @@ module.exports = {
       '/no-vps/': noVpsHeader,
       '/bug/': bugHeader,
       '/code/': codeHeader,
-      '/life/': lifeHeader
+      '/life/': lifeHeader,
+      '/growth/': growthHeader
     },
 
     lastUpdated: 'Last Updated'
