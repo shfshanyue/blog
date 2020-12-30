@@ -9,5 +9,8 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    { "source": "/op/linux-monitor", "destination": "/op/linux-monitor.html", "permanent": true }
   ]
 }

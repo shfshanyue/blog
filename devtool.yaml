@@ -140,15 +140,20 @@
     - dev
     - playground
 - name: geojson.io
-  href: http://geojson.io
+  href: https://geojson.io
   desc: simply edit geojson map data
   labels:
     - dev
     - playground
     - gis
 - name: 坐标拾取系统
-  href: http://api.map.baidu.com/lbsapi/getpoint/index.html
+  href: https://api.map.baidu.com/lbsapi/getpoint/index.html
   desc: 坐标拾取系统
   labels:
     - dev
     - gis
+- name: Moz SEO Analysis Tool
+  href: https://moz.com/domain-analysis
+  desc: Free Domain SEO Analysis Tool | Check SEO Metrics - Moz
+  labels:
+    - seo
