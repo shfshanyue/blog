@@ -6,7 +6,7 @@
 
 <!--more-->
 
-本文链接: <https://shanyue.tech/post/ts-tips/>
+本文链接: <https://shanyue.tech/post/ts-tips.html>
 
 ## 01 keyof
 

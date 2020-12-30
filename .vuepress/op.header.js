@@ -50,7 +50,7 @@ module.exports = [
       ['deploy-postgres', '使用 postgres 做数据存储服务'],
       ['deploy-redis', '使用 redis 做缓存服务'],
       ['deploy-sentry', '使用 sentry 做异常监控'],
-      ['blog-to-wechat', '案例: 黑客增长 - 从博客向公众号引流'],
+      // ['blog-to-wechat', '案例: 黑客增长 - 从博客向公众号引流'],
     ]
   },
   {
