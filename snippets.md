@@ -111,17 +111,18 @@
 
 ## 日问
 
-> 本文收录于 GitHub 日问: [DailyQuestion](https://github.com/shfshanyue/Daily-Question)，内含大厂内推机会、面经大全及若干面试题，每天学习五分钟，一年进入大厂中。
+> 欢迎关注个人网站: [互联网大厂面试每日一题](https://q.shanyue.tech)，内含大厂内推机会、面经大全及若干面试题，每天学习五分钟，一年进入大厂中。
 > 
-> + [大厂面经大全](https://q.shanyue.tech/interview.html)
+> + [大厂前端面试题大全](https://q.shanyue.tech/interview.html)
 > + [大厂内推](https://q.shanyue.tech/infer/toutiao-media-arch.html)
 
 ---
 
 ## 博客
 
-> 本文收录于 GitHub 山月行博客: [shfshanyue/blog](https://github.com/shfshanyue/blog)，内含我在实际工作中碰到的问题、关于业务的思考及在全栈方向上的学习
+> 欢迎关注 GitHub 山月行博客: [shfshanyue/blog](https://shanyue.tech)，内含我在实际工作中碰到的问题、关于业务的思考及在全栈方向上的学习
 > 
-> + [前端工程化系列](https://github.com/shfshanyue/blog#%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96)
-> + [Node进阶系列](https://github.com/shfshanyue/blog#node-%E5%AE%9E%E8%B7%B5)
+> + [有可能你并不需要服务器](https://shanyue.tech/no-vps/)
+> + [前端工程化系列](https://shanyue.tech/frontend-engineering/)
+> + [Node进阶系列](https://shanyue.tech/frontend-engineering/)
 
