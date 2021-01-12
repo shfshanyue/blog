@@ -157,3 +157,18 @@
   desc: Free Domain SEO Analysis Tool | Check SEO Metrics - Moz
   labels:
     - seo
+- name: Free Online Image Optimizer
+  href: https://kraken.io/web-interface
+  labels:
+    - dev
+    - image
+- name: Image Compressor
+  href: https://imagecompressor.com/
+  labels:
+    - dev
+    - image
+- name: Tinypng
+  href: https://tinypng.com/
+  labels:
+    - dev
+    - image

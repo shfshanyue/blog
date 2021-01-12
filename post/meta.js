@@ -293,5 +293,10 @@ module.exports = [
     date: '2019-12-12 22:00',
     keywords: 'http,http缓存,etag',
     tags: ['http']
+  },
+  {
+    title: 'http 常见常用状态码并附实例展示',
+    path: 'http-status',
+    tags: ['http']
   }
 ]
