@@ -81,7 +81,7 @@ curl 'https://www.zhihu.com/sc-profiler' \
 
 ## 301 Moved Permanently
 
-永久重定向。http 转向 https时，有时会使用 301，如 B 站。
+永久重定向。http 转向 https时，有时会使用 301，**此时浏览器会自动缓存，下次直接自动跳转，不再请求服务器**。当更新域名需要 SEO 优化时，同样使用 301 或者 308。如 B 站：
 
 ``` bash
 $ curl www.bilibili.com -vvv
@@ -96,7 +96,7 @@ $ curl www.bilibili.com -vvv
 
 ## 302 Found
 
-暂时重定向。http 转向 https时，有时也会使用 302，如知乎
+暂时重定向。http 转向 https时，有时也会使用 302，如知乎的跳转
 
 ``` bash
 $ curl www.zhihu.com -vvv
@@ -134,6 +134,10 @@ $ curl www.zhihu.com -vvv
 + 301，Moved Permanently。永久重定向，该操作比较危险，需要谨慎操作：如果设置了301，但是一段时间后又想取消，但是浏览器中已经有了缓存，还是会重定向。
 + 302，Found。临时重定向，但是会在重定向的时候改变 method: 把 POST 改成 GET，于是有了 307
 + 307，Temporary Redirect。临时重定向，在重定向时不会改变 method
+
+## 308 Permanent Redirect
+
+永久重定向。与 301 不同的是，当它重定向到新的地址时，并不会改变 method。
 
 ## 400 Bad Request
 
