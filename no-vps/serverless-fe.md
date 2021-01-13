@@ -6,7 +6,15 @@ loc: 杭州江干区
 
 # 使用 Serverless 部署前端应用
 
-无论选择 `vercel`、`netlify` 还是 `alioss` 部署前端应用，以下三项配置都是必不可少的:
+> 今天刚从杭州转到义乌，计划在义乌休整一周，这段时间正好准备一下面试，再写几篇文章。
+> 
+> 关于文章，只在博客 <https://shanyue.tech> 与公众号里发表，最近也比较懒，连往掘金或者 CSDN 发都失去了耐心，当然最主要的原因还是上边没有人点赞...
+> 
+> 另外，义乌有没啥可以转转的地方，闲来没事也好出去走走。
+> 
+> 废话也不说了，正文也比较简单，可以用来薅羊毛
+
+在本系列的前几篇文章介绍了 `vercel`、`netlify` 和 `alioss` 部署前端应用，无论哪一种选择，以下三项配置都是必不可少的:
 
 ``` toml
 [build]
@@ -24,7 +32,7 @@ loc: 杭州江干区
 
 在腾讯云的 Serverless 中，需要配置文件来部署应用。部署纯前端页面的话，需要使用一个 `tencent-website` 的组件，并使用以上配置进行部署。
 
-以下是使用 `vuepress` 搭建我的博客的 Serverless 配置文件，在根目录新疆配置文件 `serverless.yaml`，配置如下:
+以下是使用 `vuepress` 搭建[我的博客](https://shanyue.tech)的 Serverless 配置文件，在根目录新建配置文件 `serverless.yaml`，配置如下:
 
 > 更详细的配置请看过来：[Serverless Website 全配置](https://github.com/serverless-components/tencent-website/blob/master/docs/configure.md)
 
