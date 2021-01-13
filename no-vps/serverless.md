@@ -1,5 +1,9 @@
 # serverless framework 初识
 
+::: warning
+本篇文章有可能已过时，可使用最新的 Serverless Component
+:::
+
 `serverless` 是各大云服务商提供出来的一种无服务的计算资源。为什么叫无服务呢，因为如果你使用 `serverless`，你只需要关注应用层，而无需关心底层基础设施，无需运维。简而言之，`serverless` 并不是真的无服务，而是关于有服务的不归你管，云服务商帮你搞定，比如 `google`，`aws` 或者 `aliyun`。
 
 关注点分离，好呀好，有了 `serverless` 以后只需要也只能关心业务了，这也不知是喜是忧。但你也无需过于担心，这是对已有并且成熟的开发模式的挑战，解决痛点有限，因此很多团队对于替换为 `serverless` 也动力不足。
@@ -14,7 +18,7 @@
 
 ## 快速开始
 
-![serverless](https://user-gold-cdn.xitu.io/2020/4/15/1717e3a95e071494?w=600&h=374&f=gif&s=232161)
+![serverless](./assets/sls.gif)
 
 `serverless framework` 与腾讯云的函数计算来开始一个 `hello, world` 吧
 

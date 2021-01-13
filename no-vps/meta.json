@@ -13,15 +13,23 @@
     "path": "deploy-fe-with-netlify"
   },
   {
-    "sideTitle": "4. AliOSS: 国内托管",
+    "sideTitle": "4. AliOSS(国内): 前端托管",
     "path": "deploy-fe-with-alioss"
   },
   {
-    "sideTitle": "5. Vercel: API 服务",
+    "sideTitle": "5. Serverless Framework",
+    "path": "serverless"
+  },
+  {
+    "sideTitle": "6. Serverless: 前端托管",
+    "path": "serverless-fe"
+  },
+  {
+    "sideTitle": "7. Vercel: API 服务",
     "path": "api"
   },
   {
-    "sideTitle": "6. Sentry: 异常监控",
+    "sideTitle": "8. Sentry: 异常监控",
     "path": "sentry"
   }
 ]
