@@ -1,74 +1,80 @@
 [
   {
     "title": "Node 中的 require 与 module",
-    "sideTitle": "Require",
+    "sideTitle": "1.1 Require",
     "path": "require",
-    "description": "在 `node` 环境中，有两个内置的全局变量无需引入即可直接使用，并且无处不见，它们构成了 `nodejs` 的模块体系: `module` 与 `require`。"
+    "description": "在 `node` 环境中，有两个内置的全局变量无需引入即可直接使用，并且无处不见，它们构成了 `nodejs` 的模块体系: `module` 与 `require`。",
+    "category": "语法篇"
   },
   {
     "title": "40 行代码实现精简版 koa",
-    "sideTitle": "精简版 Koa 实现",
+    "sideTitle": "2.1 精简版 Koa 实现",
     "path": "koa",
     "date": "2020-03-14 16:10",
-    "description": "当我们在深入学习一个框架或者库时，为了了解它的思想及设计思路，也为了更好地使用和避免无意的 Bug，有时很有必要研究源码。对于 koa 这种极为简单，而应用却很广泛的框架/库更应该了解它的源码。"
+    "description": "当我们在深入学习一个框架或者库时，为了了解它的思想及设计思路，也为了更好地使用和避免无意的 Bug，有时很有必要研究源码。对于 koa 这种极为简单，而应用却很广泛的框架/库更应该了解它的源码。",
+    "category": "代码篇"
+  },
+  {
+    "title": "浏览器跨域问题与服务器中的 CORS 配置",
+    "sideTitle": "2.2 CORS",
+    "path": "cors",
+    "description": "跨域，这或许是前端面试中最常碰到的问题了，大概因为跨域问题是浏览器环境中的特有问题，而且随处可见，如同蚊子不仅盯你肉而且处处围着你转让你心烦。你看，在服务器发起 HTTP 请求就不会有跨域问题的。当谈到跨域问题的解决方案时，最流行也最简单的当属 CORS 了。"
   },
   {
     "title": "如何高效及正确地打日志",
-    "sideTitle": "高效日志",
+    "sideTitle": "3.1 高效日志",
     "path": "log",
     "date": "2020-07-11 21:00",
-    "description": "在服务器应用(后端项目)中，完善并结构化的日志不仅可以更好地帮助定位问题及复现，也能够发现性能问题的端倪，甚至能够帮忙用来解决线上 CPU 及内存爆掉的问题。"
+    "description": "在服务器应用(后端项目)中，完善并结构化的日志不仅可以更好地帮助定位问题及复现，也能够发现性能问题的端倪，甚至能够帮忙用来解决线上 CPU 及内存爆掉的问题。",
+    "category": "日志篇"
   },
   {
     "title": "async_hooks、CLS 与 ALS",
-    "sideTitle": "Async Hooks",
+    "sideTitle": "3.2 Async Hooks",
     "path": "cls",
     "date": "2020-03-20 20:01",
     "description": "为什么需要监听异步资源？在一个 Node 应用中，异步资源监听使用场景最多的地方在于：异常捕捉时需要提供用户信息，在每次客户端请求中保持一致的用户信息"
   },
   {
     "title": "Node 中的全链路式日志",
-    "sideTitle": "全链路日志",
+    "sideTitle": "3.3 全链路日志",
     "path": "log-request-id",
     "date": "2019-06-30 21:00",
     "description": "有效解决此类问题，我们需要依赖全链路式的日志作为蛛丝马迹。如当发现测试环境某条 API 延迟过高时，通过该 API 在日志系统中找到所涉及到的所有关键逻辑及数据库查询，查找是否 SQL 查询过多或其中有慢查询所致，或者是否被上游服务拖累。"
   },
   {
     "title": "Node 应用中的单元测试",
-    "sideTitle": "单元测试",
+    "sideTitle": "4.1 单元测试",
     "path": "test",
     "date": "2020-04-04 15:06",
-    "description": "当新增一个新功能或迭代已有功能时，如何保证不会影响到旧功能的正常运作？"
-  },
-  {
-    "title": "Node 进程内存监控",
-    "sideTitle": "内存监控",
-    "path": "mem",
-    "date": "2020-07-02 19:06",
-    "description": "如何知道跑在线上的 Node 服务消耗了多少内存呢？"
-  },
-  {
-    "title": "使用 Docker 部署 Node 应用",
-    "sideTitle": "Docker 部署",
-    "path": "docker",
-    "description": "如何在生产环境部署一个 Node 应用？"
+    "description": "当新增一个新功能或迭代已有功能时，如何保证不会影响到旧功能的正常运作？",
+    "category": "质量篇"
   },
   {
     "title": "Node 脚本异常时如何安全退出",
-    "sideTitle": "安全退出",
+    "sideTitle": "4.2 安全退出",
     "path": "exit-code",
     "description": "最近观察项目镜像构建，会偶尔发现一两个镜像虽然构建成功，但容器却跑不起来的情况。"
   },
   {
     "title": "Node 应用中如何进行参数校验",
-    "sideTitle": "参数校验拦截",
+    "sideTitle": "4.3 参数校验拦截",
     "path": "joi",
     "description": "服务器应用中参数校验是不可或缺的一步，那么在 Node 中如何进行参数校验呢"
   },
   {
-    "title": "浏览器跨域问题与服务器中的 CORS 配置",
-    "sideTitle": "CORS",
-    "path": "cors",
-    "description": "跨域，这或许是前端面试中最常碰到的问题了，大概因为跨域问题是浏览器环境中的特有问题，而且随处可见，如同蚊子不仅盯你肉而且处处围着你转让你心烦。你看，在服务器发起 HTTP 请求就不会有跨域问题的。当谈到跨域问题的解决方案时，最流行也最简单的当属 CORS 了。"
+    "title": "使用 Docker 部署 Node 应用",
+    "sideTitle": "5.1 Docker 部署",
+    "path": "docker",
+    "description": "如何在生产环境部署一个 Node 应用？",
+    "category": "部署篇"
+  },
+  {
+    "title": "Node 进程内存监控",
+    "sideTitle": "6.1 内存监控",
+    "path": "mem",
+    "date": "2020-07-02 19:06",
+    "description": "如何知道跑在线上的 Node 服务消耗了多少内存呢？",
+    "category": "监控篇"
   }
 ]

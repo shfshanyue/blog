@@ -172,3 +172,15 @@
   labels:
     - dev
     - image
+- name: metapicz
+  description: Visualize image metadata anywhere
+  href: http://metapicz.com/
+  labels:
+    - dev
+    - image
+- name: jimpl
+  href: https://jimpl.com/
+  description: Online EXIF data viewer
+  labels:
+    - dev
+    - image
