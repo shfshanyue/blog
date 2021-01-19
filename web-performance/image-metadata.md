@@ -6,19 +6,21 @@ loc: 义乌
 
 #  图片的 Metadata 与网站性能优化
 
-当我们拿出自己的手机，来一张美美的自拍时，这张自拍就包含了你的**拍摄时间、位置与机型信息**，称作这个图片的 `Metadata`。越来越多的国产手机支持把 `Metadata` 作为水印，同时有一些产品根据 `Metadata` 信息制作水印相机。据说去年就有这样一个个人开发者的水印小程序大火，山月也曾跃跃欲试去开发一个。嗯，跑远了...
+当你拿出自己的智能手机，来一张美美的自拍时，这张自拍就包含了**拍摄时间、位置、机型信息、拍摄参数等等信息**，称作这个图片的 `Metadata`。越来越多的国产手机支持把 各式各样的 `Metadata` 作为水印，同时有一些产品根据这些信息制作水印相机。据说去年有个人开发者的水印小程序大火，山月也曾跃跃欲试去开发一个。嗯，跑远了...
 
-由于位置信息可能泄露，因此它存在安全性问题。由于有诸多信息隐藏在照片，造成照片臃肿，因为它存在潜在的性能问题。
+由于位置信息可能泄露，把照片暴露在互联网存在安全性问题。由于有诸多信息隐藏在照片，比如 Thumbnail 等造成照片臃肿，据统计每张 JPEG 这种 15% 的体积就是 Metadata，因此它存在潜在的性能问题。
 
-1. Performance
-1. Securty
+1. Performance: Metadata 占用过多的 JPEG 体积
+1. Securty: Location 及机型信息泄露
 
 以下图片是山月在杭州的苏堤拍摄，从中可以读取到拍摄时间及特别精准的经纬度，体积大小 6.83 Mb
 
 ![杭州-苏堤](./assets/hang-sudi.jpeg)
 ## Metadata
 
-+ `EXIF`: 主要是摄像设备的参数，如 ISO、焦距、GIS、机型信息等
+首先看看有哪些 Metadata，以下是一张 JPEG 最主要的类型
+
++ `EXIF`: 主要是摄像设备的参数，如 ISO、焦距、快门时间、白平衡等等。由于 JPEG 主要由摄像设备提供，这也是 JPEG 中最主要的信息
 + `XMP`: XML stuff Adobe inserts into pics
 + `8BIM`: 使用 PhotoShop 处理过，会携带一些 PS 的信息
 + `IPTC`: 用户添加的信息
@@ -28,9 +30,11 @@ loc: 义乌
 
 > EXIF(Exchangeable Image File format)是可交换图像文件的缩写，是专门为数码相机的照片设定的，可以记录数码照片的属性信息和拍摄数据。EXIF可以附加于JPEG、TIFF、RIFF、RAW等文件之中，为其增加有关数码相机拍摄信息的内容和索引图或图像处理软件的版本信息。
 
-读取 `EXIF` 信息，传统方案在服务端进行：处理图片，提供接口。现代方案可在浏览器端进行，天然的分布式解决方案，不怕大量的访问量，也不用维护服务器，没有网络的传输，解析速度更快，也无文件隐私问题。
+EXIF 是 Metadata 中最重要的信息，如何设计一个读取 `EXIF` 信息的网站呢？传统方案在服务端进行。后端解析图片二进制数据，并向外提供 API，同时为了避免大流量的恶意访问及价格策略，会配置 RateLimit 及 Auth 等等。但作为网络传输，如果网站位于境外，加之过大的图片体积，极有可能延迟过大。
 
-作为一名合格的 CV 工程师，当然要面向 Github 编程，毕竟离开了它可能一行代码都敲不了，以下是关于读取 Exif 信息的几个仓库:
+现代方案可在浏览器端进行，天然的分布式解决方案，不怕大量的访问量，也不用维护服务器，没有网络的传输，解析速度更快，用户也无文件隐私问题。
+
+作为一名合格的 CV 工程师，当然要面向 Github 编程，毕竟离开了它可能一行代码都敲不了，以下是关于读取 Exif 信息的几个仓库。阅读源码，对于理解 JPEG 及 EXIF 格式都极有裨益
 
 两个前端的仓库:
 
@@ -45,13 +49,15 @@ loc: 义乌
 
 一个命令行工具:
 
-1. [exiftool](https://github.com/exiftool/exiftool)
+1. [exiftool](https://github.com/exiftool/exiftool): 753 Star, Perl
 
-## EXIF 信息读取可视化工具
+## Metadata 信息读取可视化工具
+
+为了对 JPEG 图片中的 Metadata 信息有一个大概的初步印象，可以下载本篇文章开头的那张照片，并且使用以下方式可视化查看:
 
 Mac笔记本:
 
-![在 Mac 上读取 Metadata 信息](./assets/han-exif-sudi.png)
+![在 Mac 上读取 Metadata 信息](./assets/hang-exif-sudi.png)
 
 可视化网站:
 
@@ -81,7 +87,9 @@ ISO                             : 50
 
 ## Metadata 信息读取原理
 
-读取 JPEG 图像的 Metadata 信息，就要了解并解析 JPEG 的二进制格式。**JPEG 由许多 `Segement` 组成，而每个 `Segement` 以 `Marker` 打头，每一个 `Marker` 以字节 `0XFF` 打头。**
+读取 JPEG 图片的 Metadata 信息，就要了解并解析 JPEG 的二进制格式。**JPEG 由许多 `Segement` 组成，而每个 `Segement` 以 `Marker` 打头，每一个 `Marker` 以字节 `0XFF` 打头。**
+
+其中每一个 JPEG 图片以 SOI (Start Of Image) 开头并 EOI (End Of Image) 结尾。即每一个 JPEG 图片的前两个字节是 `0XFFD8`，最后两个字节是 `0XFFD9`。
 
 <table><thead><tr><th>Short Name</th><th>Bytes</th><th>Payload</th><th>Name</th><th>Comments</th></tr></thead><tbody><tr><td>SOI</td><td>0xFF, 0xD8</td><td>none</td><td>Start of Image</td><td></td></tr><tr><td>S0F0</td><td>0xFF, 0xC0</td><td>variable size</td><td>Start of Frame</td><td></td></tr><tr><td>S0F2</td><td>0xFF, 0xC2</td><td>variable size</td><td>Start fo Frame</td><td></td></tr><tr><td>DHT</td><td>0xFF, 0xC4</td><td>variable size</td><td>Define Huffman Tables</td><td></td></tr><tr><td>DQT</td><td>0xFF, 0xDB</td><td>variable size</td><td>Define Quantization Table(s)</td><td></td></tr><tr><td>DRI</td><td>0xFF, 0xDD</td><td>4 bytes</td><td>Define Restart Interval</td><td></td></tr><tr><td>SOS</td><td>0xFF, 0xDA</td><td>variable size</td><td>Start Of Scan</td><td></td></tr><tr><td>RSTn</td><td>0xFF, 0xD//n//(//n//#0..7)</td><td>none</td><td>Restart</td><td></td></tr><tr><td>APPn</td><td>0xFF, 0xE//n//</td><td>variable size</td><td>Application specific</td><td></td></tr><tr><td>COM</td><td>0xFF, 0xFE</td><td>variable size</td><td>Comment</td><td></td></tr><tr><td>EOI</td><td>0xFF, 0xD9</td><td>none</td><td>End Of Image</td><td></td></tr></tbody></table>
 
