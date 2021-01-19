@@ -51,6 +51,7 @@ module.exports = {
   ],
   themeConfig: {
     repo: 'shfshanyue/blog',
+    sidebarDepth: 2,
     nav: [
       { text: '主页', link: '/' },
       // { text: '使用graphql构建web应用', link: 'https://github.com/shfshanyue/graphql-guide' },

@@ -184,3 +184,13 @@
   labels:
     - dev
     - image
+- name: color space
+  href: https://mycolor.space/
+  description: Online EXIF data viewer
+  labels:
+    - color
+- name: mdigi
+  href: https://mdigi.tools/
+  description: Micro Digital Tools
+  labels:
+    - dev
