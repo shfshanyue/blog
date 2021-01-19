@@ -61,7 +61,7 @@ Mac笔记本:
 
 可视化网站:
 
-+ [EXIF 可视化工具](https://devtools.tech/exif)
++ [EXIF 可视化工具](https://devtool.tech/exif)
 + [metapicz](http://metapicz.com/)
 + [jimpl](https://jimpl.com/)
 
@@ -87,6 +87,29 @@ ISO                             : 50
 
 ## Metadata 信息读取原理
 
+> 使用 vim 打开图片的十六进制格式，可以看到拍摄设备是xiaomi以及拍摄时间。
+
+``` bash
+# 使用 vim 打开图片，并使用 :%!xxd 打开十六进制模式
+$ vim -b hangzhou.jpeg
+00000000: ffd8 ffe1 32a5 4578 6966 0000 4d4d 002a  ....2.Exif..MM.*
+00000010: 0000 0008 000c 0100 0003 0000 0001 1680  ................
+00000020: 0000 0110 0002 0000 0006 0000 009e 0101  ................
+00000030: 0003 0000 0001 0ca8 0000 0112 0003 0000  ................
+00000040: 0001 0001 0000 0132 0002 0000 0014 0000  .......2........
+00000050: 00a4 0213 0003 0000 0001 0001 0000 8769  ...............i
+00000060: 0004 0000 0001 0000 00cf 0128 0003 0000  ...........(....
+00000070: 0001 0002 0000 8825 0004 0000 0001 0000  .......%........
+00000080: 14f8 011a 0005 0000 0001 0000 00b8 011b  ................
+00000090: 0005 0000 0001 0000 00c0 010f 0002 0000  ................
+000000a0: 0007 0000 00c8 0000 15d1 4d69 2031 3000  ..........Mi 10.
+000000b0: 3230 3231 3a30 313a 3132 2031 373a 3431  2021:01:12 17:41
+000000c0: 3a31 3900 0000 0048 0000 0001 0000 0048  :19....H.......H
+000000d0: 0000 0001 5869 616f 6d69 0000 229a aa00  ....Xiaomi.."...
+000000e0: 0100 0011 8000 0002 6d88 2700 0300 0000  ........m.'.....
+000000f0: 0101 3500 0088 2200 0300 0000 0100 0200  ..5...".........
+```
+
 读取 JPEG 图片的 Metadata 信息，就要了解并解析 JPEG 的二进制格式。**JPEG 由许多 `Segement` 组成，而每个 `Segement` 以 `Marker` 打头，每一个 `Marker` 以字节 `0XFF` 打头。**
 
 其中每一个 JPEG 图片以 SOI (Start Of Image) 开头并 EOI (End Of Image) 结尾。即每一个 JPEG 图片的前两个字节是 `0XFFD8`，最后两个字节是 `0XFFD9`。
@@ -105,13 +128,19 @@ ISO                             : 50
 | COM | 0xFF, 0xFE | variable size | Comment |  |
 | EOI | 0xFF, 0xD9 | none | End Of Image |  |
 
-其中的 `AppN` Segement 中，包含了图像的 EXIF 信息，解析 EXIF 格式如下:
+其中的 `AppN` Segement 中，包含了图像的 EXIF 信息，EXIF 为 marker 0xffe1 标记，紧随其后的为 `Exif` 字符串。从 vim 命令打开的二进制文件也可以看出，Exif 信息紧随 SOI (0xffd8) 之后，EXIF 使用 TIFF 格式存储数据
+
+<table><thead><tr><th>FFE1</th><th>APP1 Marker</th></tr></thead><tbody><tr><td>SSSS</td><td>APP1 Data</td></tr><tr><td>45786966 0000</td><td>Exif Header</td></tr><tr><td>49492A00 08000000</td><td>TIFF Header</td></tr><tr><td>XXXX. . . .</td><td>IFD0 (main image)</td></tr><tr><td>LLLLLLLL</td><td>Link to IFD1</td></tr><tr><td>XXXX. . . .</td><td>Data area of IFD0</td></tr><tr><td>XXXX. . . .</td><td>Exif SubIFD</td></tr><tr><td>00000000</td><td>End of Link</td></tr><tr><td>XXXX. . . .</td><td>Data area of Exif SubIFD</td></tr><tr><td>XXXX. . . .</td><td>IFD1(thumbnail image)</td></tr><tr><td>00000000</td><td>End of Link</td></tr><tr><td>XXXX. . . .</td><td>Data area of IFD1</td></tr><tr><td>FFD8XXXX. . . XXXXFFD9</td><td>Thumbnail image</td></tr></tbody></table>
 
 ## Metadata 信息去除
 
+![JPEG Metadata 占用大小](./assets/jpeg-metadata-size.avif)
+
 根据文章 [Impact of metadata on Image Performance](https://dexecure.com/blog/impact-of-metadata-on-image-performance/)，Metadata 信息会占到一个图片大小的 15%，不可不忽略，且藏有设备信息及位置信息等敏感信息。
 
-通过对 JPEG 中 Metadata 信息的抹除，可以对图片大小及网络性能起到一个不错的优化:
+通过对 JPEG 中 Metadata 信息的抹除，可以对图片大小及网络性能起到一个不错的优化: [ImageOptim](https://imageoptim.com/mac)，这个工具对 JPG/PNG/SVG 都有一个很好的压缩效果。
+
+![使用 ImageOptim 进行图片格式压缩](./assets/image-optim.png)
 ## 参考链接
 
 1. [An Overview of Image Metadata - How It Affects Web Performance and Security](https://www.keycdn.com/blog/image-metadata)
