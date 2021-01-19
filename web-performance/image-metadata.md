@@ -91,16 +91,27 @@ ISO                             : 50
 
 其中每一个 JPEG 图片以 SOI (Start Of Image) 开头并 EOI (End Of Image) 结尾。即每一个 JPEG 图片的前两个字节是 `0XFFD8`，最后两个字节是 `0XFFD9`。
 
-<table><thead><tr><th>Short Name</th><th>Bytes</th><th>Payload</th><th>Name</th><th>Comments</th></tr></thead><tbody><tr><td>SOI</td><td>0xFF, 0xD8</td><td>none</td><td>Start of Image</td><td></td></tr><tr><td>S0F0</td><td>0xFF, 0xC0</td><td>variable size</td><td>Start of Frame</td><td></td></tr><tr><td>S0F2</td><td>0xFF, 0xC2</td><td>variable size</td><td>Start fo Frame</td><td></td></tr><tr><td>DHT</td><td>0xFF, 0xC4</td><td>variable size</td><td>Define Huffman Tables</td><td></td></tr><tr><td>DQT</td><td>0xFF, 0xDB</td><td>variable size</td><td>Define Quantization Table(s)</td><td></td></tr><tr><td>DRI</td><td>0xFF, 0xDD</td><td>4 bytes</td><td>Define Restart Interval</td><td></td></tr><tr><td>SOS</td><td>0xFF, 0xDA</td><td>variable size</td><td>Start Of Scan</td><td></td></tr><tr><td>RSTn</td><td>0xFF, 0xD//n//(//n//#0..7)</td><td>none</td><td>Restart</td><td></td></tr><tr><td>APPn</td><td>0xFF, 0xE//n//</td><td>variable size</td><td>Application specific</td><td></td></tr><tr><td>COM</td><td>0xFF, 0xFE</td><td>variable size</td><td>Comment</td><td></td></tr><tr><td>EOI</td><td>0xFF, 0xD9</td><td>none</td><td>End Of Image</td><td></td></tr></tbody></table>
+| Short Name | Bytes | Payload | Name | Comments |
+| --- | --- | --- | --- | --- |
+| SOI | 0xFF, 0xD8 | none | Start of Image |  |
+| S0F0 | 0xFF, 0xC0 | variable size | Start of Frame |  |
+| S0F2 | 0xFF, 0xC2 | variable size | Start fo Frame |  |
+| DHT | 0xFF, 0xC4 | variable size | Define Huffman Tables |  |
+| DQT | 0xFF, 0xDB | variable size | Define Quantization Table(s) |  |
+| DRI | 0xFF, 0xDD | 4 bytes | Define Restart Interval |  |
+| SOS | 0xFF, 0xDA | variable size | Start Of Scan |  |
+| RSTn | 0xFF, 0xD//n//(//n//#0..7) | none | Restart |  |
+| APPn | 0xFF, 0xE//n// | variable size | Application specific |  |
+| COM | 0xFF, 0xFE | variable size | Comment |  |
+| EOI | 0xFF, 0xD9 | none | End Of Image |  |
 
-其中的 `AppN` Segement 中，包含了图像的 EXIF 信息，而解析 EXIF 又可以根据下图:
+其中的 `AppN` Segement 中，包含了图像的 EXIF 信息，解析 EXIF 格式如下:
 
 ## Metadata 信息去除
 
 根据文章 [Impact of metadata on Image Performance](https://dexecure.com/blog/impact-of-metadata-on-image-performance/)，Metadata 信息会占到一个图片大小的 15%，不可不忽略，且藏有设备信息及位置信息等敏感信息。
 
-通过对 JPEG 中 Metadata 信息的抹除，可以对图片大小及网络性能起到一个不错的优化。
-
+通过对 JPEG 中 Metadata 信息的抹除，可以对图片大小及网络性能起到一个不错的优化:
 ## 参考链接
 
 1. [An Overview of Image Metadata - How It Affects Web Performance and Security](https://www.keycdn.com/blog/image-metadata)
