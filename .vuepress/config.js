@@ -9,7 +9,8 @@ const { fe: feHeader, node: nodeHeader, tour: tourHeader,
   bug: bugHeader,
   code: codeHeader,
   life: lifeHeader,
-  growth: growthHeader
+  growth: growthHeader,
+  web: webHeader
 } = require('./dir.header')
 
 function getFrontMatter (path, metaFilePath) {
@@ -121,7 +122,8 @@ module.exports = {
       '/bug/': bugHeader,
       '/code/': codeHeader,
       '/life/': lifeHeader,
-      '/growth/': growthHeader
+      '/growth/': growthHeader,
+      '/web-performance/': webHeader
     },
 
     lastUpdated: 'Last Updated'

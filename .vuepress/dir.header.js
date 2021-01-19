@@ -7,6 +7,7 @@ const bugPosts = require('../bug/meta')
 const codePosts = require('../code/meta')
 const lifePosts = require('../life/meta')
 const growthPosts = require('../growth/meta')
+const webPosts = require('../web-performance/meta')
 
 // {
 //   sideTitle,
@@ -40,5 +41,6 @@ module.exports = {
   bug: getHeader(bugPosts),
   code: getHeader(codePosts),
   life: getHeader(lifePosts),
-  growth: getHeader(growthPosts)
+  growth: getHeader(growthPosts),
+  web: getHeader(webPosts)
 }

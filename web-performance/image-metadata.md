@@ -134,7 +134,7 @@ $ vim -b hangzhou.jpeg
 
 ## Metadata 信息去除
 
-![JPEG Metadata 占用大小](./assets/jpeg-metadata-size.avif)
+![JPEG Metadata 占用大小](./assets/jpeg-metadata-size.jpg)
 
 根据文章 [Impact of metadata on Image Performance](https://dexecure.com/blog/impact-of-metadata-on-image-performance/)，Metadata 信息会占到一个图片大小的 15%，不可不忽略，且藏有设备信息及位置信息等敏感信息。
 
