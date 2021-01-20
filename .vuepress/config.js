@@ -92,6 +92,7 @@ module.exports = {
           { text: '诗词小站', link: 'https://shici.xiange.tech' },
           { text: '句子集', link: 'https://juzi.shanyue.tech' },
           { text: '前端武器库', link: 'https://wuqiku.buzuosheng.com' },
+          { text: '开发者工具库', link: 'https://devtool.tech' },
         ]
       },
       {
