@@ -2,8 +2,6 @@
 
 本篇文章写给那些想初窥编程门径却不知如何下手的零基础非计算机科班的同学们。
 
-> 专家者视角
-
 ## 准备工作
 
 ### 心态
@@ -15,6 +13,12 @@
 许多人一看代码二字就吓住了，想起了大学时被C语言二级支配的痛苦，于是刚听到编程俩字，就已被劝退，心里便想着：我不行，敲不了代码。于是未战先败。不过你放心，相对于C语言来说，前端入门可以称得上既简单又好玩。
 
 相对于其它转专业来学前端的，前端实在过于简单。相比机械电子来说，前端不费材料，不用机床不用电路板，没有高价的设施要求，也无生命安全之忧。(话说，山月在大学见别人车零件时总怕切到手)
+
+还有一些人会问：写代码是不全是写英文，英文不好可以吗？如果说代码和英文相关，那估计只有几个关键字的单词吧。学习编程只要你有英语四级的水平，正常的英文阅读水平，但大部分时候是用来去阅读英文文档。**你需要养成阅读英文文档的习惯。**
+
+![沙拉查词插件](./assets/learn-fe-en-plugin.png)
+
+下载地址: <https://saladict.crimx.com/>
 
 ### 坚持
 
@@ -28,11 +32,12 @@
 
 > 工欲善其事，必先利其器。
 
-这里介绍三款山月认为的**必备工具**吧:
+这里介绍三款山月认为的**必备必备必备工具**吧:
 
 + [VSCode](https://code.visualstudio.com/): VSCode 是一款编辑器。在我开始学习编程时，Sublime Text 都给人眼前一亮。而随着编辑器的发展，对于前端而言，VSCode 无疑是最流行最好用的那款。在学习前端之前，务必装好这个软件。
 + [Github](https://github.com/): Github 是全球最大的开源平台，你可以在上边找到你想要的代码及学习资料。如果离开了 Github，很多程序员将面临失业，这并不是夸夸其谈。
 + [DevDocs](https://devdocs.io/): 文档，可理解为官方学习资料，贯穿编程的每一天，基本与文档随影随行，**学习编程的最重要一步就是养成看文档的习惯**。devdocs 有可能是最全的文档库。
++ Chrome: 谷歌浏览器
 
 ### 终端 (命令行工具)
 
@@ -54,10 +59,11 @@ HTML/CSS/JS 被称为前端网站编写三剑客，也是常说的前端所需�
 
 + [慕课网](https://imooc.com)
 + [网易云课堂](https://study.163.com/)
++ [MDN](https://developer.mozilla.org/zh-CN/docs/learn)
 
 ## HTML: 一天时间
 
-![]()
+![HTML 课程](./assets/learn-fe-html.png)
 
 + 学习资料: [初识HTML(5)+CSS(3)-2020升级版](https://www.imooc.com/learn/9)，包含了 HTML 和 CSS 的教程。
 + 文档协助: [MDN](https://developer.mozilla.org/zh-CN/docs/learn)，MDN 是服务于开发者最齐全的文档，也是前端**必不可少翻得最多的文档**
@@ -100,19 +106,38 @@ HTML/CSS/JS 被称为前端网站编写三剑客，也是常说的前端所需�
 
 ## 插曲: Chrome Devtools
 
+![Chrome Devtools](./assets/learn-fe-devtools.png)
+
+学习完 HTML/CSS 后，可以发送一下，学点 Devtools 的用法，以下不需要掌握，多看一点是一点
+
+一个前端每天有一半的时间在敲代码、另一半的时间在点 Devtools。从中可以看到 Devtools 在前端中的地位及重要性。
+
+参考两篇文章学起来:
+
+1. [Chrome 开发者工具官方文档](https://developers.google.cn/web/tools/chrome-devtools?hl=zh-cn)
+1. [Chrome 开发者工具非官方小册子](https://legacy.gitbook.com/book/leeon/devtools)
+
 ### 练习一: 更改网页内容
 
+在我初学 Chrome 的开发者工具后，最爱改一些数字，然后截图给我的朋友和发到朋友圈，你也来试一试吧
+
+![更改知乎信息](./assets/learn-fe-edit.png)
 ### 练习二: 查看密码明文
 
+当忘记密码时，浏览器仍然记得你的密码，在开发者工具中修改 `input.type` 即可做到
+
+![查看明文密码](./assets/learn-fe-pwd.png)
 ## Javascript: 七天
 
-![]()
-
-+ 学习资料: 
-
-相对于 HTML/CSS 而言，Javascript 才可以称得上是一门编程语言。
+相对于 HTML/CSS 而言，Javascript 才可以称得上是一门编程语言。**从这里开始你要开始使用编辑器 VSCode**
 
 ### 第一阶段: 语言基础
+
+![JS 基础学习](./assets/learn-fe-js.png)
+
+学习资料: [MDN 上的 Javascript 入门篇](https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/First_steps)
+
+在 MDN 作为教程，并在 Chrome Devtools 或者在 VS Code 中练习
 
 + 变量: const/let
 + 数据类型: number/string/boolean/null/undefined/object(Object, Array, Date)
@@ -120,6 +145,10 @@ HTML/CSS/JS 被称为前端网站编写三剑客，也是常说的前端所需�
 + 函数: Function、`() => {}`
 
 ### 第二阶段: DOM API
+
+![DOM API 学习](./assets/learn-fe-dom.png)
+
+学习资料: [MDN 上的 DOM API 概述](https://developer.mozilla.org/zh-CN/docs/Web/API/Document_Object_Model/Introduction)
 
 DOM API，及 DOM 赋予 Javascript 的各种操作 HTML 的 API。现代前端框架对于 DOM 手动操作已经很少很少了，但是了解还是必不可少的。
 
@@ -141,19 +170,29 @@ DOM API，及 DOM 赋予 Javascript 的各种操作 HTML 的 API。现代前端�
 
 ### 第三阶段: ES6+
 
-+ 学习资料: [初识HTML(5)+CSS(3)-2020升级版](https://www.imooc.com/learn/9)，包含了 HTML 和 CSS 的教程。
+学习资料: 
+
+1. [ES6入门教程](https://es6.ruanyifeng.com/)
+1. [Javascript 参考](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference)
+
+可速查[浏览器兼容性表](https://kangax.github.io/compat-table/es6/)
 
 ### 第四阶段: npm/(lodash/moment)
 
-``` bash
-$ npm install 
-```
+写代码的经常有几句话挂在嘴边: **不要重复造轮子**别人实现过的功能，你无需再实现。
 
-``` js
-https://github.com/js-cookie/js-cookie
+npm 是 js 的包管理工具，你可以通过它下载各种各样的库(即各类别人实现的函数的集合)。
+
+这里介绍两个只要你工作就肯定会用到的库: lodash/moment。lodash 拥有着各种各样方便的工具函数，而 moment 计算时间特别便利。
+
+``` bash
+# 安装一个库
+$ npm install lodash
 ```
 
 ## 插曲: Git
+
+Git 也是工作中必不可少的，但敲的最多的就是以下几条命令了。
 
 ``` bash
 $ git pull origin master
@@ -170,13 +209,17 @@ $ git push origin master
 
 + React: 七天
 
+### Create React App
+
+### Playground
+
 ## 框架生态圈: React/React Router/Ant Design
 
-+ React
-+ React Router
-+ Next
++ [React](https://reactjs.org/)
++ [React Router](https://reactrouter.com/)
++ [Next](https://nextjs.org/)
 + Redux/Mobx
-+ Ant Design
++ [Ant Design](https://ant.design/)
 
 ## HTTP: 前后端交流桥梁
 
@@ -196,13 +239,20 @@ $ git push origin master
 但是，作为一个初窥门径的 FEer，使用 Koa 吧
 
 ``` js
-const app = require('koa')
+const Koa = require('koa')
+const app = new Koa()
 
+app.use(ctx => {
+  ctx.body = 'hello, world'
+})
+
+app.listen(3000)
 ```
 
 ## 项目实战: 已毕业 ? Github Projects : 实习
 
-
-
 ## 面试
 
+几个必问题目吧:
+
+1. [什么是防抖和节流，场景在哪里，如何实现](https://q.shanyue.tech/fe/js/3.html)
