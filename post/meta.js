@@ -1,5 +1,11 @@
 module.exports = [
   {
+    title: '零基础如何开始学习前端',
+    path: 'zero-to-learn-fe',
+    categories: ['前端'],
+    tags: ['成长']
+  },
+  {
     title: 'http 缓存问题与 lm factor 算法',
     path: 'a-problem-about-http-cache',
     date: '2019-03-15',

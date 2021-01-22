@@ -1,3 +1,9 @@
+---
+date: 2021-01-22 17:49
+loc: 浙江金华义乌
+description: 转专业、零基础如何开始学习前端？这里特意针对零基础者出了一份简易易执行的清单，从刚开始的心态准备到最后的服务端开发与前端部署，无不包含
+---
+
 # 零基础前端入门学习指南
 
 本篇文章写给那些想初窥编程门径却不知如何下手的零基础非计算机科班的同学们。
@@ -192,6 +198,8 @@ $ npm install lodash
 
 ## 插曲: Git
 
+学习资料: [Git 教程](https://www.liaoxuefeng.com/wiki/896043488029600)
+
 Git 也是工作中必不可少的，但敲的最多的就是以下几条命令了。
 
 ``` bash
@@ -203,17 +211,37 @@ $ git push origin master
 
 ## 插曲: VsCode Plugins
 
+为了使你的 VSCode 更加好用，现在可以开始安装插件了，以下我只强烈安装一个
+
 + GitLens
 
-## 框架: React
+## 框架: React 十天
 
-+ React: 七天
+此时，你要学的不仅仅是 React，而是一种现代化框架绑定的各种方法论，你至少需要对以下有所了解
+
++ React
++ Sass/Less/Stylus
++ Webpack
 
 ### Create React App
 
++ [Create React App](https://github.com/facebook/create-react-app)
+
+1. 通读 CRA 的文档
+1. 在本地跑起来项目
+1. 了解文件目录结构，并了解每个文件的配置
+
 ### Playground
 
+强烈推荐一下两个 Playground，类似线上的 VSCode，让你更加关注于 React 的学习。
+
++ [CodeSandBox](https://codesandbox.io/s/new)
++ [stackblitz](https://stackblitz.com/edit/react-armlqx)
+
 ## 框架生态圈: React/React Router/Ant Design
+
+1. 看文档
+1. 跑Demo
 
 + [React](https://reactjs.org/)
 + [React Router](https://reactrouter.com/)
