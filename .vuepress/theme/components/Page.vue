@@ -9,7 +9,7 @@
         <p>即可在关注期间<span>无限制</span>浏览本站全部文章内容</p>
         <img src="../qr.jpg" width="180" height="180">
         <!-- <p>该提示信息随机出现，你可以<span>再次刷新</span>页面，来浏览本站全部文章</p> -->
-        <p><span @click="lock = false">点击关闭</span></p>
+        <!-- <p><span @click="lock = false">点击关闭</span></p> -->
         <p>
           你也可以在文章<a href="https://github.com/shfshanyue/op-note/blob/master/blog-to-wechat.md">关于回复公众号扫码解锁全站的技术实现</a>中获得解锁代码，永久解锁本站全部文章
         </p>
@@ -64,22 +64,22 @@ export default {
     }
   },
   async mounted () {
-    // const code = getCode()
-    // this.code = code
-    // if (!localStorage.token) {
-    //   this.lock = true
-    //   const token = await verifyCode(code)
-    //   if (token) {
-    //     localStorage.token = token
-    //     this.lock = false
-    //   }
-    // } else {
-    //   const token = localStorage.token
-    //   const verify = await verifyToken(token)
-    //   if (!verify) {
-    //     this.lock = true
-    //   }
-    // }
+    const code = getCode()
+    this.code = code
+    if (!localStorage.token) {
+      this.lock = true
+      const token = await verifyCode(code)
+      if (token) {
+        localStorage.token = token
+        this.lock = false
+      }
+    } else {
+      const token = localStorage.token
+      const verify = await verifyToken(token)
+      if (!verify) {
+        this.lock = true
+      }
+    }
   },
   computed: {
     isLock () {
@@ -115,13 +115,13 @@ export default {
 
 .theme-default-content.lock
   .content__default
-    > :nth-last-child(3)
+    > :nth-last-child(6)
       opacity .5
 
-    > :nth-last-child(2)
+    > :nth-last-child(5)
       opacity .2
 
-    > :nth-last-child(-n+1)
+    > :nth-last-child(-n+4)
       display none
 
   .content-lock

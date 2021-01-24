@@ -1,6 +1,6 @@
 module.exports = [
   {
-    title: '零基础如何开始学习前端',
+    title: '零基础、转专业如何开始系统学习前端',
     path: 'zero-to-learn-fe',
     categories: ['前端'],
     tags: ['成长']
