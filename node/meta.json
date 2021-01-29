@@ -51,27 +51,32 @@
     "category": "质量篇"
   },
   {
-    "title": "Node 脚本异常时如何安全退出",
-    "sideTitle": "4.2 安全退出",
-    "path": "exit-code",
-    "description": "最近观察项目镜像构建，会偶尔发现一两个镜像虽然构建成功，但容器却跑不起来的情况。"
-  },
-  {
     "title": "Node 应用中如何进行参数校验",
-    "sideTitle": "4.3 参数校验拦截",
+    "sideTitle": "4.2 参数校验拦截",
     "path": "joi",
     "description": "服务器应用中参数校验是不可或缺的一步，那么在 Node 中如何进行参数校验呢"
   },
   {
+    "title": "Node 脚本异常时如何安全退出",
+    "sideTitle": "5.1 安全退出",
+    "path": "exit-code",
+    "description": "最近观察项目镜像构建，会偶尔发现一两个镜像虽然构建成功，但容器却跑不起来的情况。",
+    "category": "脚本篇"
+  },
+  {
+    "sideTitle": "5.2 命令行工具",
+    "path": "cli"
+  },
+  {
     "title": "使用 Docker 部署 Node 应用",
-    "sideTitle": "5.1 Docker 部署",
+    "sideTitle": "6.1 Docker 部署",
     "path": "docker",
     "description": "如何在生产环境部署一个 Node 应用？",
     "category": "部署篇"
   },
   {
     "title": "Node 进程内存监控",
-    "sideTitle": "6.1 内存监控",
+    "sideTitle": "7.1 内存监控",
     "path": "mem",
     "date": "2020-07-02 19:06",
     "description": "如何知道跑在线上的 Node 服务消耗了多少内存呢？",
