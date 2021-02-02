@@ -3,11 +3,26 @@ date: 2021-01-28 22:18
 loc: 山西洪洞
 title: 如何使用 Node 开发一个命令行工具
 description: 一个 Node 脚本，一个 PATH 环境变量，npm 安装全局模块时是如何处理命令行脚本的？本文将引导你使用 Node 开发一个好用漂亮的命令行工具
+
 ---
 
 # 使用 Node 开发一个命令行工具
 
-最近山月开发了一个从任意 URL 解析内容并生成 `markdown` 的小客户端工具: [markdown-read](https://github.com/shfshanyue/markdown-read)。用以我个人公众号的内容获取及一些优质内容的整理收藏，欢迎 Star、下载及使用
+最近山月开发了一个从任意 URL 解析内容并生成 `markdown` 的小客户端工具: [markdown-read](https://github.com/shfshanyue/markdown-read)。用以我个人公众号的内容获取及一些优质内容的整理收藏，欢迎 Star、下载及使用。
+
+``` bash
+$ markdown https://juejin.cn/post/6924258563862822919 | head -10
+> 本文作者：Wind、Skyler、ZRJ、ZJ
+
+## 前言
+
+Webpack5 在 2020 年 10 月 10 日正式发布，并且在过去的几个月中快速演进和迭代，截止 1 月 28 日，Webpack5 已经更新了 18 个 minor 版本，带来了许多十分吸引人的新特性。据[官网介绍](https://webpack.js.org/blog/2020-10-10-webpack-5-release/#general-direction "官网介绍")，Webpack5 整体的方向性变化有以下几点：
+
+![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/77ee2267bfa34ef5bf7bb29553a5035c~tplv-k3u1fbpfcp-zoom-1.image)
+
++   通过持久化硬盘缓存能力来提升构建性能
++   通过更好的算法来改进长期缓存（降低产物资源的缓存失效率）
+```
 
 想到用 Node 开发一个命令行工具在工作中也较为常见，也很有意思，总结一下
 ## 命令行工具
@@ -79,7 +94,7 @@ lrwxr-xr-x  1 xiange  admin    48B  1 28 20:06 /usr/local/bin/markdown -> ../lib
 
 ## 从 package.json 说起
 
-在 package.json 中的 bin 选项，用以指定最终的命令行工具的名字
+在 **package.json 中的 bin 选项**，用以指定最终的命令行工具的名字
 
 ``` json
 {
@@ -171,6 +186,46 @@ Options:
 + [yargs](https://github.com/yargs/yargs): Star 8.5K，周下载量 4900K
 + [commander](https://github.com/tj/commander.js): Star 19.7K，周下载量 5300K，tj 大神的作品
 
+使用 `commander` 解析不同的输入指令
+
+``` js
+const { program } = require('commander')
+
+// 解析不同的指令输入
+program
+  .option('-d, --debug', 'output extra debugging')
+  .option('-s, --small', 'small pizza size')
+  .option('-p, --pizza-type <type>', 'flavour of pizza')
+
+program.parse(process.argv)
+
+const options = program.opts()
+console.log(options)
+```
+
+## 丰富的色彩体验
+
+![Next 构建输出](./assets/cli.png)
+
+目前大部分终端已支持彩色输出，丰富的高亮色彩如同代码高亮一样使用户可以快速抓住重点。把异常、警告、成功的信息用不同的颜色标出，命令行工具的输出一目了然。在现代构建工具，如 Webpack 下，也大都支持彩色输出。
+
+以下是在命令行工具中常用的两个色彩库，支持多种多样色彩的输出。
+
++ [chalk](https://www.npmjs.com/package/chalk)
++ [colors](https://www.npmjs.com/package/colors)
+
+以下是 `chalk` 示例，`Error` 与 `Warning` 信息用不同的颜色表示
+
+``` js
+const chalk = require('chalk')
+ 
+const error = chalk.bold.red
+const warning = chalk.keyword('orange')
+ 
+console.log(error('Error!'))
+console.log(warning('Warning!'))
+```
+
 ## 发布与安装
 
 在辛苦努力写完一个 cli 工具后，就是检验成果的时候。发布到 npm 仓库，可使所有人使用你的命令行工具，这也是最重要的一步
@@ -204,4 +259,9 @@ $ markdown https://shanyue.tech
 1. 在 Node 中开发一个命令行工具所需要的配置
 1. 开发命令行工具时如何解析参数
 
-并根据实践，开发了一个从 URL 中读取 Markdown 的小工具: [markdown-read](https://github.com/shfshanyue/markdown-read)。欢迎 Star、下载及使用
+并根据实践，开发了一个从 URL 中读取 Markdown 的小工具: [markdown-read](https://github.com/shfshanyue/markdown-read)，欢迎 Star、下载及使用。
+
+另外，我基于此命令行做了一个 Web 版，欢迎来体验: <https://devtool.tech/html-md>
+
+![HTML To Markdown 网页版](./assets/md-cli.png)
+
