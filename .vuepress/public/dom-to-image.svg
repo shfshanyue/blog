@@ -1,0 +1,20 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    div {
+      color: #eee;
+      background: #333;
+      border: 1px solid red;
+      font-size: 16px;
+    }
+  </style>
+
+  <!-- 把 HTML 嵌入到 SVG 中 -->
+  <!-- 注意设置高度与宽度 -->
+  <foreignObject width="200" height="200">
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <h1>悯农</h1>
+      <p>锄禾日当午，汗滴禾下土</p>
+      <p>谁知盘中餐，粒粒皆辛苦</p>
+    </div>
+  </foreignObject>
+</svg>
