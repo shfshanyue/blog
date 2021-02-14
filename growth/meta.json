@@ -8,5 +8,9 @@
   {
     "sideTitle": "二、博客引流公众号",
     "path": "blog-to-wechat"
+  },
+  {
+    "sideTitle": "三、自定义水印传播",
+    "path": "dom-to-image"
   }
 ]
