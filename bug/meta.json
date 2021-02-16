@@ -13,6 +13,10 @@
     "path": "imagemin-pngquant-install-error"
   },
   {
+    "sideTitle": "tailwindcss 升级失败",
+    "path": "tailwindcss-upgrade"
+  },
+  {
     "sideTitle": "Sentry 限流",
     "path": "sentry-429",
     "category": "幼虫集"
