@@ -9,6 +9,10 @@
     "path": "npm-error"
   },
   {
+    "sideTitle": "pngquant 构建失败",
+    "path": "imagemin-pngquant-install-error"
+  },
+  {
     "sideTitle": "Sentry 限流",
     "path": "sentry-429",
     "category": "幼虫集"
