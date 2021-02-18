@@ -1,19 +1,34 @@
 ---
 date: 2021-02-17 14:30
+title: 如何找到一个合适的 NPM 轮子 - 关于 NPM Package 的 API 及 API 扩展
 ---
 
-# 关于 NPM Package 的一些 API 收集
+# 这几个网站帮你找到一个合适的高质量 npm 轮子
+
+<npmjs.com> 是 npm 的官方仓库，目前已经有 150+ 万个仓库发布在了 <npmjs.com>，数量巨大也造就了 package 的参差不齐，这里整理了一些 npm package 各个维度的 API，方便多维度分析 package。
+
+很多新入行的同学喜欢搞高仿版的抖音或者美团，这里提供一个新的思路，有兴趣的同学可以基于此搞一个 <npmjs.com> 的高仿版或者加强版。
+
+以下列举了几个网站及其 API:
 
 + npmjs.com
 + npms.io
 + unpkg.com
 + bundlephobia.com
++ yarnpkg.com
 
-## NPM Officail API: npmjs.com
+## NPM Official API: npmjs.com
 
-没有文档。
++ 官网: <https://npmjs.com>
 
-这是 `npm` 的官方 API，但不对外提供服务。第三方客户端请求需要**设置代理处理跨域问题**
+这是 `npm` 的官方 API，但不对外提供服务，因此也没有文档。第三方客户端请求需要**设置代理处理跨域问题**
+
+## Yarn Official API: yarnpkg.com
+
++ 官网: <https://yarnpkg.com/>
++ API: <https://ofcncog2cu-3.algolianet.com/1/indexes/*/queries>
+
+`Algolia`
 
 ### Search Package List
 
@@ -45,6 +60,10 @@ Response 重要字段:
 + `packument.version`
 + `packument.versions`: 各个版本及大小
 
+## snyk
+
+Learn more about axios: package health score, popularity, security, maintenance, versions and more.
+
 ## NPM Unoffical API: npms.io
 
 该 API 在 `https://api.npms.io/v<version>` 下提供服务，当前版本是 v2
@@ -57,7 +76,7 @@ UNPKG 是一个服务于 NPM 仓库的 CDN，用以快速使用发送请求的�
 
 官方文档: <https://unpkg.com/>
 
-![](../assets/pkg-search.jpg)
+![](./assets/pkg-search.jpg)
 
 ### Meta
 

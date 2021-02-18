@@ -124,5 +124,5 @@
 > 
 > + [有可能你并不需要服务器](https://shanyue.tech/no-vps/)
 > + [前端工程化系列](https://shanyue.tech/frontend-engineering/)
-> + [Node进阶系列](https://shanyue.tech/frontend-engineering/)
+> + [Node进阶系列](https://shanyue.tech/node/)
 

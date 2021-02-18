@@ -1,6 +1,11 @@
 [
   {
-    "sideTitle": "JPEG Metadata 去除",
+    "sideTitle": "1. 优化实践",
+    "path": "image-optim-with-webpack",
+    "category": "Image"
+  },
+  {
+    "sideTitle": "2. JPEG Metadata",
     "path": "image-metadata"
   }
 ]

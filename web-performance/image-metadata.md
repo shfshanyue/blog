@@ -149,3 +149,5 @@ $ vim -b hangzhou.jpeg
 1. [What is a JPEG file?](https://docs.fileformat.com/image/jpeg/)
 1. [What is an EXIF file?](https://docs.fileformat.com/image/exif/)
 1. [Exif - wikipedia](https://en.wikipedia.org/wiki/Exif)
+
+TODO

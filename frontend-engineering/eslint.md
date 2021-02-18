@@ -179,6 +179,6 @@ lint:
 1. 团队中代码规范统一是极有必要的
 1. 使用成熟的 eslint config，并做细节修改
 1. 设置部分 eslint rule 为警告，保障开发体验，并且在 `pre-commit` 与 `CI` 中把警告视为不通过，保证严格的代码规范
-1. 可以在 `IDE (vscode)`，`git hooks`，`CI` 中添加规范校验拦截
+1. 可以在 `IDE (vscode)`，`git hooks`，`CI` 中添加三层规范校验拦截
 1. 可以使用 `husky` 与 `lint-staged` 很方便地做关于 lint 的 `git hooks`
 1. `git hooks` 的规范校验可以通过 `git commit -n` 跳过，需要在 CI 层继续加强校验
