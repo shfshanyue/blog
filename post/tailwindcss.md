@@ -1,4 +1,5 @@
 ---
+TODO: 智能提示截图
 title: 简述流行 CSS 框架 TailwindCSS 的优缺点
 date: 2021-01-29 20:45
 ---
@@ -44,6 +45,12 @@ TailwindCSS 因为一个 class 代表一个 CSS 属性这种原子化 CSS (Atomi
 ``` css
 .grid-cols-3	{
   grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+```
+
+``` css
+.shadow {
+
 }
 ```
 
@@ -100,7 +107,10 @@ TailwindCSS 因为一个 class 代表一个 CSS 属性这种原子化 CSS (Atomi
 
 ### 5. 修饰符
 
-    
+.parrent:hover .child 
+
+height: calc(100vh - 6rem)
+
 ## Q: 造成新的记忆负担
 
 这个问题就仁者见仁智者见智了，在 Vue 的 `template` 语法中也经常出现此类问题，很多人会对一些命名上的约定，特别是自己不太喜欢的约定天然排斥，这也无可厚非。
@@ -122,9 +132,12 @@ TailwindCSS 因为一个 class 代表一个 CSS 属性这种原子化 CSS (Atomi
 
 使用 Gihub Star 数和 npm 周下载量来表明一个库的受欢迎程度
 
+1. [mime](https://github.com/broofa/mime): 获取 Mime Type。几十行代码，每周 3700 万次下载，1.6K Star
+1. [classnames](https://github.com/JedWatson/classnames): 根据条件连接 class 类名。一百几十行代码，每周 580 万次下载，13.5K Star
 1. [js-cookie](https://github.com/js-cookie/js-cookie): 操作 cookie。一百多行代码，每周 200 万次下载，17K Star
 1. [ms](https://github.com/vercel/ms): `ms('2 days')` 可读性的时间转化为秒数。几十行代码，每周 7300 万次下载，3.3K Star
 1. [isMobile](https://github.com/kaimallea/isMobile): 检测当前 web 环境是否为移动端。几十行代码，每周 15 万下载，2K Star
+1. [unfetch]
 
 ## Q: 初期很爽，但是后期维护困难，特别是人员调动后
 
@@ -144,4 +157,19 @@ Facebook 经过重构后 CSS 体积已经从 413Kb 减至 74Kb。
 
 ![Facebook ](./assets/stylex-scalability2.png)
 
-gzip 的核心是 Deflate，而它使用了 LZ77 算法与 Huffman 编码来压缩文件，重复度越高的文件可压缩的空间就越大。即使 HTML 体积增大，由于 class 高度相似，gzip 也将会得到一个很大的压缩比例。
+gzip 的核心是 Deflate，而它使用了 LZ77 算法与 Huffman 编码来压缩文件，重复度越高的文件可压缩的空间就越大。
+
+即使 HTML 因为类名过多造成体积增大，由于 class 高度相似，gzip 也将会得到一个很大的压缩比例。
+
+
+background-image
+CSS function 有可能没办法用的很好
+
+
+.border-1 .border
+
+https://github.com/tailwindlabs/tailwindcss/issues/2978
+
+https://www.npmjs.com/package/byte-size
+
+SVG 中 classname 没有被抽取出来

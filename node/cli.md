@@ -8,23 +8,10 @@ description: 一个 Node 脚本，一个 PATH 环境变量，npm 安装全局模
 
 # 使用 Node 开发一个命令行工具
 
-最近山月开发了一个从任意 URL 解析内容并生成 `markdown` 的小客户端工具: [markdown-read](https://github.com/shfshanyue/markdown-read)。用以我个人公众号的内容获取及一些优质内容的整理收藏，欢迎 Star、下载及使用。
+使用 Node 开发一个命令行工具在工作中也较为常见，也很有意思，较为其它语言而言也更加简单，今天写一篇文章总结一下如何写一个友好健壮的 cli 工具
 
-``` bash
-$ markdown https://juejin.cn/post/6924258563862822919 | head -10
-> 本文作者：Wind、Skyler、ZRJ、ZJ
+在阅读完本篇文章之后，可以阅读 Github 上的一篇文章: [Node CLI 工具最佳实践](https://github.com/lirantal/nodejs-cli-apps-best-practices)
 
-## 前言
-
-Webpack5 在 2020 年 10 月 10 日正式发布，并且在过去的几个月中快速演进和迭代，截止 1 月 28 日，Webpack5 已经更新了 18 个 minor 版本，带来了许多十分吸引人的新特性。据[官网介绍](https://webpack.js.org/blog/2020-10-10-webpack-5-release/#general-direction "官网介绍")，Webpack5 整体的方向性变化有以下几点：
-
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/77ee2267bfa34ef5bf7bb29553a5035c~tplv-k3u1fbpfcp-zoom-1.image)
-
-+   通过持久化硬盘缓存能力来提升构建性能
-+   通过更好的算法来改进长期缓存（降低产物资源的缓存失效率）
-```
-
-想到用 Node 开发一个命令行工具在工作中也较为常见，也很有意思，总结一下
 ## 命令行工具
 
 什么是命令行工具？
