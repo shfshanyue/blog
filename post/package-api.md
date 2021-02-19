@@ -3,7 +3,7 @@ date: 2021-02-17 14:30
 title: 如何找到一个合适的 NPM 轮子 - 关于 NPM Package 的 API 及 API 扩展
 ---
 
-# 这几个网站助你找到高质量 npm 轮子
+# 谈技术选型，如何找到一个高质量 npm 轮子
 
 <npmjs.com> 是 npm 的官方仓库，目前已经有 150+ 万个仓库发布在了 npm，数量巨大也造就了 package 的参差不齐，这里整理了一些 分析 npm package 各个维度的网站 API，方便从代码质量、安全性与维护性多维度来选择一个 package。
 
@@ -68,6 +68,7 @@ Response 重要字段:
 ## 02. Yarn 官网: yarnpkg.com
 
 + 官网: <https://yarnpkg.com/>
++ Package: <https://yarnpkg.com/package/webpack>
 + API: <https://ofcncog2cu-3.algolianet.com/1/indexes/*/queries>
 
 `yarn` 是 npm 的可替换工具，也维护了一份仓库，API 的查询使用了 `Algolia` 提供搜索服务。npm 包的详情信息比 `npmjs.com` 更加翔实与具体，比 `npmjs.com` 也拥有更多的指标进行参考:
@@ -84,18 +85,21 @@ Response 重要字段:
 **`Jsdeliver` 在中国有 CDN 节点！**
 **`Jsdeliver` 在中国有 CDN 节点！**
 
+## 04. Snyk: 为你的下一个项目挑选最好的轮子
 
-## snyk
++ 官网: <https://snyk.io/advisor/>
++ Package: <https://snyk.io/advisor/npm-package/webpack>
++ API: <https://snyk.docs.apiary.io/>
 
-Learn more about axios: package health score, popularity, security, maintenance, versions and more.
+Snyk 的口号是 `Find the best package for your next project.`，相比 `yarn` 它对于一个 package 有着更细粒度的判定，并且学会了一个重要的事情: 打分。
 
-## NPM Unoffical API: npms.io
+## 05. NPM Unoffical API: npms.io
 
 该 API 在 `https://api.npms.io/v<version>` 下提供服务，当前版本是 v2
 
 由于对官方 API 的不满意，`npmsio` 借助 `ElasticSearch` 单独整了个 API，并提供更好的搜索体验。
 
-## UNPKG API: unpkg.com
+## 06. UNPKG API: unpkg.com
 
 UNPKG 是一个服务于 NPM 仓库的 CDN，用以快速使用发送请求的方式加载文件。另外，还提供一些基础信息查询的 API
 
@@ -117,7 +121,7 @@ $ curl https://unpkg.com/react@17.0.1/index.js?meta | jq
 }
 ```
 
-## BundlePhobia API: bundlephobia.com
+## 07. BundlePhobia: bundlephobia.com
 
 用以查询一个 package 的打包体积有多大
 
