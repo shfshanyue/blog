@@ -29,8 +29,8 @@
 
 为了对缓存进行更加细致的控制，也会小心细致的分包。如一些大包 `echarts`、`mathjax` 分出去。一些不在视觉内需要点点点才能看到的包也通过 `React.lazy`，`lodable-component` 等也给分出去。但也需要繁琐的手动配置。
 
-![分包](https://shanyue.tech/frontend-engineering/bundle.html#%E5%8E%9F%E5%88%99)
-![HTTP 缓存控制](https://shanyue.tech/frontend-engineering/http-cache.html)
++ [分包](https://shanyue.tech/frontend-engineering/bundle.html)
++ [HTTP 缓存控制](https://shanyue.tech/frontend-engineering/http-cache.html)
 
 当 `ESM` 加入后:
 
@@ -47,6 +47,8 @@ cache-control: public, max-age=31536000, s-maxage=604800, immutable
 
 TODO
 
+(看的人多的话补充)
+
 ## 关于 ESM 的学习
 
 以下两篇文章可以更好地理解 ESM
@@ -54,7 +56,7 @@ TODO
 + [How to control the behavior of JavaScript imports](https://github.com/WICG/import-maps)
 + [ES modules: A cartoon deep-dive](https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/)
 
-另外我做了一个网站，用以**找到更合适的轮子以及直接在控制台访问模块**。其中就使用了 `ESM` 去加载这些第三方库。
+另外我做了一个网站，用以**找到更合适的轮子以及直接在控制台访问模块**: <npm.devtool.tech>。其中就使用了 `ESM` 去加载这些第三方库。
 
 比如，当我查看 `lodash`、`date-fns` 的文档时，需要去实验这些函数时，`npm.runkit` 显得不如控制台那么方便。
 

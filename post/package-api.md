@@ -159,3 +159,5 @@ $ curl 'https://bundlephobia.com/api/size?package=react@17.0.1' | jq
   "version": "17.0.1"
 }
 ```
+
+## NPM Trends
