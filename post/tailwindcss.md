@@ -235,10 +235,31 @@ tailwind 使用了 `purgecss` 删除无用的 class，但有时候会吧有用�
 
 ### Q2: 样式覆盖问题
 
+以下 red 与 blue 两个样式哪个会生效？无法确定。
+
+``` html
+<div class="red blue"> </div>
+```
+
+`class` 在样式表中的顺序决定，而非在 class 中的先后顺序。这使得通过 className 扩展样式时遭遇问题，示例如下
+
+``` jsx
+import cx from 'classnames'
+
+function Input ({ classname }) {
+  // 默认居中，提供外层扩展 class 的功能
+  return <input className={cx('text-center', classname)} />
+}
+
+function ExtendInput () {
+  // 扩展失败
+  return <Input className="text-left" />
+}
+```
 
 ## 实践
 
 再来谈几个实践的点
 ### 与 classnames 搭配使用
 
-### 与 styled-jsx 搭配使用，不需要另写 CSS
+### 与 styled-jsx 搭配使用，不需要另写 CSS 文件
