@@ -262,4 +262,18 @@ function ExtendInput () {
 再来谈几个实践的点
 ### 与 classnames 搭配使用
 
-### 与 styled-jsx 搭配使用，不需要另写 CSS 文件
+``` js
+classNames('text-center transition-opacity', showTip ? 'opacity-100' : 'opacity-0')
+```
+
+### 与 styled-jsx 搭配使用
+
+此时样式由大量的 `tailwind` 及少量的 `styled-jsx`组成。需要注意此时需要搭配 styled-jsx 的 postcss 插件使用
+
+``` jsx
+<style jsx>{`
+  .item {
+    @apply p-2 border-b flex justify-between font-mono;
+  } 
+`}</style>
+```
