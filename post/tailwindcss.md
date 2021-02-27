@@ -5,11 +5,11 @@ date: 2021-01-29 20:45
 
 # 谈一谈对 TailwindCSS 的看法
 
-![智能补全](./assets/tailwind-npm.png)
+![NPM.DEVTOOL 中 tailwind 标签大全](./assets/tailwind-npm.png)
 
-本人的 CSS 方案常用 `TailwindCSS`，在这里谈一点感受，并对一些常见的问题解答一下
+> 从 [NPM.DEVTOOL](https://npm.devtool.tech/tailwindcss) 的标签中可以看出: 每个月 npm 下载量高达 300 万次，jsDelivr 下载量更是高达 900 万次，Star 数也即将突破 38K，依赖于它的 Packge 及 Github Repo 更是成千，足见其受欢迎程度。然而你需要使用它时，Node 的版本最好大于 12.13.0
 
-TailwindCSS 因为一个 `class` 代表一个 CSS 属性这种原子化 CSS (Atomic CSS)，这种细粒度的 CSS 方案备受争议。
+本人的 CSS 方案常用 `TailwindCSS`，在这里谈一点感受，并对一些常见的问题解答一下。TailwindCSS 因为一个 `class` 代表一个 CSS 属性这种原子化 CSS (Atomic CSS)，这种细粒度的 CSS 方案备受争议。
 
 这里把 CSS 样式的方案分为四种粒度
 
