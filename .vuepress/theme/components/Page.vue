@@ -7,7 +7,7 @@
       <div class="content-lock" v-if="isLock">
         <p>扫码关注公众号<span>全栈成长之路</span>，并发送 <span v-text="code"></span></p>
         <p>即可在关注期间<span>无限制</span>浏览本站全部文章内容</p>
-        <img src="../qr.jpg" width="180" height="180">
+        <img src="../qr2.jpg" width="180" height="180">
         <!-- <p>该提示信息随机出现，你可以<span>再次刷新</span>页面，来浏览本站全部文章</p> -->
         <!-- <p><span @click="lock = false">点击关闭</span></p> -->
         <p>
