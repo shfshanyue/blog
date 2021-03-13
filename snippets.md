@@ -126,3 +126,17 @@
 > + [前端工程化系列](https://shanyue.tech/frontend-engineering/)
 > + [Node进阶系列](https://shanyue.tech/node/)
 
+## 关于山月
+
+我是山月，下篇文章再会
+
+社交:
+
+| [Github](https://github.com/shfshanyue) | [知乎](https://www.zhihu.com/people/shfshanyue) | [掘金](https://juejin.cn/user/1556564164489389) | [博客](https://shanyue.tech) |
+|-----------------------------------------|-----------------------------------------------|-----------------------------------------------|----------------------------|
+
+项目:
+
+| [极客时间](https://geek.shanyue.tech/) | [我的面试](https://q.shanyue.tech/)      | [诗词集](https://shici.xiange.tech)    |
+|------------------------------------|--------------------------------------|-------------------------------------|
+| [开发者工具箱](https://devtool.tech)     | [npm 在线执行](https://npm.devtool.tech) | [前端周刊](https://weekly.shanyue.tech) |
