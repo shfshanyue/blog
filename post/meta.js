@@ -1,5 +1,11 @@
 module.exports = [
   {
+    title: '如何做好一份前端技术周报',
+    path: 'weekly',
+    categories: ['前端'],
+    tags: ['成长']
+  },
+  {
     title: '零基础的前端开发初学者应如何系统地学习？',
     path: 'zero-to-learn-fe',
     categories: ['前端'],
