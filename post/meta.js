@@ -1,5 +1,11 @@
 module.exports = [
   {
+    title: '如何评价 Next 10',
+    path: 'next-10',
+    categories: ['前端'],
+    tags: ['成长']
+  },
+  {
     title: '如何做好一份前端技术周报',
     path: 'weekly',
     categories: ['前端'],
