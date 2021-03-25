@@ -39,7 +39,7 @@
     >
       <template #top>
         <div :style="{ marginTop: '3.6rem', paddingTop: 0, paddingBottom: 0 }" class="theme-default-content">
-          <!-- <Bar/> -->
+          <Bar/>
           <!-- <img :src="src" v-if="$page.frontmatter.thumbnail"> -->
         </div>
       </template>
