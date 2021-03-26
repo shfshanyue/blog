@@ -35,6 +35,8 @@ description: 转专业、零基础如何开始学习前端？这里特意针对�
 
 对于前端，所见即所得，如同嗑瓜子一样，可以快速得到学习效果的正反馈，也更容易坚持。
 
+学前端全在死功夫，笨功夫。
+
 ### 工具
 
 > 工欲善其事，必先利其器。
@@ -179,23 +181,30 @@ DOM API，及 DOM 赋予 Javascript 的各种操作 HTML 的 API。现代前端�
 
 学习资料: 
 
-1. [ES6入门教程](https://es6.ruanyifeng.com/)
-1. [Javascript 参考](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference)
+1. [ES6 入门教程](https://es6.ruanyifeng.com/)
+1. [Javascript 参考](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects)
 
 可速查[浏览器兼容性表](https://kangax.github.io/compat-table/es6/)
 
-### 第四阶段: npm/(lodash/moment)
+对于数组与对象的 API 要多看，反复地看，翻来覆去的看。就按照下边 MDN 的 API 列表来看，先看目录有不熟悉、不了解的、没见过的 API 更要重点看看。
+
+1. [数组](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array)
+1. [对象](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object)
+
+### 第四阶段: npm/(lodash)
 
 写代码的经常有几句话挂在嘴边: **不要重复造轮子**别人实现过的功能，你无需再实现。
 
 npm 是 js 的包管理工具，你可以通过它下载各种各样的库(即各类别人实现的函数的集合)。
 
-这里介绍两个只要你工作就肯定会用到的库: lodash/moment。lodash 拥有着各种各样方便的工具函数，而 moment 计算时间特别便利。
+这里介绍两个只要你工作就肯定会用到的库: lodash。
 
 ``` bash
 # 安装一个库
 $ npm install lodash
 ```
+
+lodash 拥有着各种各样方便的工具函数，**向熟悉 ES6+ API 一样熟悉 lodash 的 API**。你需要打开它的官网 [lodash](https://lodash.com/docs/)，并在侧边打开控制台，一个一个照着文档敲他的例子
 
 ## 插曲: Git
 
@@ -210,11 +219,22 @@ $ git commit -m 'update'
 $ git push origin master
 ```
 
+[gitlen] 可视化神器，但是最重要的是要搞明白几个问题
+
+1. 如何看某人某次的提交是什么
+1. 如何看当前文件当前行上次是如何被修改的
+1. 如何看当前文件的提交历史是什么
+
 ## 插曲: VsCode Plugins
 
-为了使你的 VSCode 更加好用，现在可以开始安装插件了，以下我只强烈安装一个
+为了使你的 VSCode 更加好用，现在可以开始安装插件了，以下我只强烈安装一个。
+
+滚瓜烂熟
+
+有时候工具的掌握如同 API 一样重要，但很有可能被忽视，那是因为面试里不会涉及
 
 + GitLens
++ Emmet
 
 ## 框架: React 十天
 
@@ -242,7 +262,10 @@ $ git push origin master
 ## 框架生态圈: React/React Router/Ant Design
 
 1. 看文档
-1. 跑Demo
+1. 跑示例
+1. 看文档
+1. 跑示例
+1. ...
 
 + [React](https://reactjs.org/)
 + [React Router](https://reactrouter.com/)

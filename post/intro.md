@@ -4,11 +4,11 @@
 
 它的话题【大厂面试精简问答】，使用很简短的文章来回答一道面试题，服务宗旨是**每天半小时，半年大厂中**，可点开话题右上角进行关注。也有不少同学因为长期与山月交流面试题，进入了头条、阿里、滴滴等大厂。
 
-[](https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzA3MzU0MjIzMA==&action=getalbum&album_id=1419853337117425665#wechat_redirect)
+[大厂面试精简问答](https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzA3MzU0MjIzMA==&action=getalbum&album_id=1419853337117425665#wechat_redirect)
 
 另一个话题【前端开发者技术周刊】，**也是被许多前端大佬推荐的周刊**。内容翔实、推荐丰富，每周推荐内容涵盖了高效的开发工具、优秀的文章及山月对该文章所做的总结、提升项目效率及拓展视野的前端轮子。还有深受欢迎的一句话 Tips，总结多个一句话可以概述的小技巧
 
-[](https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzA3MzU0MjIzMA==&action=getalbum&album_id=1761820812803620868#wechat_redirect)
+[前端开发者周刊](https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzA3MzU0MjIzMA==&action=getalbum&album_id=1761820812803620868#wechat_redirect)
 
 部分历史文章如下：
 
@@ -39,3 +39,7 @@
 + [【淘宝】如何用 linux 命令输出文件的特定行](http://mp.weixin.qq.com/s?__biz=MzA3MzU0MjIzMA==&amp;mid=2247483829&amp;idx=1&amp;sn=34daee81593bf041b097c52d6ee5d1c9&amp;chksm=9f0c3e8ca87bb79a4bdb11b1fdba44ea28afb5c7156cdf20f275202aafc17c11035ea87e2506#rd)
 + [【美团】如何获取一个进程的内存并监控](http://mp.weixin.qq.com/s?__biz=MzA3MzU0MjIzMA==&amp;mid=2247483815&amp;idx=1&amp;sn=f4a2a02232695f3f4d8ec1afda3788d8&amp;chksm=9f0c3e9ea87bb788fbd2b0f191c4a61dc3fb1acc81844c9d0a4d8467dcb9702b9ff976300f55#rd)
 + [【腾讯】在服务端应用中如何获得客户端 IP](http://mp.weixin.qq.com/s?__biz=MzA3MzU0MjIzMA==&amp;mid=2247483747&amp;idx=1&amp;sn=61cdcddf890b5fe6b084032bfd2fbad1&amp;chksm=9f0c3e5aa87bb74cfec001cbd922783666b81c2a9daf45bf72130b3c770e5d87010a657a0eaf#rd)
+
+添加他好友交流面试题或者进入前端面试交流群，每天分享前端面试题
+
+![](https://user-gold-cdn.xitu.io/2020/6/29/172fe14e18d2b38c?w=430&h=430&f=jpeg&s=38173)

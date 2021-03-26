@@ -137,6 +137,6 @@
 
 项目:
 
-| [极客时间](https://geek.shanyue.tech/) | [我的面试](https://q.shanyue.tech/)      | [诗词集](https://shici.xiange.tech)    |
+| [next app](https://github.com/shfshanyue/next-app) | [我的面试](https://q.shanyue.tech/)      | [诗词集](https://shici.xiange.tech)    |
 |------------------------------------|--------------------------------------|-------------------------------------|
 | [开发者工具箱](https://devtool.tech)     | [npm 在线执行](https://npm.devtool.tech) | [前端周刊](https://weekly.shanyue.tech) |
