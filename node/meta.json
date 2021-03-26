@@ -57,14 +57,18 @@
     "description": "服务器应用中参数校验是不可或缺的一步，那么在 Node 中如何进行参数校验呢"
   },
   {
-    "title": "Node 脚本异常时如何安全退出",
-    "sideTitle": "5.1 安全退出",
-    "path": "exit-code",
-    "description": "最近观察项目镜像构建，会偶尔发现一两个镜像虽然构建成功，但容器却跑不起来的情况。",
+    "sideTitle": "5.1 npm scripts",
+    "path": "npm-scripts",
     "category": "脚本篇"
   },
   {
-    "sideTitle": "5.2 命令行工具",
+    "title": "Node 脚本异常时如何安全退出",
+    "sideTitle": "5.2 安全退出",
+    "path": "exit-code",
+    "description": "最近观察项目镜像构建，会偶尔发现一两个镜像虽然构建成功，但容器却跑不起来的情况。"
+  },
+  {
+    "sideTitle": "5.3 命令行工具",
     "path": "cli"
   },
   {
