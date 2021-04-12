@@ -1,2 +1,5 @@
 User-agent: *
 Sitemap: https://shanyue.tech/sitemap.xml
+
+User-agent: Baiduspider
+Disallow: /op/openvpn.html

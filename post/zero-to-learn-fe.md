@@ -5,7 +5,7 @@ description: 转专业、零基础如何开始学习前端？这里特意针对�
 
 ---
 
-# 零基础前端入门学习指南
+# 零基础可操作的前端入门学习指南
 
 本篇文章写给那些想初窥编程门径却不知如何下手的零基础非计算机科班的同学们。
 
@@ -252,13 +252,17 @@ $ git push origin master
 + Sass/Less/Stylus
 + Webpack
 
+1. 通读 React 文档，所有章节过一遍，重要章节过三遍
+
 ### Create React App
 
 + [Create React App](https://github.com/facebook/create-react-app)
++ [CRA 文档](https://create-react-app.dev/docs/getting-started)
 
-1. 通读 CRA 的文档
+1. **通读 CRA 的文档**
 1. 在本地跑起来项目
 1. 了解文件目录结构，并了解每个文件的配置
+1. **通读 CRA 的文档**
 
 ### Playground
 
@@ -317,6 +321,3 @@ app.listen(3000)
 
 1. [什么是防抖和节流，场景在哪里，如何实现](https://q.shanyue.tech/fe/js/3.html)
 
-
-理论: Url -> 
-实践 前端工程化
