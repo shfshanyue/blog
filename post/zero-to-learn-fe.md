@@ -220,6 +220,7 @@ lodash 拥有着各种各样方便的工具函数，**向熟悉 ES6+ API 一样�
 
 Git 也是工作中必不可少的，但敲的最多的就是以下几条命令了。
 
+
 ``` bash
 $ git pull origin master
 $ git add -u
@@ -227,12 +228,13 @@ $ git commit -m 'update'
 $ git push origin master
 ```
 
-[gitlen] 可视化神器，但是最重要的是要搞明白几个问题
+[gitlen] 是 VSCode 中关于 git 的可视化神器，但是最重要的是要搞明白几个问题
 
 1. 如何看某人某次的提交是什么
 1. 如何看当前文件当前行上次是如何被修改的
 1. 如何看当前文件的提交历史是什么
 
+[githug](https://github.com/Gazler/githug)，**采用玩游戏的方式闯过 Git** 你需要这个为你的 Git 学习填充一点乐趣！
 ## 插曲: VsCode Plugins
 
 为了使你的 VSCode 更加好用，现在可以开始安装插件了，以下我只强烈安装一个。
