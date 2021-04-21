@@ -9,6 +9,10 @@ description: 转专业、零基础如何开始学习前端？这里特意针对�
 
 本篇文章写给那些想初窥编程门径却不知如何下手的零基础非计算机科班的同学们。
 
+本篇文章所推荐的所有资源，绝大部分可称得上我认为全网最好的资源之一，其中包括工具、网站、游戏都是我手不释卷翻过多遍的，至今仍然会不停的去翻去看，。
+
+> 本文过长！强烈建议收藏并对比目录翻看
+
 ## 准备工作
 
 ### 心态
@@ -66,9 +70,9 @@ description: 转专业、零基础如何开始学习前端？这里特意针对�
 
 HTML/CSS/JS 被称为前端网站编写三剑客，也是常说的前端所需编写的代码。对于目前大部分互联网前端岗位而言，Javascript 是无可争议的大头。
 
++ [MDN](https://developer.mozilla.org/zh-CN/docs/learn)
 + [慕课网](https://imooc.com)
 + [网易云课堂](https://study.163.com/)
-+ [MDN](https://developer.mozilla.org/zh-CN/docs/learn)
 
 ## HTML: 一天时间
 
@@ -100,9 +104,7 @@ HTML/CSS/JS 被称为前端网站编写三剑客，也是常说的前端所需�
 <div>hello, world</div>
 ```
 
-## CSS: 三天时间
-
-![]()
+## CSS: 五天时间
 
 + 学习资料: [初识HTML(5)+CSS(3)-2020升级版](https://www.imooc.com/learn/9)，包含了 HTML 和 CSS 的教程。
 
@@ -110,8 +112,10 @@ HTML/CSS/JS 被称为前端网站编写三剑客，也是常说的前端所需�
 
 ### CSS 趣味练习
 
+以下三种
+
 + [CSS Diner](https://flukeout.github.io/)
-+ [EnjoyCSS](https://enjoycss.com/)
++ []
 
 ## 插曲: Chrome Devtools
 
@@ -216,7 +220,7 @@ lodash 拥有着各种各样方便的工具函数，**向熟悉 ES6+ API 一样�
 
 ## 插曲: Git
 
-学习资料: [Git 教程](https://www.liaoxuefeng.com/wiki/896043488029600)
+学习资料: [最好用的 Git 教程](https://learngitbranching.js.org/?locale=zh_CN)
 
 Git 也是工作中必不可少的，但敲的最多的就是以下几条命令了。
 
@@ -246,7 +250,21 @@ $ git push origin master
 + GitLens
 + Emmet
 
-## 框架: React 十天
+## 框架: React 十五天
+
+学习资料:
+
++ [React 官方文档](https://reactjs.org/docs/getting-started.html)，重理论，精读至少两遍。文档永远是第一手学习资料！！！对于 React 文档我已阅读了不下五遍。
++ [React Express](https://www.react.express/)，重实践，精读一遍，特别是对于 。对于 React 官方文档更为简洁，最重要的是对于每一个技术点都有实时编辑器进行调试。
+
+Playground:
+
+强烈推荐一下两个 Playground，类似线上的 VSCode，让你更加关注于 React 的学习。这个阶段你不需要在本地打开 VSCode，
+
++ [CodeSandBox](https://codesandbox.io)
++ [stackblitz](https://stackblitz.com)
+
+## React 与工程化
 
 此时，你要学的不仅仅是 React，而是一种现代化框架绑定的各种方法论，你至少需要对以下有所了解
 
@@ -266,15 +284,10 @@ $ git push origin master
 1. 了解文件目录结构，并了解每个文件的配置
 1. **通读 CRA 的文档**
 
-### Playground
+## 框架生态圈: React/ReactRouter/AntDesign/Next
 
-强烈推荐一下两个 Playground，类似线上的 VSCode，让你更加关注于 React 的学习。
-
-+ [CodeSandBox](https://codesandbox.io/s/new)
-+ [stackblitz](https://stackblitz.com/edit/react-armlqx)
-
-## 框架生态圈: React/React Router/Ant Design
-
+1. 看文档
+1. 跑示例
 1. 看文档
 1. 跑示例
 1. 看文档
@@ -287,12 +300,14 @@ $ git push origin master
 + Redux/Mobx
 + [Ant Design](https://ant.design/)
 
-## HTTP: 前后端交流桥梁
+## HTTP: 前后端沟通桥梁
 
 + fetch API
 + axios
 
-## 简单 Server
+## 插曲: 调试 HTTP
+
+## Node Server
 
 你现在终于可以知道别人经常念叨的 Java、Python 是做什么的，他们大部分是用来做服务器端。
 
@@ -318,8 +333,3 @@ app.listen(3000)
 ## 项目实战: 已毕业 ? Github Projects : 实习
 
 ## 面试
-
-几个必问题目吧:
-
-1. [什么是防抖和节流，场景在哪里，如何实现](https://q.shanyue.tech/fe/js/3.html)
-
