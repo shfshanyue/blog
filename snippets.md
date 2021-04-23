@@ -140,3 +140,9 @@
 | [next app](https://github.com/shfshanyue/next-app) | [我的面试](https://q.shanyue.tech/)      | [诗词集](https://shici.xiange.tech)    |
 |------------------------------------|--------------------------------------|-------------------------------------|
 | [开发者工具箱](https://devtool.tech)     | [npm 在线执行](https://npm.devtool.tech) | [前端周刊](https://weekly.shanyue.tech) |
+
+## 
+
+欢迎关注山月周刊，探索更多有趣的库，分享交流前沿技术，加入周刊群一起分享
+
+![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/eba992a28f944121802208239bed4a45~tplv-k3u1fbpfcp-watermark.image)

@@ -74,14 +74,16 @@ HTML/CSS/JS 被称为前端网站编写三剑客，也是常说的前端所需�
 + [慕课网](https://imooc.com)
 + [网易云课堂](https://study.163.com/)
 
-## HTML: 一天时间
+## HTML: 两天时间
 
 ![HTML 课程](./assets/learn-fe-html.png)
 
 + 学习资料: [初识HTML(5)+CSS(3)-2020升级版](https://www.imooc.com/learn/9)，包含了 HTML 和 CSS 的教程。
-+ 文档协助: [MDN](https://developer.mozilla.org/zh-CN/docs/learn)，MDN 是服务于开发者最齐全的文档，也是前端**必不可少翻得最多的文档**
++ 学习资料二: [MDN](https://developer.mozilla.org/zh-CN/docs/learn) 中的[新手请从这开始](https://developer.mozilla.org/zh-CN/docs/Learn/Getting_started_with_the_web)与 [HTML-构建Web](https://developer.mozilla.org/zh-CN/docs/Learn/HTML) 部分，MDN 是服务于开发者最齐全的文档，也是前端**必不可少翻得最多的文档**
 
-目前这个阶段敲代码在教程所提供的代码编辑器中运行即可，**无需使用 VSCode**。**花费一天时间照着以上教程至少过一遍，如果遇到无法理解的问题，深思三遍仍不得其解，不要硬磕，容易引来挫败感，直接跳过即可。**为了加深记忆，可以过三遍。
+在慕课网中教程为交互式学习，根据它提供的代码在编辑器中运行即可，**无需使用 VSCode**。而 MDN 的教程会引导你从新建一个 index.html 文件开始。
+
+**花费两天时间照着以上教程至少过一遍，如果遇到无法理解的问题，深思三遍仍不得其解，不要硬磕，否则容易引来挫败感，直接跳过即可。**为了加深记忆，可以过三遍。
 
 即使最后忘记了所有标签，只要记得以下这些标签及整体框架即可:
 
@@ -98,7 +100,7 @@ HTML/CSS/JS 被称为前端网站编写三剑客，也是常说的前端所需�
 </html>
 ```
 
-如果连以上标签也无法记得，那就记住以下这个标签:
+如果连以上标签也无法记得，那就记住以下这个标签，然后愉快地开启下一章节吧！
 
 ``` html
 <div>hello, world</div>
@@ -108,14 +110,15 @@ HTML/CSS/JS 被称为前端网站编写三剑客，也是常说的前端所需�
 
 + 学习资料: [初识HTML(5)+CSS(3)-2020升级版](https://www.imooc.com/learn/9)，包含了 HTML 和 CSS 的教程。
 
-目前这个阶段敲代码在教程所提供的代码编辑器中运行即可，无需使用 VSCode。在 CSS 中涉及到的知识点比 HTML 章节要多少很多，**此时必然会有一些属性无法牢记，比如 animate、transform 等，无需理会，此时仅仅需要知道他们能够实现什么样的效果即可，并在以后项目实践中不断加强**
+在 CSS 中涉及到的知识点比 HTML 章节要多少很多，**此时必然会有一些属性无法牢记，比如 animate、transform 等，无需理会，此时仅仅需要知道他们能够实现什么样的效果即可，并在以后项目实践中不断加强**
 
 ### CSS 趣味练习
 
-以下三种
+以下三种是关于学习 CSS3 选择器、Flex、Grid最好的教程了，并且极其富有趣味性
 
 + [CSS Diner](https://flukeout.github.io/)
-+ []
++ [Flex Forggy](https://flexboxfroggy.com/)
++ [Grid Garden](https://cssgridgarden.com/)
 
 ## 插曲: Chrome Devtools
 
@@ -232,13 +235,18 @@ $ git commit -m 'update'
 $ git push origin master
 ```
 
-[gitlen] 是 VSCode 中关于 git 的可视化神器，但是最重要的是要搞明白几个问题
 
+[githug](https://github.com/Gazler/githug)，**采用玩游戏的方式闯过 Git** 你需要这个为你的 Git 学习填充一点乐趣！
+
+### gitlen: 可视化 Git
+
+[gitlen](https://gitlens.amod.io/) 是 VSCode 中关于 git 的可视化神器，但是最重要的是要搞明白几个问题
+
+1. 如何查看当前行的上次更改者
 1. 如何看某人某次的提交是什么
 1. 如何看当前文件当前行上次是如何被修改的
 1. 如何看当前文件的提交历史是什么
 
-[githug](https://github.com/Gazler/githug)，**采用玩游戏的方式闯过 Git** 你需要这个为你的 Git 学习填充一点乐趣！
 ## 插曲: VsCode Plugins
 
 为了使你的 VSCode 更加好用，现在可以开始安装插件了，以下我只强烈安装一个。
