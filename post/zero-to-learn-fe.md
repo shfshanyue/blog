@@ -7,9 +7,9 @@ description: 转专业、零基础如何开始学习前端？这里特意针对�
 
 # 零基础可操作的前端入门学习指南
 
-本篇文章写给那些想初窥编程门径却不知如何下手的零基础非计算机科班的同学们。
+本篇文章或者叫可操作的前端入门学习指南，如果你已经有些经验，可以从 React 部分看起。
 
-本篇文章所推荐的所有资源，绝大部分可称得上我认为全网最好的资源之一，其中包括工具、网站、游戏都是我手不释卷翻过多遍的，至今仍然会不停的去翻去看，。
+本篇文章所推荐的所有资源，绝大部分是我认为全网比较不错的资源，其中包括工具、网站、游戏都是我手不释卷翻过多遍的，至今仍然会不停的去翻去看，。
 
 > 本文过长！强烈建议收藏并对比目录翻看
 
@@ -54,15 +54,17 @@ description: 转专业、零基础如何开始学习前端？这里特意针对�
 
 ### 终端 (命令行工具)
 
-+ iterm2 (Mac)
++ [iterm2](https://iterm2.com/) (Mac)
 + cmd (Windows)
+
+关于使用 Mac 作为开发环境的选手，可以看我的文章: 当我拥有一台 Mac 时，应如何配置开发环境。
 
 ### 存疑
 
 1. 百度/Google/Segmentfault
 1. 博客园/掘金/CSDN
 
-知乎？别去知乎问，怕被喷。
+知乎？别去知乎问，容易被喷。
 
 ## 基础: HTML/CSS/JS
 
@@ -70,9 +72,9 @@ description: 转专业、零基础如何开始学习前端？这里特意针对�
 
 HTML/CSS/JS 被称为前端网站编写三剑客，也是常说的前端所需编写的代码。对于目前大部分互联网前端岗位而言，Javascript 是无可争议的大头。
 
-+ [MDN](https://developer.mozilla.org/zh-CN/docs/learn)
++ [W3School](https://www.w3school.com.cn/html/index.asp)，重实践，适用于初级阶段，提供线上编辑器练习
++ [MDN](https://developer.mozilla.org/zh-CN/docs/learn)，前端权威文档，适用于各个阶段，但不提供线上编辑器练习
 + [慕课网](https://imooc.com)
-+ [网易云课堂](https://study.163.com/)
 
 ## HTML: 两天时间
 
@@ -215,7 +217,7 @@ lodash 拥有着各种各样方便的工具函数，**向熟悉 ES6+ API 一样�
 
 > 无剑胜有剑
 
-[You Dont Need Lodash Underscore](https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore)
+[You Dont Need Lodash Underscore](https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore)，建议通读
 
 ## 第五阶段: You Dont Know Javascript
 
@@ -240,14 +242,20 @@ $ git push origin master
 
 ### gitlen: 可视化 Git
 
-[gitlen](https://gitlens.amod.io/) 是 VSCode 中关于 git 的可视化神器，但是最重要的是要搞明白几个问题
+![GitLen](https://cdn.jsdelivr.net/gh/eamodio/vscode-gitlens@main/images/docs/revision-navigation.gif)
+
+[gitlen](https://gitlens.amod.io/) 是集成于 VSCode 中的一个 Git 可视化神器，但是最重要的是要搞明白几个问题
 
 1. 如何查看当前行的上次更改者
 1. 如何看某人某次的提交是什么
 1. 如何看当前文件当前行上次是如何被修改的
 1. 如何看当前文件的提交历史是什么
 
-## 插曲: VsCode Plugins
+Gitlen 最大的优点是可以可视化过去代码发生了什么，但是对于 Commit 一类操作，仍然建议使用 Git 命令行来操作。
+
+学习资料: [Gitlen Features](https://gitlens.amod.io/#features)，这属于官方文档，建议通读。
+
+## 插曲: VSCode Plugins
 
 为了使你的 VSCode 更加好用，现在可以开始安装插件了，以下我只强烈安装一个。
 
@@ -257,6 +265,7 @@ $ git push origin master
 
 + GitLens
 + Emmet
++ ESLint
 
 ## 框架: React 十五天
 
@@ -265,34 +274,80 @@ $ git push origin master
 + [React 官方文档](https://reactjs.org/docs/getting-started.html)，重理论，精读至少两遍。文档永远是第一手学习资料！！！对于 React 文档我已阅读了不下五遍。
 + [React Express](https://www.react.express/)，重实践，精读一遍，特别是对于 。对于 React 官方文档更为简洁，最重要的是对于每一个技术点都有实时编辑器进行调试。
 
-Playground:
-
-强烈推荐一下两个 Playground，类似线上的 VSCode，让你更加关注于 React 的学习。这个阶段你不需要在本地打开 VSCode，
+强烈推荐以下两个 Playground，类似线上的 VSCode，让你更加关注于 React 的学习。
 
 + [CodeSandBox](https://codesandbox.io)
 + [stackblitz](https://stackblitz.com)
 
-## React 与工程化
+阅读完文档之后，思考以下问题: 
+
+> 当多次重复点击按钮时，以下代码中三个 Heading 是如何渲染，控制台如何输出
+
+``` js
+import React, { memo, useMemo, useState } from "react";
+
+const Heading = memo(({ style, title }) => {
+  console.log("Rendered:", title);
+
+  return <h1 style={style}>{title}</h1>;
+});
+
+export default function App() {
+  const [count, setCount] = useState(0);
+
+  const normalStyle = {
+    backgroundColor: "teal",
+    color: "white",
+  };
+
+  const memoizedStyle = useMemo(() => {
+    return {
+      backgroundColor: "red",
+      color: "white",
+    };
+  }, []);
+
+  return (
+    <>
+      <button
+        onClick={() => {
+          setCount(count + 1);
+        }}
+      >
+        Increment {count}
+      </button>
+      <Heading style={memoizedStyle} title="Memoized" />
+      <Heading style={normalStyle} title="Normal" />
+      <Heading title="React.memo Normal" />
+    </>
+  );
+}
+```
+
+## React 与前端工程化
 
 此时，你要学的不仅仅是 React，而是一种现代化框架绑定的各种方法论，你至少需要对以下有所了解
 
 + React
-+ Sass/Less/Stylus
 + Webpack
++ Sass/Less/Stylus/Postcss
++ CSS Modules/Syled Components
 
-1. 通读 React 文档，所有章节过一遍，重要章节过三遍
+如此涌出这么多的东西，个人从零跑起来一个项目并不是一件简单的事情。还好，这个时候你可以使用 `Creact React App`，免于这么多繁杂的配置
 
 ### Create React App
+
+`Creat React APP` 已经内部封装完成 `webpack`、`CSS`、`Typescript` 等配置，开箱即用。此时你可以大致过一遍文档，对于有必要的部分可通过一遍
 
 + [Create React App](https://github.com/facebook/create-react-app)
 + [CRA 文档](https://create-react-app.dev/docs/getting-started)
 
-1. **通读 CRA 的文档**
-1. 在本地跑起来项目
-1. 了解文件目录结构，并了解每个文件的配置
-1. **通读 CRA 的文档**
+1. 通读 CRA 的文档
+1. 在本地跑把项目跑起来
+1. `npm run eject`，了解 React 对于 Webpack 等的默认配置
+1. 了解文件目录结构及每个文件的配置
 
-## 框架生态圈: React/ReactRouter/AntDesign/Next
+## 生态圈: React/ReactRouter/AntDesign
 
 1. 看文档
 1. 跑示例
@@ -304,16 +359,24 @@ Playground:
 
 + [React](https://reactjs.org/)
 + [React Router](https://reactrouter.com/)
-+ [Next](https://nextjs.org/)
 + Redux/Mobx
 + [Ant Design](https://ant.design/)
+
+### 技术选型
+
+![](./assets/react.png)
 
 ## HTTP: 前后端沟通桥梁
 
 + fetch API
 + axios
++ use-fetch
 
 ## 插曲: 调试 HTTP
+
+### Chrome Network Devtools
+
+### Postman
 
 ## Node Server
 
@@ -338,6 +401,19 @@ app.use(ctx => {
 app.listen(3000)
 ```
 
+## Next.js
+
 ## 项目实战: 已毕业 ? Github Projects : 实习
+
+### Todo MVC
+
+[TODO MVC](https://github.com/tastejs/todomvc)
+
+### 任意项目
+
++ carbon
++ svgo
++ svgr
++ squoop
 
 ## 面试
