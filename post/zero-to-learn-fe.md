@@ -27,7 +27,7 @@ description: 转专业、零基础如何开始学习前端？这里特意针对�
 
 还有一些人会问：写代码是不全是写英文，英文不好可以吗？如果说代码和英文相关，那估计只有几个关键字的单词吧。学习编程只要你有英语四级的水平，正常的英文阅读水平，但大部分时候是用来去阅读英文文档。**你需要养成阅读英文文档的习惯。**
 
-![沙拉查词插件](./assets/learn-fe-en-plugin.png)
+![沙拉查词插件](https://cdn.jsdelivr.net/gh/shfshanyue/blog@1.0/post/assets/learn-fe-en-plugin.png)
 
 下载地址: <https://saladict.crimx.com/>
 
@@ -78,7 +78,7 @@ HTML/CSS/JS 被称为前端网站编写三剑客，也是常说的前端所需�
 
 ## HTML: 两天时间
 
-![HTML 课程](./assets/learn-fe-html.png)
+![HTML 课程](https://cdn.jsdelivr.net/gh/shfshanyue/blog@1.0/post/assets/learn-fe-html.png)
 
 + 学习资料: [初识HTML(5)+CSS(3)-2020升级版](https://www.imooc.com/learn/9)，包含了 HTML 和 CSS 的教程。
 + 学习资料二: [MDN](https://developer.mozilla.org/zh-CN/docs/learn) 中的[新手请从这开始](https://developer.mozilla.org/zh-CN/docs/Learn/Getting_started_with_the_web)与 [HTML-构建Web](https://developer.mozilla.org/zh-CN/docs/Learn/HTML) 部分，MDN 是服务于开发者最齐全的文档，也是前端**必不可少翻得最多的文档**
@@ -124,7 +124,7 @@ HTML/CSS/JS 被称为前端网站编写三剑客，也是常说的前端所需�
 
 ## 插曲: Chrome Devtools
 
-![Chrome Devtools](./assets/learn-fe-devtools.png)
+![Chrome Devtools](https://cdn.jsdelivr.net/gh/shfshanyue/blog@1.0/post/assets/learn-fe-devtools.png)
 
 学习完 HTML/CSS 后，可以发送一下，学点 Devtools 的用法，以下不需要掌握，多看一点是一点
 
@@ -139,19 +139,19 @@ HTML/CSS/JS 被称为前端网站编写三剑客，也是常说的前端所需�
 
 在我初学 Chrome 的开发者工具后，最爱改一些数字，然后截图给我的朋友和发到朋友圈，你也来试一试吧
 
-![更改知乎信息](./assets/learn-fe-edit.png)
+![更改知乎信息](https://cdn.jsdelivr.net/gh/shfshanyue/blog@1.0/post/assets/learn-fe-edit.png)
 ### 练习二: 查看密码明文
 
 当忘记密码时，浏览器仍然记得你的密码，在开发者工具中修改 `input.type` 即可做到
 
-![查看明文密码](./assets/learn-fe-pwd.png)
+![查看明文密码](https://cdn.jsdelivr.net/gh/shfshanyue/blog@1.0/post/assets/learn-fe-pwd.png)
 ## Javascript: 七天
 
 相对于 HTML/CSS 而言，Javascript 才可以称得上是一门编程语言。**从这里开始你要开始使用编辑器 VSCode**
 
 ### 第一阶段: 语言基础
 
-![JS 基础学习](./assets/learn-fe-js.png)
+![JS 基础学习](https://cdn.jsdelivr.net/gh/shfshanyue/blog@1.0/post/assets/learn-fe-js.png)
 
 学习资料: [MDN 上的 Javascript 入门篇](https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/First_steps)
 
@@ -164,7 +164,7 @@ HTML/CSS/JS 被称为前端网站编写三剑客，也是常说的前端所需�
 
 ### 第二阶段: DOM API
 
-![DOM API 学习](./assets/learn-fe-dom.png)
+![DOM API 学习](https://cdn.jsdelivr.net/gh/shfshanyue/blog@1.0/post/assets/learn-fe-dom.png)
 
 学习资料: [MDN 上的 DOM API 概述](https://developer.mozilla.org/zh-CN/docs/Web/API/Document_Object_Model/Introduction)
 
@@ -364,7 +364,7 @@ export default function App() {
 
 ### 技术选型
 
-![](./assets/react.png)
+![](https://cdn.jsdelivr.net/gh/shfshanyue/blog@1.0/post/assets/react.png)
 
 ## HTTP: 前后端沟通桥梁
 
