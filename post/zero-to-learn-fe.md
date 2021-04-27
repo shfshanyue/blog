@@ -223,6 +223,12 @@ lodash 拥有着各种各样方便的工具函数，**向熟悉 ES6+ API 一样�
 
 选学！
 
+## 插曲: npm
+
+### 练习一: 如何快速找到某个 npm package 的官方文档和 github 地址
+
+### 练习二: 如何快速找到合适的 npm package
+
 ## 插曲: Git
 
 学习资料: [最好用的 Git 教程](https://learngitbranching.js.org/?locale=zh_CN)
@@ -371,6 +377,11 @@ export default function App() {
 + fetch API
 + axios
 + use-fetch
+
++ [MDN: HTTP Guide](https://developer.mozilla.org/zh-CN/docs/Web/HTTP)
++ 书籍: HTTP 权威指南
+
+精读文章 [HTTP Overview](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Overview)
 
 ## 插曲: 调试 HTTP
 
