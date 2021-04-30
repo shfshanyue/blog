@@ -9,9 +9,14 @@ description: 转专业、零基础如何开始学习前端？这里特意针对�
 
 本篇文章或者叫可操作的前端入门学习指南，如果你已经有些经验，可以从 React 部分看起。
 
-本篇文章所推荐的所有资源，绝大部分是我认为全网比较不错的资源，其中包括工具、网站、游戏都是我手不释卷翻过多遍的，至今仍然会不停的去翻去看，。
+首先，这篇文章并不具体教你某一个知识点，也不对做知识点深入讨论，只是为刚进去前端大门的你指引一条方向，并告诉你应该如何学习。
+
+本篇文章所推荐的所有资源，绝大部分是我认为全网质量较高的资源，其中包括工具、网站、游戏都是我手不释卷翻过多遍的，至今仍然会不停的去翻去看。
 
 > 本文过长！强烈建议收藏并对比目录翻看
+
+搜索能力
+文档意识
 
 ## 准备工作
 
@@ -65,6 +70,36 @@ description: 转专业、零基础如何开始学习前端？这里特意针对�
 1. 博客园/掘金/CSDN
 
 知乎？别去知乎问，容易被喷。
+
+## 搜索
+
+搜索很重要！
+搜索很重要！
+搜索很重要！
+
+### 使用简洁的关键词
+
+如当前项目使用 React 技术栈，并且想要在页面中完成成功消息的提示，此时需要一个组件。
+
+使用关键词 `react toast` 进行搜索，切记勿要啰嗦。
+
++ ✅ 正确示例: `react toast`
++ ❎ 错误示例: `react中关于消息提示的组件`
+
+### 在正确的地方搜索
+
+在这里，即便是谷歌搜索，也排在一个低优先级的位置。
+
++ `MDN`: 
++ `官方文档`: 如果你对某一个库的用法不了解，请首先在其官方文档中进行搜索。示例: 如不了解 React Hooks，请在 React 官方文档搜索 `Hooks`，不了解 React Portal，请在官方文档搜索 `Portal`。
++ `Repo Issue`
++ `Google`: 如果你对某一个技术点不了解
+
+### 正确的方式来搜索
+
+<Ctrl+F> 为当前页面搜索，当文档只有一个大长页时非常合适
+
+文档自带的搜索框
 
 ## 基础: HTML/CSS/JS
 
@@ -121,6 +156,11 @@ HTML/CSS/JS 被称为前端网站编写三剑客，也是常说的前端所需�
 + [CSS Diner](https://flukeout.github.io/)
 + [Flex Forggy](https://flexboxfroggy.com/)
 + [Grid Garden](https://cssgridgarden.com/)
+
+## 插曲: VSCode
+
+### Emmet
+### 快捷键
 
 ## 插曲: Chrome Devtools
 
@@ -219,7 +259,7 @@ lodash 拥有着各种各样方便的工具函数，**向熟悉 ES6+ API 一样�
 
 [You Dont Need Lodash Underscore](https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore)，建议通读
 
-## 第五阶段: You Dont Know Javascript
+### 第五阶段: You Dont Know Javascript
 
 选学！
 
@@ -228,38 +268,6 @@ lodash 拥有着各种各样方便的工具函数，**向熟悉 ES6+ API 一样�
 ### 练习一: 如何快速找到某个 npm package 的官方文档和 github 地址
 
 ### 练习二: 如何快速找到合适的 npm package
-
-## 插曲: Git
-
-学习资料: [最好用的 Git 教程](https://learngitbranching.js.org/?locale=zh_CN)
-
-Git 也是工作中必不可少的，但敲的最多的就是以下几条命令了。
-
-
-``` bash
-$ git pull origin master
-$ git add -u
-$ git commit -m 'update'
-$ git push origin master
-```
-
-
-[githug](https://github.com/Gazler/githug)，**采用玩游戏的方式闯过 Git** 你需要这个为你的 Git 学习填充一点乐趣！
-
-### gitlen: 可视化 Git
-
-![GitLen](https://cdn.jsdelivr.net/gh/eamodio/vscode-gitlens@main/images/docs/revision-navigation.gif)
-
-[gitlen](https://gitlens.amod.io/) 是集成于 VSCode 中的一个 Git 可视化神器，但是最重要的是要搞明白几个问题
-
-1. 如何查看当前行的上次更改者
-1. 如何看某人某次的提交是什么
-1. 如何看当前文件当前行上次是如何被修改的
-1. 如何看当前文件的提交历史是什么
-
-Gitlen 最大的优点是可以可视化过去代码发生了什么，但是对于 Commit 一类操作，仍然建议使用 Git 命令行来操作。
-
-学习资料: [Gitlen Features](https://gitlens.amod.io/#features)，这属于官方文档，建议通读。
 
 ## 插曲: VSCode Plugins
 
@@ -329,6 +337,38 @@ export default function App() {
   );
 }
 ```
+
+## 插曲: Git
+
+学习资料: [最好用的 Git 教程](https://learngitbranching.js.org/?locale=zh_CN)
+
+Git 也是工作中必不可少的，但敲的最多的就是以下几条命令了。
+
+
+``` bash
+$ git pull origin master
+$ git add -u
+$ git commit -m 'update'
+$ git push origin master
+```
+
+
+[githug](https://github.com/Gazler/githug)，**采用玩游戏的方式闯过 Git** 你需要这个为你的 Git 学习填充一点乐趣！
+
+### gitlen: 可视化 Git
+
+![GitLen](https://cdn.jsdelivr.net/gh/eamodio/vscode-gitlens@main/images/docs/revision-navigation.gif)
+
+[gitlen](https://gitlens.amod.io/) 是集成于 VSCode 中的一个 Git 可视化神器，但是最重要的是要搞明白几个问题
+
+1. 如何查看当前行的上次更改者
+1. 如何看某人某次的提交是什么
+1. 如何看当前文件当前行上次是如何被修改的
+1. 如何看当前文件的提交历史是什么
+
+Gitlen 最大的优点是可以可视化过去代码发生了什么，但是对于 Commit 一类操作，仍然建议使用 Git 命令行来操作。
+
+学习资料: [Gitlen Features](https://gitlens.amod.io/#features)，这属于官方文档，建议通读。
 
 ## React 与前端工程化
 
