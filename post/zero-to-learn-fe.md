@@ -9,6 +9,8 @@ description: 转专业、零基础如何开始学习前端？这里特意针对�
 
 本篇文章或者叫可操作的前端入门学习指南，如果你已经有些经验，可以从 React 部分看起。
 
+这不是一本关于学习前端的书，而是一本关于如何学习前端的书。
+
 首先，这篇文章并不具体教你某一个知识点，也不对做知识点深入讨论，只是为刚进去前端大门的你指引一条方向，并告诉你应该如何学习。
 
 本篇文章所推荐的所有资源，绝大部分是我认为全网质量较高的资源，其中包括工具、网站、游戏都是我手不释卷翻过多遍的，至今仍然会不停的去翻去看。
@@ -183,12 +185,14 @@ HTML/CSS/JS 被称为前端网站编写三剑客，也是常说的前端所需�
 在我初学 Chrome 的开发者工具后，最爱改一些数字，然后截图给我的朋友和发到朋友圈，你也来试一试吧
 
 ![更改知乎信息](https://cdn.jsdelivr.net/gh/shfshanyue/blog@1.0/post/assets/learn-fe-edit.png)
+
 ### 练习二: 查看密码明文
 
 当忘记密码时，浏览器仍然记得你的密码，在开发者工具中修改 `input.type` 即可做到
 
 ![查看明文密码](https://cdn.jsdelivr.net/gh/shfshanyue/blog@1.0/post/assets/learn-fe-pwd.png)
-## Javascript: 七天
+
+## Javascript: 一个月
 
 相对于 HTML/CSS 而言，Javascript 才可以称得上是一门编程语言。**从这里开始你要开始使用编辑器 VSCode**
 
@@ -240,8 +244,12 @@ DOM API，及 DOM 赋予 Javascript 的各种操作 HTML 的 API。现代前端�
 
 对于数组与对象的 API 要多看，反复地看，翻来覆去的看。就按照下边 MDN 的 API 列表来看，先看目录有不熟悉、不了解的、没见过的 API 更要重点看看。
 
+对于 `Object`、`Array`、`Promise`、`String` 这类常用的至少过三遍
+
 1. [数组](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array)
 1. [对象](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object)
+1. [字符串](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String)
+1. [Promise](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
 ### 第四阶段: lodash/npm
 
@@ -261,6 +269,10 @@ lodash 拥有着各种各样方便的工具函数，**向熟悉 ES6+ API 一样�
 > 无剑胜有剑
 
 [You Dont Need Lodash Underscore](https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore)，建议通读
+
+#### 练习一: 在 Node 中执行文件学习 npm 库
+
+#### 练习二: 在浏览器控制台学习
 
 ### 第五阶段: You Dont Know Javascript
 
@@ -415,6 +427,18 @@ Gitlen 最大的优点是可以可视化过去代码发生了什么，但是对�
 
 ![](https://cdn.jsdelivr.net/gh/shfshanyue/blog@1.0/post/assets/react.png)
 
+## 重回 npm
+
++ [语义化版本](https://npm.devtool.tech/semver)
++ [npm cli](https://docs.npmjs.com/cli/v7)
+  + [npm script](https://docs.npmjs.com/cli/v7/commands/npm-run-script)
+  + [package.json](https://docs.npmjs.com/cli/v7/configuring-npm/package-json)
++ [补充: node_modules 困境](https://zhuanlan.zhihu.com/p/137535779)
+
+### 实践: 发布一个 npm package
+
++ [dep 与 devDep 区别](https://stackoverflow.com/questions/18875674/whats-the-difference-between-dependencies-devdependencies-and-peerdependencies)
+
 ## HTTP: 前后端沟通桥梁
 
 + fetch API
@@ -457,6 +481,11 @@ app.listen(3000)
 
 ## Next.js
 
+## 性能优化
+
++ [MDN 性能优化指南](https://developer.mozilla.org/en-US/docs/Web/Performance)
++ [Google 性能优化指南](https://developers.google.com/web/fundamentals/performance/get-started)
+
 ## 项目实战: 已毕业 ? Github Projects : 实习
 
 ### Todo MVC
@@ -470,4 +499,17 @@ app.listen(3000)
 + svgr
 + squoop
 
+
 ## 面试
+
+## 插曲: Linux 基础命令
+
+``` bash
+$ ls -lah
+
+$ cd src
+
+$ exit
+```
+
+## 插曲: 正则表达式
