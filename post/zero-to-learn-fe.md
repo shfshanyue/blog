@@ -7,6 +7,8 @@ description: 转专业、零基础如何开始学习前端？这里特意针对�
 
 # 零基础可操作的前端入门学习指南
 
+如何从零构建前端知识体系
+
 本篇文章或者叫可操作的前端入门学习指南，如果你已经有些经验，可以从 React 部分看起。
 
 这不是一本关于学习前端的书，而是一本关于如何学习前端的书。
@@ -102,9 +104,8 @@ glob
 
 ### 正确的方式来搜索
 
-`<Ctrl+F>` 为当前页面搜索，当文档只有一个大长页时非常合适
-
-文档自带的搜索框
+1. `<Ctrl+F>` 为当前页面搜索，当文档只有一个大长页时非常合适
+1. 使用文档自带的搜索框进行搜索
 
 ## 基础: HTML/CSS/JS
 
@@ -200,7 +201,10 @@ HTML/CSS/JS 被称为前端网站编写三剑客，也是常说的前端所需�
 
 ![JS 基础学习](https://cdn.jsdelivr.net/gh/shfshanyue/blog@1.0/post/assets/learn-fe-js.png)
 
-学习资料: [MDN 上的 Javascript 入门篇](https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/First_steps)
+学习资料: 
+
++ [MDN: Javascript 入门篇](https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/First_steps)
++ [MDN: JavaScript 参考之快速入门](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference)
 
 在 MDN 作为教程，并在 Chrome Devtools 或者在 VS Code 中练习
 
@@ -232,6 +236,11 @@ DOM API，及 DOM 赋予 Javascript 的各种操作 HTML 的 API。现代前端�
 > document.addEventlistener('click', () => {})
 > element.onClick = () => {}
 ```
+
+### 插曲: 了解控制台
+
+![](https://developer.chrome.com/docs/devtools/overview/0)
+
 
 ### 第三阶段: ES6+
 
@@ -272,7 +281,10 @@ lodash 拥有着各种各样方便的工具函数，**向熟悉 ES6+ API 一样�
 
 #### 练习一: 在 Node 中执行文件学习 npm 库
 
-#### 练习二: 在浏览器控制台学习
+### 插曲: 控制台调试
+
++ [在谷歌浏览器中进行调试](https://javascript.info/debugging-chrome)
++ [谷歌开发者文档: 调试 Javascript](https://developer.chrome.com/docs/devtools/javascript/)
 
 ### 第五阶段: You Dont Know Javascript
 
@@ -408,6 +420,8 @@ Gitlen 最大的优点是可以可视化过去代码发生了什么，但是对�
 1. `npm run eject`，了解 React 对于 Webpack 等的默认配置
 1. 了解文件目录结构及每个文件的配置
 
+## 插曲: React Devtools
+
 ## 生态圈: React/ReactRouter/AntDesign
 
 1. 看文档
@@ -431,8 +445,8 @@ Gitlen 最大的优点是可以可视化过去代码发生了什么，但是对�
 
 + [语义化版本](https://npm.devtool.tech/semver)
 + [npm cli](https://docs.npmjs.com/cli/v7)
-  + [npm script](https://docs.npmjs.com/cli/v7/commands/npm-run-script)
   + [package.json](https://docs.npmjs.com/cli/v7/configuring-npm/package-json)
+  + [npm script](https://docs.npmjs.com/cli/v7/commands/npm-run-script)
 + [补充: node_modules 困境](https://zhuanlan.zhihu.com/p/137535779)
 
 ### 实践: 发布一个 npm package
