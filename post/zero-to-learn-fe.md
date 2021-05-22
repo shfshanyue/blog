@@ -497,8 +497,9 @@ app.listen(3000)
 
 ## 性能优化
 
-+ [MDN 性能优化指南](https://developer.mozilla.org/en-US/docs/Web/Performance)
++ [Google 加载性能优化](https://web.dev/fast/)
 + [Google 性能优化指南](https://developers.google.com/web/fundamentals/performance/get-started)
++ [MDN 性能优化指南](https://developer.mozilla.org/en-US/docs/Web/Performance)
 
 ## 项目实战: 已毕业 ? Github Projects : 实习
 
