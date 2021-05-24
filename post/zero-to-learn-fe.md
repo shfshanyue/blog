@@ -7,9 +7,7 @@ description: 转专业、零基础如何开始学习前端？这里特意针对�
 
 # 零基础可操作的前端入门学习指南
 
-如何从零构建前端知识体系
-
-本篇文章或者叫可操作的前端入门学习指南，如果你已经有些经验，可以从 React 部分看起。
+本篇文章也可称作: 如何从零构建前端知识体系，如果你已经有工作经验经验，本篇文章也对你同样有用。
 
 这不是一本关于学习前端的书，而是一本关于如何学习前端的书。
 
@@ -78,7 +76,7 @@ glob
 
 知乎？别去知乎问，容易被喷。
 
-## 搜索
+## 学会搜索
 
 搜索很重要！
 搜索很重要！
@@ -121,14 +119,23 @@ HTML/CSS/JS 被称为前端网站编写三剑客，也是常说的前端所需�
 
 ![HTML 课程](https://cdn.jsdelivr.net/gh/shfshanyue/blog@1.0/post/assets/learn-fe-html.png)
 
-+ 学习资料: [初识HTML(5)+CSS(3)-2020升级版](https://www.imooc.com/learn/9)，包含了 HTML 和 CSS 的教程。
-+ 学习资料二: [MDN](https://developer.mozilla.org/zh-CN/docs/learn) 中的[新手请从这开始](https://developer.mozilla.org/zh-CN/docs/Learn/Getting_started_with_the_web)与 [HTML-构建Web](https://developer.mozilla.org/zh-CN/docs/Learn/HTML) 部分，MDN 是服务于开发者最齐全的文档，也是前端**必不可少翻得最多的文档**
+学习资料: 
+
++ [初识HTML(5)+CSS(3)-2020升级版](https://www.imooc.com/learn/9)，包含了 HTML 和 CSS 的教程。慕课网教程较为系统，且可随时编程调试。
+
+学习资料二(可做参考)[选看]: [MDN](https://developer.mozilla.org/zh-CN/docs/Learn/HTML/Introduction_to_HTML) 中以下三篇:
+
++ [开始学习 HTML](https://developer.mozilla.org/zh-CN/docs/learn/HTML/Introduction_to_HTML/Getting_started)
++ [HTML 文字处理基础](https://developer.mozilla.org/zh-CN/docs/learn/HTML/Introduction_to_HTML/HTML_text_fundamentals)
++ [建立超链接](https://developer.mozilla.org/zh-CN/docs/Learn/HTML/Introduction_to_HTML/Creating_hyperlinks)
+
+MDN 是服务于开发者最齐全的文档，也是前端**必不可少翻得最多的文档**
 
 在慕课网中教程为交互式学习，根据它提供的代码在编辑器中运行即可，**无需使用 VSCode**。而 MDN 的教程会引导你从新建一个 index.html 文件开始。
 
-**花费两天时间照着以上教程至少过一遍，如果遇到无法理解的问题，深思三遍仍不得其解，不要硬磕，否则容易引来挫败感，直接跳过即可。**为了加深记忆，可以过三遍。
+**花费两天时间照着以上教程至少过一遍，如果遇到无法理解的问题，深思三遍仍不得其解，不要硬磕，否则容易引来挫败感，直接跳过即可。**
 
-即使最后忘记了所有标签，只要记得以下这些标签及整体框架即可:
+为了加深记忆，可以过三遍。即使最后忘记了所有标签，只要记得以下这些标签及整体框架即可:
 
 ``` html
 <!DOCTYPE html>
@@ -152,8 +159,17 @@ HTML/CSS/JS 被称为前端网站编写三剑客，也是常说的前端所需�
 ## CSS: 五天时间
 
 + 学习资料: [初识HTML(5)+CSS(3)-2020升级版](https://www.imooc.com/learn/9)，包含了 HTML 和 CSS 的教程。
++ 学习资料二(英文版)[必看]: [Learn CSS](https://web.dev/learn/css/)
+
+关于 CSS 的资源，谷歌出品的 Learn CSS 质量相当之高，并且**配有语音讲解、代码示例实时编辑与课后测试，强烈推荐**。但如果英文较为吃力，可在慕课网观看，事后务必再回来查看 [Learn CSS](https://web.dev/learn/css/)
 
 在 CSS 中涉及到的知识点比 HTML 章节要多少很多，**此时必然会有一些属性无法牢记，比如 animate、transform 等，无需理会，此时仅仅需要知道他们能够实现什么样的效果即可，并在以后项目实践中不断加强**
+
++ Box Modal (盒模型)
++ Specificity (权重)
++ Selector (选择器)
++ Sizing Unit (单位)
++ Flex
 
 ### CSS 趣味练习
 
@@ -193,11 +209,9 @@ HTML/CSS/JS 被称为前端网站编写三剑客，也是常说的前端所需�
 
 ![查看明文密码](https://cdn.jsdelivr.net/gh/shfshanyue/blog@1.0/post/assets/learn-fe-pwd.png)
 
-## Javascript: 一个月
+## Javascript 第一阶段: 语言基础
 
 相对于 HTML/CSS 而言，Javascript 才可以称得上是一门编程语言。**从这里开始你要开始使用编辑器 VSCode**
-
-### 第一阶段: 语言基础
 
 ![JS 基础学习](https://cdn.jsdelivr.net/gh/shfshanyue/blog@1.0/post/assets/learn-fe-js.png)
 
@@ -213,7 +227,32 @@ HTML/CSS/JS 被称为前端网站编写三剑客，也是常说的前端所需�
 + 流程控制: IF/FOR/WHERE
 + 函数: Function、`() => {}`
 
-### 第二阶段: DOM API
+## 插曲: 代码规范
+
+以下是一个比较宽松的代码规范，大部分开源代码与该规范保持一致。
+
+``` js
+function sum(a, b) {
+  return a + b
+}
+
+const o = {
+  a: 3,
+  b: 4
+}
+
+const s = 'hello'
+const p = 'world'
+```
+
+1. 注意缩进并**缩进两个空格**
+1. 逗号、冒号**后添加空格**
+1. 赋值、加减乘除等操作符**前后添加空格**
+1. 语句结尾分号保持一致性，要么都加分号，要么都不加分号
+
+注意，要时时保持良好的代码书写规范
+
+## Javascript 第二阶段: DOM API
 
 ![DOM API 学习](https://cdn.jsdelivr.net/gh/shfshanyue/blog@1.0/post/assets/learn-fe-dom.png)
 
@@ -237,12 +276,11 @@ DOM API，及 DOM 赋予 Javascript 的各种操作 HTML 的 API。现代前端�
 > element.onClick = () => {}
 ```
 
-### 插曲: 了解控制台
+## 插曲: 了解谷歌控制台
 
 ![](https://developer.chrome.com/docs/devtools/overview/0)
 
-
-### 第三阶段: ES6+
+## Javascript 第三阶段: ES6+
 
 学习资料: 
 
@@ -260,7 +298,7 @@ DOM API，及 DOM 赋予 Javascript 的各种操作 HTML 的 API。现代前端�
 1. [字符串](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String)
 1. [Promise](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
-### 第四阶段: lodash/npm
+## Javascript 第四阶段: lodash/npm
 
 写代码的经常有几句话挂在嘴边: **不要重复造轮子**别人实现过的功能，你无需再实现。
 
@@ -279,16 +317,12 @@ lodash 拥有着各种各样方便的工具函数，**向熟悉 ES6+ API 一样�
 
 [You Dont Need Lodash Underscore](https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore)，建议通读
 
-#### 练习一: 在 Node 中执行文件学习 npm 库
+### 练习一: 在 Node 中执行文件学习 npm 库
 
-### 插曲: 控制台调试
+## 插曲: 控制台调试
 
 + [在谷歌浏览器中进行调试](https://javascript.info/debugging-chrome)
 + [谷歌开发者文档: 调试 Javascript](https://developer.chrome.com/docs/devtools/javascript/)
-
-### 第五阶段: You Dont Know Javascript
-
-选学！
 
 ## 插曲: npm
 
@@ -441,12 +475,17 @@ Gitlen 最大的优点是可以可视化过去代码发生了什么，但是对�
 
 ![](https://cdn.jsdelivr.net/gh/shfshanyue/blog@1.0/post/assets/react.png)
 
-## 重回 npm
+## Javascript 第五阶段: You Dont Know Javascript
+
+选学！
+
+## 发包
 
 + [语义化版本](https://npm.devtool.tech/semver)
-+ [npm cli](https://docs.npmjs.com/cli/v7)
++ [npm cli](https://docs.npmjs.com/cli/v7): 重点为以下两篇文章
   + [package.json](https://docs.npmjs.com/cli/v7/configuring-npm/package-json)
-  + [npm script](https://docs.npmjs.com/cli/v7/commands/npm-run-script)
+  + [npm script](https://docs.npmjs.com/cli/v7/using-npm/scripts)
++ [package.json manifest](https://yarnpkg.com/configuration/manifest)
 + [补充: node_modules 困境](https://zhuanlan.zhihu.com/p/137535779)
 
 ### 实践: 发布一个 npm package
@@ -528,3 +567,4 @@ $ exit
 ```
 
 ## 插曲: 正则表达式
+
