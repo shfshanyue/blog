@@ -1,3 +1,8 @@
+---
+title: 如何快速找到一个合适的 npm 库
+date: 2021-05-24
+---
+
 # 如何快速找到一个合适的 npm 库
 
 假设我需要一个 React 的弹框组件，我应该如何快速选择一个合适的 npm 库？
@@ -7,14 +12,14 @@
 在正确的网址进行搜索:
 
 + [npm 官网](https://npmjs.com): 官方网站，权威网站
-+ [yarn 官网](https://yarnpkg.com/): 基于 
++ [yarn 官网](https://yarnpkg.com/)
 + [Github](https://github.com)
 
 使用正确的关键词进行搜索: `react modal`
 
 如果不出所料，这里可以选出一个或多个比较合适的第三方库。那对于一个选择困难症，如何从中挑选一个更好的库呢？
 
-![npm search](./assets/npm-search.png)
+![npm search](https://cdn.jsdelivr.net/gh/shfshanyue/blog@master/frontend-engineering/assets/npm-search.png)
 
 ## 二、选型
 
@@ -32,13 +37,11 @@
 
 这里推荐一个选型必备网站: [npm trends](https://www.npmtrends.com/)，它可以很直白地把这些指标放在一起进行对比，并且能够推荐**与该 Package 所有相似的包**
 
-![npm trend](./assets/npm-trend.png)
+![npm trend](https://cdn.jsdelivr.net/gh/shfshanyue/blog@master/frontend-engineering/assets/npm-trend.png)
 
 ## 三、文档
 
-要多看文档！
-
-我向我女朋友强调了这点，她问我，那应该如何去找到它的文档呢？
+要多看文档！那文档在什么地方了
 
 1. `npmjs.com` 某个库详情页面的右侧，有 Homepage 字段指向官方文档
 1. `github.com` 某个 repo 详情页面的右上角，有官网链接
