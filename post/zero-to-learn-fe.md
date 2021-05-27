@@ -156,6 +156,12 @@ MDN 是服务于开发者最齐全的文档，也是前端**必不可少翻得�
 <div>hello, world</div>
 ```
 
+### Reference
+
+这里有关于所有 HTML 的标签，如若有时间可通读一遍，如若没有时间则大概通读一遍
+
++ [HTML Element Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element)
+
 ## CSS: 五天时间
 
 + 学习资料: [初识HTML(5)+CSS(3)-2020升级版](https://www.imooc.com/learn/9)，包含了 HTML 和 CSS 的教程。
@@ -173,7 +179,7 @@ MDN 是服务于开发者最齐全的文档，也是前端**必不可少翻得�
 
 ### CSS 趣味练习
 
-以下三种是关于学习 CSS3 选择器、Flex、Grid最好的教程了，并且极其富有趣味性
+以下三种是关于学习 CSS3 选择器、Flex、Grid教好的教程了，并且极其富有趣味性
 
 + [CSS Diner](https://flukeout.github.io/)
 + [Flex Forggy](https://flexboxfroggy.com/)
@@ -181,14 +187,17 @@ MDN 是服务于开发者最齐全的文档，也是前端**必不可少翻得�
 
 ## 插曲: VSCode
 
-### Emmet
+`VSCode` 前端必备开发神器，生产力工具，如同剑客的剑。
+
 ### 快捷键
 
-## 插曲: Chrome Devtools
+### Emmet
+
+## 插曲: Chrome Devtools · Elements Panel
 
 ![Chrome Devtools](https://cdn.jsdelivr.net/gh/shfshanyue/blog@1.0/post/assets/learn-fe-devtools.png)
 
-学习完 HTML/CSS 后，可以发送一下，学点 Devtools 的用法，以下不需要掌握，多看一点是一点
+学习完 HTML/CSS 后，可以放松一下，学点 Devtools 的用法，以下不需要掌握，多看一点是一点。
 
 一个前端每天有一半的时间在敲代码、另一半的时间在点 Devtools。从中可以看到 Devtools 在前端中的地位及重要性。
 
@@ -256,9 +265,13 @@ const p = 'world'
 
 ![DOM API 学习](https://cdn.jsdelivr.net/gh/shfshanyue/blog@1.0/post/assets/learn-fe-dom.png)
 
-学习资料: [MDN 上的 DOM API 概述](https://developer.mozilla.org/zh-CN/docs/Web/API/Document_Object_Model/Introduction)
+学习资料: 
 
-DOM API，及 DOM 赋予 Javascript 的各种操作 HTML 的 API。现代前端框架对于 DOM 手动操作已经很少很少了，但是了解还是必不可少的。
++ [DOM API - MDN](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model)
++ [Event](https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Building_blocks/Events)
++ [Cookie](https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie)
+
+DOM API，即 DOM 赋予 Javascript 的各种操作 HTML 的 API。现代前端框架对于 DOM 手动操作已经很少很少了，但是了解还是必不可少的。
 
 在 Chrome Devtools 中输入以下变量观察挂在上边的所有属性:
 
@@ -275,6 +288,16 @@ DOM API，及 DOM 赋予 Javascript 的各种操作 HTML 的 API。现代前端�
 > document.addEventlistener('click', () => {})
 > element.onClick = () => {}
 ```
+
++ Window
++ Document
++ Element/NodeList/Attribute
++ Event
++ Web API
+
+### Reference
+
++ [Event Reference](https://developer.mozilla.org/en-US/docs/Web/Events)
 
 ## 插曲: 了解谷歌控制台
 
@@ -494,20 +517,26 @@ Gitlen 最大的优点是可以可视化过去代码发生了什么，但是对�
 
 ## HTTP: 前后端沟通桥梁
 
-+ fetch API
-+ axios
-+ use-fetch
-
 + [MDN: HTTP Guide](https://developer.mozilla.org/zh-CN/docs/Web/HTTP)
 + 书籍: HTTP 权威指南
 
 精读文章 [HTTP Overview](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Overview)
+
+## XHR、Fetch API 与 Axios
+
++ fetch API
++ axios
++ use-fetch
 
 ## 插曲: 调试 HTTP
 
 ### Chrome Network Devtools
 
 ### Postman
+
+## Security
+
++ [MDN - Security](https://developer.mozilla.org/en-US/docs/Web/Security)
 
 ## Node Server
 
