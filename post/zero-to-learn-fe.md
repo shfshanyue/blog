@@ -17,14 +17,7 @@ description: 转专业、零基础如何开始学习前端？这里特意针对�
 
 > 本文过长！强烈建议收藏并对比目录翻看
 
-命令行工具
-搜索能力
-文档意识
-glob
-正则
-
 ## 准备工作
-
 ### 心态
 
 > 既不妄自尊大想着一口吃成胖子，也不妄自菲薄觉得自己写不了代码
@@ -76,7 +69,7 @@ glob
 
 知乎？别去知乎问，容易被喷。
 
-## 学会搜索
+## 搜索能力与文档意识
 
 搜索很重要！
 搜索很重要！
@@ -267,9 +260,11 @@ const p = 'world'
 
 学习资料: 
 
-+ [DOM API - MDN](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model)
++ [DOM API Reference - MDN](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model)
++ [Web API Reference - MDN](https://developer.mozilla.org/en-US/docs/Web/API)
 + [Event](https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Building_blocks/Events)
 + [Cookie](https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie)
++ [HTTP Cookie](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Cookies)
 
 DOM API，即 DOM 赋予 Javascript 的各种操作 HTML 的 API。现代前端框架对于 DOM 手动操作已经很少很少了，但是了解还是必不可少的。
 
@@ -293,7 +288,7 @@ DOM API，即 DOM 赋予 Javascript 的各种操作 HTML 的 API。现代前端�
 + Document
 + Element/NodeList/Attribute
 + Event
-+ Web API
++ Web API: Blob、File、URL、Storage、[Cookie Store]、[Abort Control]
 
 ### Reference
 
@@ -500,7 +495,10 @@ Gitlen 最大的优点是可以可视化过去代码发生了什么，但是对�
 
 ## Javascript 第五阶段: You Dont Know Javascript
 
-选学！
++ this
++ new
++ inherit
++ closure
 
 ## 发包
 
@@ -569,19 +567,12 @@ app.listen(3000)
 + [Google 性能优化指南](https://developers.google.com/web/fundamentals/performance/get-started)
 + [MDN 性能优化指南](https://developer.mozilla.org/en-US/docs/Web/Performance)
 
-## 项目实战: 已毕业 ? Github Projects : 实习
+## 项目实战
 
-### Todo MVC
-
-[TODO MVC](https://github.com/tastejs/todomvc)
-
-### 任意项目
-
-+ carbon
-+ svgo
-+ svgr
-+ squoop
-
++ [carbon](https://github.com/carbon-app/carbon): `next.js`、`styled-jsx`。强烈推荐
++ [squoop](https://github.com/GoogleChromeLabs/squoosh): `wasm`、`worker`、`rollup` 各种压缩技术。强烈推荐
++ [svgomg](https://github.com/jakearchibald/svgomg): `gulp`、`rollup`、`worker`、`pako`
++ [svgr website](https://github.com/gregberge/svgr/tree/main/website): `gatsby`、`rekit`、`styled-components`
 
 ## 面试
 
