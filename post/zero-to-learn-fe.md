@@ -534,7 +534,7 @@ Gitlen 最大的优点是可以可视化过去代码发生了什么，但是对�
 
 ## Security
 
-+ [MDN - Security](https://developer.mozilla.org/en-US/docs/Web/Security)
++ [Security - MDN](https://developer.mozilla.org/en-US/docs/Web/Security)
 
 ## Node Server
 
