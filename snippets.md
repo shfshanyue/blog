@@ -146,3 +146,27 @@
 欢迎关注山月周刊，探索更多有趣的库，分享交流前沿技术，加入周刊群一起分享
 
 ![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/eba992a28f944121802208239bed4a45~tplv-k3u1fbpfcp-watermark.image)
+
+---------
+
++ [~2]CSS 
++ [~3]ES6+
++ [~3]JS Core (原型链、this之类)
++ [~2]JS Code (Promise.all、qs、debounce、throttle、once)
++ [~3]DOM/Web API (与浏览器相关的 API，Event、Cookie、Fetch API、Blob API)
++ [~3]HTTP/HTTP2
++ [~2]Security
++ [~5]React生态
++ [~2](Webpack)
++ [~4](Performance)
++ [~4](Engineering)
++ [~2]简历涉及到的所有问题，即面试官看到简历想问的所有内容 (性能优化、前端工程化涉及到的问题包含在此及以下的模拟面试中)
++ [~3]多次模拟面试
++ [2-N]大厂每次面试复盘及改进
+
+注: 
+
+1. ~ 代表大约N次，根据每个人不同的情况进行调整。同时你也可以要求对某个专题进行加深并多面几次
+2. 2-N 代表2到N次，如中大厂的面试复盘可进行无数次
+3. () 代表与项目经验相关主题，因前端工程化和性能优化涉及过多，无需全面涉及，只需要涉及到简历相关即可。同时你可以要求对某个主题进行加深并多面几次
+4. 上边除简历面试与追踪外，所有面试题均在我的面试题仓库中，可以自取也可以自己按照以上路线进行面试准备

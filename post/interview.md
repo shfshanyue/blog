@@ -8,7 +8,7 @@
 
 如同在浏览器上开启一个实验性 Flag，一个月前我在甜鱼上挂了一个 67 元一小时简历修改及模拟面试。
 
-![甜鱼](./assets/xianyu.jpg)
+![甜鱼](https://cdn.jsdelivr.net/gh/shfshanyue/blog@master/post/assets/xianyu.jpg)
 
 “67，这不白嫖吗，哪天我和你唠嗑一小时。”
 
@@ -58,7 +58,7 @@
 
 以下是项目经验剖析阶段的面试与反馈
 
-![反馈](./assets/feedback2.png)
+![反馈](https://cdn.jsdelivr.net/gh/shfshanyue/blog@master/post/assets/feedback2.png)
 
 ``` md
 ## 2021-05-17
@@ -80,7 +80,9 @@
 
 以下是关于基础阶段的面试与反馈
 
-![反馈](./assets/feedback.png)
+![反馈](https://cdn.jsdelivr.net/gh/shfshanyue/blog@master/post/assets/feedback.png)
+
+之后无论是找我系统面试准备，还是一小时单独模拟面试，我都会把面试题总结下来，并发给候选人做为参考，同时发回去的还有一堆参考链接。
 
 ## 系统准备
 
@@ -98,7 +100,7 @@
     + [CSS Diner](https://flukeout.github.io/)
     + [Flex Forggy](https://flexboxfroggy.com/)
     + [Grid Garden](https://cssgridgarden.com/)
-1. JS/ES6+/Code
+2. JS/ES6+/Code
     + [ES6 入门教程](https://es6.ruanyifeng.com/)
     + [数组](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array)
     + [对象](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object)
@@ -106,27 +108,27 @@
     + [Promise](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise)
     + [lodash](https://lodash.com/docs/4.17.15)
     + [You Dont Need Lodash Underscore](https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore)
-1. DOM 及 Web API
+3. DOM 及 Web API
     + [DOM API Reference - MDN](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model)
     + [Web API Reference - MDN](https://developer.mozilla.org/en-US/docs/Web/API)
     + [Event](https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Building_blocks/Events)
     + [Cookie](https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie)
     + [HTTP Cookie](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Cookies)
-1. HTTP
+4. HTTP
     + [MDN: HTTP Guide](https://developer.mozilla.org/zh-CN/docs/Web/HTTP)
     + HTTPS
     + HTTP2
-1. Security
+5. Security
     + [安全清单](https://cheatsheetseries.owasp.org/cheatsheets/AJAX_Security_Cheat_Sheet.html)
     + [Security - MDN](https://developer.mozilla.org/en-US/docs/Web/Security)
-1. React/Vue
+6. React/Vue
     + [React Documentation](https://reactjs.org)
     + [Vue Documentation](https://vuejs.org/)
-1. 性能优化
+7. 性能优化
     + [Google 加载性能优化](https://web.dev/fast/)
     + [Google 性能优化指南](https://developers.google.com/web/fundamentals/performance/get-started)
     + [MDN 性能优化指南](https://developer.mozilla.org/en-US/docs/Web/Performance)
-1. 项目经验及涉及到的所有基础问题与工程化问题
+8. 项目经验及涉及到的所有基础问题与工程化问题
     + 反复总结
     + 反复推敲
 

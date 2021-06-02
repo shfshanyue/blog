@@ -178,6 +178,10 @@ MDN 是服务于开发者最齐全的文档，也是前端**必不可少翻得�
 + [Flex Forggy](https://flexboxfroggy.com/)
 + [Grid Garden](https://cssgridgarden.com/)
 
+### Reference
+
++ [Stacking Context](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context)
+
 ## 插曲: VSCode
 
 `VSCode` 前端必备开发神器，生产力工具，如同剑客的剑。
@@ -288,7 +292,7 @@ DOM API，即 DOM 赋予 Javascript 的各种操作 HTML 的 API。现代前端�
 + Document
 + Element/NodeList/Attribute
 + Event
-+ Web API: Blob、File、URL、Storage、[Cookie Store]、[Abort Control]
++ Web API: Blob、File、URL、Storage、Cookie Store、Abort Control、Fetch、Request、Response
 
 ### Reference
 
