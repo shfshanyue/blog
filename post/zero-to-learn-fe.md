@@ -524,6 +524,17 @@ Gitlen 最大的优点是可以可视化过去代码发生了什么，但是对�
 
 精读文章 [HTTP Overview](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Overview)
 
+### Reference
+
++ Status Code
++ Method/Body
++ Headers
++ Cache Control
++ http 1.1
++ https
++ http 2
++ http 3
+
 ## XHR、Fetch API 与 Axios
 
 + fetch API
@@ -572,6 +583,13 @@ app.listen(3000)
 + [MDN 性能优化指南](https://developer.mozilla.org/en-US/docs/Web/Performance)
 
 ## 项目实战
+
+### 练手
+
++ [React Router Course](https://github.com/ReactTraining/react-router-5-course): `react-router`。循序渐进学习 React Router
++ [React TodoMVC](https://github.com/tastejs/todomvc/tree/master/examples/react-hooks): `react-router`。使用 React Hooks、React Router 开发一个 TODO 应用
+
+### 实战
 
 + [carbon](https://github.com/carbon-app/carbon): `next.js`、`styled-jsx`。强烈推荐
 + [squoop](https://github.com/GoogleChromeLabs/squoosh): `wasm`、`worker`、`rollup` 各种压缩技术。强烈推荐

@@ -151,9 +151,9 @@
 
 + [~2]CSS 
 + [~3]ES6+
-+ [~3]JS Core (原型链、this之类)
-+ [~2]JS Code (Promise.all、qs、debounce、throttle、once)
-+ [~3]DOM/Web API (与浏览器相关的 API，Event、Cookie、Fetch API、Blob API)
++ [~3]JS Core (作用域、闭包、原型链、this、事件循环、类型、Class)
++ [~2]JS Code (Promise、Promise.all、Promise.map、flat、flatmap、shuffle、sample、qs、debounce、throttle、once、sleep、cloneDeep 等)
++ [~3]DOM/Web API (与浏览器相关的 API，如 Event、Cookie、Storage API、Fetch API、Blob API、IntersectionObserver、rIC)
 + [~3]HTTP/HTTP2
 + [~2]Security
 + [~5]React生态
