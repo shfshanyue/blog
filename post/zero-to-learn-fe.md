@@ -258,6 +258,9 @@ const p = 'world'
 
 注意，要时时保持良好的代码书写规范
 
+1. [Clean Code concepts adapted for JavaScript](https://github.com/ryanmcdermott/clean-code-javascript)
+1. [Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javascript)
+
 ## Javascript 第二阶段: DOM API
 
 ![DOM API 学习](https://cdn.jsdelivr.net/gh/shfshanyue/blog@1.0/post/assets/learn-fe-dom.png)
@@ -549,6 +552,7 @@ Gitlen 最大的优点是可以可视化过去代码发生了什么，但是对�
 
 ## Security
 
++ [OWASP Cheat Sheet Series](https://cheatsheetseries.owasp.org/)
 + [Security - MDN](https://developer.mozilla.org/en-US/docs/Web/Security)
 
 ## Node Server

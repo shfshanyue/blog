@@ -35,7 +35,9 @@ const body = {
 
 ## JSON Schema
 
-`JSON Schema` 基于 JSON 进行数据校验格式，并附有一份规范 [json-schema.org](http://json-schema.org/)，目前 (2020-08) 最新版本是 7.0。各种服务器编程语言都对规范进行了实现，如 `go`、`java`、`php` 等，当然伟大的 javascript 也有，如不温不火的 [ajv](https://github.com/ajv-validator/ajv)。
+`JSON Schema` 基于 JSON 进行数据校验格式，并附有一份规范 [json-schema.org](http://json-schema.org/)，目前 (2020-08) 最新版本是 7.0。
+
+各种服务器编程语言都对规范进行了实现，如 `go`、`java`、`php` 等，当然伟大的 javascript 也有，如不温不火的 [ajv](https://github.com/ajv-validator/ajv)。
 
 以下是校验用户信息的一个 Schema，可见语法复杂与繁琐:
 
@@ -87,6 +89,8 @@ const body = {
 ``` js
 ajv.addFormat('mobilePhone', (str) => /^(?:(?:\+|00)86)?1[3-9]\d{9}$/.test(str));
 ```
+
+值得一提的是 Node 中号称最快的框架 [fastify](https://www.fastify.io/) 内置 JSON Schema 实现输入(Request)输出(Response)数据的类型校验。
 
 ## Joi
 
@@ -148,7 +152,9 @@ public.route({
 });
 ```
 
-## 正则表达式与安全正则表达式
+## 正则校验与安全正则表达式
+
+数据校验怎么会少得了正则表达式进行校验呢？对于一些特殊字段，可使用内置 API 进行校验，但是部分数据有可能仍需要使用到正则表达式进行校验。
 
 山月在一次排查性能问题时发现，一条 API 竟在数据校验层耗时过久，这是我未曾想到的。而问题根源在于不安全的正则表达式，那什么叫做不安全的正则表达式呢？
 
