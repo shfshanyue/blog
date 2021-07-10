@@ -26,4 +26,10 @@ JSON.stringify(user)
 
 ![circular](https://cdn.jsdelivr.net/gh/shfshanyue/assets@master/20210619/circular.1urtfrtgm1og.png)
 
-## 
+## 更快的序列化
+
++ [fast-json-stringify](https://github.com/fastify/fast-json-stringify): 2x faster than JSON.stringify()
+
+``` js
+
+```

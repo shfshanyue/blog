@@ -316,12 +316,13 @@ DOM API，即 DOM 赋予 Javascript 的各种操作 HTML 的 API。现代前端�
 
 对于数组与对象的 API 要多看，反复地看，翻来覆去的看。就按照下边 MDN 的 API 列表来看，先看目录有不熟悉、不了解的、没见过的 API 更要重点看看。
 
-对于 `Object`、`Array`、`Promise`、`String` 这类常用的至少过三遍
+**对于 `Object`、`Array`、`Promise`、`String`、`Number` 这类常用的至少过三遍**
 
-1. [数组](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array)
-1. [对象](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object)
-1. [字符串](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String)
+1. [Object](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object)
+1. [Array](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array)
 1. [Promise](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+1. [String](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String)
+1. [Number](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number)
 
 ## Javascript 第四阶段: lodash/npm
 

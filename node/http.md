@@ -1,11 +1,25 @@
 # 一个简单的 HTTP Server
 
+> 本文涉及到的核心模块:
+>
+> + http
+> + stream
+> + buffer
+> + zlib: (间接设计)
+> 
 > 本文涉及到以下库及模块:
 > + [mime](https://npm.devtool.tech/mime): 解析 MIME TYPE
 > + [mime-types](https://npm.devtool.tech/mime-types)
 > + [parseurl](https://npm.devtool.tech/parseurl): 用以解析 URL。同时也可使用原生模块 url。
 > + [qs](https://npm.devtool.tech/qs): 用以接续 querystring。同时也可使用原生模块 querystring，但已被废弃，推荐使用 URLSearchParams。
 > + [raw-body](https://npm.devtool.tech/raw-body): 用以解析 body。
+> 
+> 本文间接涉及到的库:
+> 
+> + inflation
+> + unpipe
+> + iconv-lite
+> 
 
 一个服务端框架是对 HTTP 协议的高级封装，是对 HTTP 报文的解析与处理。因此，学习 Node Server 的第一步，从一个 HTTP 报文开始。
 
@@ -282,3 +296,4 @@ const server = http.createServer((req, res) => {
 1. 如何解析路由，作为请求的输入
 1. 解析 Body 时有哪些细节问题
 1. JSON API 最后一步的必要步骤序列化如何更加高效
+
