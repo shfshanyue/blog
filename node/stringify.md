@@ -33,3 +33,9 @@ JSON.stringify(user)
 ``` js
 
 ```
+
+## 再快一点的序列化
+
++ [slow-json-stringify]
+
+## protobuf
