@@ -64,13 +64,6 @@
     "description": "使用某些 html API 时，https 是前置必须项，这要求我们在本地开发环境也能够配置 https。否则你要每次部署到测试环境才能预览效果，这对开发的敏捷度造成了极大的干扰。"
   },
   {
-    "title": "如何为前端本地环境配置 https 证书",
-    "sideTitle": "Local HTTPS",
-    "path": "local-https",
-    "date": "2020-07-09 20:42",
-    "description": "使用某些 html API 时，https 是前置必须项，这要求我们在本地开发环境也能够配置 https。否则你要每次部署到测试环境才能预览效果，这对开发的敏捷度造成了极大的干扰。"
-  },
-  {
     "title": "如何找到一个合适的 npm 库",
     "sideTitle": "选型",
     "path": "quick-find-npm"

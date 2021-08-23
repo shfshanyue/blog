@@ -219,7 +219,7 @@ console.log(options)
 
 ## 用户体验与丰富的色彩
 
-![Next 构建输出](./assets/cli.png)
+![Next 构建输出](https://cdn.jsdelivr.net/gh/shfshanyue/blog@master/node/assets/cli.png)
 
 以上是 `next build` 命令行的标准输出，拥有色彩多样的高亮格式与丰富的列表展示，可以提供更丰富的用户体验。
 
@@ -298,5 +298,5 @@ $ markdown https://shanyue.tech
 
 另外，我基于此命令行做了一个 Web 版，欢迎来体验: <https://devtool.tech/html-md>
 
-![HTML To Markdown 网页版](./assets/md-cli.png)
+![HTML To Markdown 网页版](https://cdn.jsdelivr.net/gh/shfshanyue/blog@master/node/assets/md-cli.png)
 
