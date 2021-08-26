@@ -106,7 +106,7 @@ $ apk --no-cache add python make g++
 
 在带有编译过程的镜像构建中，源文件与构建工具都会造成空间的浪费。
 
-借助镜像的**多阶段构建**可以高效利用空间。`Go` 语言与前端相关的构建也遵循此规则。
+借助镜像的**多阶段构建**可以高效利用空间，`Go` 语言与前端相关的构建也遵循此规则。
 
 + [多阶段构建 Go 应用](https://docs.docker.com/develop/develop-images/multistage-build/#use-multi-stage-builds)
 + [多阶段构建前端应用](https://shanyue.tech/frontend-engineering/docker.html)
