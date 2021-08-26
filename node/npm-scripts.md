@@ -1,6 +1,7 @@
 ---
 title: 我是如何高效地组织 npm scripts
 date: 2021-03-25
+
 ---
 
 # 如何高效地组织 npm script
@@ -416,6 +417,14 @@ $ npm audit fix
     }
   ]
 }
+```
+
+## 其它
+
+### npm run authors
+
+``` bash
+$ git log --format='%aN <%aE>' | sort -u > AUTHORS
 ```
 
 ## 总结

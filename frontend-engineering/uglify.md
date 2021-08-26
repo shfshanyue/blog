@@ -129,7 +129,7 @@ const a = 3, b = 4;
 
 ![](./assets/ast.jpg)
 
-## UglifyJS
+## UglifyJS 与 Terser
 
 不要重复造轮子！
 

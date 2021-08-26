@@ -71,12 +71,18 @@ $ ./node_modules/mocha/bin/mocha
   1 passing (9ms)
 ```
 
+## 仅仅测试某一个 TestSuite
+
+为了更有针对性的调试，仅需对某一个文件进行测试
+
+
+
 ## 测试覆盖率
 
 1. [nyc](https://github.com/istanbuljs/nyc) (4.1k star)
 1. [codecov](https://github.com/codecov/codecov-node) 
 
-``` js
+``` bash
   CLS Session
     ✓ expect work
     ✓ expect scope return value
@@ -93,6 +99,10 @@ Branches     : 62.5% ( 5/8 )
 Functions    : 92.31% ( 12/13 )
 Lines        : 97.06% ( 33/34 )
 ================================================================================
+```
+
+``` bash
+$ jest --coverage
 ```
 
 ## API 测试
