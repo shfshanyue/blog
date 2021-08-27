@@ -9,3 +9,28 @@
 + destroy
 + finish
 + error
+
+## stream / length
+
++ `WritableState`
++ `Symbol(KHandler)`
++ `res.write`
+  + `write_`
+    + `res.socket.cork`
+    + `res._send`
+      + `res._writeRaw`
+        + `stream.write`
+          + `writeOrBuffer`
++ `res.end`
+  + `res._send`
+    + `res._writeRaw`
+      + `stream.write`
+        + `writeOrBuffer`
+          + `socket._write`
+            + `socket._writeGeneric`
+              + `socket._unrefTimer`
+              + `writeGeneric`
+                + `createWriteWrap`
+                + `handleWriteReq`
+                + `afterWriteDispatched`
+  + `res._finish`
