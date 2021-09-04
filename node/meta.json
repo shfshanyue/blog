@@ -85,5 +85,11 @@
     "date": "2020-07-02 19:06",
     "description": "如何知道跑在线上的 Node 服务消耗了多少内存呢？",
     "category": "监控篇"
+  },
+  {
+    "title": "如何写一个 C 扩展",
+    "sideTitle": "8.1 Node API",
+    "path": "napi",
+    "category": "扩展篇"
   }
 ]
