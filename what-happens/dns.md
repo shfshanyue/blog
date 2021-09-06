@@ -8,6 +8,8 @@ DNS 用来解析域名所对应的 IP 地址。
 
 DNS 协议属于应用层协议，使用 `dig` 命令可以发送一条 `DNS` 报文。既然它在进行域名解析时实质是发送了一条 DNS 的报文，那首先来简单看看报文格式
 
+> dig: DNS lookup utility
+
 > https://www.thegeekstuff.com/2012/02/dig-command-examples/
 
 ## dig 与 host 命令
@@ -166,7 +168,7 @@ xiange.me.              0       IN      A       172.18.0.1
 
 ## DNS 缓存
 
-## 递归服务器，根服务器权威服务器
+## 递归服务器，根服务器与权威服务器
 
 DNS 服务器在不同的情景下不是同一类服务器。
 
@@ -231,3 +233,5 @@ xiange.tech.            600     IN      SOA     dns17.hichina.com. hostmaster.hi
 ## 参考文章
 
 + [DNS协议详解及报文格式分析](https://jocent.me/2017/06/18/dns-protocol-principle.html)
+
+

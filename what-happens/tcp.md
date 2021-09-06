@@ -63,3 +63,4 @@ $ netstat -tan | grep 124.200
 + 如何查看 mysql/postgres 的TCP连接数
 + 如何判断某个端口号是TCP连接还是UDP连接
 + 我们如何找到某个端口号上跑的进程
+

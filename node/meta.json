@@ -91,5 +91,11 @@
     "sideTitle": "8.1 Node API",
     "path": "napi",
     "category": "扩展篇"
+  },
+  {
+    "title": "Javascript 调试基础与示例",
+    "sideTitle": "9.1 调试基础",
+    "path": "debug-case",
+    "category": "调试篇"
   }
 ]
