@@ -93,8 +93,14 @@
     "category": "扩展篇"
   },
   {
+    "title": "在 VS Code 中调试 nodejs",
+    "sideTitle": "9.1 VSCode Debug",
+    "path": "vscode-debug",
+    "category": "调试篇"
+  },
+  {
     "title": "Javascript 调试基础与示例",
-    "sideTitle": "9.1 调试基础",
+    "sideTitle": "9.2 调试示例",
     "path": "debug-case",
     "category": "调试篇"
   }
