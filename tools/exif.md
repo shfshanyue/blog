@@ -2,7 +2,7 @@
 
 大家好，我是山月。
 
-最近写了一个有意思但无大用的小工具: [EXIF 预览器](https://devtool.tech/exif)。
+最近写了一个有意思但无大用的小工具: [EXIF 预览器](https://devtool.tech/exif)，地址为 <https://devtool.tech/exif>。
 
 ![](https://cdn.jsdelivr.net/gh/shfshanyue/assets@master/src/image.5p1nyit63u80.png)
 
