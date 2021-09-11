@@ -101,7 +101,6 @@
   {
     "title": "Javascript 调试基础与示例",
     "sideTitle": "9.2 调试示例",
-    "path": "debug-case",
-    "category": "调试篇"
+    "path": "debug-case"
   }
 ]
