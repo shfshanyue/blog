@@ -102,5 +102,11 @@
     "title": "Javascript 调试基础与示例",
     "sideTitle": "9.2 调试示例",
     "path": "debug-case"
+  },
+  {
+    "title": "如何调试 node.js 源码",
+    "sideTitle": "10.1 调试源码",
+    "path": "debug-node-source",
+    "category": "源码篇"
   }
 ]

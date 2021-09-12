@@ -1,5 +1,7 @@
 # Node 做服务端开发的那些事儿
 
+![nodejs](https://cdn.jsdelivr.net/gh/shfshanyue/assets@master/src/nodejs.1wgkiu25daio.svg)
+
 Node 做服务端开发时，你要了解的这些事
 
 + [Node实践语法篇: 如何引入一个模块及其细节](./require.md)
