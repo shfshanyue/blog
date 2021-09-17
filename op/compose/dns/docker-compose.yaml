@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  dns:
+    image: jpillora/dnsmasq
+    restart: always
+    ports:
+      - "53:53/udp"
+    volumes:
+      - ./dnsmasq.conf:/etc/dnsmasq.conf
+      - ./resolv.conf:/etc/resolv.conf
+
+# 使用已存在的 traefik 的 network
+networks:
+  default:
+    external:
+      name: traefik_default
