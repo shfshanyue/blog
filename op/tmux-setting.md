@@ -52,7 +52,7 @@ tags:
 
 但是你在 centos 上，如果直接使用 `yum` 来安装软件，会安装特别旧的版本，且很多实用的功能无法使用。那么直接通过 [tmux源码](https://github.com/tmux/tmux) 自己编译安装则是一个不错的注意
 
-```shell
+``` bash
 # 安装软件依赖
 $ yum install -y gcc automake libevent-devel ncurses-devel glibc-static
 
