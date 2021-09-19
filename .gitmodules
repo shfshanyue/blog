@@ -1,6 +1,0 @@
-[submodule "k8s"]
-	path = k8s
-	url = https://github.com/shfshanyue/learn-k8s.git
-[submodule "graphql-guide"]
-	path = graphql-guide
-	url = https://github.com/shfshanyue/graphql-guide.git

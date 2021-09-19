@@ -1,0 +1,19 @@
+global:
+  ingress:
+    enabled: false
+  nginx-ingress:
+    enabled: false
+  grafana:
+    enabled: false
+
+certmanager:
+  install: false
+
+nginx-ingress:
+  enabled: false
+
+prometheus:
+  install: false
+
+certmanager-issuer:
+  email: xianger94@gmail.com

@@ -1,0 +1,8 @@
+service:
+  name: openvpn
+  type: NodePort
+openvpn:
+  OVPN_K8S_POD_NETWORK: 10.244.0.0
+  OVPN_K8S_POD_SUBNET: 255.255.0.0
+  OVPN_K8S_SVC_NETWORK: 10.96.0.0
+  OVPN_K8S_SVC_SUBNET: 255.240.0.0
