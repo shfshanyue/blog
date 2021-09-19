@@ -23,11 +23,6 @@ tags:
 
 ![linux performance tools](./assets/linux_perf_tools_full.png)
 
-<!--more-->
-
-+ 原文地址: [linux 各项指标监控小记](https://shanyue.tech/op/linux-monitor.html) · [github](https://github.com/shfshanyue/op-note/blob/master/linux-monitor.md)
-+ 系列文章: [服务器运维笔记](https://shanyue.tech/op/) · [github](https://github.com/shfshanyue/op-note)
-
 ## htop/top
 
 ![htop](./assets/htop.png)

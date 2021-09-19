@@ -3,7 +3,7 @@ title: 打造强大炫酷的终端开发体验
 alias: 前端也应该学点 Linux
 ---
 
-本篇文章适用于 `Windows`(WSL)、`MacOS`(个别命令所有区别) 及 `Ubuntu` 及各种 Linux 发行版。
+本篇文章适用于 `Windows`(WSL)、`MacOS`(个别命令所有区别)、`Ubuntu` 及各种 Linux 发行版。
 
 本篇文章既适用于刚入门的前端小白，也适用于工作五年的资深工程师。
 
