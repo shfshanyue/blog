@@ -1,3 +1,8 @@
+---
+date: "2019-06-01"
+
+---
+
 # typescript 高级技巧
 
 用了一段时间的 `typescript` 之后，深感中大型项目中 `typescript` 的必要性，它能够提前在编译期避免许多 bug，如很恶心的拼写问题。而越来越多的 `package` 也开始使用 `ts`，学习 `ts` 已是势在必行。
@@ -6,18 +11,17 @@
 
 <!--more-->
 
-本文链接: <https://shanyue.tech/post/ts-tips.html>
-
 ## 01 keyof
 
 `keyof` 与 `Object.keys` 略有相似，只不过 `keyof` 取 `interface` 的键。
 
 ```typescript
 interface Point {
-    x: number;
-    y: number;
+  x: number;
+  y: number;
 }
 
+// 相当于:
 // type keys = "x" | "y"
 type keys = keyof Point;
 ```
@@ -48,6 +52,14 @@ function get<T extends object, K extends keyof T>(o: T, name: K): T[K] {
 }
 ```
 
+对于 `keyof`，另一个好用的小技巧是 `keyof any`，请看以下示例
+
+``` typescript
+// 以下两者等效，但适用 keyof 更加简短
+type PropertyName = keyof any;
+type PropertyName = string | number | symbol;
+```
+
 ## 02 Required & Partial & Pick
 
 既然了解了 `keyof`，可以使用它对属性做一些扩展， 如实现 `Partial` 和 `Pick`，`Pick` 一般用在 `_.pick` 中
@@ -75,43 +87,48 @@ interface User {
 type PartialUser = Partial<User>
 
 // 相当于: type PickUser = { id: number; age: number; }
-type PickUser = Pick<User, "id" | "age">
-
+type PickUser = Pick<User, 'id' | 'age'>
 ```
 
-> 这几个类型已内置在 Typescript 中
+> `Pick`、`Required`、`Partial` 这几个类型已内置在 Typescript 中原生实现
 
 ## 03 Condition Type
 
 类似于 js 中的 `?:` 运算符，可以使用它扩展一些基本类型
 
 ```typescript
-T extends U ? X : Y
-
 type isTrue<T> = T extends true ? true : false
+
 // 相当于 type t = false
 type t = isTrue<number>
 
 // 相当于 type t = false
-type t1 = isTrue<false>
+type t = isTrue<false>
 ```
 
-## 04 never & Exclude & Omit
+## 04 never & Exclude & Extract & Omit
 
 官方文档对 `never` 的描述如下
 
 > the never type represents the type of values that never occur.
 
-结合 `never` 与 `conditional type` 可以推出很多有意思而且实用的类型，比如 `Omit`
+结合 `never` 与 `conditional type` 可以推出很多有意思而且实用的类型，比如 `Exclude` 与 `Extract`
 
 ```typescript
 type Exclude<T, U> = T extends U ? never : T;
 
 // 相当于: type A = 'a'
+type A = Exclude<'x' | 'a', 'x'>
 type A = Exclude<'x' | 'a', 'x' | 'y' | 'z'>
+
+// 与 Exclude 实现刚好相反，Exclude 取差集，而 Extract 取交集
+type Extract<T, U> = T extends U ? T : never;
+
+// 相当于: type A = 'x'
+type A = Exclude<'x' | 'a', 'x'>
 ```
 
-结合 `Exclude` 可以推出 `Omit` 的写法
+结合 `Exclude` 推出 `Omit` 的写法
 
 ```typescript
 type Omit<T, K extends keyof any> = Pick<T, Exclude<keyof T, K>>;
@@ -125,6 +142,8 @@ interface User {
 // 相当于: type PickUser = { age: number; name: string; }
 type OmitUser = Omit<User, "id">
 ```
+
+> `Exclude`、`Extract`、`Omit` 这几个类型已内置在 Typescript 中原生实现
 
 ## 05 typeof
 
@@ -251,7 +270,7 @@ const a: A = {
 
 ## 08 Record & Dictionary & Many
 
-这几个语法糖是从 `lodash` 的 types 源码中学到的，平时工作中的使用频率还挺高。
+这几个语法糖是从 `lodash` 的类型源码中学到的，平时工作中的使用频率还挺高。
 
 ```typescript
 type Record<K extends keyof any, T> = {
@@ -272,7 +291,36 @@ const data:Dictionary<number> = {
 }
 ```
 
-## 09 使用 const enum 维护常量表
+实际上可用 `Record` 代替 `Dictionary` 与 `NumericDictionary`
+
+``` typescript
+// 以下二者等价:
+type A = Record<string, any>
+type B = Dictionary<any>
+```
+
+> `Record` 已内置在 Typescript 中原生实现，在平时中仅使用 `Record` 即可
+
+## 09 infer & Return Type & Parameters Type
+
+通过 `infer`，可类型推导出函数参数及返回值类型。
+
+这里有一个有关协变与逆变的概念，看不懂可跳过。
+
+*函数的返回值类型是协变的，而参数类型是逆变的。*，见 [逆变与协变](https://juejin.cn/post/6844904066821128199)
+
+``` ts
+function id(x: number): number {
+  return x
+}
+
+type ReturnType<T extends (...args: any) => any> = T extends (...args: any) => infer R ? R : any
+type Parameters<T extends (...args: any) => any> = T extends (...args: infer P) => any ? P : never
+```
+
+> ReturnType 与 Parameters 已内置在 Typescript 中原生实现
+
+## 10 使用 const enum 维护常量表
 
 相比使用字面量对象维护常量，`const enum` 可以提供更安全的类型检查
 
@@ -298,7 +346,7 @@ function todos (status: TODO_STATUS): Todo[];
 todos(TODO_STATUS.TODO)
 ```
 
-## 10 VS Code Tips & Typescript Command
+## 11 VS Code Tips & Typescript Command
 
 使用 VS Code 有时会出现，使用 `tsc` 编译时产生的问题与 `vs code` 提示的问题不一致
 
@@ -312,7 +360,7 @@ todos(TODO_STATUS.TODO)
 }
 ```
 
-## 11 Typescript Roadmap
+## 12 Typescript Roadmap
 
 最后一条也是最重要的一条，翻阅 `Roadmap`，了解 `ts` 的一些新的特性与 bug 修复情况。
 
