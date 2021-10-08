@@ -1,5 +1,7 @@
 # 前端工程化实践
 
+## 系列文章
+
 1. [前端高级进阶：javascript 代码是如何被压缩](./uglify.md)
 1. [前端高级进阶：如何更好地优化打包资源](./bundle.md)
 1. [前端高级进阶：网站的缓存控制策略最佳实践及注意事项](./http-cache.md)
@@ -26,3 +28,42 @@
 1. [应用状态](./store.md)
 1. [React 优化](./react-perf.md)
 1. [Memo](./memorized.md)
+
+## 前端工程化小卡片
+
+1. 简述各种模块化方案
+1. http cache
+1. webpack runtime (关于webpack)
+1. webpack loadChunk runtime
+1. webpack loadChunk runtime (加载 chunks，如何保证顺序) (重复)
+1. webpack html webpack plugin
+1. webpack image/json loader
+1. webpack hmr
+1. webpack speed up build
+1. file size (关于性能优化)
+1. reduce js size
+1. 如何分析打包体积 ❎
+1. minify/terser 原理
+1. migify/sourcemap
+1. tree shaking
+1. code spliting
+1. splitChunksPlugin
+1. browserlist/core.js
+1. package.json semver (关于发包)
+1. package.json dep/devDep
+1. package.json engines
+1. package.json main/module/export
+1. package.json script hooks
+1. package.json publish
+1. package.json sideEffects
+1. node modules package-lock.json
+1. node modules require package
+1. PQM
+1. pritter (关于项目质量)
+1. eslint
+1. git hooks
+1. docker (关于部署)
+1. preview
+1. 灰度
+1. bundless
+1. vite

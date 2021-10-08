@@ -183,7 +183,7 @@ module.exports = [
   {
     title: 'Node 中异常，exit code 与 docker',
     path: 'exit-code-node-and-docker',
-    description:  '最近观察项目 CI 跑的情况如何时，会偶尔发现一两个镜像虽然构建成功但是容器跑不起来的情况。究其原因，是因为一个 EXIT CODE 的问题',
+    description: '最近观察项目 CI 跑的情况如何时，会偶尔发现一两个镜像虽然构建成功但是容器跑不起来的情况。究其原因，是因为一个 EXIT CODE 的问题',
     keywords: 'node,devops,exit code是什么,异常码是什么,docker',
     date: '2019-07-29 21:00',
     categories: ['后端'],

@@ -53,6 +53,7 @@
 1. Tree Shaking
 1. 压缩混淆
 1. gzip
+1. browserlist
 
 补充问题:
 

@@ -1,12 +1,22 @@
 # javascript 代码是如何被压缩的
 
-随着前端的发展，特别是 `React`，`Vue` 等构造单页应用的兴起，前端的能力得以很大提升，随之而来的是项目的复杂度越来越大。此时的前端的静态资源也越来越庞大，而毫无疑问 `javascript` 资源已是前端的主体资源，对于压缩它的体积至为重要。
+在 `jquery` 时代，当我们引用它的 CDN 地址时，在线上需要引用的是 `jquery.min.js`。
 
-为什么说更小的体积很重要呢：更小的体积对于用户体验来说意味着更快的加载速度以及更好的用户体验，这也能早就企业更大的利润。另外，更小的体积对于服务器来说也意味更小的带宽以及更少的服务器费用。
+在现代前端时代，当我们对资源进行打包后，同样需要对代码进行压缩。在生产环境的 JS 仅有一行代码，变量也被压缩为单字符，体积大大减小。
 
-前端构建编译代码时，可以使用 `webpack` 中的 `optimization.minimizer` 来对代码进行压缩优化。但是我们也需要了解如何它是压缩代码的，这样当在生产环境的控制台调试代码时对它也有更深刻的理解。
+![压缩后的代码仅有一行](https://cdn.jsdelivr.net/gh/shfshanyue/assets@master/src/minify.6uq5pfkmtjw0.png)
 
-## 如何查看资源的体积
+我们是如何对 JS 代码进行压缩的呢？
+
+<!-- 已不识庐山真面目 -->
+
+<!-- 随着前端的发展，特别是 `React`，`Vue` 等构造单页应用的兴起，前端的能力得以很大提升，随之而来的是项目的复杂度越来越大。此时的前端的静态资源也越来越庞大，而毫无疑问 `javascript` 资源已是前端的主体资源，对于压缩它的体积至为重要。 -->
+
+<!-- 为什么说更小的体积很重要呢：更小的体积对于用户体验来说意味着更快的加载速度以及更好的用户体验，这也能早就企业更大的利润。另外，更小的体积对于服务器来说也意味更小的带宽以及更少的服务器费用。 -->
+
+<!-- 前端构建编译代码时，可以使用 `webpack` 中的 `optimization.minimizer` 来对代码进行压缩优化。但是我们也需要了解如何它是压缩代码的，这样当在生产环境的控制台调试代码时对它也有更深刻的理解。 -->
+
+<!-- ## 如何查看资源的体积
 
 对于我们所编写的代码，它在操作系统中是一个文件，根据文件系统中的 `stat` 信息我们可以查看该文件的大小。
 
@@ -30,7 +40,7 @@ Change: 2020-02-13 13:43:52.691417262 +0800
 ``` bash
 $ wc -c config.js
 3663 config.js
-```
+``` -->
 
 ## 如何压缩代码体积？
 
@@ -44,8 +54,6 @@ function sum (a, b) {
   return a + b;
 }
 ```
-
-先把一个抽象的问题给具体化，如果是以上一段代码，那如何压缩它的体积呢:
 
 此时文件大小是 `62 Byte`， **一般来说中文会占用更大的空间。**
 
@@ -83,7 +91,9 @@ function s(x,y){return x+y}
 
 在这个示例中，当完成代码压缩 (`compress`) 时，代码的混淆 (`mangle`) 也捎带完成。 **但此时缩短变量的命名也需要 AST 支持，不至于在作用域中造成命名冲突。**
 
-### 更简单的表达：合并声明以及布尔值简化
+### 解析程序逻辑：合并声明以及布尔值简化
+
+通过分析代码逻辑，可对代码改写为更精简的形式。
 
 合并声明的示例如下：
 
@@ -106,7 +116,31 @@ const a = 3, b = 4;
 !(b||c||d||e)
 ```
 
-这个示例更是需要解析 AST 了
+### 解析程序逻辑: 编译预计算
+
+在编译期进行计算，减少运行时的计算量，如下示例:
+
+``` javascript
+// 压缩前
+const ONE_YEAR = 365 * 24 * 60 * 60
+
+// 压缩后
+const ONE_YAAR = 31536000
+```
+
+以及一个更复杂的例子，简直是杀手锏级别的优化。
+
+``` javascript
+// 压缩前
+function hello () {
+  console.log('hello, world')
+}
+
+hello()
+
+// 压缩后
+console.log('hello, world')
+```
 
 ## AST
 
@@ -129,29 +163,22 @@ const a = 3, b = 4;
 
 ![](./assets/ast.jpg)
 
-## UglifyJS 与 Terser
+## uglify、terser 与 swc
 
-不要重复造轮子！
+一个久负盛名的关于代码压缩的库: [uglify](https://github.com/mishoo/UglifyJS)，一个用以代码压缩混淆的库。但它有一个致命弱点，不支持 `ES6`。
 
-于是我找了一个久负盛名的关于代码压缩的库: [UglifyJS3](https://github.com/mishoo/UglifyJS2)，一个用以代码压缩混淆的库。那它是如何完成一些压缩功能的，比如替换空白符，答案是 AST。
+一个更加适应现代化前端用以代码压缩的库 [terser](https://github.com/terser/terser) 诞生了，它来自于 uglify，与它保持一致的 API，但是它对 `ES6` 有更好的支持，同时也是 webpack 内置进行代码压缩的库。
 
-`webpack` 中内置的代码压缩插件就是使用了它，它的工作流程大致如下：
+那它是如何完成一些压缩功能的，答案是 AST。
+
+`webpack` 中内置的代码压缩插件就是使用了 `terser`，看一段它工作的代码:
 
 ``` javascript
-// 原始代码
-const code = `const a = 3;`
-
-// 通过 UglifyJS 把代码解析为 AST
-const ast = UglifyJS.parse(code);
-ast.figure_out_scope();
-
-
-// 转化为一颗更小的 AST 树
-compressor = UglifyJS.Compressor();
-ast = ast.transform(compressor);
-
-// 再把 AST 转化为代码
-code = ast.print_to_string();
+const { minify } = require('terser')
+const code = 'function add(first, second) { return first + second; }'
+const result = await minify(code, { sourceMap: true })
+console.log(result.code)
+console.log(result.map)
 ```
 
 而当你真正使用它来压缩代码时，你只需要面向配置编程即可，文档参考 [uglify 官方文档](https://github.com/mishoo/UglifyJS2#parse-options)

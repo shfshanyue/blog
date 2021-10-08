@@ -1,0 +1,103 @@
+---
+date: 2021-10-05
+---
+
+# Git Hooks 与 Husky 原理解析与应用
+
+`git hooks` 是前端项目工程在本地通用的质量保障手段。
+
+> `npm script hook` 也可对前端工程做质量加强，在本文中也有示例
+
+它在 `git commit`、`git push` 等 git 操作之前与之后可设置自动执行的脚本，被称为 `git hooks`。
+
+代码在提交之前 (`pre-commit hook`)，可做以下诸多校验。如未通过检验，则无法成功提交。
+
++ `pritter`: html、css、js、md、yaml 等代码格式化校验
++ `eslint`: 代码质量规范检测
++ `commit message`: 结构化语义化的 Commit 信息，可参考 [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
+
+## Git Hooks
+
+在每一个使用 git 进行版本管理的仓库，都有一个目录 `.git/hooks`，包含 commit 各个阶段 hook 的脚本。
+
+> 官方文档详见: [githooks](https://git-scm.com/docs/githooks)
+
+``` bash
+$ ls -lah .git/hooks
+applypatch-msg.sample     pre-merge-commit.sample
+commit-msg.sample         pre-push.sample
+fsmonitor-watchman.sample pre-rebase.sample
+post-update.sample        pre-receive.sample
+pre-applypatch.sample     prepare-commit-msg.sample
+pre-commit.sample         update.sample
+```
+
++ pre-commit: commit 之前触发
++ pre-push: push 之前触发
+
+在 git 2.9 中引入了 `core.hooksPath`，可手动配置 `git hooks` 所在的目录。
+
+``` bash
+# 可通过命令行配置 core.hooksPath
+$ git config 'core.hooksPath' .husky
+
+# 也可通过写入文件配置 core.hooksPath
+$ cat .git/config
+[core]
+  ignorecase = true
+  precomposeunicode = true
+  hooksPath = .husky
+```
+
+## Git Hooks 初试
+
+``` bash
+#!/bin/sh
+
+echo ok
+```
+
+``` bash
+#!/bin/sh
+
+npm run lint
+```
+
+## 跳过 Git Hooks
+
+``` bash
+$ git commit --no-verify
+```
+
+## Husky 是如何工作的？
+
+[husky](https://github.com/typicode/husky) 
+
+不同版本的 `husky` 工作原理略有不同，本文讲述 `husky 6+` 的工作原理。
+
+> 由于相邻版本的 `husky` 变更较大 (husky6 为分界线)，如果你们项目中 `husky` 配置有问题，先确认 `husky` 版本号，再定位问题。
+
+`husky` 做了两件事(需要 `husky install` 手动完成):
+
+1. 创建 `~/.husky` 目录
+1. 设置 `~/.husky` 目录为 `git hooks` 目录
+
+而对于使用者而言，需要在 `~/.husky` 目录下**手动创建 hook 脚本**。
+
+``` bash
+# 手动创建 pre-commit hook
+$ vim .husky/pre-commit
+```
+
+在 `pre-commit` 中进行代码风格校验
+
+``` bash
+#!/bin/sh
+
+npm run lint
+npm run test
+```
+
+**此时，你有疑惑，`husky` 这么简单，这事儿我也能干！**
+
+是了，确实如此。`husky` 的源码十分简单，建议阅读。
