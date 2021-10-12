@@ -44,9 +44,9 @@
 1. reduce js size
 1. 如何分析打包体积 ❎
 1. minify/terser 原理
-1. migify/sourcemap
+1. minify/sourcemap
 1. tree shaking
-1. code spliting
+1. code spliting (重复)
 1. splitChunksPlugin
 1. browserlist/core.js
 1. package.json semver (关于发包)
