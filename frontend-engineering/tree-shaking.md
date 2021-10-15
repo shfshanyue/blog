@@ -43,3 +43,10 @@ math['sum'](3, 4)
 ```
 
 ## 引入为 ES 的 Package
+
+``` js
+{
+  unused: true,
+  dead_code: true
+}
+```

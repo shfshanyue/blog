@@ -17,7 +17,7 @@ chrome 93
 
 细说起来，它是现代前端工程化不可获取的工具，无论是处理 JS 的 `babel`，还是处理 CSS 的 `postcss`，他们的背后都有 `browserslist` 的身影。
 
-+ `babel` 使用 `core-js` 作为垫片
++ `babel`，在 `@babel/preset-env` 中使用 `core-js` 作为垫片
 + `postcss` 使用 `autoprefixer` 作为垫片
 
 关于前端打包体积与垫片关系，我们有以下几点共识:

@@ -50,8 +50,8 @@
 1. splitChunksPlugin
 1. browserlist/core.js
 1. package.json semver (关于发包)
-1. package.json dep/devDep
 1. package.json engines
+1. package.json dep/devDep
 1. package.json main/module/export
 1. package.json script hooks
 1. package.json publish
