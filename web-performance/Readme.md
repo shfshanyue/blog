@@ -44,10 +44,17 @@ getLCP(sendToAnalytics);
 
 1. 多路复用，在浏览器可并行发送 N 条请求。
 1. 首部压缩，更小的负载体积。
+1. 请求优先级，更快的关键请求
 
 目前，网站已大多上了 http2，可在控制台面板进行查看。
 
 ![h2](https://cdn.jsdelivr.net/gh/shfshanyue/assets@master/src/h2.7582a4fvtx00.png)
+
+由于 http2 可并行请求，解决了 http1.1 线头阻塞的问题，以下几个性能优化点将会过时
+
+1. 资源合并。如 `https://shanyue.tech/assets??index.js,interview.js,report.js`
+1. 域名分片。
+1. 雪碧图。将无数小图片合并成单个大图片。
 
 ## 更快的传输: 充分利用 HTTP 缓存
 
@@ -146,32 +153,125 @@ Content-Encoding: br
 1. 更合适的尺寸: 当页面仅需显示 100px/100px 大小图片时，对图片进行压缩到 100px/100px
 1. 更合适的压缩: 可对前端图片进行适当压缩，如通过 `sharp` 等
 
-## preload/prefetch
+## 渲染优化: 关键渲染路径
 
-## 关键渲染路径
+以下五个步骤为关键渲染路径
 
-dom -> cssom -> reflow -> repaint
+1. HTML -> DOM，将 html 解析为 DOM
+1. CSS -> CSSOM，将 CSS 解析为 CSSOM
+1. DOM/CSSOM -> Render Tree，将 DOM 与 CSSOM 合并成渲染树
+1. RenderTree -> Layout，确定渲染树中每个节点的位置信息
+1. Layout -> Paint，将每个节点渲染在浏览器中
 
-+ 减少重排重绘
-+ 打开 GPU 性能优化
-+ defer/async 的 script
+渲染的优化很大程度上是对关键渲染路径进行优化。
 
-## 防止多次渲染: 防抖与节流
+### preload/prefetch
 
-## 防止多次渲染: 虚拟列表优化
+`preload`/`prefetch` 可控制 HTTP 优先级，从而达到关键请求更快响应的目的。
 
-## requestIdleCallback
+``` html
+<link rel="prefetch" href="style.css" as="style">
+<link rel="preload" href="main.js" as="script">
+```
 
-## 请求及资源缓存
+1. preload 加载当前路由必需资源，优先级高。一般对于 Bundle Spliting 资源与 Code Spliting 资源做 preload
+1. prefetch 优先级低，在浏览器 idle 状态时加载资源。一般用以加载其它路由资源，如当页面出现 Link，可 prefetch 当前 Link 的路由资源。（next.js 默认会对 link 做懒加载+prefetch，即当某条 Link 出现页面中，即自动 prefetch 该 Link 指向的路由资源
 
-1. 避免多次发送请求
+捎带说一下 `dns-prefetch`，可对主机地址的 DNS 进行预解析。
 
-## ServiceWorker 与资源缓存
+``` html
+<link rel="dns-prefetch" href="//shanyue.tech">
+```
 
-## Worker
+## 渲染优化: 防抖与节流
 
+1. 防抖：防止抖动，单位时间内事件触发会被重置，避免事件被误伤触发多次。代码实现重在清零 clearTimeout。防抖可以比作等电梯，只要有一个人进来，就需要再等一会儿。业务场景有避免登录按钮多次点击的重复提交。
+1. 节流：控制流量，单位时间内事件只能触发一次，与服务器端的限流 (Rate Limit) 类似。代码实现重在开锁关锁 timer=timeout; timer=null。节流可以比作过红绿灯，每等一个红灯时间就可以过一批。
 
+无论是防抖还是节流都可以大幅度减少渲染次数，在 React 中还可以使用 `use-debounce` 之类的 hooks 避免重新渲染。
+
+``` js
+import React, { useState } from 'react';
+import { useDebounce } from 'use-debounce';
+
+export default function Input() {
+  const [text, setText] = useState('Hello');
+  // 一秒钟渲染一次，大大降低了重新渲染的频率
+  const [value] = useDebounce(text, 1000);
+
+  return (
+    <div>
+      <input
+        defaultValue={'Hello'}
+        onChange={(e) => {
+          setText(e.target.value);
+        }}
+      />
+      <p>Actual value: {text}</p>
+      <p>Debounce value: {value}</p>
+    </div>
+  );
+}
+```
+
+## 渲染优化: 虚拟列表优化
+
+这又是一个老生常谈的话题，一般在视口内维护一个虚拟列表(仅渲染十几条条数据左右)，监听视口位置变化，从而对视口内的虚拟列表进行控制。
+
+在 React 中可采用以下库:
+
+1. [react-virtualized](https://github.com/bvaughn/react-virtualized)
+1. [react-window](https://github.com/bvaughn/react-window)
+
+## 渲染优化: 请求及资源缓存
+
+在一些前端系统中，当加载页面时会发送请求，路由切换出去再切换回来时又会重新发送请求，每次请求完成后会对页面重新渲染。
+
+然而这些重新请求再大多数时是没有必要的，合理地对 API 进行缓存将达到优化渲染的目的。
+
+1. 对每一条 GET API 添加 key
+1. 根据 key 控制该 API 缓存，重复发生请求时将从缓存中取得
+
+``` js
+function Example() {
+  // 设置缓存的 Key 为 Users:10086
+  const { isLoading, data } = useQuery(['users', userId], () => fetchUserById(userId))
+}
+```
+
+## Web Worker
+
+试举一例:
+
+在纯浏览器中，如何实现高性能的实时代码编译及转换？
+
+1. [Babel Repl](https://rollupjs.org/repl/)
+
+如果纯碎使用传统的 Javascript 实现，将会耗时过多阻塞主线程，有可能导致页面卡顿。
+
+如果使用 `Web Worker` 交由额外的线程来做这件事，将会高效很多，基本上所有在浏览器端进行代码编译的功能都由 `Web Worker` 实现。
 
 ## WASM
 
-1. C++/Rust
+1. JS 性能低下
+1. C++/Rust 高性能
+1. 使用 C++/Rust 编写代码，然后在 Javascript 环境运行
+
+试举一例:
+
+在纯浏览器中，如何实现高性能的图片压缩？
+
+基本上很难做到，Javascript 的性能与生态决定了实现图片压缩的艰难。
+
+而借助于 WASM 就相当于借用了其它语言的生态。
+
+1. [libavif](https://github.com/AOMediaCodec/libavif): C语言写的 avif 解码编码库
+1. [libwebp](https://github.com/webmproject/libwebp): C语言写的 webp 解码编码库
+1. [mozjpeg](https://github.com/mozilla/mozjpeg): C语言写的 jpeg 解码编码库
+1. [oxipng](https://github.com/shssoichiro/oxipng): Rust语言写的 png 优化库
+
+而由于 WASM，完全可以把这些其它语言的生态移植到浏览器中，从而实现一个高性能的离线式的图片压缩工具。
+
+如果想了解这种的工具，请看看 [squoosh](https://squoosh.app/)
+
+![squoosh](https://cdn.jsdelivr.net/gh/shfshanyue/assets@master/src/squoosh.14kzwqfw0ot.jpg)
