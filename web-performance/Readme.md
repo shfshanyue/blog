@@ -156,9 +156,9 @@ dom -> cssom -> reflow -> repaint
 + 打开 GPU 性能优化
 + defer/async 的 script
 
-## 防抖与节流
+## 防止多次渲染: 防抖与节流
 
-## 虚拟列表优化
+## 防止多次渲染: 虚拟列表优化
 
 ## requestIdleCallback
 
@@ -169,6 +169,8 @@ dom -> cssom -> reflow -> repaint
 ## ServiceWorker 与资源缓存
 
 ## Worker
+
+
 
 ## WASM
 
