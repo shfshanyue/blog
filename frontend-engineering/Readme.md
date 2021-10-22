@@ -38,8 +38,11 @@
 1. webpack loadChunk runtime (加载 chunks，如何保证顺序) (重复)
 1. webpack html webpack plugin
 1. webpack image/json loader
+1. webpack style loader/extract
 1. webpack hmr
 1. webpack speed up build
+1. babel plugin/preset
+1. babel runtime
 1. file size (关于性能优化)
 1. reduce js size
 1. 如何分析打包体积 ❎
@@ -52,11 +55,11 @@
 1. package.json semver (关于发包)
 1. package.json engines
 1. package.json dep/devDep
+1. node modules package-lock.json
 1. package.json main/module/export
 1. package.json script hooks
 1. package.json publish
 1. package.json sideEffects
-1. node modules package-lock.json
 1. node modules require package
 1. PQM
 1. pritter (关于项目质量)
@@ -65,5 +68,6 @@
 1. docker (关于部署)
 1. preview
 1. 灰度
+1. esm
 1. bundless
 1. vite
