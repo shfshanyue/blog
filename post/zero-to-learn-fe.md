@@ -457,7 +457,7 @@ Gitlen 最大的优点是可以可视化过去代码发生了什么，但是对�
 
 学习资料: [Gitlen Features](https://gitlens.amod.io/#features)，这属于官方文档，建议通读。
 
-## React 与前端工程化
+## React 与前端工程化: 十五天
 
 此时，你要学的不仅仅是 React，而是一种现代化框架绑定的各种方法论，你至少需要对以下有所了解
 
@@ -597,7 +597,7 @@ app.listen(3000)
 ### 实战
 
 + [carbon](https://github.com/carbon-app/carbon): `next.js`、`styled-jsx`。强烈推荐
-+ [squoop](https://github.com/GoogleChromeLabs/squoosh): `wasm`、`worker`、`rollup` 各种压缩技术。强烈推荐
++ [squoosh](https://github.com/GoogleChromeLabs/squoosh): `wasm`、`worker`、`rollup` 各种压缩技术。强烈推荐
 + [svgomg](https://github.com/jakearchibald/svgomg): `gulp`、`rollup`、`worker`、`pako`
 + [svgr website](https://github.com/gregberge/svgr/tree/main/website): `gatsby`、`rekit`、`styled-components`
 
@@ -614,4 +614,8 @@ $ exit
 ```
 
 ## 插曲: 正则表达式
+
+``` js
+/hello/.test('hello, world')
+```
 

@@ -46,12 +46,12 @@
 1. file size (关于性能优化)
 1. reduce js size
 1. 如何分析打包体积 ❎
-1. minify/terser 原理
-1. minify/sourcemap
-1. tree shaking
-1. code spliting (重复)
-1. splitChunksPlugin
-1. browserlist/core.js
+1. size: minify/terser 原理
+1. size: minify/sourcemap
+1. size: tree shaking
+1. size: code spliting (重复)
+1. size: splitChunksPlugin
+1. size: browserlist/core.js
 1. package.json semver (关于发包)
 1. package.json engines
 1. package.json dep/devDep
