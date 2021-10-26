@@ -5,7 +5,7 @@ date: 2021-01-29 20:45
 
 # 谈一谈对 TailwindCSS 的看法
 
-![NPM.DEVTOOL 中 tailwind 标签大全](./assets/tailwind-npm.png)
+![NPM.DEVTOOL 中 tailwind 标签大全](https://cdn.jsdelivr.net/gh/shfshanyue/assets@master/src/tailwind-npm.png)
 
 > 从 [NPM.DEVTOOL](https://npm.devtool.tech/tailwindcss) 的标签中可以看出: 每个月 npm 下载量高达 300 万次，jsDelivr 下载量更是高达 900 万次，Star 数也即将突破 38K，依赖于它的 Packge 及 Github Repo 更是成千，足见其受欢迎程度。然而你需要使用它时，Node 的版本最好大于 12.13.0
 
@@ -183,9 +183,9 @@ Tailwindcss 为啥受欢迎，在我看来无非是**更好用的原子化的CSS
 1. [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
 
 
-![智能补全](./assets/tailwind02.png)
+![智能补全](https://cdn.jsdelivr.net/gh/shfshanyue/assets@master/src/tailwind02.png)
 
-![代码提示](./assets/tailwind-01.png)
+![代码提示](https://cdn.jsdelivr.net/gh/shfshanyue/assets@master/src/tailwind-01.png)
 
 初期经常花时间翻文档而不手写 CSS，而其中的原因不外乎两个:
 
@@ -207,7 +207,7 @@ Tailwindcss 为啥受欢迎，在我看来无非是**更好用的原子化的CSS
 1. [isMobile](https://npm.devtool.tech/is-mobile): 检测当前 web 环境是否为移动端。几十行代码，每周 15 万下载，2K Star
 1. [isci](https://npm.devtool.tech/is-ci)
 
-![](./assets/tailwind-ci.png)
+![](https://cdn.jsdelivr.net/gh/shfshanyue/assets@master/src/tailwind-ci.png)
 
 ### Q5: 初期很爽，但是后期维护困难，特别是人员调动后
 
@@ -215,17 +215,17 @@ Tailwindcss 为啥受欢迎，在我看来无非是**更好用的原子化的CSS
 
 至于调试，可轻松使用 `chrome devtools`，还是可以一眼望到底的，而且**没有以前各种 class 存在属性重复覆盖，造成调试困难，从下图可看出 tailwindcss 调试一目了然**
 
-![使用 Devtool 调试 CSS](./assets/tailwind-devtool.png)
+![使用 Devtool 调试 CSS](https://cdn.jsdelivr.net/gh/shfshanyue/assets@master/src/tailwind-devtool.png)
 
 即使实在有过多的 CSS Class，也可以**通过 `Computed` 面板中的小箭头跳转过去找到相对应的 class**
 
-![使用 Computed 调试 CSS](./assets/tailwind-devtool-computed.png)
+![使用 Computed 调试 CSS](https://cdn.jsdelivr.net/gh/shfshanyue/assets@master/src/tailwind-devtool-computed.png)
 
 ### Q6: 虽然 CSS 体积大幅降低，但是 HTML 体积却变大了
 
 Facebook 经过重构后 CSS 体积已经从 413Kb 减至 74Kb。
 
-![Facebook](./assets/stylex-scalability2.png)
+![Facebook](https://cdn.jsdelivr.net/gh/shfshanyue/assets@master/src/stylex-scalability2.png)
 
 gzip 的核心是 Deflate，而它使用了 LZ77 算法与 Huffman 编码来压缩文件，重复度越高的文件可压缩的空间就越大。
 
