@@ -6,7 +6,7 @@
 
 > PS: 可在 jsdeliver/unpkg 查看某个 package 的真实发包内容。 -->
 
-## main
+### main
 
 `main` 指 npm package 的入口文件，当我们对某个 package 进行导入时，实际上导入的是 `main` 字段所指向的文件。
 
@@ -26,7 +26,7 @@ const midash = require('midash')
 const midash = require('midash/dist/index.js')
 ```
 
-## module
+### module
 
 随着 ESM 且打包工具的发展，许多 package 会打包 N 份模块化格式进行分发，如 `antd` 既支持 `ES`，也支持 `umd`，将会打包两份。
 
@@ -54,7 +54,7 @@ import midash from 'midash/dist/index.mjs'
 
 如果你的代码只分发一份 `es module` 模块化方案，则直接置于 `main` 字段之中。
 
-## exports
+### exports
 
 如果说以上两个是刀剑，那 `exports` 至少得是瑞士军刀。
 
@@ -130,5 +130,88 @@ import get from 'midash/dist/get'
     "production": "./index-optimized.js",
     "default": "./index-optimized.js"
   }
+}
+```
+
+## NPM Script 的生命周期
+
+在 npm 中，使用 `npm scripts` 可以组织整个前端工程的工具链。
+
+``` js
+{
+  start: 'serve ./dist',
+  build: 'webpack',
+  lint: 'eslint'
+}
+```
+
+除了可自定义 `npm script` 外，npm 附带许多内置 scripts
+
+``` bash
+npm install
+
+npm test
+
+npm publish
+```
+
+1. 在某个 npm 库安装结束后，自动执行操作如何处理？
+1. npm publish 发布 npm 库时将发布打包后文件，如果遗漏了打包过程如何处理，如何在发布前自动打包？
+
+这就要涉及到一个 npm script 的生命周期
+
+### 一个 npm script 的生命周期
+
+当我们执行任意 `npm run` 脚本时，将自动触发 `pre`/`post` 的生命周期。
+
+当手动执行 `npm run abc` 时，将在此之前自动执行 `npm run preabc`，在此之后自动执行 `npm run postabc`。
+
+``` js
+// 自动执行
+npm run preabc
+
+npm run abc
+
+// 自动执行
+npm run postabc
+```
+
+[patch-package](https://github.com/ds300/patch-package) 一般会放到 `postinstall` 中。
+
+``` js
+{
+  postinstall: 'patch-package'
+}
+```
+
+而发包的生命周期更为复杂，当执行 `npm publish`，将自动执行以下脚本。
+
++ **prepublishOnly**: 最重要的一个生命周期。
++ prepack
++ prepare
++ postpack
++ publish
++ postpublish
+
+当然你无需完全记住所有的生命周期，如果你需要在发包之前自动做一些事情，如测试、构建等，请在 `prepulishOnly` 中完成。
+
+``` js
+{
+  prepublishOnly: 'npm run test && npm run build'
+}
+```
+
+### 一个最常用的生命周期
+
+`prepare`
+
+1. `npm install` 之后自动执行
+1. `npm publish` 之前自动执行
+
+比如 `husky`
+
+``` js
+{
+  prepare: 'husky install'
 }
 ```

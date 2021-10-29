@@ -55,11 +55,11 @@
 1. package.json semver (关于发包)
 1. package.json engines
 1. package.json dep/devDep
-1. node modules package-lock.json
 1. package.json main/module/export
 1. package.json script hooks
 1. package.json publish
 1. package.json sideEffects
+1. node modules package-lock.json
 1. node modules require package
 1. PQM
 1. pritter (关于项目质量)
