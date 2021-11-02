@@ -107,8 +107,6 @@ MaxAge = (Date - LastModified) * factor
 1. `main.chunk.js`
 
 
-
-
 ![缓存控制策略](./assets/http-cache-2.png)
 
 此时我们可以对资源进行分层次缓存的打包方案，这是一个建议方案：

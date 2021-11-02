@@ -4,9 +4,9 @@ date: 2021-10-05
 
 # Git Hooks 与 Husky 原理解析与应用
 
-`git hooks` 是前端项目工程在本地通用的质量保障手段。
+`git hooks` 是前端项目在本地通用的质量保障手段。
 
-> `npm script hook` 也可对前端工程做质量加强，在本文中也有示例
+> `npm script hook` 也可对前端工程做质量加强，可见往日文章
 
 它在 `git commit`、`git push` 等 git 操作之前与之后可设置自动执行的脚本，被称为 `git hooks`。
 

@@ -21,15 +21,19 @@
     "path": "serverless"
   },
   {
-    "sideTitle": "6. Serverless: 前端托管",
+    "sideTitle": "6. Github/jsdelivr 图片资源托管",
+    "path": "image-in-blog"
+  },
+  {
+    "sideTitle": "7. Serverless: 前端托管",
     "path": "serverless-fe"
   },
   {
-    "sideTitle": "7. Vercel: API 服务",
+    "sideTitle": "8. Vercel: API 服务",
     "path": "api"
   },
   {
-    "sideTitle": "8. Sentry: 异常监控",
+    "sideTitle": "9. Sentry: 异常监控",
     "path": "sentry"
   }
 ]

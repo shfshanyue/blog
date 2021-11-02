@@ -32,7 +32,7 @@
 ## 前端工程化小卡片
 
 1. 简述各种模块化方案
-1. http cache
+1. webpack http cache
 1. webpack runtime (关于webpack)
 1. webpack loadChunk runtime
 1. webpack loadChunk runtime (加载 chunks，如何保证顺序) (重复)
@@ -43,31 +43,57 @@
 1. webpack speed up build
 1. babel plugin/preset
 1. babel runtime
-1. file size (关于性能优化)
-1. reduce js size
-1. 如何分析打包体积 ❎
+1. size: 如何分析打包体积 ❎
+1. size: reduce js size
 1. size: minify/terser 原理
 1. size: minify/sourcemap
 1. size: tree shaking
 1. size: code spliting (重复)
 1. size: splitChunksPlugin
 1. size: browserlist/core.js
-1. package.json semver (关于发包)
-1. package.json engines
-1. package.json dep/devDep
+1. package.json semver
 1. package.json main/module/export
+1. package.json dep/devDep
+1. package.json engines
 1. package.json script hooks
-1. package.json publish
+1. package.json npm publish
 1. package.json sideEffects
 1. node modules package-lock.json
 1. node modules require package
+1. CI: git hooks
 1. PQM
 1. pritter (关于项目质量)
 1. eslint
-1. git hooks
 1. docker (关于部署)
 1. preview
 1. 灰度
 1. esm
 1. bundless
 1. vite
+
+## 体积优化
+
+1. 概述
+  1. 仅限于前端方向，如 gzip/brotli
+  1. 仅限于工程化方向
+
+## 通用方案
+
+1. uglify 的原理
+1. uglify 之 prepack 的原理
+1. Tree Shaking
+1. corejs/babel
+1. webpack 运行时代码
+1. webpack style 等运行时代码
+1. webpack codespliting
+1. minicss/cleancss
+1. autoprefixer
+
+## 实战
+
+2. webpack 打包体积分析
+
+## Package 分析
+
+1. 查看包的体积
+1. 如何发布一个更小体积的包
