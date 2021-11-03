@@ -6,15 +6,16 @@ date: 2021-10-05
 
 `git hooks` 是前端项目在本地通用的质量保障手段。
 
-> `npm script hook` 也可对前端工程做质量加强，可见往日文章
+> `npm script hook` 也可对前端工程做质量加强，可见往日文章。
 
-它在 `git commit`、`git push` 等 git 操作之前与之后可设置自动执行的脚本，被称为 `git hooks`。
+它在 `git commit`、`git push` 等 git 操作之前与之后可设置自动执行的脚本，被称为 `git hooks` 脚本。
 
-代码在提交之前 (`pre-commit hook`)，可做以下诸多校验。如未通过检验，则无法成功提交。
+代码在提交之前 (`pre-commit hook`)，可做以下诸多校验，如未通过检验，则无法成功提交。
 
 + `pritter`: html、css、js、md、yaml 等代码格式化校验
 + `eslint`: 代码质量规范检测
-+ `commit message`: 结构化语义化的 Commit 信息，可参考 [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
++ `commit message lint`: 结构化语义化的 Commit 信息，可参考 [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
++ `test`
 
 ## Git Hooks
 
@@ -51,13 +52,33 @@ $ cat .git/config
 
 ## Git Hooks 初试
 
-编辑 `~/.git/hooks/pre-commit`，设定以下脚本:
+编辑 `.git/hooks/pre-commit`，设定以下脚本，在每次提交之前输出 `ok`。
 
 ``` bash
 #!/bin/sh
 
 echo ok
 ```
+
+并设置该脚本为可执行权限
+
+``` bash
+$ chmod 777 .git/hooks/pre-commit
+```
+
+提交一次，看看结果如何吧。在第一行确实有一个 `ok`，测试成功。
+
+``` bash
+$ git commit -m 'test'
+ok
+[master 24d8f91] update
+ Date: Wed Nov 3 11:39:50 2021 +0800
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+```
+
+**将 `pre-commit` 脚本中的命令改为 `npm scripts`，即可实现前端工程化的效果。**
+
+在每次提交之前自动校验代码风格:
 
 ``` bash
 #!/bin/sh
@@ -67,8 +88,13 @@ npm run lint
 
 ## 跳过 Git Hooks
 
+由于 `git hooks` 是在客户端进行的校验，在客户端禁掉也是非常简单的。
+
 ``` bash
 $ git commit --no-verify
+
+# 或者使用它的缩写
+$ git commit -n
 ```
 
 ## Husky 是如何工作的？

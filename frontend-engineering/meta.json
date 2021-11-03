@@ -67,5 +67,10 @@
     "title": "如何找到一个合适的 npm 库",
     "sideTitle": "选型",
     "path": "quick-find-npm"
+  },
+  {
+    "title": "Git Hooks 与 Husky 原理解析与应用",
+    "sideTitle": "githooks",
+    "path": "githooks"
   }
 ]
