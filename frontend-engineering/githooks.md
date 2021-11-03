@@ -32,8 +32,8 @@ pre-applypatch.sample     prepare-commit-msg.sample
 pre-commit.sample         update.sample
 ```
 
-+ pre-commit: commit 之前触发
-+ pre-push: push 之前触发
++ pre-commit: `git commit` 之前触发
++ pre-push: `git push` 之前触发
 
 在 git 2.9 中引入了 `core.hooksPath`，可手动配置 `git hooks` 所在的目录。
 
@@ -50,6 +50,8 @@ $ cat .git/config
 ```
 
 ## Git Hooks 初试
+
+编辑 `~/.git/hooks/pre-commit`，设定以下脚本:
 
 ``` bash
 #!/bin/sh

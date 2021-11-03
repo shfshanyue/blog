@@ -82,6 +82,7 @@
 1. uglify 的原理
 1. uglify 之 prepack 的原理
 1. Tree Shaking
+1. browserslist
 1. corejs/babel
 1. webpack 运行时代码
 1. webpack style 等运行时代码
