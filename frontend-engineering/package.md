@@ -1,11 +1,8 @@
+## name、version 与 semver 字段
+
+`name` 与 `version` 字段几乎是
+
 ## main、exports、module
-
-<!-- + umd
-+ commonjs
-+ esm
-
-> PS: 可在 jsdeliver/unpkg 查看某个 package 的真实发包内容。 -->
-
 ### main
 
 `main` 指 npm package 的入口文件，当我们对某个 package 进行导入时，实际上导入的是 `main` 字段所指向的文件。

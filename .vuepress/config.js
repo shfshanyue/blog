@@ -51,6 +51,7 @@ module.exports = {
     ['meta', { name: 'baidu-site-verification', content: 'ZAdkE6LA10'}],
     ['meta', { name: 'google-site-verification', content: '_rNB9Nt0ukzWmMfhXSSxCHUAeeMs24OiuhGm4QjdwXA'}] 
   ],
+  shouldPrefetch: () => false,
   themeConfig: {
     repo: 'shfshanyue/blog',
     sidebarDepth: 2,

@@ -61,6 +61,7 @@
 1. node modules package-lock.json
 1. node modules require package
 1. CI: git hooks
+1. CI: npm audit
 1. PQM
 1. pritter (关于项目质量)
 1. eslint
