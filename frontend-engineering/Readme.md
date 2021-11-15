@@ -58,13 +58,18 @@
 1. package.json script hooks
 1. package.json npm publish
 1. package.json sideEffects
-1. node modules package-lock.json
-1. node modules require package
+1. node_modules require package
+1. node_modules 拓扑结构
+1. node_modules package-lock.json
+1. node_modules workspace 
 1. CI: git hooks
+1. CI: cicd
 1. CI: npm audit
+1. CI: eslint
+1. CI: npm outdated
+1. CI: patch package
 1. PQM
 1. pritter (关于项目质量)
-1. eslint
 1. docker (关于部署)
 1. preview
 1. 灰度
@@ -80,20 +85,30 @@
 
 ## 通用方案
 
-1. uglify 的原理
+1. uglify/terser 的原理
 1. uglify 之 prepack 的原理
+1. webp
+1. cssnano
+1. cleancss
+
+## 打包工具
+
 1. Tree Shaking
-1. browserslist
-1. corejs/babel
-1. webpack 运行时代码
-1. webpack style 等运行时代码
 1. webpack codespliting
-1. minicss/cleancss
+
+## 垫片与优化
+
+1. browserslist
+1. corejs/babel-preset-env
+1. autoprefixer/postcss-preset-env
+
+1. webpack、style 等运行时代码
 1. autoprefixer
 
 ## 实战
 
-2. webpack 打包体积分析
+1. webpack 打包体积分析
+1. import()
 
 ## Package 分析
 

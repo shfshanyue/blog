@@ -110,7 +110,3 @@ const png = canvas.toDataURL()
 // 可指定转化为 JPG 格式的图片
 const jpg = canvas.toDataURL('image/jpeg', 1.0)
 ```
-
-## 核心步骤: HTML -> SVG -> Canvas -> JPG/PNG
-
-总结一下
