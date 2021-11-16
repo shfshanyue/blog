@@ -61,6 +61,7 @@
 1. node_modules require package
 1. node_modules 拓扑结构
 1. node_modules package-lock.json
+1. node_modules package 需要 lock 吗
 1. node_modules workspace 
 1. CI: git hooks
 1. CI: cicd
