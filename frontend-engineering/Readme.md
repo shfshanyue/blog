@@ -43,6 +43,9 @@
 1. webpack speed up build
 1. babel plugin/preset
 1. babel runtime
+1. postcss
+1. postcss cleancss
+1. postcss cssnano
 1. size: 如何分析打包体积 ❎
 1. size: reduce js size
 1. size: minify/terser 原理
@@ -62,21 +65,19 @@
 1. node_modules 拓扑结构
 1. node_modules package-lock.json
 1. node_modules package 需要 lock 吗
-1. node_modules workspace 
+1. node_modules pnpm
 1. CI: git hooks
 1. CI: cicd
 1. CI: npm audit
+1. CI: pritter
 1. CI: eslint
 1. CI: npm outdated
 1. CI: patch package
-1. PQM
-1. pritter (关于项目质量)
-1. docker (关于部署)
-1. preview
-1. 灰度
-1. esm
-1. bundless
-1. vite
+1. deploy: docker
+1. deploy: preview
+1. deploy: 灰度
+1. bundless: esm
+1. bundless: vite
 
 ## 体积优化
 
