@@ -41,6 +41,7 @@ total 768
 那么不可避免地在 npm 或者 yarn 中，`lodash@3.0.0` 会被多次安装，无疑造成了空间的浪费与诸多问题。
 
 ``` bash
+./node_modules/lodash
 ./node_modules/package-a
 ./node_modules/package-b
 ./node_modules/package-c
@@ -96,6 +97,6 @@ graph
 再借用以上示例，`lodash@3.0.0` 与 `lodash@4.0.0` 会生成一个指向全局目录的硬链接，如果新项目依赖二者，则可复用存储空间。
 
 ``` bash
-./node_modules/.pnpm/lodash@3.0.0   -> hardlink 
-./node_modules/.pnpm/lodash@4.0.0   -> hardlink
+./node_modules/.pnpm/lodash@3.0.0/node_modules/lodash   -> hardlink 
+./node_modules/.pnpm/lodash@4.0.0/node_modules/lodash   -> hardlink
 ```
