@@ -1,8 +1,10 @@
 # 如何开发一个支持 SSR 的 npm 包
 
-> 开发一个既支持 node 又支持 browser 的第三方包竟如此简单！
+![](https://cdn.jsdelivr.net/gh/shfshanyue/assets/2021-12-27/clipboard-5670.91f38f.webp)
 
-如果一个 npm package 既能在 node 环境中运行，又能在浏览器环境运行，那么它就是支持 SSR 的，也可成为支持同构的 npm package。比如 [isomorphic-fetch](https://github.com/matthew-andrews/isomorphic-fetch)。
+> 可使用 BROWSER 环境变量，针对浏览器环境与Node环境通过 `rollup`/`@rollup/plugin-replace` 打包两份，并通过 `exportmap` 的 `browser`/`node` 字段作为不同环境的入口文件。
+
+如果一个 npm package 既能在 node 环境中运行，又能在浏览器环境运行，那么它就是支持 SSR 的，也可称为支持同构的 npm package。比如 [isomorphic-fetch](https://github.com/matthew-andrews/isomorphic-fetch)。
 
 以一个最简单版的 `hello, world` 示例说明问题。
 
@@ -121,6 +123,8 @@ const isServer = typeof Window === 'undefined'
 // After
 const isServer = process.env.BROWSER === true
 ```
+
+![图解同构 Package](https://cdn.jsdelivr.net/gh/shfshanyue/assets/2021-12-27/clipboard-5670.91f38f.webp)
 
 ## 实践
 
