@@ -39,7 +39,14 @@ const config = {
 export PUBLIC_URL=https://cdn.shanyue.tech
 ```
 
-## 将资源推送到 OSS
+## 云服务之前的准备
+
+## AccessKey
+
++ aliyun_access_key_id
++ aliyun_access_key_secret
+
+## 将资源推送到 OSS: ossutil
 
 在 OSS 上创建一个 Bucket，通过 `ossutil` 将资源上传至 OSS。
 
@@ -48,11 +55,40 @@ export PUBLIC_URL=https://cdn.shanyue.tech
 
 ``` bash
 # 将资源上传到 OSS Bucket
-$ ossutil cp -rf build oss://shanyue-cra/
+$ ossutil cp -rf --meta Cache-Control:no-cache build oss://shanyue-cra/
 
-# 通过响应头 `Cache-Control` 配置长期缓存
-$ ossutil set-meta oss://shanyue-cra/static cache-control:"max-age=31536000" --update -rf
+# 将带有 hash 资源上传到 OSS Bucket，并且配置长期缓存
+# 注意此时 build/static 上传了两遍
+$ ossutil cp -rf --meta Cache-Control:max-age=31536000 build/static oss://shanyue-cra/static
 ```
+
+为求方便，可将两条命令维护到 `npm scripts` 中
+
+``` js
+{
+  scripts: {
+    'oss:cli': 'ossutil cp -rf --meta Cache-Control:no-cache build oss://shanyue-cra/ && ossutil cp -rf --meta Cache-Control:max-age=31536000 build/static oss://shanyue-cra/static'
+  }
+}
+```
+
+## 将资源推送到 OSS: npm scripts
+
+另有一种方法，通过官方提供的 SDK: [ali-oss](https://github.com/ali-sdk/ali-oss) 可对资源进行精准控制:
+
+1. 对每一个资源进行精准控制
+1. 仅仅上传进行更改的文件
+1. 使用 `p-map` 控制 N 个资源同时上传
+
+``` js
+{
+  scripts: {
+    'oss:sdk': 'node ./scripts/uploadOSS.js'
+  }
+}
+```
+
+脚本此处省略。
 
 ## Dockerfile
 
@@ -66,9 +102,12 @@ ADD package.json yarn.lock /code/
 RUN yarn
 
 ADD . /code
-RUN npm run build && npm run uploadOSS
+RUN npm run build && npm run oss:cli
 
 # 选择更小体积的基础镜像
 FROM nginx:alpine
-COPY --from=builder code/build /usr/share/nginx/html
+COPY --from=builder code/build/index.html /usr/share/nginx/html
 ```
+
+**好像，容器里好像就剩下一个 index.html 了？**
+

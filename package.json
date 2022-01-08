@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "vuepress dev",
-    "build": "vuepress build"
+    "build": "vuepress build",
+    "deploy": "rclone copy .vuepress/dist alioss:/shanyue-blog --progress"
   },
   "repository": {
     "type": "git",

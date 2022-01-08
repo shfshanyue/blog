@@ -11,15 +11,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # 切代码到 runner
-    - run: |
-        node -v
-    - run: |
-        free -h
-    - run: ls -lah
     - uses: actions/checkout@v1
-      with:
-        submodules: true
+    - uses: bahmutov/npm-install@v1
     - run: ls -lah
     # 下载 git submodule
     - uses: srt32/git-actions@v0.0.3

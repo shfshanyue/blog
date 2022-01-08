@@ -25,6 +25,7 @@
 在本篇文章之前，你需要先做一些功课:
 
 1. 在本地安装 docker。通过 [Docker Desktop](https://www.docker.com/products/docker-desktop) 下载 docker 后，双击安装即可。
+1. 在本地安装 docker-compose。
 1. 了解 [Dockerfile Reference](https://docs.docker.com/engine/reference/builder/)。了解最常见的 FROM/ADD/CMD 即可。不需要全部过一遍，遇到没见过的指令及时查阅即可。
 1. 了解 [Compose file Reference](https://docs.docker.com/compose/compose-file/compose-file-v3/)。不需要全部过一遍，遇到没见过的指令及时查阅即可。
 1. 了解 [Docker Hub](https://hub.docker.com/)。在该网站，可查找适合于自己的诸多基础镜像。
