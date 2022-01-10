@@ -50,8 +50,9 @@ $ rclone
 > `output.path` 可通过环境变量注入 webpack 选项，而环境变量可通过以下命令置入。(或置入 .env)
 
 ``` bash
-export BRANCH_=$(git branch --show-current)
+export BRANCH=$(git branch --show-current)
+
+export BRANCH=$(git rev-parse --abbrev-ref HEAD)
 ```
 
 在测试环境中，虽然有很多个分支，但是不重要，想删的时候把 OSS 清掉都没关系。
-

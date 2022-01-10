@@ -1,0 +1,68 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/bin/yarn cache list
+
+PATH: 
+  /Users/xiange/go/bin:/Library/Java/JavaVirtualMachines/jdk-16.0.2.jdk/Contents/Home/bin:/Users/xiange/bin:/usr/local/bin:/Library/Frameworks/Python.framework/Versions/3.8/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/Applications/Wireshark.app/Contents/MacOS:/Users/xiange/go/bin:/Library/Java/JavaVirtualMachines/jdk-16.0.2.jdk/Contents/Home/bin:/Users/xiange/bin:/Library/Frameworks/Python.framework/Versions/3.8/bin
+
+Yarn version: 
+  1.22.17
+
+Node version: 
+  14.18.2
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Invariant Violation: There should only be one folder in a package cache (got  in /Users/xiange/Library/Caches/Yarn/v6/npm-blessed-0.1.81-f962d687ec2c369570ae71af843256e6d0ca1129-integrity/node_modules)
+      at invariant (/usr/local/lib/node_modules/yarn/lib/cli.js:2314:15)
+      at /usr/local/lib/node_modules/yarn/lib/cli.js:60715:7
+      at Generator.next (<anonymous>)
+      at step (/usr/local/lib/node_modules/yarn/lib/cli.js:310:30)
+      at /usr/local/lib/node_modules/yarn/lib/cli.js:321:13
+
+npm manifest: 
+  {
+    "name": "note",
+    "version": "1.0.0",
+    "description": "东坡云：事如春梦了无痕，技术积累也是如此，于是在此略作整理。浮生六记中有一句：`见藐小微物，必细查其纹理`，其中对技术不仅要如琢如磨如切如磋，也记录一些物外之趣。",
+    "main": "index.js",
+    "scripts": {
+      "dev": "vuepress dev",
+      "build": "vuepress build",
+      "deploy": "rclone copy .vuepress/dist alioss:/shanyue-blog --progress"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/shfshanyue/blog.git"
+    },
+    "author": "shanyue",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/shfshanyue/blog/issues"
+    },
+    "homepage": "https://github.com/shfshanyue/blog#readme",
+    "devDependencies": {
+      "@vuepress/plugin-google-analytics": "^1.8.2",
+      "npm-check-updates": "^11.5.13",
+      "vuepress": "^1.8.2",
+      "vuepress-plugin-feed": "^0.1.9"
+    },
+    "dependencies": {
+      "@types/graphql": "^14.5.0",
+      "axios": "^0.21.1",
+      "bluebird": "^3.7.2",
+      "dayjs": "^1.10.4",
+      "graphql": "^15.5.0",
+      "graphql-tag": "^2.12.4",
+      "koa": "^2.13.1",
+      "promise-limit": "^2.7.0",
+      "vuepress-plugin-sitemap": "^2.3.1"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

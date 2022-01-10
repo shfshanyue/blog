@@ -22,6 +22,9 @@
 
 ``` bash
 $ docker run -it --rm nginx:alpine sh
+
+# 进入容器中，可通过 exit 退出容器环境
+$ exit
 ```
 
 通过以下一行命令可直接访问 nginx 的默认页面
