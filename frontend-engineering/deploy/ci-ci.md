@@ -228,9 +228,18 @@ jobs:
 Lint 和 Test 仅是 CI 中最常见的阶段。为了保障我们的前端代码质量，还可以添加以下阶段。
 
 + Audit: 使用 `npm audit` 或者 [snyk](https://snyk.io/) 检查依赖的安全风险。可详查文章[如何检测有风险依赖](https://q.shanyue.tech/engineering/742.html#audit)
-+ Quality
-+ Bundle Chunk Size Limit
-+ Performance (Lighthouse CI)
++ Quality: 使用 [SonarQube](https://www.sonarqube.org/) 检查代码质量。
++ Container: 使用 [trivy](https://github.com/aquasecurity/trivy) 扫描容器安全风险。
++ End to End: 使用 [Playwright](https://github.com/microsoft/playwright) 进行 UI 自动化测试。
++ Bundle Chunk Size Limit: 使用 [size-limit](https://github.com/ai/size-limit) 限制打包体积，打包体积过大则无法通过合并。
++ Performance (Lighthouse CI): 使用 [lighthouse CI](https://github.com/GoogleChrome/lighthouse-ci) 为每次 PR 通过 Lighthouse 打分，如打分过低则无法通过合并。
 
 ## 与 Git Hooks 的不同
 
+有些细心并知识面广泛的同学可能注意到了，某些 CI 工作也可在 Git Hooks 完成，确实如此。
+
+它们的最大的区别在于一个是客户端检查，一个是服务端检查。而客户端检查是天生不可信任的。而针对 `git hooks` 而言，很容易通过 `git commit --no-verify` 而跳过。
+
+![](https://cdn.jsdelivr.net/gh/shfshanyue/assets@master/src/image.png)
+
+其二，CI 还可对 Preview 及其后的一系列操作进行检查，如端对端测试、性能测试以及容器扫描(见上)等。

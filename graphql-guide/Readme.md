@@ -6,19 +6,23 @@
 + [了解 graphql: schema 与 query](https://github.com/shfshanyue/graphql-guide/blob/master/schema-and-query.md)
 + [把graphql 与 http 结合起来](https://github.com/shfshanyue/graphql-guide/blob/master/graphql-and-http.md)
 
++ [graphql tools](https://github.com/ardatan/graphql-tools#readme)
++ [状态码]()
+
 ## 开发
 
 + [N+1 Query 问题与 Dataloader]() - 待续
 + [按需查询数据库字段]() - 待续
 + [用户认证与 JWT]() - 待续
 + [实现一个简单的 CRUD]() - 待续
-+ [graphql 与缓存]() - 待续
++ [graphql、cacheControl 与缓存]() - 待续
 + [graphql 与 immutable 数据]() - 待续
 + [graphql.js 源码解析与执行流程]() - 待续
 + [graphql 中存在的问题]() - 待续
 
 ## 前端
 
++ Query 参数帮助更好的调试请求
 + [使用 apollo-client 与 react-hooks 进行前端开发]() - 待续
 + [自动为前端生成 typescript 中的 type]() - 待续
 + [graphql 缓存与性能优化]() - 待续
