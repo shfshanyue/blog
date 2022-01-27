@@ -120,11 +120,64 @@ environment:
   url: http://$COMMIT_BRANCH_NAME.dev.shanyue.tech
 ```
 
+## 基于 k8s 的多分支部署
+
+> PS: 本段内容需要对 k8s 有基本概念的了解，比如 `Deployment`、`Pod`、`Service`。可在下一篇章进行了解。
+
++ Deployment: 对 [cra-deploy](https://github.com/shfshanyue/cra-deploy) 项目的部署视作一个 Deployment
++ Service: 对 [cra-deploy](https://github.com/shfshanyue/cra-deploy) 提供可对集群或外网的访问地址
+
+如此一来
+
+1. 根据分支名作为镜像的 Tag 构建镜像。如 `cra-deploy-app:feature-A`
+1. 根据带有 Tag 的镜像，对每个功能分支进行单独的 Deployment。如 `cra-deployment-feature-A`
+1. 根据 Deployment 配置相对应的 Service。如 `cra-service-feature-A`
+1. 根据 Ingress 对外暴露服务并对不同的 Service 提供不同的域名。如 `feature-A.cra.shanyue.tech`
+
+> 配置文件路径位于 [k8s-preview-app.yaml](https://github.com/shfshanyue/cra-deploy/blob/master/k8s-preview-app.yaml)
+
+``` yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cra-deployment-${COMMIT_REF}
+spec:
+  selector:
+    matchLabels:
+      app: cra
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: cra
+    spec:
+      containers:
+      - name: cra-deploy
+        image: cra-deploy-app:${COMMIT_REF}
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: cra-service-${COMMIT_REF}
+spec:
+  selector:
+    app: cra
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+```
+
 ## 小结
 
 随着 CICD 的发展，对快速迭代以及代码质量提出了更高的要求，而基于分支的多测试环境则成为了刚需。对于该环境的搭建，思路也很清晰
 
-1. 借用现有的 CICD 服务，如 `jenkins`，`gitlab CI` 或者 `drone CI`，获取当前分支信息
+1. 借用现有的 CICD 服务，如 `github actions` 或者 `gitlab CI` 获取当前分支信息
 1. 借用 Docker 快速部署前端或者后端，根据分支信息启动不同的容器，并配置标签
 1. 根据容器的标签与当前 Git 分支对前端后端设置不同的域名
 
