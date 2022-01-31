@@ -91,27 +91,27 @@ export default {
     }
   },
   async mounted () {
-    const code = getCode()
-    this.code = code
-    if (!localStorage.token) {
-      this.lock = true
-      const token = await verifyCode(code)
-      if (token) {
-        localStorage.token = token
-        this.lock = false
-      }
-    } else {
-      const token = localStorage.token
-      const verify = await verifyToken(token)
-      if (!verify) {
-        this.lock = true
-      }
-    }
+    // const code = getCode()
+    // this.code = code
+    // if (!localStorage.token) {
+    //   this.lock = true
+    //   const token = await verifyCode(code)
+    //   if (token) {
+    //     localStorage.token = token
+    //     this.lock = false
+    //   }
+    // } else {
+    //   const token = localStorage.token
+    //   const verify = await verifyToken(token)
+    //   if (!verify) {
+    //     this.lock = true
+    //   }
+    // }
   },
   computed: {
     isLock () {
-      return this.lock ? Math.random() > 0.01 : false
-      /* return false */
+      // return this.lock ? Math.random() > 0.01 : false
+      return false
     }
   },
   components: { PageEdit, PageNav },
