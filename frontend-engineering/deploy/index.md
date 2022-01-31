@@ -26,10 +26,6 @@ PS: 服务编排两篇文章涉及到个人服务器可自行购买，CICD 五�
 1. CICD: 强化前端质量保障工程 Lint/Test
 1. CICD: CI Cache
 1. CICD: env
-1. CICD: 分支部署 (Preview)
-1. CICD: 灰度部署
-1. CICD: 回滚
-1. CICD: 滚动更新
-
-1. sourcemap
-
+1. CICD: Preview
+1. k8s: 简单概念介绍
+1. k8s: 灰度部署、金丝雀、滚动更新与回滚

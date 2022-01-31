@@ -159,6 +159,8 @@ simple-deploy_nginx-app_1   simple-deploy_nginx-app   latest   62f362825a0a   23
 simple-deploy_node-app_1    simple-deploy_node-app    latest   14054cb0f1d8   133 MB
 ```
 
+## 通过 Docker 学习 Nginx 配置
+
 ---
 
 此时，已成功通过 `nginx` 镜像部署成功，镜像体积也由 `133MB` 下降到 `23.2MB`。然而此三篇文章仅仅部署了一个 `hello` 版的页面。
