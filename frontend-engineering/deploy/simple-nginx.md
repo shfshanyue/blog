@@ -1,16 +1,18 @@
 # 基于 nginx 镜像构建容器
 
-正如第一篇文章所言，仅仅提供静态资源服务，实际上是不必将 Node 作为运行环境的。
+正如上一篇章所言，对于仅仅提供静态资源服务的前端，实际上是不必将 node.js 作为运行环境的。
 
-我们一般选择体积更小，性能更高的基于 nginx 的镜像。
+在实际生产经验中，一般选择体积更小，性能更好基于 nginx 的镜像。
 
-## 通过 docker 学习 nginx
+## nginx 镜像
 
-在传统方式中，我们一般通过一台服务器来学习如何使用 nginx 进行部署。
+在传统方式中，我们一般通过 Linux 服务器来学习如何使用 nginx 进行部署。
 
-此时，学习 nginx 的成本太高，需要购买一台服务器，不太方便。
+但是，学习 nginx 的成本太高，需要额外购买一台服务器，不够方便。
 
-也许有人会提出反对意见: 在个人电脑上也可以部署 nginx。是这样，但是 nginx 一般部署在 linux 服务器，很少有人的电脑是 linux 系统，即便在 mac 中，其环境和 linux 也有很大的不同，特别是 nginx。
+也许有人会提出反对意见: 在个人电脑上也可以部署 nginx。
+
+确实是这样，但是 nginx 一般部署在 linux 服务器，很少有人的电脑是 linux 系统，而且即便在 mac 中，其环境和 linux 环境也有很大的不同。
 
 那我们完全可以在本地通过 docker 来简单学习下 nginx。
 
@@ -18,7 +20,7 @@
 
 **如果你初学 nginx，强烈建议使用 docker 进行学习**
 
-通过以下一行命令可进入 `nginx` 的环境当中
+通过以下一行命令可进入 `nginx` 的环境当中，并且了解 nginx 的目录配置，*该命令将在以下段落用到*。
 
 ``` bash
 $ docker run -it --rm nginx:alpine sh
@@ -61,11 +63,12 @@ $ docker run -it --rm -p 3000:80 nginx:alpine
 
 ## 简单了解 nginx
 
-以下所有命令均在基于 nginx 的容器中进行。
+以下所有命令均在基于 nginx 的容器中进行，可通过 `docker run -it --rm nginx:alpine sh` 命令进入容器环境中。
 
 默认配置文件位于 `/etc/nginx/conf.d/default.conf`，通过 `cat` 可查看配置。
 
 ``` bash
+# 该命令在 nginx 的容器中执行
 $ cat /etc/nginx/conf.d/default.conf
 ```
 
