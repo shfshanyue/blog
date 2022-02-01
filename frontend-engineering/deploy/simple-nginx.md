@@ -4,6 +4,8 @@
 
 在实际生产经验中，一般选择体积更小，性能更好基于 nginx 的镜像。
 
+> PS: 本项目以 [simple-deploy](https://github.com/shfshanyue/simple-deploy) 仓库作为实践，配置文件位于 [nginx.Dockerfile](https://github.com/shfshanyue/simple-deploy/blob/master/nginx.Dockerfile)
+
 ## nginx 镜像
 
 在传统方式中，我们一般通过 Linux 服务器来学习如何使用 nginx 进行部署。
@@ -108,7 +110,7 @@ server {
 
 写一个 `Dockerfile`，仅仅需要两行代码。由于 nxinx 镜像会默认将 80 端口暴露出来，因此我们无需再暴露端口。
 
-``` bash
+``` dockerfile
 FROM nginx:alpine
 
 ADD index.html /usr/share/nginx/html/
@@ -165,6 +167,24 @@ simple-deploy_node-app_1    simple-deploy_node-app    latest   14054cb0f1d8   13
 ```
 
 ## 通过 Docker 学习 Nginx 配置
+
+我们将注意力集中在**静态资源**与**nginx配置**两个点，在本地进行维护。
+
+并通过 `Volume` 的方式挂载到 nginx 容器中。配置文件如下:
+
+> PS: docker-compose 配置文件位于 [simple-deploy](https://github.com/shfshanyue/simple-deploy/blob/master/learn-nginx.docker-compose.yaml) 中，可通过它实践 nginx 的配置
+
+``` yaml
+version: "3"
+services:
+  learn-nginx:
+    image: nginx:alpine
+    ports:
+      - 4000:80
+    volumes:
+      - nginx.conf:/etc/nginx/conf.d/default.conf
+      - .:/usr/share/nginx/html
+```
 
 ---
 

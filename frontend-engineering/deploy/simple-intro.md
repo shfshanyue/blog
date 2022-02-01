@@ -19,6 +19,8 @@
 </html>
 ```
 
+> PS: 本项目以 [simple-deploy](https://github.com/shfshanyue/simple-deploy) 仓库作为实践，服务文件位于 [server-fs.js](https://github.com/shfshanyue/simple-deploy/blob/master/server-fs.js)
+
 ## HTTP 报文
 
 部署可看做对 HTTP 资源的服务，或者说，是对 HTTP 请求报文的响应。我们写一段服务器代码返回 HTML，便完成了对前端的部署。

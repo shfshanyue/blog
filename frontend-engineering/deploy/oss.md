@@ -41,10 +41,16 @@ export PUBLIC_URL=https://cdn.shanyue.tech
 
 ## 云服务之前的准备
 
-## AccessKey
+### AccessKey
 
 + aliyun_access_key_id
 + aliyun_access_key_secret
+
+### Bucket
+
+1. 权限设置为 Public Read
+1. 配置 CORS
+1. HTTP 2.0
 
 ## 将资源推送到 OSS: ossutil
 

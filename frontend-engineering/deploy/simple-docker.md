@@ -30,6 +30,8 @@
 1. 了解 [Compose file Reference](https://docs.docker.com/compose/compose-file/compose-file-v3/)。不需要全部过一遍，遇到没见过的指令及时查阅即可。
 1. 了解 [Docker Hub](https://hub.docker.com/)。在该网站，可查找适合于自己的诸多基础镜像。
 
+> PS: 本项目以 [simple-deploy](https://github.com/shfshanyue/simple-deploy) 仓库作为实践，配置文件位于 [node.Dockerfile](https://github.com/shfshanyue/simple-deploy/blob/master/node.Dockerfile)
+
 ## 先在本地启动并运行项目
 
 由上篇文章可知，我们主要是将该资源服务化，此时可借助于一个工具 `serve` 进行静态资源服务化。
@@ -154,3 +156,33 @@ $ docker-compose up --build
 此时在本地访问 `http://localhost:3000` 访问成功
 
 此时，通过 `docker`/`docker-compose` 便部署成功了第一个前端应用。
+
+以下，再介绍一个使用 Docker 的小技巧。
+
+## 构建镜像 RUN 输出查看小技巧
+
+在使用 `docker build` 进行构建时，通过 `RUN` 指令可以通过打印一些关键信息进行调试，
+
+但是，在我们上一步进行 `docker build` 时，无法查看其输出结果。
+
+此时可以通过 `--progress plain` 来查看其输出结果。
+
+``` dockerfile
+FROM node:14-alpine
+
+RUN echo shanyue
+```
+
+对以上镜像构建，可拿到 `echo shanyue` 的输出结果。
+
+``` bash {8}
+$ docker build --progress plain --no-cache .
+4 [1/2] FROM docker.io/library/node:14-alpine
+4 sha256:4641ddabdab058bf21b1550827533213f023ec21abf1ceb322993c137532f760
+4 CACHED
+
+5 [2/2] RUN echo shanyue
+5 sha256:37883e3cbc36146a836ad89f3cf147723bcda1d2cf4e97655c9ed1afceb59517
+5 0.237 shanyue
+5 DONE 0.3s
+```
