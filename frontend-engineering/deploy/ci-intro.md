@@ -83,7 +83,7 @@ github 提供了以下配置的服务器作为构建服务器，可以说相当�
 on: push
 ```
 
-更多 Github Actions 事件可以参考官方文档 [Events that trigger workflows](https://help.github.com/en/actions/automating-your-workflow-with-github-actions/events-that-trigger-workflows#about-workflow-events)
+更多 Github Actions Event 可以参考官方文档 [Events that trigger workflows](https://help.github.com/en/actions/automating-your-workflow-with-github-actions/events-that-trigger-workflows#about-workflow-events)
 
 ``` yaml
 # 仅仅当 master 代码发生变更时，用以自动化部署

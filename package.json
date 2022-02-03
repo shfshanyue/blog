@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vuepress dev",
     "build": "vuepress build",
-    "deploy": "rclone copy .vuepress/dist alioss:/shanyue-blog --progress"
+    "oss:rclone": "rclone copy --exclude 'assets/**' --header 'Cache-Control: no-cache' .vuepress/dist alioss:/shanyue-blog --progress && rclone copy --header 'Cache-Control: max-age=31536000' .vuepress/dist/assets alioss:/shanyue-blog/assets --progress"
   },
   "repository": {
     "type": "git",
