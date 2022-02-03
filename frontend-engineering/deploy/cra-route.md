@@ -72,9 +72,7 @@ $ docker-compose up --build simple
 
 ![404 Not Found](https://cdn.jsdelivr.net/gh/shfshanyue/assets/2022-02-01/clipboard-1750.46d804.webp)
 
-实际上在本地通过 `serve` 部署，直接访问 `/about` 页面也会 404。
-
-其实道理很简单：**在静态资源中并没有 `about/about.html` 该资源，因此返回 404 Not Found。而在单页应用中，`/about` 是由前端通过 `history API` 进行控制。**
+其实道理很简单：**在静态资源中并没有 `about` 或者 `about.html` 该资源，因此返回 404 Not Found。而在单页应用中，`/about` 是由前端通过 `history API` 进行控制。**
 
 解决方法也很简单：**在服务端将所有页面路由均指向 `index.html`，而单页应用再通过 `history API` 控制当前路由显示哪个页面。**
 
@@ -91,7 +89,7 @@ location / {
 
 此时，可解决服务器端路由问题。
 
-## 永久缓存
+## 长期缓存 (Long Term Cache)
 
 在 CRA 应用中，`./build/static` 目录均由 webpack 构建产生，资源路径将会带有 hash 值。
 
@@ -115,6 +113,8 @@ $ tree ./build/static
 
 此时可通过 `expires` 对它们配置一年的长期缓存，它实际上是配置了 `Cache-Control: max-age=31536000` 的响应头。
 
+那为什么带有 hash 的资源可设置长期缓存呢: **资源的内容发生变更，他将会生成全新的 hash 值，即全新的资源路径。**而旧有资源将不会进行访问。
+
 ``` conf
 location /static {
     expires 1y;
@@ -123,7 +123,12 @@ location /static {
 
 ## nginx 配置文件
 
-`nginx.conf` 文件需要维护在项目当中，经过路由问题的解决与缓存配置外，最终配置如下。
+总结缓存策略如下:
+
+1. 带有 hash 的资源一年长期缓存
+1. 非带 hash 的资源，需要配置 Cache-Control: no-cache，**避免浏览器默认为强缓存**
+
+`nginx.conf` 文件需要维护在项目当中，经过路由问题的解决与缓存配置外，最终配置如下:
 
 > 该 nginx 配置位于 [cra-deploy/nginx.conf](https://github.com/shfshanyue/cra-deploy/blob/master/nginx.conf)
 
@@ -179,7 +184,7 @@ ADD nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=builder code/build /usr/share/nginx/html
 ``` 
 
-## docker-compose 配置文件
+> PS: 该 docker compose 配置位于 [cra-deploy/router.Dockerfile](https://github.com/shfshanyue/cra-deploy/blob/master/router.Dockerfile)
 
 ``` yaml
 version: "3"
@@ -199,11 +204,33 @@ services:
 
 ## 检验长期缓存配置
 
-访问 `https://localhost:4000` 页面，打开浏览器控制台网络面板。
+访问 `https://localhost:3000` 页面，打开浏览器控制台网络面板。
 
 此时对于**带有** hash 资源， `Cache-Control: max-age=31536000` 响应头已配置。
 
 此时对于**非带** hash 资源， `Cache-Control: no-cache` 响应头已配置。
+
+![查看响应头设置](https://cdn.jsdelivr.net/gh/shfshanyue/assets/2022-02-18/clipboard-6107.13189f.webp)
+
+## 百尺竿头更进一步
+
+在前端部署流程中，一些小小的配置能大幅度提升性能，列举一二，感兴趣的同学可进一步探索。
+
+构建资源的优化:
+
+1. 使用 terser 压缩 Javascript 资源
+1. 使用 cssnano 压缩 CSS 资源
+1. 使用 sharp/CDN 压缩 Image 资源或转化为 Webp
+1. 使用 webpack 将小图片转化为 DataURI
+1. 使用 webpack 进行更精细的分包，避免一行代码的改动使大量文件的缓存失效
+
+网络性能的优化:
+
+1. HTTP2，HTTP2多路复用、头部压缩功能提升网络性能
+1. OSCP Stapling，减少浏览器端的 OSCP 查询(可验证证书合法性)
+1. TLS v1.3，TLS 握手时间从 2RTT 优化到了 1RTT，并可 0-RTT Resumption
+1. HSTS，无需301跳转，直接使用 HTTPS，但更重要的是安全性能
+1. Brotli，相对 gzip 更高性能的压缩算法
 
 ## 小结
 

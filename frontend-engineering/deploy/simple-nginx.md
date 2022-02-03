@@ -1,16 +1,14 @@
 # 基于 nginx 镜像构建容器
 
-正如上一篇章所言，对于仅仅提供静态资源服务的前端，实际上是不必将 node.js 作为运行环境的。
+正如上一篇章所言，对于仅仅提供静态资源服务的前端，实际上是不必将 nodejs 作为运行环境的。
 
-在实际生产经验中，一般选择体积更小，性能更好基于 nginx 的镜像。
+在实际生产经验中，一般选择体积更小，性能更好，基于 nginx 的镜像。
 
 > PS: 本项目以 [simple-deploy](https://github.com/shfshanyue/simple-deploy) 仓库作为实践，配置文件位于 [nginx.Dockerfile](https://github.com/shfshanyue/simple-deploy/blob/master/nginx.Dockerfile)
 
 ## nginx 镜像
 
-在传统方式中，我们一般通过 Linux 服务器来学习如何使用 nginx 进行部署。
-
-但是，学习 nginx 的成本太高，需要额外购买一台服务器，不够方便。
+在传统方式中，我们一般通过 Linux 服务器来学习如何使用 nginx 进行部署。但是，学习 nginx 的成本太高，需要额外购买一台服务器，不够方便。
 
 也许有人会提出反对意见: 在个人电脑上也可以部署 nginx。
 
@@ -18,18 +16,14 @@
 
 那我们完全可以在本地通过 docker 来简单学习下 nginx。如此，既学习了 docker，又实践了 nginx。
 
-**如果你初学 nginx，强烈建议使用 docker 进行学习**
+**如果你初学 nginx，强烈建议使用 docker 进行学习**。本篇文章最后会附上如何启动 nginx 镜像用以学习。
 
-**如果你初学 nginx，强烈建议使用 docker 进行学习**
-
-**如果你初学 nginx，强烈建议使用 docker 进行学习**
-
-通过以下一行命令可进入 `nginx` 的环境当中，并且了解 nginx 的目录配置，*该命令将在以下段落用到*。
+通过以下一行命令可进入 `nginx` 的环境当中，并且了解 nginx 的目录配置，*该命令将在以下章节用到*。
 
 ``` bash
 $ docker run -it --rm nginx:alpine sh
 
-# 进入容器中，可通过 exit 退出容器环境
+# 进入容器中，在容器中可通过 exit 退出容器环境
 $ exit
 ```
 
@@ -100,7 +94,7 @@ server {
 1. 监听本地 80 端口
 1. 为 `/usr/share/nginx/html` 目录做静态资源服务
 
-那我们将我们的示例资源添加到镜像中的 `/usr/share/nginx/html` 岂不可以正确部署了。
+**那我们将我们的示例资源添加到镜像中的 `/usr/share/nginx/html` 岂不可以正确部署了？**
 
 那我们将我们的配置文件添加到镜像中的 `/usr/share/nginx/html` 岂不可以学习 nginx 的一些指令了。
 
@@ -108,7 +102,9 @@ server {
 
 ## 构建镜像、运行容器
 
-写一个 `Dockerfile`，仅仅需要两行代码。由于 nxinx 镜像会默认将 80 端口暴露出来，因此我们无需再暴露端口。
+写一个 `Dockerfile` 将我们的示例项目跑起来，仅仅需要两行代码。由于 nxinx 镜像会默认将 80 端口暴露出来，因此我们无需再暴露端口。
+
+> PS: 该 Dockerfile 配置位于 [simple-deploy/nginx.Dockerfile](https://github.com/shfshanyue/simple-deploy/blob/master/nginx.Dockerfile)
 
 ``` dockerfile
 FROM nginx:alpine
@@ -139,6 +135,8 @@ $ docker-compose up --build
 
 通过 `docker-compose` 同时将基于 node/nginx 镜像构建容器，配置文件如下。
 
+> PS: 该 docker compose 配置位于 [simple-deploy/docker-composey.yaml](https://github.com/shfshanyue/simple-deploy/blob/master/docker-compose.yaml)
+
 ``` yaml
 version: "3"
 services:
@@ -168,9 +166,19 @@ simple-deploy_node-app_1    simple-deploy_node-app    latest   14054cb0f1d8   13
 
 ## 通过 Docker 学习 Nginx 配置
 
-我们将注意力集中在**静态资源**与**nginx配置**两个点，在本地进行维护。
+最后，推荐一种高效学习 nginx 的方法: **在本地使用 nginx 镜像并挂载 nginx 配置启动容器**。
 
-并通过 `Volume` 的方式挂载到 nginx 容器中。配置文件如下:
+无需 Linux 环境，也无需自购个人服务器，你可以通过该方法快速掌握以下 nginx 的常用配置。
+
+1. 如何配置静态资源缓存策略
+1. 如何配置 CORS
+1. 如何配置 gzip/brotli 配置
+1. 如何配置路由匹配 Location
+1. 如何配置 Rewrite、Redirect 等
+
+我们将注意力集中在**静态资源**与**nginx配置**两个点，在本地进行更新及维护，并通过 `Volume` 的方式挂载到 nginx 容器中。
+
+配置文件如下，通过此配置可在 Docker 环境中学习 nginx 的各种指令。
 
 > PS: docker-compose 配置文件位于 [simple-deploy](https://github.com/shfshanyue/simple-deploy/blob/master/learn-nginx.docker-compose.yaml) 中，可通过它实践 nginx 的配置
 
@@ -186,8 +194,16 @@ services:
       - .:/usr/share/nginx/html
 ```
 
----
+通过 `docker-compose` 启动该容器，如果需要修改配置，验证配置是否生效，可通过 `docker-compose` 重新启动该容器。
 
-此时，已成功通过 `nginx` 镜像部署成功，镜像体积也由 `133MB` 下降到 `23.2MB`。然而此三篇文章仅仅部署了一个 `hello` 版的页面。
+``` bash
+$ docker-compose -f learn-nginx.docker-compose.yaml up learn-nginx
+```
 
-下一篇文章以 `create-react-app` 为例，部署一个复杂的单页应用，与业务项目完全一致。
+## 小结
+
+通过本篇文章，已基于 `nginx` 镜像成功部署前端，镜像体积也由 `133MB` 下降到 `23.2MB`。并且了解了如何基于 nginx 镜像来更好地学习 nginx 配置部署知识。
+
+然而此三篇文章仅仅部署了一个 `hello` 版的页面。
+
+下一篇文章以 [create-react-app](https://github.com/facebook/create-react-app) 为例，部署一个复杂的单页应用，与业务项目完全一致。

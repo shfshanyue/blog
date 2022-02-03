@@ -88,7 +88,7 @@ jobs:
 
 如果不想缓存 `node_modules`，可以缓存 npm/yarn 全局缓存目录。通过以下命令可知他们的全局缓存目录
 
-+ npm: `npm config get cache`
++ npm: `npm config get cache`，如 `~/.npm`
 + yarn: `yarn cache dir`
 
 ## 缓存利用成功
@@ -157,3 +157,7 @@ jobs:
       - name: Build Dependencies
         run: npm run build
 ```
+
+## 小结
+
+当我们充分利用了 CI Cache 后，即可充分利用 Pipeline 各个阶段的缓存，如 npm cache、 Webpack 5 的 Cache，Docker 镜像构建时的 Cache。从而降低每次部署的上线时间。

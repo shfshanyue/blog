@@ -1,13 +1,6 @@
 # 基于 docker/docker-compose 对极简项目的部署
 
-接上篇文章，使用 docker 部署项目最大的好处可以隔离环境。
-
-+ 假设你有三个后端服务，分别用 Java、Go、Node 编写，你需要在服务器分别安装三者的环境，非常麻烦。
-+ 假设你有三个 Node 服务，分别用 node10、node12、node14 编写，你需要在服务器分别安装三个版本 nodejs，非常麻烦。
-
-而有了 Docker，便解决了这种问题。
-
-本篇文章介绍如何使用 Docker 将一个极简前端页面进行部署，而极简资源内容如下。你可以**在本地安装 docker**完成本篇文章的部署实践内容，部署内容与上篇文章一致。
+本篇文章介绍如何使用 Docker 将一个极简前端页面进行部署，而极简资源内容如下。也就是上篇文章的 **hello 版前端应用**。
 
 ``` html
 <!DOCTYPE html>
@@ -22,17 +15,16 @@
 </html>
 ```
 
-在本篇文章之前，你需要先做一些功课:
+你可以**在本地安装 docker**完成本篇文章的部署实践内容，部署内容与上篇文章一致。在本篇文章之前，你需要先做一些功课:
 
-1. 在本地安装 docker。通过 [Docker Desktop](https://www.docker.com/products/docker-desktop) 下载 docker 后，双击安装即可。
-1. 在本地安装 docker-compose。
+1. 在本地安装 docker/docker-compose。通过 [Docker Desktop](https://www.docker.com/products/docker-desktop) 下载 docker 后，双击安装即可。
 1. 了解 [Dockerfile Reference](https://docs.docker.com/engine/reference/builder/)。了解最常见的 FROM/ADD/CMD 即可。不需要全部过一遍，遇到没见过的指令及时查阅即可。
 1. 了解 [Compose file Reference](https://docs.docker.com/compose/compose-file/compose-file-v3/)。不需要全部过一遍，遇到没见过的指令及时查阅即可。
-1. 了解 [Docker Hub](https://hub.docker.com/)。在该网站，可查找适合于自己的诸多基础镜像。
+1. 了解 [Docker Hub](https://hub.docker.com/)。在该网站，可查找适合于自己的诸多基础镜像，比如 [node](https://hub.docker.com/_/node) 与 [nginx](https://hub.docker.com/_/nginx)。
 
 > PS: 本项目以 [simple-deploy](https://github.com/shfshanyue/simple-deploy) 仓库作为实践，配置文件位于 [node.Dockerfile](https://github.com/shfshanyue/simple-deploy/blob/master/node.Dockerfile)
 
-## 先在本地启动并运行项目
+## 在本地启动并运行项目
 
 由上篇文章可知，我们主要是将该资源服务化，此时可借助于一个工具 `serve` 进行静态资源服务化。
 
@@ -55,13 +47,15 @@ $ npx serve .
 
 ## Dockerfile
 
-一般来说，根据以下三步，就可以将脚本命令翻译成 Dockerfile
+一般来说，根据以下三步，可以将脚本命令翻译成 Dockerfile。
 
 1. 选择一个基础镜像。可在 [Docker Hub](https://hub.docker.com/) 中进行查找镜像。由于前端项目依赖于 Node 环境，我们选择 [node:14-alpine](https://hub.docker.com/_/node?tab=description) 作为基础镜像，其中基于轻量操作系统 `alpine`，内置了 `node14`/`npm`/`yarn` 等运行环境。
 1. 将以上几个脚本命令放在 RUN 指令中。
 1. 启动服务命令放在 CMD 指令中。
 
 翻译如下:
+
+> PS: 该 Dockerfile 配置位于 [simple-deploy/node.Dockerfile](https://github.com/shfshanyue/simple-deploy/blob/master/node.Dockerfile)
 
 ``` dockerfile
 # 选择一个体积小的镜像 (~5MB)
@@ -73,7 +67,7 @@ WORKDIR /code
 # 把宿主机的代码添加到镜像中
 ADD . /code
 
-# 装包
+# 安装依赖
 RUN yarn
 
 EXPOSE 3000
@@ -89,14 +83,19 @@ CMD npm start
 
 ## 构建镜像 (Image)
 
-通过 `docker build` 命令可通过 Dockerfile 构建镜像。
+使用 `docker build` 命令可基于 Dockerfile 构建镜像。
 
-构建成功后，我们可以将仓库上传至 Docker 仓库，如 [Docker Hub](https://hub.docker.com/)。而对于业务项目而言，一般会上传至公司内部的私有镜像仓库，比如通过 [harbor](https://github.com/goharbor/harbor) 搭建的私有镜像仓库。
+镜像构建成功后，我们可以将仓库上传至 Docker 仓库，如 [Docker Hub](https://hub.docker.com/)。而对于业务项目而言，一般会上传至公司内部的私有镜像仓库，比如通过 [harbor](https://github.com/goharbor/harbor) 搭建的私有镜像仓库。
 
 ``` bash
 # 构建一个名为 simple-app 的镜像
 # -t: "name:tag" 构建镜像名称
 $ docker build -t simple-app .
+
+# git rev-parse --short HEAD: 列出当前仓库的 CommitId
+# 也可将当前 Commit 作为镜像的 Tag
+# 如果该前端项目使用 git tag 以及 package.json 中的 version 进行版本维护，也可将 version 作为生产环境镜像的 Tag
+$ docker build -t simple-app:$(git rev-parse --short HEAD)
 
 # 构建成功后，可用该命令列出所有的镜像
 # 发现该镜像占用体积 133MB
@@ -126,20 +125,23 @@ CONTAINER ID   IMAGE        COMMAND                  CREATED          STATUS    
 
 此时在本地访问 `http://localhost:3000` 访问成功
 
-然而，通过冗余繁琐的命令行构建镜像和容器，有其天然的劣势，比如不容易维护。
+然而，通过冗余繁琐的命令行构建镜像和容器，比如管理端口，存储、环境变量等，有其天然的劣势，不易维护。
 
 ## 更高效的方式: docker-compose
 
 将命令行的选项翻译成配置文件，是更为简单且更容易维护的方式。比如对于 webpack 而言，基本上基于 `webpack.config.js` 配置文件使用。
 
-而 `docker compose` 即可将 Docker cli 的选项翻译成配置文件，除此之外，它还有更强大的功能。
+而 `docker compose` 即可将 docker cli 的选项翻译成配置文件，除此之外，它还有更强大的功能。
 
 编辑 `docker-compose.yaml` 配置文件如下所示。当然，由于这是一个最简项目，因此配置文件也极其简单。
+
+> PS: 该 docker compose 配置位于 [simple-deploy/docker-compose.yaml](https://github.com/shfshanyue/simple-deploy/blob/master/docker-compose.yaml)
 
 ``` yaml
 version: "3"
 services:
   app:
+    # build: 从当前路径构建镜像
     build: .
     ports:
       - 3000:3000
@@ -163,7 +165,7 @@ $ docker-compose up --build
 
 在使用 `docker build` 进行构建时，通过 `RUN` 指令可以通过打印一些关键信息进行调试，
 
-但是，在我们上一步进行 `docker build` 时，无法查看其输出结果。
+但是，在我们进行 `docker build` 时，无法查看其输出结果。
 
 此时可以通过 `--progress plain` 来查看其输出结果。
 
@@ -186,3 +188,9 @@ $ docker build --progress plain --no-cache .
 5 0.237 shanyue
 5 DONE 0.3s
 ```
+
+## 小结
+
+通过本篇文章，我们已经可以通过 Docker 完成对极简前端项目的部署。
+
+但是，前端静态资源并不需要 nodejs 环境，且 nodejs 镜像较大，我们可以使用 nginx 作为基础镜像来部署前端。

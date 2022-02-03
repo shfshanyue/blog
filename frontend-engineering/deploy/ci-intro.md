@@ -4,10 +4,12 @@
 
 但前边的部署流程都是基于手动部署，那我们如何将部署进行自动化: 
 
-**即每当我们将前端代码更新到仓库后，代码将会拉取仓库代码并自动部署到服务器。**。这就是 CICD 要做的事情。
+**即每当我们将前端代码更新到仓库后，代码将会拉取仓库代码并自动部署到服务器。**
+
+这就是 CICD 要做的事情。
 
 + `CI`，Continuous Integration，持续集成。
-+ `CD`，Continuous Deployment，持续部署。
++ `CD`，Continuous Deployment，持续部署。(或者 Continuous Delivery，持续交付)
 
 `CICD` 与 git 集成在一起，可理解为服务器端的 `git hooks`: 当代码 push 到远程仓库后，借助 `WebHooks` 对当前代码在构建服务器(即 CI 服务器，也称作 Runner)中进行自动构建、测试及部署等。
 
@@ -32,7 +34,7 @@
 
 ![](https://cdn.jsdelivr.net/gh/shfshanyue/assets/2021-11-17/clipboard-7669.a41a94.webp)
 
-> 改图出自 [Gitlab CICD Workflow](https://docs.gitlab.com/ee/ci/introduction/index.html#basic-cicd-workflow)
+> PS: 改图出自 [Gitlab CICD Workflow](https://docs.gitlab.com/ee/ci/introduction/index.html#basic-cicd-workflow)
 
 1. CI: 切出功能分支，进行新特性开发。此时为图中的 `Verify`、`Package` 阶段
 1. CD: 合并功能分支，进行自动化部署。此时为图中的 `Release` 阶段。
@@ -42,12 +44,6 @@
 国内公司一般以 `gitlab CI` 作为 CICD 工具，此时需要自建 `Gitlab Runner` 作为构建服务器。
 
 如果你们公司没有 CICD 基础设置，但是个人对 CICD 有极大兴趣，那么可以尝试 github 免费的 CICD 服务: [github actions](https://github.com/features/actions)。
-
-github 提供了以下配置的服务器作为构建服务器，可以说相当良心，对于 CICD 完全足够。
-
-+ 2-core CPU
-+ 7 GB of RAM memory
-+ 14 GB of SSD disk space
 
 ## 基础概念与术语
 
@@ -83,7 +79,7 @@ github 提供了以下配置的服务器作为构建服务器，可以说相当�
 on: push
 ```
 
-更多 Github Actions 事件可以参考官方文档 [Events that trigger workflows](https://help.github.com/en/actions/automating-your-workflow-with-github-actions/events-that-trigger-workflows#about-workflow-events)
+更多 Github Actions Event 可以参考官方文档 [Events that trigger workflows](https://help.github.com/en/actions/automating-your-workflow-with-github-actions/events-that-trigger-workflows#about-workflow-events)
 
 ``` yaml
 # 仅仅当 master 代码发生变更时，用以自动化部署
@@ -130,6 +126,28 @@ jobs:
       - run: docker-compose up -d
 ```
 
+
+## 分支的合并策略 (主分支保护规则)
+
+**生产环境的代码必须通过 CI 检测才能上线**，但这也需要我们进行手动设置。
+
+一般而言，我们会设置以下策略加强代码的质量管理。
+
+1. 主分支禁止直接 PUSH 代码
+1. 代码都必须通过 PR 才能合并到主分支
+1. **分支必须 CI 成功才能合并到主分支**
+1. 代码必须经过 Code Review (关于该 PR 下的所有 Review 必须解决)
+1. 代码必须两个人同意才能合并到主分支
+
+在 Gitlab 与 Github 中均可进行设置:
+
++ [Github: Managing a branch protection rule](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule)
++ [Gitlab: Merge when pipeline succeeds](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+
+如下示例，未通过 CI，不允许 Merge。可见示例 [PR #22](https://github.com/shfshanyue/cra-deploy/pull/22)。
+
+![](https://cdn.jsdelivr.net/gh/shfshanyue/assets/2022-02-11/clipboard-2703.b42555.webp)
+
 ## 使用 CICD 进行自动部署
 
 终于到了最重要的内容了，如何使用 CICD 自动部署前端？
@@ -168,8 +186,10 @@ deploy:
 
 此时部署仅仅需要一行 `docker-compose up`。
 
+> 更详细关于自动部署的配置可见 [cra-deploy/production.yaml](https://github.com/shfshanyue/cra-deploy/blob/master/.github/workflows/production.yaml)
+
 ```yaml
-preview:
+production:
   # 该 JOB 在自建 Runner 中进行运行
   runs-on: self-hosted
   steps:
@@ -187,19 +207,27 @@ preview:
 *伪代码*如下:
 
 ``` yaml
-deploy:
-  stage: deploy
-  only:
-    - master
-  script:
+production:
+  # 该 JOB 在自建 Runner 中进行运行
+  runs-on: self-hosted
+  steps:
     # 构建镜像
-    - docker build -t devtools-app-image
+    - docker build -t cra-deploy-app .
     # 推送镜像
-    - docker push devtools-app-image
-    # 拉取并部署，devtools-app-servie 将会拉取远程的 devtools-app-image 镜像，进行服务部署
-    - deploy devtools-app-service .
+    - docker push cra-deploy-app
+    # 拉取镜像并部署，deploy 为一个伪代码命令，在实际项目中可使用 helm、kubectl
+    - deploy cra-deploy-app .
+
+    # 或者通过 kubectl 进行部署
+    # - kubectl apply -f app.yaml
+
+    # 或者通过 helm 进行部署
+    # - helm install cra-app cra-app-chart
 ```
 
 ## 小结
 
-本篇文章介绍了 CICD 的基础概念，在下一篇章，将会上手对 `create-react-app` 在 CICD 中进行前端质量保障。并附真实代码。
+本篇文章介绍了 CICD 的基础概念，并通过自建 Runner 进行了简单部署。
+
+在下一篇章，将会上手对 `create-react-app` 在 CICD 中进行前端质量保障。
+

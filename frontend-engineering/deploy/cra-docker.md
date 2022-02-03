@@ -4,7 +4,9 @@
 
 终于可以来一个与真实项目接近带有复杂度的项目，以 CRA 部署为例:
 
-*部署一个 [Creact React APP](https://github.com/facebook/create-react-app) 单页应用。*
+**部署一个 [Creact React APP](https://github.com/facebook/create-react-app) 单页应用。**
+
+实际上，即使你们技术栈是 Vue 也无所谓，本系列文章很少涉及 React 相关内容，只要你们项目是单页应用即可。
 
 > PS: 本项目以 [cra-deploy](https://github.com/shfshanyue/simple-deploy) 仓库作为实践，配置文件位于 [simple.Dockerfile](https://github.com/shfshanyue/cra-deploy/blob/master/simple.Dockerfile)
 
@@ -13,7 +15,7 @@
 **所有的前端单页应用对于部署，最重要的就是两点:**
 
 1. 静态资源如何构建: 大部分项目都是 `npm run build`。
-1. 静态资源目录在哪: 有的项目是 `/dist`，有的项目是 `/build`。CRA 是 `/build` 目录。
+1. 静态资源目录在哪: 有的项目是 `/dist`，有的项目是 `/build`。**CRA 是 `/build` 目录**。
 
 以下，便是在 cra 中获得静态资源的命令。
 
@@ -158,6 +160,8 @@ COPY --from=builder code/build /usr/share/nginx/html
 
 我们将 Dockerfile 命名为 `simple.Dockerfile`
 
+> 该 docker compose 配置位于 [cra-deploy/simple.Dockerfile](https://github.com/shfshanyue/cra-deploy/blob/master/docker-compose.yaml)
+
 ``` bash
 version: "3"
 services:
@@ -173,9 +177,9 @@ services:
 
 访问 `http://localhost:4000` 页面成功。
 
----
+## 小结
 
 本篇文章，通过构建缓存与多阶段构建优化了体积和时间，然而还有两个个小问题需要解决:
 
 1. 单页应用的路由配置
-1. 单页应用的永久缓存
+1. 单页应用的缓存策略

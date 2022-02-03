@@ -40,4 +40,3 @@ const response = {
   errors: null
 }
 ```
-

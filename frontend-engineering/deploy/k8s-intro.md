@@ -35,6 +35,9 @@ Deployment 可以更好地实现弹性扩容，负载均衡、回滚等功能。
 
 ``` bash
 $ docker build -t cra-deploy-app -f router.Dockerfile .
+
+# 实际环节需要根据 CommitId 或者版本号作为镜像的 Tag
+$ docker build -t cra-deploy-app:$(git rev-parse --short HEAD) -f router.Dockerfile .
 ```
 
 我们将配置文件存为 `k8s-app.yaml`，以下是配置文件个别字段释义:
@@ -70,14 +73,16 @@ spec:
 
 我们使用 `kubectl apply` 部署生效后查看 `Pod` 以及 `Deployment` 状态。
 
+其中每一个 Pod 都有一个 IP，且应用每次升级后 Pod IP 都会发生该表，那应该如何配置该应用对外访问？
+
 ``` bash
 $ kubectl apply -f k8s-app.yaml
 
 $ kubectl get pods --selector "app=cra" -o wide
 NAME                                READY   STATUS    RESTARTS   AGE    IP
-cra-deployment-555dc66769-2kk7p     1/1     Running   0          40m    172.17.0.8
-cra-deployment-555dc66769-fq9gd     1/1     Running   0          40m    172.17.0.9
-cra-deployment-555dc66769-zhtp9     1/1     Running   0          40m    172.17.0.10
+cra-deployment-555dc66769-2kk7p     1/1     Running   0          10m    172.17.0.8
+cra-deployment-555dc66769-fq9gd     1/1     Running   0          10m    172.17.0.9
+cra-deployment-555dc66769-zhtp9     1/1     Running   0          10m    172.17.0.10
 
 # READY 3/3 表明全部部署成功
 $ kubectl get deploy cra-deployment
@@ -85,13 +90,85 @@ NAME             READY   UP-TO-DATE   AVAILABLE   AGE
 cra-deployment   3/3     3            3           42m
 ```
 
+从上述命令，列出其中一个 Pod 名是 `cra-deployment-555dc66769-zhtp9`。
+
+其中 `cra-deployment` 是 `Deployment` 名，而该前端应用每次上线升级会部署一个 `Replica Sets`，如本次为 `cra-deployment-555dc66769`。
+
 ### Service
 
+`Service` 可通过 `spec.selector` 匹配合适的 Deployment 使其能够通过统一的 `Cluster-IP` 进行访问。
 
-
-``` bash
-$ kubectl get service
+``` yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: cra-service
+spec:
+  selector:
+    # 根据 Label 匹配应用
+    app: cra
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
 ```
 
-### Replica Set
+根据 `kubectl get service` 可获取 IP，在 k8s 集群中可通过 `curl 10.102.82.153` 直接访问。
 
+``` bash
+$ kubectl get service -o wide            
+NAME          TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)   AGE   SELECTOR
+cra-service   ClusterIP   10.102.82.153   <none>        80/TCP    10m   app=cra
+
+$ curl --head 10.102.82.153
+HTTP/1.1 200 OK
+Server: nginx/1.21.4
+Date: Mon, 14 Feb 2022 04:46:24 GMT
+Content-Type: text/html
+Content-Length: 644
+Last-Modified: Wed, 26 Jan 2022 10:10:51 GMT
+Connection: keep-alive
+ETag: "61f11e2b-284"
+Expires: Mon, 14 Feb 2022 04:46:23 GMT
+Cache-Control: no-cache
+Accept-Ranges: bytes
+```
+
+而且，所有的服务可以通过 `<service>.<namespace>.svc.cluster.local` 进行服务发现。在集群中的任意一个 Pod 中通过域名访问服务
+
+``` bash
+# 通过 kebectl exec 可进入任意 Pod 中
+$ kubectl exec -it cra-deployment-555dc66769-2kk7p sh
+
+# 在 Pod 中执行 curl，进行访问
+$ curl --head cra-service.default.svc.cluster.local
+HTTP/1.1 200 OK
+Server: nginx/1.21.4
+Date: Mon, 14 Feb 2022 06:05:41 GMT
+Content-Type: text/html
+Content-Length: 644
+Last-Modified: Wed, 26 Jan 2022 10:10:51 GMT
+Connection: keep-alive
+ETag: "61f11e2b-284"
+Expires: Mon, 14 Feb 2022 06:05:40 GMT
+Cache-Control: no-cache
+Accept-Ranges: bytes
+```
+
+对外可通过 `Ingress` 或者 `Nginx` 提供服务。
+
+## 回滚
+
+如何进行回滚？
+
+那我们可以对上次版本重新部署一遍。比如在 Gitlab CI 中，我们可以通过点击升级前版本的手动部署按钮，对升级前版本进行重新部署。但是，此时流程有点长。
+
+此时可以使用 `kubectl rollout` 直接进行回滚。
+
+``` bash
+$ kubectl rollout undo deployment/nginx-deployment
+```
+
+## 小结
+
+本文仅仅是对 k8s 的相关概念做了一个简单的概述，如果寻求更复杂的部署策略可前往[k8s-deployment-strategies](https://github.com/ContainerSolutions/k8s-deployment-strategies)。
