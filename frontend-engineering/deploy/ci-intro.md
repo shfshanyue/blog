@@ -83,7 +83,7 @@ github 提供了以下配置的服务器作为构建服务器，可以说相当�
 on: push
 ```
 
-更多 Github Actions 事件可以参考官方文档 [Events that trigger workflows](https://help.github.com/en/actions/automating-your-workflow-with-github-actions/events-that-trigger-workflows#about-workflow-events)
+更多 Github Actions Event 可以参考官方文档 [Events that trigger workflows](https://help.github.com/en/actions/automating-your-workflow-with-github-actions/events-that-trigger-workflows#about-workflow-events)
 
 ``` yaml
 # 仅仅当 master 代码发生变更时，用以自动化部署
@@ -193,11 +193,14 @@ deploy:
     - master
   script:
     # 构建镜像
-    - docker build -t devtools-app-image
+    - docker build -t cra-deploy-app .
     # 推送镜像
-    - docker push devtools-app-image
-    # 拉取并部署，devtools-app-servie 将会拉取远程的 devtools-app-image 镜像，进行服务部署
-    - deploy devtools-app-service .
+    - docker push cra-deploy-app
+    # 拉取镜像并部署，deploy 为一个伪代码命令，在实际项目中可使用 helm、kubectl
+    - deploy cra-deploy-app .
+
+    # - kubectl apply -f app.yaml
+    # - helm install cra-app cra-app-chart
 ```
 
 ## 小结

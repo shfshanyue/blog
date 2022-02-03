@@ -1,6 +1,6 @@
 # 基于 nginx 镜像构建容器
 
-正如上一篇章所言，对于仅仅提供静态资源服务的前端，实际上是不必将 node.js 作为运行环境的。
+正如上一篇章所言，对于仅仅提供静态资源服务的前端，实际上是不必将 nodejs 作为运行环境的。
 
 在实际生产经验中，一般选择体积更小，性能更好基于 nginx 的镜像。
 
@@ -18,11 +18,7 @@
 
 那我们完全可以在本地通过 docker 来简单学习下 nginx。如此，既学习了 docker，又实践了 nginx。
 
-**如果你初学 nginx，强烈建议使用 docker 进行学习**
-
-**如果你初学 nginx，强烈建议使用 docker 进行学习**
-
-**如果你初学 nginx，强烈建议使用 docker 进行学习**
+**如果你初学 nginx，强烈建议使用 docker 进行学习** 本篇文章最后会附上如何启动 nginx 镜像用以学习。
 
 通过以下一行命令可进入 `nginx` 的环境当中，并且了解 nginx 的目录配置，*该命令将在以下段落用到*。
 
@@ -168,9 +164,19 @@ simple-deploy_node-app_1    simple-deploy_node-app    latest   14054cb0f1d8   13
 
 ## 通过 Docker 学习 Nginx 配置
 
-我们将注意力集中在**静态资源**与**nginx配置**两个点，在本地进行维护。
+最后，推荐一种高效学习 nginx 的方法: **在本地使用 nginx 镜像并挂载 nginx 配置启动容器**。
 
-并通过 `Volume` 的方式挂载到 nginx 容器中。配置文件如下:
+无需 Linux 环境，也无需自购个人服务器，你可以通过该方法快速掌握以下 nginx 的常用配置。
+
+1. 如何配置静态资源缓存策略
+1. 如何配置 CORS
+1. 如何配置 gzip/brotli 配置
+1. 如何配置路由匹配 Location
+1. 如何配置 Rewrite、Redirect 等
+
+我们将注意力集中在**静态资源**与**nginx配置**两个点，在本地进行更新及维护，并通过 `Volume` 的方式挂载到 nginx 容器中。
+
+配置文件如下，通过此配置可在 Docker 环境中学习 nginx 的各种指令。
 
 > PS: docker-compose 配置文件位于 [simple-deploy](https://github.com/shfshanyue/simple-deploy/blob/master/learn-nginx.docker-compose.yaml) 中，可通过它实践 nginx 的配置
 
@@ -184,6 +190,12 @@ services:
     volumes:
       - nginx.conf:/etc/nginx/conf.d/default.conf
       - .:/usr/share/nginx/html
+```
+
+通过 `docker-compose` 启动该容器，如果需要修改配置，验证配置是否生效，可通过 `docker-compose` 重新启动该容器。
+
+``` bash
+$ docker-compose -f learn-nginx.docker-compose.yaml up learn-nginx
 ```
 
 ---
