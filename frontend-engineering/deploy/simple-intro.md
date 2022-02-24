@@ -23,9 +23,11 @@
 
 ## HTTP 报文
 
-部署可看做对 HTTP 资源的服务，或者说，是对 HTTP 请求报文的响应。我们写一段服务器代码返回 HTML，便完成了对前端的部署。
+部署可看做对 HTTP 资源的服务，或者说，是对 HTTP 请求报文的响应。我们写一段服务器代码用以返回 HTML，便完成了对前端的部署。
 
 以下是对*hello版前端应用*的一段简单的 HTTP 请求及响应报文。
+
+> 通过 `curl -vvv localhost:3000` 可获得报文信息。
 
 ``` bash
 # 请求报文
@@ -35,11 +37,7 @@ Host: localhost:3000
 # 响应报文
 HTTP/1.1 200 OK
 Content-Length: 133
-Content-Disposition: inline; filename="index.html"
-Accept-Ranges: bytes
-ETag: "f35811a8315e55a02d427abef9b906fca6defedb"
 Content-Type: text/html; charset=utf-8
-Vary: Accept-Encoding
 Date: Fri, 31 Dec 2021 04:19:14 GMT
 Connection: keep-alive
 Keep-Alive: timeout=5
@@ -55,6 +53,8 @@ Keep-Alive: timeout=5
 </body>
 </html>
 ```
+
+![](https://cdn.jsdelivr.net/gh/shfshanyue/assets/2022-02-24/simple-deploy.67a117.webp)
 
 ## 一段简单的服务器部署代码
 
@@ -158,7 +158,7 @@ $ npx serve .
 
 当然，如果你不介意别人通过端口号去访问你的应用，不用 nginx 等反向代理器也是可以的。
 
-![反向代理](https://cdn.jsdelivr.net/gh/shfshanyue/assets/2021-12-31/Nginx.e7035d.webp)
+![反向代理](https://cdn.jsdelivr.net/gh/shfshanyue/assets/2022-02-24/Nginx.632fa5.webp)
 
 *问: 我确实不介意别人通过 IP:Port 的方式来访问我的应用，那在服务器可以 npm run dev 部署吗？*
 

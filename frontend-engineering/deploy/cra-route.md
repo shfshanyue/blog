@@ -121,6 +121,19 @@ location /static {
 }
 ```
 
+## 更强的长期缓存与构建配置
+
+1. 
+1. 
+1. 
+1. 
+1. 
+1. 
+
++ contenthash
++ chunkhash
++ splitChunks
+
 ## nginx 配置文件
 
 总结缓存策略如下:

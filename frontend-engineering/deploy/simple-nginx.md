@@ -168,6 +168,8 @@ simple-deploy_node-app_1    simple-deploy_node-app    latest   14054cb0f1d8   13
 
 最后，推荐一种高效学习 nginx 的方法: **在本地使用 nginx 镜像并挂载 nginx 配置启动容器**。
 
+![Learning Nginx](https://cdn.jsdelivr.net/gh/shfshanyue/assets/2022-02-24/Nginx-Learning.9b210e.webp)
+
 无需 Linux 环境，也无需自购个人服务器，你可以通过该方法快速掌握以下 nginx 的常用配置。
 
 1. 如何配置静态资源缓存策略

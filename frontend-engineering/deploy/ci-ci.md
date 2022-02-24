@@ -231,7 +231,7 @@ Lint 和 Test 仅是 CI 中最常见的阶段。为了保障我们的前端代�
 
 + Audit: 使用 `npm audit` 或者 [snyk](https://snyk.io/) 检查依赖的安全风险。可详查文章[如何检测有风险依赖](https://q.shanyue.tech/engineering/742.html#audit)
 + Quality: 使用 [SonarQube](https://www.sonarqube.org/) 检查代码质量。
-+ Container: 使用 [trivy](https://github.com/aquasecurity/trivy) 扫描容器安全风险。
++ Container Image: 使用 [trivy](https://github.com/aquasecurity/trivy) 扫描容器镜像安全风险。
 + End to End: 使用 [Playwright](https://github.com/microsoft/playwright) 进行 UI 自动化测试。
 + Bundle Chunk Size Limit: 使用 [size-limit](https://github.com/ai/size-limit) 限制打包体积，打包体积过大则无法通过合并。
 + Performance (Lighthouse CI): 使用 [lighthouse CI](https://github.com/GoogleChrome/lighthouse-ci) 为每次 PR 通过 Lighthouse 打分，如打分过低则无法通过合并。

@@ -19,8 +19,9 @@
 ## 执行 execute
 
 + execute
+  + buildExecutionContext: 构建执行上下文信息，如 defaultResolver、operation 等
+  + rootFields: 通过 获取到根路径的所有字段
   + executeOperation
-  + rootFields 获取到根路径的所有字段
 
 ## Query
 

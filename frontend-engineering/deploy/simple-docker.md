@@ -129,6 +129,8 @@ CONTAINER ID   IMAGE        COMMAND                  CREATED          STATUS    
 
 ## 更高效的方式: docker-compose
 
+![docker-compose](https://cdn.jsdelivr.net/gh/shfshanyue/assets/2022-02-25/docker-compose.a56f4a.webp)
+
 将命令行的选项翻译成配置文件，是更为简单且更容易维护的方式。比如对于 webpack 而言，基本上基于 `webpack.config.js` 配置文件使用。
 
 而 `docker compose` 即可将 docker cli 的选项翻译成配置文件，除此之外，它还有更强大的功能。
