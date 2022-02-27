@@ -2,9 +2,9 @@
 
 ## 基础
 
-+ [hello, world](https://github.com/shfshanyue/graphql-guide/blob/master/hello-world.md)
-+ [了解 graphql: schema 与 query](https://github.com/shfshanyue/graphql-guide/blob/master/schema-and-query.md)
-+ [把graphql 与 http 结合起来](https://github.com/shfshanyue/graphql-guide/blob/master/graphql-and-http.md)
++ [hello, world](./hello.md)
++ [了解 graphql: schema 与 operation](./schema.md)
++ [把graphql 与 http 结合起来](./http.md)
 
 + [graphql tools](https://github.com/ardatan/graphql-tools#readme)
 + [状态码]()

@@ -1,10 +1,20 @@
 ---
-title: "了解 graphql: schema 与 query"
+title: "了解 graphql: schema 与 operation"
 date: 2019-09-07
 
 ---
 
-从上文 [hello, world](https://shanyue.tech/graphql-guide/hello-world) 中可以看出 `graphql` 很关键的两个要素：`schema` 和 `query`。而当我们开发 web 应用时，`schema` 将会是服务端的主体，而 `query` 存在于前端中，类似 REST 中的 API。
+从上文 [hello, world](https://shanyue.tech/graphql-guide/hello-world) 中可以看出 `graphql` 很关键的两个要素：`schema` 和 `operation`。
+
+而当我们开发 web 应用时，`schema` 将会是服务端的主体，而 `operation` 存在于前端中，类似 REST 中的 API。
+
+``` graphql
+schema {
+  query: Query
+  mutation: Mutation
+  subscription: Subscription
+}
+```
 
 我们先抽出 `schema` 的代码部分，这里有 `GraphQLSchema`，`GraphQLObjectType` 和 `GraphQLString` 等诸多 API。
 
@@ -24,7 +34,7 @@ const schema = new GraphQLSchema({
 })
 ```
 
-正如在 `React` 中使用`jsx` 简化了 `React.createElement` 的写法。`graphql` 对于 schema 也有一套它自己的 `DSL (Domain Specified Language)`，也更为简单，易懂。在代码中以 `graphql` 或 `gql` 作为文件名后缀，用法如下
+正如在 `React` 中使用`jsx` 简化了 `React.createElement` 的写法。`graphql` 对于 schema 也有一套它自己的 `DSL (Domain Specified Language)`，也更为简单易懂。在代码中以 `graphql` 或 `gql` 作为文件名后缀，用法如下
 
 ``` graphql
 # schama，在后端进行维护
@@ -46,16 +56,16 @@ type Query {
 }
 ```
 
-> 在前端中所有查询的 gql 往往会通过 graphql/gql 后缀的文件来统一维护，这里有一份代码示例: [shfshanyue/shici:query.gql](https://github.com/shfshanyue/shici/blob/master/query/index.gql)
+> PS: 在前端中所有查询的 gql 往往会通过 graphql/gql 后缀的文件来统一维护，这里有一份代码示例: [shfshanyue/shici:query.gql](https://github.com/shfshanyue/shici/blob/master/query/index.gql)
 
 你看到这里，想必有两个疑问：
 
 1. 以上的 `graphql` 代表什么，以及我们如何书写 `graphql` 
-1. 相比 js 代码，`DSL` 少了一个 `resolve` 函数，而它又是什么
+1. 相比 js 代码，`DSL` 少了 `resolve` 函数，而它又是什么
 
 ## Object Type 与 Field
 
-这里引入 graphql 中的两个基本术语，`object type` 与 `field`。它们是组成 graphql 最基本的组件，如同细胞是生物体的基本单位。
+这里引入 graphql 中的两个基本术语，`Object Type` 与 `Field`。它们是组成 graphql 最基本的组件，如同细胞是生物体的基本单位。
 
 这里来一个更复杂的 `schema`，如下所示
 
@@ -102,9 +112,13 @@ type Todo {
 
 到了这里，你会发现，对于 graphql schema 的认识还有一些信息尚未涉及：`ID` 与 `String`，它们被称作 `scalar type`，你可以理解为数据类型。 **正是因为 scalar，graphql 才成为强类型查询语言。**
 
-## Query: query everyting
+## Operation: query everyting
 
-由上所述，`Query` 为 `graphql` 的入口查询处，我们可以并且只可以查询 `Query` 下的任意字段 (field)。因此，他组成了 `graphql` 最核心的功能： **查找你所需要的任何数据**。
+在 GraphQL 中，包括三种最基本的操作: `Query`、`Mutation` 和 `Subscription`。
+
+`Query` 为 `graphql` 的入口查询处，我们可以并且只可以查询 `Query` 下的任意字段 (field)。
+
+因此，他组成了 `graphql` 最核心的功能： **查找你所需要的任何数据**。
 
 ``` graphql
 # schema
@@ -223,175 +237,8 @@ _.map(data.todos, todo => _.replace(todo.title, ' ', ''))
 + [graphql-iso-date](https://github.com/excitement-engineer/graphql-iso-date)
 + [graphql-type-json](https://github.com/taion/graphql-type-json)
 
-## resolve function
 
-再回到刚开始的 `hello, world` 的示例，用 `graphql` 表示如下
-
-``` graphql
-# schema
-type Query {
-  hello: String
-}
-
-# query
-query HELLO {
-  hello
-}
-```
-
-对以上章节的内容再梳理一遍：
-
-1. 可以对 `hello` 进行查询，因为该字段在 `Query` 下
-1. `HELLO` 查询所得到的 `data.hello` 是一个字符串
-
-恩？我们好像把最重要的内容给漏了，`hello` 中的内容到底是什么？！而 `resolve` 函数就是做这个事的
-
-``` javascript
-// 使用 graphql.js 的写法，把 schema 与 resolve 写在一起
-new GraphQLObjectType({
-  name: 'RootQueryType',
-  fields: {
-    hello: {
-      type: GraphQLString,
-      resolve() {
-        return 'hello, world'
-      }
-    }
-  }
-})
-
-
-// 单独把 resolve 函数给写出来
-function Query_hello_resolve () {
-  return 'hello, world'
-}
-```
-
-于是我们再补齐以上内容 
-
-``` graphql
-# schema
-type Query {
-  hello: String
-}
-
-# query
-{
-  hello
-}
-```
-
-由此得到的数据示例
-
-``` javascript
-{
-  hello: 'hello, world'
-}
-```
-
-### context 与 args
-
-查看一个很典型的 REST 服务端的一段逻辑：抽取用户ID以及读取参数(querystring/body)
-
-``` javascript
-app.use('/', (ctx, next) {
-  ctx.user.id = getUserIdByToken(ctx.headers.authorization)
-  next()
-})
-
-app.get('/todos', (ctx) => {
-  const userId = ctx.user.id
-  const status = args.status
-  return db.Todo.findAll({})
-})
-```
-
-而在 graphql 中，使用 `resolve` 函数为 `field` 提供数据，而 context，args 都会作为 `resolve` 函数的参数
-
-``` graphql
-# schema
-type Query {
-  # 如同 REST 一般，可以携带参数，并显式声明
-  todos (status: String): [Todo!]!
-}
-
-type Todo {
-  id: ID!
-  title: String!
-}
-
-# query
-{
-  # 查询时，在这里指定参数 (args)
-  todos (status: "TODO") {
-    id 
-    title
-  }
-  # 同时也可以指定别名，特别是当有 args 时
-  done: todos (status: "DONE") {
-    id
-    title
-  }
-}
-
-# query with variables
-query TODOS ($status: String) {
-  done: todos (status: $status) {
-    id 
-    title
-  }
-}
-```
-
-返回数据示例
-
-``` javascript
-{
-  todos: [{ id: 1, title: '松风吹解带' }],
-  done: [{ id: 2, title: '山月照弹琴' }],
-}
-```
-
-当然，我们也是通过 `Query` 以及 Todo 的 resolve 函数来确定内容，对于如何获取以上数据如下所示
-
-``` javascript
-// Query 的 resolve 函数
-const Query = {
-  todos (obj, args, ctx, info) {
-    // 从 ctx 中取一些上下文信息，如最常见的 user
-    const userId = ctx.user.id
-
-    const status = args.status
-    return db.Todo.findAll({})
-  }
-}
-
-// Todo 的 resolve 函数
-const Todo = {
-  title (obj) {
-    return obj.title 
-  }
-}
-```
-
-+ obj，代表该字段所属的 `object type`，如 `Todo.title` 中 `obj` 表示 `todo`
-+ args，代表所传过来的参数
-+ ctx，上下文
-+ info, `GraphQLResolveInfo`，关于本次查询的元信息，比如 AST，你可以对它进行解析
-
-> 从这里可以看出来：graphql 的参数都是显式声明，并且强类型。这一点比 REST 要好一些
-
-``` graphql
-# query with variables
-query TODOS ($status: String) {
-  done: todos (status: $status) {
-    id 
-    title
-  }
-}
-```
-
-### Mutation
+## Mutation
 
 `graphql` 能够简化一切的查询，或者说它是简化了服务端开发人员 `CRUD` 中的 `Read`。那么，如何对资源进行修改呢？这里就提到了 `Mutation`。
 
@@ -427,7 +274,7 @@ mutation ADD_TODO {
 1. `Mutation` 与 `Query` 同样属于特殊的 `object type`，同样，所有关于数据的更改操作都要从 `Mutation` 中找起，也需要放到 `schema` 中
 1. `Mutation` 与 `Query` 分别为 graphql 的两大类操作，在前端进行 `Mutation` 查询时，需要添加 `mutation` 字段 (`Query` 查询时，在前端添加 `query` 字段，但这不是必选的)
 
-### input type & variables
+## input type & variables
 
 ``` graphql
 type Mutation {
