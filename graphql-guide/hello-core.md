@@ -3,7 +3,7 @@
 ## 源码
 
 1. 验证 Schema 的有效性
-1. 解析 Source/Query
+1. 解析 Source(Operation)
 1. 执行
 
 + validateSchema
