@@ -110,6 +110,8 @@ $ CI=true npm run test
 $ CI=true npm run build
 ```
 
+::: v-pre
+
 ## 写段 CI 验证下 CI 中的环境变量
 
 ![](https://cdn.jsdelivr.net/gh/shfshanyue/assets/2022-01-11/clipboard-9125.9b3a8e.webp)
@@ -158,3 +160,5 @@ jobs:
 ## 小结
 
 关于 CI 中的环境变量介绍就到此了，下篇文章将介绍功能分支的 Preview。
+
+:::

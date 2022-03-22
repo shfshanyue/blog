@@ -39,6 +39,16 @@ function f(a,b){return a+b}console.log(f(3,4))
 console.log(7)
 ```
 
+terser 是 js 中专业的代码压缩工具，在 webpack 中可使用 `terser-webpack-plugin` 进行代码压缩。
+
+我们可以在 Terser REPL 中在线尝试压缩代码。
+
+哦对，在测试环境中用以调试随便打的 console.log，出现在生产环境中是不不太好。
+
+很多同学也将去除生产环境中的 console.log 写在简历上。
+
+这仅仅需要对 terser 添加一个配置项 drop_console 即可完成。
+
 ## 纯文字
 
 大家好，我是山月。
@@ -58,3 +68,13 @@ console.log(7)
 我们开启代码压缩的神奇魔法，在编译期对代码进行预计算。
 
 经优化，代码最终仅有 14 个字节。
+
+terser 是 js 中专业的代码压缩工具，在 webpack 中可使用 terser-webpack-plugin 进行代码压缩。
+
+我们可以在 Terser REPL 中在线尝试压缩代码。
+
+哦对，在测试环境中用以调试随便打的 console.log，出现在生产环境中是不不太好。
+
+很多同学也将去除生产环境中的 console.log 写在简历上。
+
+这仅仅需要对 terser 添加一个配置项 drop_console 即可完成。
