@@ -5,7 +5,7 @@ services:
     image: browserless/chrome
     restart: always
     ports:
-      - "3000:3000"
+      - "8000:3000"
     labels:
       - "traefik.http.routers.chrome.rule=Host(`chrome.shanyue.tech`)"
       - traefik.http.routers.chrome.tls=true
