@@ -1,16 +1,18 @@
 # 换行符 LF(\n) 与 CRLF(\r\n)
 
-最近遇到了很多 `\n` 与 `\r\n` 的问题，虽然一直知道他们都是换行符，但也没有细究，今天顺手查了下。
-
 首先，要了解 `\n` 与 `\r\n` 的区别，在 [Difference between \n and \r?](https://stackoverflow.com/questions/15433188/r-n-r-and-n-what-is-the-difference-between-them) 中有这样的示意：
 
-**\r** = CR (Carriage Return) → Used as a new line character in Mac OS before X
-**\n** = LF (Line Feed) → Used as a new line character in Unix/Mac OS X
-**\r\n** = CR + LF → Used as a new line character in Windows
++ `\r` = CR (Carriage Return) → Used as a new line character in Mac OS before X
++ `\n` = LF (Line Feed) → Used as a new line character in Unix/Mac OS X
++ `\r\n` = CR + LF → Used as a new line character in Windows
 
-简单而言，现在除了 `Windows` 把 `\r\n` 作为换行符，其他系统都是把 `\n` 作为了换行符。那我们有没有一种方法可以 **把文件中的不可打印字符显示出来，来确认文件中是以什么换行的**。
+简单而言，现在除了 `Windows` 把 `\r\n` 作为换行符，其他系统都是把 `\n` 作为了换行符。
 
-<!--more-->
+也可以在山月自制的小工具 [ASCII Table](https://devtool.tech/ascii/13) 中查看二者的 ASCII 编码。
+
+![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/df59d165701940c1aaa4bb8362617e2d~tplv-k3u1fbpfcp-watermark.image?)
+
+那我们有没有一种方法可以 **把文件中的不可打印字符显示出来，来确认文件中是以什么换行的**。
 
 ## 试验
 
@@ -57,15 +59,15 @@ CRLF^M$
 END$
 ```
 
-### 终极办法：strace
+### bat
 
-既然 `cat` 会把文件内容打印到终端， **那我们直接查看关于到标准输出 (FD 为1) 的系统调用 `write` 就能从最根源上解决问题。**
+而在 `bat` 中，`CRLF` 都会显示为它的释义，更加清晰
 
-```shell
-$ strace -e write cat newline.txt
-write(1, "LF\nCRLF\r\nEND\n", 13LF
-CRLF
-END
-)       = 13
-+++ exited with 0 +++
+``` bash
+# -A：显示不可见字符
+# -p：显示纯文本，不显示行号
+$ bat -Ap newline.txt
+LF␊
+CRLF␍␊
+END␊
 ```

@@ -13,11 +13,6 @@ tags:
 
 `sed` 是一个用来筛选与转换文本内容的工具。一般用来批量替换，删除某行文件
 
-<!--more-->
-
-+ 原文链接: [sed命令使用及示例](https://shanyue.tech/op/linux-sed) · [github](https://github.com/shfshanyue/op-note/blob/master/linux-sed.md)
-+ 系列文章: [当我有台服务器时我做了什么](https://shanyue.tech/op) · [github](https://github.com/shfshanyue/op-note)
-
 ## sed 命令详解
 
 每个 sed 命令，基本可以由选项，匹配与对应的操作来完成
@@ -59,12 +54,6 @@ $ sed -i '2d' file
 + `s`: replace，替换，与 vim 一致
 
 ## sed examples
-
-### 查看手册
-
-```
-$ man sed
-```
 
 ### 打印特定行
 
@@ -198,5 +187,6 @@ world
 
 ## 参考
 
-+ [Linux Sed Command](https://www.computerhope.com/unix/used.htm)
 
++ 如何使用 sed 替换文字
++ 如何使用 sed 替换文本每行的首空格
